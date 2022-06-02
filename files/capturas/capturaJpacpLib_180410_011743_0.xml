@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Captura>
+  <Packet Numero="0">
+      <Packet_Information>
+        <Captured_Time>Sun Jan 18 16:19:16 CET 1970</Captured_Time>
+        <Captured_Length>78</Captured_Length>
+      </Packet_Information>
+      <Ethernet_Frame>
+        <Frame_Type>34525</Frame_Type>
+        <Source_MAC>34:57:60:62:94:32</Source_MAC>
+        <Destination_MAC>33:33:00:00:00:01</Destination_MAC>
+      </Ethernet_Frame>
+  </Packet>
+</Captura>

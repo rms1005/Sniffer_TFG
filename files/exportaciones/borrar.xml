@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Captura>
+  <Packet Numero="0">
+      <Packet_Information>
+        <Captured_Time>Sat Jan 17 08:52:52 CET 1970</Captured_Time>
+        <Captured_Length>54</Captured_Length>
+      </Packet_Information>
+      <Ethernet_Frame>
+        <Frame_Type>2054</Frame_Type>
+        <Source_MAC>64:68:0C:8D:94:52</Source_MAC>
+        <Destination_MAC>60:67:20:B0:F8:38</Destination_MAC>
+      </Ethernet_Frame>
+      <ARP_RARP>
+        <Hardware_Type>Ethernet (1)</Hardware_Type>
+        <Protocol_Type>IP (2048)</Protocol_Type>
+        <Hardware_Address_Length>6</Hardware_Address_Length>
+        <Protocol_Address_Length>4</Protocol_Address_Length>
+        <Operation>ARP Reply</Operation>
+        <Sender_Hardware_Address>[B@1f94302</Sender_Hardware_Address>
+        <Sender_Protocol_Address>[B@e16f63</Sender_Protocol_Address>
+        <Target_Hardware_Address>[B@b0efd7</Target_Hardware_Address>
+        <Target_Protocol_Address>[B@183b946</Target_Protocol_Address>
+      </ARP_RARP>
+  </Packet>
+  <Packet Numero="1">
+      <Packet_Information>
+        <Captured_Time>Sat Jan 17 08:55:45 CET 1970</Captured_Time>
+        <Captured_Length>76</Captured_Length>
+      </Packet_Information>
+      <Ethernet_Frame>
+        <Frame_Type>2048</Frame_Type>
+        <Source_MAC>60:67:20:B0:F8:38</Source_MAC>
+        <Destination_MAC>64:68:0C:8D:94:52</Destination_MAC>
+      </Ethernet_Frame>
+      <IP_v4>
+        <Version>ip version 4</Version>
+        <TOS_CodePoint_>not set</TOS_CodePoint_>
+        <TOS_ECN>not set</TOS_ECN>
+        <TOS_ECE>not set</TOS_ECE>
+        <Length>20</Length>
+        <Identification>2</Identification>
+        <Fragment_Dont_Fragment>not set</Fragment_Dont_Fragment>
+        <Fragment_More_Fragment>not set</Fragment_More_Fragment>
+        <Fragment_Offset>0</Fragment_Offset>
+        <Time_To_Live>128</Time_To_Live>
+        <Protocol>Ip4</Protocol>
+        <Source_IP>10.10.10.8</Source_IP>
+        <Destination_IP>87.216.1.65</Destination_IP>
+      </IP_v4>
+      <UDP>
+        <Source_Port>53614</Source_Port>
+        <Destination_Port>53</Destination_Port>
+        <Packet_Length>8</Packet_Length>
+      </UDP>
+  </Packet>
+  <Packet Numero="2">
+      <Packet_Information>
+        <Captured_Time>Sat Jan 17 08:56:23 CET 1970</Captured_Time>
+        <Captured_Length>76</Captured_Length>
+      </Packet_Information>
+      <Ethernet_Frame>
+        <Frame_Type>2048</Frame_Type>
+        <Source_MAC>60:67:20:B0:F8:38</Source_MAC>
+        <Destination_MAC>64:68:0C:8D:94:52</Destination_MAC>
+      </Ethernet_Frame>
+      <IP_v4>
+        <Version>ip version 4</Version>
+        <TOS_CodePoint_>not set</TOS_CodePoint_>
+        <TOS_ECN>not set</TOS_ECN>
+        <TOS_ECE>not set</TOS_ECE>
+        <Length>20</Length>
+        <Identification>2</Identification>
+        <Fragment_Dont_Fragment>not set</Fragment_Dont_Fragment>
+        <Fragment_More_Fragment>not set</Fragment_More_Fragment>
+        <Fragment_Offset>0</Fragment_Offset>
+        <Time_To_Live>128</Time_To_Live>
+        <Protocol>Ip4</Protocol>
+        <Source_IP>10.10.10.8</Source_IP>
+        <Destination_IP>87.216.1.65</Destination_IP>
+      </IP_v4>
+      <UDP>
+        <Source_Port>52814</Source_Port>
+        <Destination_Port>53</Destination_Port>
+        <Packet_Length>8</Packet_Length>
+      </UDP>
+  </Packet>
+  <Packet Numero="3">
+      <Packet_Information>
+        <Captured_Time>Sat Jan 17 08:54:25 CET 1970</Captured_Time>
+        <Captured_Length>60</Captured_Length>
+      </Packet_Information>
+      <Ethernet_Frame>
+        <Frame_Type>2048</Frame_Type>
+        <Source_MAC>60:67:20:B0:F8:38</Source_MAC>
+        <Destination_MAC>00:25:22:60:23:3C</Destination_MAC>
+      </Ethernet_Frame>
+  </Packet>
+</Captura>
