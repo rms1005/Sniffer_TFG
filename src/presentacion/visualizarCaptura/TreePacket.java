@@ -38,7 +38,7 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 /** 
  * Clase FTreePacket. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -630,11 +630,11 @@ private static int size;
     return convertido;
   }
   
-  public static byte[] restoData(int tamaño, byte[] data)
+  public static byte[] restoData(int tamano, byte[] data)
   {
-    byte[] aux = new byte[data.length - tamaño];
+    byte[] aux = new byte[data.length - tamano];
     int j = 0;
-    for (int i = tamaño; i < data.length; i++)
+    for (int i = tamano; i < data.length; i++)
     {
       aux[j] = data[i];
       j++;

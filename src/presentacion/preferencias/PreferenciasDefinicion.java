@@ -133,7 +133,7 @@ public class PreferenciasDefinicion
     jTextField2.setName("jTextField2");
     
     this.jLabel2.setFont(new Font("Tahoma 12 Negrita 12 Negrita", 1, 12));
-    this.jLabel2.setText("Dirección:");
+    this.jLabel2.setText("Direcciï¿½n:");
     this.jLabel2.setName("jLabel2");
     
     GroupLayout jPanel2Layout = new GroupLayout(this.jPanel2);
@@ -189,7 +189,7 @@ public class PreferenciasDefinicion
       new Object[8] }, 
       
       new String[] {
-      "ID Campo", "Nombre del Campo", "Tamaño del campo", "Valor por defecto", "Descripcion", "Tipo de Dato", "Campo Opcional", "Campo Relacionado" })
+      "ID Campo", "Nombre del Campo", "Tamaï¿½o del campo", "Valor por defecto", "Descripcion", "Tipo de Dato", "Campo Opcional", "Campo Relacionado" })
       {
         Class[] types = {
           Integer.class, String.class, Integer.class, String.class, String.class, String.class, String.class, String.class };
@@ -392,11 +392,11 @@ public class PreferenciasDefinicion
     TableCellEditor editor = new DefaultCellEditor(comboTipo);
     jTable1.getColumnModel().getColumn(5).setCellEditor(editor);
     
-    JComboBox comboTamaño = new JComboBox();
+    JComboBox comboTamano = new JComboBox();
     for (int i = 1; i <= 32; i++) {
-      comboTamaño.addItem(String.valueOf(i));
+      comboTamano.addItem(String.valueOf(i));
     }
-    TableCellEditor editor2 = new DefaultCellEditor(comboTamaño);
+    TableCellEditor editor2 = new DefaultCellEditor(comboTamano);
     jTable1.getColumnModel().getColumn(2).setCellEditor(editor2);
     
     JComboBox comboOpcional = new JComboBox();

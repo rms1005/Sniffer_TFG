@@ -283,7 +283,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Inserción",
+						255), 2, true), "Inserciï¿½n",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma 11 Negrita 12 Simple 12 Simple", 1,
@@ -1075,7 +1075,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jLabel1.setText("Capturas :");
 		jLabel1.setName("jLabel1"); // NOI18N
 
-		jtxtCapturas.setText("Seleción de fichero de capturas");
+		jtxtCapturas.setText("Seleciï¿½n de fichero de capturas");
 		jtxtCapturas.setName("jtxtCapturas"); // NOI18N
 
 		// jBCaptura.setFont(new
@@ -1311,7 +1311,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 						{ null, null, null, null, null },
 						{ null, null, null, null, null } }, new String[] {
 						"Nombre del Campo", "Valor del campo",
-						"Tamaño del campo", "Tipo de dato", "Opcional" }) {
+						"Tamaï¿½o del campo", "Tipo de dato", "Opcional" }) {
 			Class[] types = new Class[] { java.lang.String.class,
 					java.lang.String.class, java.lang.Integer.class,
 					java.lang.String.class, java.lang.String.class };
@@ -1335,7 +1335,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jTable1.getColumnModel().getColumn(1).setHeaderValue("Valor del campo");
 		jTable1.getColumnModel().getColumn(2).setResizable(false);
 		jTable1.getColumnModel().getColumn(2)
-				.setHeaderValue("Tamaño del campo");
+				.setHeaderValue("Tamaï¿½o del campo");
 		jTable1.getColumnModel().getColumn(3).setResizable(false);
 		jTable1.getColumnModel().getColumn(3).setHeaderValue("Tipo de dato");
 		jTable1.getColumnModel().getColumn(4).setResizable(false);
@@ -2072,7 +2072,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	}// </editor-fold>//GEN-END:initComponents
 
 	/**
-	 * Añade el dispositivo
+	 * Aï¿½ade el dispositivo
 	 * 
 	 * @param dispo
 	 *            dispositivo
@@ -2402,8 +2402,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		do {
 			if (getValorTabla(fila, 0) != null
 					&& getValorTabla(fila, 1) == null) {
-				mediador.lanzaraviso("En la fila "+fila+" el valor del campo está vacío", "Error");
-				System.out.println("En la fila "+fila+" el valor del campo está vacío");
+				mediador.lanzaraviso("En la fila "+fila+" el valor del campo estï¿½ vacï¿½o", "Error");
+				System.out.println("En la fila "+fila+" el valor del campo estï¿½ vacï¿½o");
 				return false;
 			
 			} else {
@@ -2470,13 +2470,13 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * binario.
 	 * 
 	 * @param cadena
-	 * @param tamaño
+	 * @param tamaï¿½o
 	 * @return string
 	 */
-	private String convertirAlfanumerico(String cadena, String tamaño) {
+	private String convertirAlfanumerico(String cadena, String tamano) {
 		String binario = "", aux, cero = "0";
 		char letra;
-		int tam = Integer.valueOf(tamaño);
+		int tam = Integer.valueOf(tamano);
 
 		for (int i = 0; i < (tam / 8) && i < cadena.length(); i++) {
 			letra = cadena.charAt(i);
@@ -2500,23 +2500,23 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * 
 	 * @param cadena
 	 * @param tipo
-	 * @param tamaño
+	 * @param tamaï¿½o
 	 * @return string
 	 */
-	private String convertirBinario(String cadena, String tipo, String tamaño) {
+	private String convertirBinario(String cadena, String tipo, String tamano) {
 		String aux[] = cadena.split(" ");
 		String cad = "";
 		for (int i = 0; i < aux.length; i++) {
 			cad += aux[i];
 		}
 		if (tipo.equals("Booleano")) {
-			return convertirBooleano(cadena, tamaño);
+			return convertirBooleano(cadena, tamano);
 		}
 		if (tipo.equals("Numerico")) {
-			return convertirNumerico(cadena, tamaño);
+			return convertirNumerico(cadena, tamano);
 		}
 		if (tipo.equals("Alfanumerico")) {
-			return convertirAlfanumerico(cadena, tamaño);
+			return convertirAlfanumerico(cadena, tamano);
 		}
 		return null;
 	}
@@ -2525,21 +2525,21 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * Convierte cadena de tipo numerica a su correspondiente valor en binario.
 	 * 
 	 * @param cadena
-	 * @param tamaño
+	 * @param tamaï¿½o
 	 * @return string
 	 */
-	private String convertirNumerico(String cadena, String tamaño) {
+	private String convertirNumerico(String cadena, String tamano) {
 		String binario, cero = "0";
 		String aux = "";
-		// solo recojo los caracteres que determina el tamaño
-		int tam = Integer.valueOf(tamaño);
+		// solo recojo los caracteres que determina el tamaï¿½o
+		int tam = Integer.valueOf(tamano);
 
 		for (int i = 0; i < (tam / 8) && i < cadena.length(); i++) {
 			aux += cadena.charAt(i);
 		}
 		binario = String.format(Integer.toBinaryString(Integer.valueOf(aux)));
 		while (binario.length() != tam) {
-			// si el tamaño no coincide con el maximo concateno 0 por la izq
+			// si el tamaï¿½o no coincide con el maximo concateno 0 por la izq
 			binario = cero.concat(binario);
 		}
 		return binario;
@@ -2550,11 +2550,11 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * binario.
 	 * 
 	 * @param cadena
-	 * @param tamaño
+	 * @param tamaï¿½o
 	 * @return string
 	 */
-	private String convertirBooleano(String cadena, String tamaño) {
-		int tam = Integer.valueOf(tamaño);
+	private String convertirBooleano(String cadena, String tamano) {
+		int tam = Integer.valueOf(tamano);
 		String aux = "";
 		if (cadena.equals("verdadero") || cadena.equals("true")) {
 			aux += "1";
@@ -2714,7 +2714,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				ether.type(2048);
 
 				// set source and destination MAC addresses
-				// añadir las seleccionados
+				// aï¿½adir las seleccionados
 				if (macOr.equals("")) {
 					ether.source(new byte[] { (byte) 1, (byte) 2, (byte) 3,
 							(byte) 4, (byte) 5, (byte) 6 });
@@ -3346,7 +3346,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		}
 		// if(enlace != "" && red!="" && (transporte.equals("TCP") ||
 		// transporte.equals("UDP")) && aplicacion.size()!=0){
-		// solo puede añadir si contiene udp o tcp
+		// solo puede aï¿½adir si contiene udp o tcp
 		// if(definidos.size() == aplicacion.size()){
 		// int i=0;
 		// while(i<aplicacion.size()){
@@ -3419,10 +3419,10 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	/**
 	 * Recoge los valores definidos.
 	 */
-	private byte[] recogerDatos(String cadena, String tipo, String tamaño) {
+	private byte[] recogerDatos(String cadena, String tipo, String tamano) {
 		String aux = "";
 		char letra;
-		int tam = Integer.valueOf(tamaño);
+		int tam = Integer.valueOf(tamano);
 
 		if (tipo.equals("Alfanumerico")) {
 			char cad[] = cadena.toCharArray();
