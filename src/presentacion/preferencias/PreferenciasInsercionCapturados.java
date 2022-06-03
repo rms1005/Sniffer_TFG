@@ -112,10 +112,10 @@ public class PreferenciasInsercionCapturados
     
 
 
-    this.jLabel1.setText("Exportación:");
+    this.jLabel1.setText("Exportaciï¿½n:");
     this.jLabel1.setName("jLabel1");
     
-    this.jLabel2.setText("Nº Renvios:");
+    this.jLabel2.setText("Nï¿½ Renvios:");
     this.jLabel2.setName("jLabel2");
     
     this.buttonGroup1.add(this.jRunicas);
@@ -149,7 +149,7 @@ public class PreferenciasInsercionCapturados
       }
     });
     this.jTextField2.setName("jTextField2");
-    this.jTextField2.enable(false);
+    this.jTextField2.setEnabled(false);
     this.jTextField2.addFocusListener(new FocusAdapter()
     {
       public void focusLost(FocusEvent evt)
@@ -339,7 +339,7 @@ public class PreferenciasInsercionCapturados
   
   private void jRdetFocusGained(FocusEvent evt)
   {
-    this.jTextField2.enable(true);
+    this.jTextField2.setEnabled(true);
   }
   
   private void jRindetFocusGained(FocusEvent evt)

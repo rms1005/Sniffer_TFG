@@ -3,7 +3,7 @@ package dominio.pcapDumper;
 /** 
  * Clase Save PacketHandler, Clase de captura de paquetes 
  *  
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
  */
@@ -68,7 +68,7 @@ public class SavePacketHandler {
 	 *            ,SaveFileName (Nombre de archivo),
 	 *            CountPacketHandler,JpcapCaptor
 	 * @exception exceptions
-	 *                Ningún error (Excepción) definida
+	 *                Ningï¿½n error (Excepciï¿½n) definida
 	 */
 
 	public SavePacketHandler(Captura cap, SaveFileName SFN,
@@ -105,7 +105,7 @@ public class SavePacketHandler {
 	 *            ,SaveFileName (Nombre de archivo),
 	 *            CountPacketHandler,JpcapCaptor, fullPath
 	 * @exception exceptions
-	 *                Ningún error (Excepción) definida
+	 *                Ningï¿½n error (Excepciï¿½n) definida
 	 */
 	public SavePacketHandler(Captura cap, SaveFileName SFN,
 			CountPacketHandler CPH, Pcap jpcap, String fullPath) {
@@ -137,7 +137,7 @@ public class SavePacketHandler {
 	 * @param SaveFileName
 	 *            (Nombre de archivo), fullPath
 	 * @exception exceptions
-	 *                Ningún error (Excepción) definida
+	 *                Ningï¿½n error (Excepciï¿½n) definida
 	 */
 	public SavePacketHandler(SaveFileName SFN, String fullPath) {
 		this.SFName = SFN;
@@ -162,7 +162,7 @@ public class SavePacketHandler {
 	 * 
 	 * @param nombrefichero
 	 * @exception exceptions
-	 *                Ningún error (Excepción) definida
+	 *                Ningï¿½n error (Excepciï¿½n) definida
 	 */
 	public static void DefinirXML(String nombrefichero) {
 
@@ -183,7 +183,7 @@ public class SavePacketHandler {
 	 * de la captura, si es archivos multiples.
 	 * 
 	 * @exception exceptions
-	 *                Ningún error (Excepción) definida
+	 *                Ningï¿½n error (Excepciï¿½n) definida
 	 */
 	public void runHilos() {
 		
@@ -236,21 +236,21 @@ public class SavePacketHandler {
 	}
 
 	/**
-	 * Metodo se paran las conexiónes con la red para para el proceso de
+	 * Metodo se paran las conexiï¿½nes con la red para para el proceso de
 	 * captura.
 	 * 
 	 * @exception exceptions
-	 *                Ningún error (Excepción) definida
+	 *                Ningï¿½n error (Excepciï¿½n) definida
 	 */
 	public void stopHilos() {
 		if (this.STime != null) {
-			this.STime.stop();
+			this.STime.interrupt();
 		}
 		if (this.SSpace != null) {
-			this.captureThread.stop();
+			this.captureThread.interrupt();
 		}
 		if (this.captureThread != null) {
-			this.captureThread.stop();
+			this.captureThread.interrupt();
 		}
 	}
 

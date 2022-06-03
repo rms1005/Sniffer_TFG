@@ -96,7 +96,7 @@ public class ComandoAcciones
             FachadaDominio.stopCapturaDumperCommandOnly();
             System.out.println("\n--> End Scan");
             System.out.println("-> Fin Modo Texto");
-            CommandMode.stop();
+            CommandMode.interrupt();
             System.exit(1);
         }
     }

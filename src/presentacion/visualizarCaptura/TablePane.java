@@ -72,8 +72,8 @@ public class TablePane {
 
 		modelo = new MiTablaModelo();
 		table = new JTable(modelo);
-		TableRowSorter<TableModel> ordenarCampos = new TableRowSorter<TableModel>(modelo);
-		table.setRowSorter(ordenarCampos);
+		//TableRowSorter<TableModel> ordenarCampos = new TableRowSorter<TableModel>(modelo);
+		//table.setRowSorter(ordenarCampos);
 		auxTable = new JTable();
 		//AplicarRender();
 
@@ -173,15 +173,15 @@ public class TablePane {
 	}
 
 	private void tableMouseClicked(java.awt.event.MouseEvent evt) {
-		if ((evt.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
+		if ((evt.getModifiersEx() & InputEvent.BUTTON3_DOWN_MASK) == InputEvent.BUTTON3_DOWN_MASK) {
 			// Opciones de table al pulsar el boton derecho sobre table.
-			new FTableOptions(this).show();
+			new FTableOptions(this).setVisible(true);
 		}
 
 	}
 
 	private void fileMouseClicked(java.awt.event.MouseEvent evt) {
-		if ((evt.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) {
+		if ((evt.getModifiersEx() & InputEvent.BUTTON1_DOWN_MASK) == InputEvent.BUTTON1_DOWN_MASK) {
 			getfila(table.getSelectedRow());
 
 		}
@@ -386,7 +386,7 @@ public class TablePane {
 	public void getfila(int fila) {
 
 		venpadre.CrearArbol(fila);
-		venpadre.show();
+		venpadre.setVisible(true);
 	}
 
 	private void initColumnSizes(JTable table) {

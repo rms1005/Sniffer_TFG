@@ -14,7 +14,7 @@ import org.jnetpcap.protocol.lan.Ethernet.EthernetType;
 /**
  * Clase EthernetAnalyzer.
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
@@ -30,7 +30,7 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 	/** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo Ethernet.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
 	public boolean isAnalyzable(PcapPacket packet) {
 		return !packet.equals(null) && packet.hasHeader(ethernetPacket);
@@ -47,7 +47,7 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
      * con un tipo de protocolo Ethernet.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */  
 	public void analyze(PcapPacket packet) {
 		if (!isAnalyzable(packet)) {
@@ -71,7 +71,7 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 		switch (index) {
 		case 0: // '\0'
 //		
-			return new Integer(eth.type());
+			return Integer.valueOf(eth.type());
 		case 1: // '\001'
 			
 			 return org.jnetpcap.packet.format.FormatUtils.mac(eth.source());

@@ -58,12 +58,12 @@ public class BarraMenu extends JPanel
         cJMInicioCaptureFromFile = new CJMInicioCaptureFromFile(mediador);
         menuCaptura.add((CJMInicioCaptureFromFile)cJMInicioCaptureFromFile);
       
-        menuDefinicion = new JMenu("Definicion");
+        menuDefinicion = new JMenu("Definici\363n");
         menuBar.add(menuDefinicion);
         cJMInicioDefinicion = new CJMInicioDefinicion(mediador);
         menuDefinicion.add((CJMInicioDefinicion)cJMInicioDefinicion);
       
-        menuInsercion = new JMenu("Insercion");
+        menuInsercion = new JMenu("Inserci\363n");
         menuBar.add(menuInsercion);
         cJMInicioInsertDef = new CJMInicioInsertDefinidos(mediador);
         menuInsercion.add((CJMInicioInsertDefinidos)cJMInicioInsertDef);
@@ -92,7 +92,7 @@ public class BarraMenu extends JPanel
         menuAyuda.add((CJMAyudaContenidos)cJMAyudaContenidos);
         cJMAyudaAcercaDe = new CJMAyudaAcercaDe(mediador);
         menuAyuda.add((CJMAyudaAcercaDe)cJMAyudaAcercaDe);
-        menuBar.show();
+        menuBar.setVisible(true);
     }
 
     public JMenuBar getMenu()

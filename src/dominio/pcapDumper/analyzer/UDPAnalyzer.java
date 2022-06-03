@@ -9,7 +9,7 @@ import org.jnetpcap.protocol.tcpip.Udp;
 /** 
  * Clase UDPAnalyzer. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -29,7 +29,7 @@ private Udp udp;
     /** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo ARP.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
     public boolean isAnalyzable(PcapPacket p)
     {
@@ -49,7 +49,7 @@ private Udp udp;
      * con un tipo de protocolo UDP.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */  
     public void analyze(PcapPacket p)
     {
@@ -78,15 +78,15 @@ private Udp udp;
         {
         case 0: // '\0'
 
-            return new Integer(udp.source());
+            return Integer.valueOf(udp.source());
 
 
         case 1: // '\001'
-            return new Integer(udp.destination());
+            return Integer.valueOf(udp.destination());
 
 
         case 2: // '\002'
-            return new Integer(udp.getLength());
+            return Integer.valueOf(udp.getLength());
 
                 }
         return null;

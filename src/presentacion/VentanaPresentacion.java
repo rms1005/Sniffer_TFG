@@ -42,7 +42,7 @@ public class VentanaPresentacion
   
   public VentanaPresentacion()
   {
-    super("Presentación Sniffer III");
+    super("Presentaciï¿½n Sniffer III");
     initBottons();
     initComponents();
     new CentrarVentana(this);
@@ -51,7 +51,7 @@ public class VentanaPresentacion
     
     setIconImage(Toolkit.getDefaultToolkit().getImage(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES") + 
       System.getProperty("file.separator") + "sniffer.gif"));
-    show();
+    setVisible(true);
   }
   
   public VentanaPresentacion(boolean aux)
@@ -101,14 +101,14 @@ public class VentanaPresentacion
     
     this.jLabel2.setFont(new Font("Times New Roman", 0, 12));
     this.jLabel2.setHorizontalAlignment(0);
-    this.jLabel2.setText("Leonardo García");
+    this.jLabel2.setText("Leonardo Garcï¿½a");
     
     this.jLabel3.setFont(new Font("Times New Roman", 0, 12));
     this.jLabel3.setHorizontalAlignment(0);
-    this.jLabel3.setText("Jose-Ramón Gutiérrez");
+    this.jLabel3.setText("Jose-Ramï¿½n Gutiï¿½rrez");
     
     this.jLabel4.setHorizontalAlignment(2);
-    this.jLabel4.setText("Versión 2.0");
+    this.jLabel4.setText("Versiï¿½n 2.0");
     
     GroupLayout jPanel3Layout = new GroupLayout( this.jPanel3);
     this.jPanel3.setLayout(jPanel3Layout);

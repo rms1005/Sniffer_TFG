@@ -13,7 +13,7 @@ import org.jnetpcap.protocol.network.Icmp.IcmpType;
 /** 
  * Clase ICMAnalyzer. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -35,7 +35,7 @@ public class ICMPAnalyzer extends JDPacketAnalyzer
     /** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo ICMP.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
     public boolean isAnalyzable(PcapPacket p)
     {
@@ -55,7 +55,7 @@ public class ICMPAnalyzer extends JDPacketAnalyzer
      * con un tipo de protocolo ICMP.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      * */
     public void analyze(PcapPacket p)
     {
@@ -68,11 +68,11 @@ public class ICMPAnalyzer extends JDPacketAnalyzer
             values.put(valueNames[0], String.valueOf(icmp.type()));
         else
             values.put(valueNames[0], typeNames[icmp.type()]);
-        values.put(valueNames[1], new Integer(icmp.code()));
+        values.put(valueNames[1], Integer.valueOf(icmp.code()));
         if(icmp.type() == 0 || icmp.type() == 8 || icmp.type() >= 13 && icmp.type() <= 18)
         {
-            values.put(valueNames[2], new Integer(icmp.getId()));
-            values.put(valueNames[3], new Integer(echo.sequence()));
+            values.put(valueNames[2], Integer.valueOf(icmp.getId()));
+            values.put(valueNames[3], Integer.valueOf(echo.sequence()));
         }
         if(icmp.type() == 5)
             values.put(valueNames[4], redirip.gateway());
@@ -83,9 +83,9 @@ public class ICMPAnalyzer extends JDPacketAnalyzer
         if(icmp.type() == 13 || icmp.type() == 14)
         {
 
-            values.put(valueNames[6], new Long(IcmpType.TIMESTAMP_REQUEST_ID));
-            values.put(valueNames[7], new Long(IcmpType.TIMESTAMP_RESPONSE_ID));
-            values.put(valueNames[8], new Long(IcmpType.TIME_EXCEEDED_ID));
+            values.put(valueNames[6], Long.valueOf(IcmpType.TIMESTAMP_REQUEST_ID));
+            values.put(valueNames[7], Long.valueOf(IcmpType.TIMESTAMP_RESPONSE_ID));
+            values.put(valueNames[8], Long.valueOf(IcmpType.TIME_EXCEEDED_ID));
         }
     }
 

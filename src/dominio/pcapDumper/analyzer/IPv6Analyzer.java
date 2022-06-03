@@ -13,7 +13,7 @@ import org.jnetpcap.protocol.network.Ip6;
 /** 
  * Clase IPv6Analyzer. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -31,7 +31,7 @@ public class IPv6Analyzer extends JDPacketAnalyzer
     /** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo IP6.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
     public boolean isAnalyzable(PcapPacket p)
     {
@@ -50,7 +50,7 @@ public class IPv6Analyzer extends JDPacketAnalyzer
      * con un tipo de protocolo IP6.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */  
     public void analyze(PcapPacket packet)
     {
@@ -63,12 +63,12 @@ public class IPv6Analyzer extends JDPacketAnalyzer
         	Ip6 ip = ipPacket;
             
         	
-        	values.put(valueNames[0], new Integer(ip.version()));
-            values.put(valueNames[1], new Integer(ip.trafficClass()));
-            values.put(valueNames[2], new Integer(ip.flowLabel()));
-            values.put(valueNames[3], new Integer(ip.length()));
+        	values.put(valueNames[0], Integer.valueOf(ip.version()));
+            values.put(valueNames[1], Integer.valueOf(ip.trafficClass()));
+            values.put(valueNames[2], Integer.valueOf(ip.flowLabel()));
+            values.put(valueNames[3], Integer.valueOf(ip.length()));
             values.put(valueNames[4], new String(ip.getName()));
-            values.put(valueNames[5], new Integer(ip.hopLimit()));
+            values.put(valueNames[5], Integer.valueOf(ip.hopLimit()));
             values.put(valueNames[6], org.jnetpcap.packet.format.FormatUtils.ip(ip.source()));
             values.put(valueNames[7], org.jnetpcap.packet.format.FormatUtils.ip(ip.destination()));
 //            values.put(valueNames[8], ip.src_ip.getHostName());

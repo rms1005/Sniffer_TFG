@@ -43,11 +43,11 @@ public class TableConexions
   
   private void fileMouseClicked(MouseEvent evt)
   {
-    if ((evt.getModifiers() & 0x10) == 16) {
+    if ((evt.getModifiersEx() & 0x10) == 16) {
       getfila(this.table.getSelectedRow());
     }
-    if ((evt.getModifiers() & 0x4) == 4) {
-      new SelectColor(this.RTablePane).show();
+    if ((evt.getModifiersEx() & 0x4) == 4) {
+      new SelectColor(this.RTablePane).setVisible(true);
     }
   }
   

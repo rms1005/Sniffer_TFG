@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 /** 
- * Clase Conexión. 
+ * Clase Conexiï¿½n. 
  * 
  * @author Jose Manuel Saiz, Carlos Mardones
  * @author jmsaizg@gmail.com,  
@@ -71,7 +71,7 @@ public class Conexion
     public void addpaquete(int posicionpaquete)
     {
         numeropaquetes++;
-        posicionpk = new Integer(posicionpaquete);
+        posicionpk = Integer.valueOf(posicionpaquete);
         VectorPaquetes.add(posicionpk);
     }
 

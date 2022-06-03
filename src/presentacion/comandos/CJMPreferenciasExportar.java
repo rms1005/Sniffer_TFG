@@ -20,7 +20,7 @@ public class CJMPreferenciasExportar extends JMenuItem
 
     public CJMPreferenciasExportar(Mediador mediador)
     {
-        super("Exportación", 79);
+        super("ExportaciÃ³n", 79);
         KeyStroke ctrlO = KeyStroke.getKeyStroke(79, 2);
         setAccelerator(ctrlO);
         this.mediador = mediador;

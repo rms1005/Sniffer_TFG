@@ -17,7 +17,7 @@ import dominio.export.xml_PcapLib.XmlPacketHandler;
 /** 
  * Clase OfflineSavePacketHandler. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -285,12 +285,12 @@ public class OfflineSavePacketHandler
         if(STime != null)
         {
             System.out.println("Destruyendo hiloSaveTiem");
-            STime.stop();
+            STime.interrupt();
         }
         if(SSpace != null)
         {
             System.out.println("Destruyendo hiloSaveSpace");
-            SSpace.stop();
+            SSpace.interrupt();
         }
         pcap.close();
     }

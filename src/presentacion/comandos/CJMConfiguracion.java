@@ -20,7 +20,7 @@ public class CJMConfiguracion extends JMenuItem
 
     public CJMConfiguracion(Mediador mediador)
     {
-        super("Configuración", 71);
+        super("ConfiguraciÃ³n", 71);
         KeyStroke ctrlA = KeyStroke.getKeyStroke("F5");
         setAccelerator(ctrlA);
         this.mediador = mediador;

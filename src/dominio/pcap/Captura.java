@@ -135,7 +135,7 @@ public class Captura extends Thread
             if(isAlive())
             {
                 System.out.println("endCApture => Destruyendo hilo Captura");
-                stop();
+                interrupt();
             }
             System.out.println("null ====>>>> ");
         } else

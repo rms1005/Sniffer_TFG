@@ -8,7 +8,7 @@ import org.jnetpcap.protocol.network.Arp;
 /** 
  * Clase ARPAnalyzer. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -25,7 +25,7 @@ public class ARPAnalyzer extends JDPacketAnalyzer
     /** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo ARP.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
     public boolean isAnalyzable(PcapPacket p)
     {
@@ -45,7 +45,7 @@ public class ARPAnalyzer extends JDPacketAnalyzer
      * con un tipo de protocolo ARP.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */    
     public void analyze(PcapPacket p)
     {
@@ -84,7 +84,7 @@ public class ARPAnalyzer extends JDPacketAnalyzer
             case 15: // '\017'
                 return (new StringBuilder("Frame relay (")).append(arp.hardwareType()).append(")").toString();
             }
-            return new Integer(arp.hardwareType());
+            return Integer.valueOf(arp.hardwareType());
 
         case 1: // '\001'
             switch(arp.protocolType())
@@ -92,13 +92,13 @@ public class ARPAnalyzer extends JDPacketAnalyzer
             case 2048: 
                 return (new StringBuilder("IP (")).append(arp.protocolType()).append(")").toString();
             }
-            return new Integer(arp.protocolType());
+            return Integer.valueOf(arp.protocolType());
 
         case 2: // '\002'
-            return new Integer(arp.hlen());
+            return Integer.valueOf(arp.hlen());
 
         case 3: // '\003'
-            return new Integer(arp.plen());
+            return Integer.valueOf(arp.plen());
 
         case 4: // '\004'
             switch(arp.operation())
@@ -125,7 +125,7 @@ public class ARPAnalyzer extends JDPacketAnalyzer
             case 6: // '\006'
             case 7: // '\007'
             default:
-                return new Integer(arp.operation());
+                return Integer.valueOf(arp.operation());
             }
 
         case 5: // '\005'

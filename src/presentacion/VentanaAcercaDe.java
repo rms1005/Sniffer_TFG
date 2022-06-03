@@ -58,7 +58,7 @@ public class VentanaAcercaDe
     new CentrarVentana(this);
     addWindowListener(new AdaptadorVentana());
     
-    show();
+    setVisible(true);
   }
   
   private void initComponents()
@@ -135,14 +135,14 @@ public class VentanaAcercaDe
     
     this.jLabel2.setFont(new Font("Times New Roman", 0, 12));
     this.jLabel2.setHorizontalAlignment(0);
-    this.jLabel2.setText("para la creación de un");
+    this.jLabel2.setText("para la creaciï¿½n de un");
     
     this.jLabel3.setFont(new Font("Times New Roman", 0, 12));
     this.jLabel3.setHorizontalAlignment(0);
     this.jLabel3.setText("conjunto de datos");
     
     this.jLabel4.setHorizontalAlignment(2);
-    this.jLabel4.setText("Versión 1.7");
+    this.jLabel4.setText("Versiï¿½n 1.7");
     
     GroupLayout jPanel3Layout = new GroupLayout(
       this.jPanel3);
@@ -246,7 +246,7 @@ public class VentanaAcercaDe
       BorderFactory.createLineBorder(new Color(0, 0, 0)));
     this.jLabel5.setText("Tutor: ");
     
-    this.jLabel6.setText("Jose Manuel Sáiz");
+    this.jLabel6.setText("Jose Manuel Sï¿½iz");
     
     this.jLabel7.setText("Autores:");
     
@@ -321,7 +321,7 @@ public class VentanaAcercaDe
     
     this.jLabel10.setText("Memoria Usada:");
     
-    this.jLabel11.setText("Memoria Máxima:");
+    this.jLabel11.setText("Memoria Mï¿½xima:");
     
     this.jLabel12.setText(usedMemory + " Kb");
     

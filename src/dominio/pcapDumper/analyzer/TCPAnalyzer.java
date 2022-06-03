@@ -9,7 +9,7 @@ import org.jnetpcap.protocol.tcpip.Tcp;
 /** 
  * Clase TCPAnalyzer. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -27,7 +27,7 @@ public class TCPAnalyzer extends JDPacketAnalyzer
     /** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo TCP.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
     public boolean isAnalyzable(PcapPacket p)
     {
@@ -47,7 +47,7 @@ public class TCPAnalyzer extends JDPacketAnalyzer
      * con un tipo de protocolo TCP.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */  
     public void analyze(PcapPacket p)
     {
@@ -58,17 +58,17 @@ public class TCPAnalyzer extends JDPacketAnalyzer
         } else
         {
 
-            values.put(valueNames[0], new Integer(tcp.source()));
-            values.put(valueNames[1], new Integer(tcp.destination()));
-            values.put(valueNames[2], new Long(tcp.seq()));
-            values.put(valueNames[3], new Long(tcp.ack()));
-            values.put(valueNames[4], new Boolean(tcp.flags_URG()));
-            values.put(valueNames[5], new Boolean(tcp.flags_ACK()));
-            values.put(valueNames[6], new Boolean(tcp.flags_PSH()));
-            values.put(valueNames[7], new Boolean(tcp.flags_RST()));
-            values.put(valueNames[8], new Boolean(tcp.flags_SYN()));
-            values.put(valueNames[9], new Boolean(tcp.flags_FIN()));
-            values.put(valueNames[10], new Integer(tcp.window()));
+            values.put(valueNames[0], Integer.valueOf(tcp.source()));
+            values.put(valueNames[1], Integer.valueOf(tcp.destination()));
+            values.put(valueNames[2], Long.valueOf(tcp.seq()));
+            values.put(valueNames[3], Long.valueOf(tcp.ack()));
+            values.put(valueNames[4], Boolean.valueOf(tcp.flags_URG()));
+            values.put(valueNames[5], Boolean.valueOf(tcp.flags_ACK()));
+            values.put(valueNames[6], Boolean.valueOf(tcp.flags_PSH()));
+            values.put(valueNames[7], Boolean.valueOf(tcp.flags_RST()));
+            values.put(valueNames[8], Boolean.valueOf(tcp.flags_SYN()));
+            values.put(valueNames[9], Boolean.valueOf(tcp.flags_FIN()));
+            values.put(valueNames[10], Integer.valueOf(tcp.window()));
             return;
         }
     }

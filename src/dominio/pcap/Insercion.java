@@ -19,7 +19,7 @@ import presentacion.preferencias.PreferenciasVisualizarInsercion;
 /** 
  * Clase Insercion. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -136,7 +136,7 @@ private ArrayList<PcapIf> alldevs;
                         PreferenciasVisualizarInsercion.setCont(total);
                     }
                     PreferenciasVisualizarInsercion.cambiarParada();
-                    stop();
+                    interrupt();
                 }
             } else
             if(opcion == 1 && paquete != null && devs != null)

@@ -16,7 +16,7 @@ import org.jnetpcap.protocol.network.Ip4;
 /** 
  * Clase IPv4Analyzer. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -31,7 +31,7 @@ public class IPv4Analyzer extends JDPacketAnalyzer
 	/** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo IP4.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
 public IPv4Analyzer()
     {
@@ -60,7 +60,7 @@ public IPv4Analyzer()
      * con un tipo de protocolo IP4.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */  
 	@SuppressWarnings("unchecked")
 	public void analyze(PcapPacket packet) 
@@ -85,12 +85,12 @@ public IPv4Analyzer()
           values.put(valueNames[1],	new String(ip.tos_CodepointDescription()));
             values.put(valueNames[2], new String(ip.tos_ECEDescription()));
             values.put(valueNames[3], new String(ip.tos_ECNDescription()));
-            values.put(valueNames[4], new Integer(ip.getLength()));
-            values.put(valueNames[5], new Integer(ip.getId()));
+            values.put(valueNames[4], Integer.valueOf(ip.getLength()));
+            values.put(valueNames[5], Integer.valueOf(ip.getId()));
             values.put(valueNames[6], new String(ip.flags_DFDescription()));
             values.put(valueNames[7], new String(ip.flags_MFDescription()));
-            values.put(valueNames[8], new Integer(ip.offset()));
-            values.put(valueNames[9], new Integer(ip.ttl()));
+            values.put(valueNames[8], Integer.valueOf(ip.offset()));
+            values.put(valueNames[9], Integer.valueOf(ip.ttl()));
            values.put(valueNames[10], new String(ip.getName()));
             values.put(valueNames[11], org.jnetpcap.packet.format.FormatUtils.ip(ip.source()));
            values.put(valueNames[12], org.jnetpcap.packet.format.FormatUtils.ip(ip.destination()));

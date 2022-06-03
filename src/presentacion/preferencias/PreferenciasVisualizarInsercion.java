@@ -196,7 +196,7 @@ public class PreferenciasVisualizarInsercion
 	 Insercion.setContinuar();
 	 
 	 if (title.equals("Insertar Paquetes Definidos")) {
-	      insert.stop();
+	      insert.interrupt();
 	    }
 	 //
 	 cambiarParada();

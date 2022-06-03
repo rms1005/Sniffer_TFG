@@ -182,7 +182,7 @@ public class Mediador implements ActionListener, ItemListener,
 	}
 
 	public void repaintVentana(Frame ventana) {
-		ventana.show();
+		ventana.setVisible(true);
 	}
 
 	public boolean irAventana(String nombreBoton) {
@@ -192,8 +192,7 @@ public class Mediador implements ActionListener, ItemListener,
 		}
 		if (nombreBoton.equals("Sniffer")) {
 			this.MSniffer = new MenuSniffer(this);
-			this.MSniffer.resize(this.MSniffer.WinWidth,
-					this.MSniffer.WinHeight);
+			this.MSniffer.setSize(this.MSniffer.WinWidth, this.MSniffer.WinHeight);
 
 			new CentrarVentana(this.MSniffer);
 
@@ -929,7 +928,7 @@ public class Mediador implements ActionListener, ItemListener,
 				FachadaDominio.setControlPacket(true);
 				this.FCaptura = new Fcaptura(this, FachadaDominio
 						.getCountPacketHandler());
-				this.FCaptura.show();
+				this.FCaptura.setVisible(true);
 				this.FCaptura.repaint();
 				FachadaDominio.startCapturaPcapLib();
 				setPanelEstado(String.valueOf("Captura inicializada"));

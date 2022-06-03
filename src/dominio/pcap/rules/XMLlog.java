@@ -3,6 +3,7 @@ package dominio.pcap.rules;
 
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.Calendar;
 import java.util.Date;
 import net.sourceforge.jpcap.net.Packet;
 import org.jdom.*;
@@ -24,8 +25,9 @@ public class XMLlog
     public XMLlog(int ncap)
     {
         nalert = 0;
+        Calendar c = Calendar.getInstance();
         Date d = new Date();
-        nombrefichero = (new StringBuilder("./log/")).append(String.valueOf(d.getDate())).append("_").append(String.valueOf(d.getMonth())).append("_").append(String.valueOf(d.getTime())).append("_log").append(String.valueOf(ncap)).append(".xml").toString();
+        nombrefichero = (new StringBuilder("./log/")).append(String.valueOf(c.get(Calendar.DAY_OF_MONTH))).append("_").append(String.valueOf(c.get(Calendar.MONTH))).append("_").append(String.valueOf(d.getTime())).append("_log").append(String.valueOf(ncap)).append(".xml").toString();
         root = new Element("Incidencia");
     }
 

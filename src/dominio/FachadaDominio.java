@@ -39,7 +39,7 @@ import dominio.properties.PropertiesFileRead;
 /** 
  * Clase FachadaDominio 
  *  
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -160,7 +160,7 @@ public class FachadaDominio
 	public static void startCapturaPcapLibMeta()
     {
         Capturando = true;
-        getPcapLib().stop();
+        getPcapLib().interrupt();
         getPcapLib().interrupt();
         getPcapLib().start();
     }
@@ -446,10 +446,10 @@ public class FachadaDominio
     }
     
     /** Metodo donde llegan los datos para la busqueda de intrusos en modo diferido
-     *  Dirección del fichero captura, dirección de fichero lista negra y donde se quiere dejar el re.
+     *  Direcciï¿½n del fichero captura, direcciï¿½n de fichero lista negra y donde se quiere dejar el re.
      * @param Origen, Origen2, Destino 
      * @return Sin valor de retorno 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
 
 	
@@ -631,7 +631,7 @@ public class FachadaDominio
      *  los paquetes capturados.
      * @param   String fileOrigen, String fileXml, boolean multifile
      * @return int
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
     public static int saveMetaXMLOfflinePcapLib(String fileOrigen, String fileXml, boolean multifile)
     {
@@ -753,10 +753,10 @@ public class FachadaDominio
     }
 
     /** Metodo donde se rigen los criterios para salvar la paquetes capturados 
-     *  en un archivo cuya dirección se recibe.
+     *  en un archivo cuya direcciï¿½n se recibe.
      * @param String file, StateCaptura ficheroEstate 
      * @return int  
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */    
     private static int saveFromEstate(String file, StateCaptura ficheroEstate)
     {
@@ -1005,7 +1005,7 @@ public class FachadaDominio
     }
 /**
  * Metodo savePreferencesDefinicion encargado de guarda el protocolo definido con la extension XML
- * Si la ruta no viene dada la extension, se le añade XML a la ruta.
+ * Si la ruta no viene dada la extension, se le aï¿½ade XML a la ruta.
  * @param estado
  * @param ruta
  * @param aux
@@ -1122,7 +1122,7 @@ public class FachadaDominio
     
     /** Metodo donde se realiza la apertura del dispositivo y se configura la escucha 
      * @param String Le llega un string con el nombre de dispositivo seleccionado.
-     * @return PcapIf con todos los datos de la configuración de la escucha.
+     * @return PcapIf con todos los datos de la configuraciï¿½n de la escucha.
      */
     public static PcapIf isDispositivo(String dispoSeleccionado)
     {        
@@ -1152,9 +1152,9 @@ public class FachadaDominio
         }
       return null;
   }
-    /** Metodo donde se cambia el número del dispositivo por su Descriptión 
+    /** Metodo donde se cambia el nï¿½mero del dispositivo por su Descriptiï¿½n 
      * @param Int dispoSeleccionado Recibe el numero del dispositivo de escucha seleccionado.
-     * @return String [] Devuelve un String String PcapIf con todos los datos de la configuración de la escucha.
+     * @return String [] Devuelve un String String PcapIf con todos los datos de la configuraciï¿½n de la escucha.
      */
     public static String[] isDispositivo(int dispoSeleccionado)
     {
@@ -1173,7 +1173,7 @@ public class FachadaDominio
     {
         if(pcap != null)
         {
-            pcap.stop();
+            pcap.interrupt();
             pcap = null;
         }
         dominio.pcap.Captura aux = new dominio.pcap.Captura();

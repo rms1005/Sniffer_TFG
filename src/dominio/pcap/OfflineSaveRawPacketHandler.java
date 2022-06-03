@@ -133,12 +133,12 @@ public class OfflineSaveRawPacketHandler
         if(STime != null)
         {
             System.out.println("Destruyendo hiloSaveTiem");
-            STime.stop();
+            STime.interrupt();
         }
         if(SSpace != null)
         {
             System.out.println("Destruyendo hiloSaveSpace");
-            SSpace.stop();
+            SSpace.interrupt();
         }
     }
 

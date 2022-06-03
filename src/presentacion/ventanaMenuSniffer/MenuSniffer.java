@@ -46,7 +46,6 @@ public class MenuSniffer
       public void windowClosing(WindowEvent e)
       {
         new VentanaSalir(MenuSniffer.this.mediador);
-        System.out.println("Cerro Correctamente");
       }
       
       public void windowClosed(WindowEvent e) {}
@@ -65,7 +64,7 @@ public class MenuSniffer
       System.getProperty("file.separator") +  "sniffer.gif"));
     Container contentPane = getContentPane();
     
-    show();
+    setVisible(true);
     
     BarraMenu menus = new BarraMenu(this.mediador);
     setJMenuBar(menus.getMenu());

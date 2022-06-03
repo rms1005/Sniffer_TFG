@@ -20,7 +20,7 @@ public class CJMInicioDefinicion extends JMenuItem
 
     public CJMInicioDefinicion(Mediador mediador)
     {
-        super("Definicio0n de Paquetes", 76);
+        super("Definición de Paquetes", 76);
         KeyStroke ctrlN = KeyStroke.getKeyStroke(76, 2);
         setAccelerator(ctrlN);
         this.mediador = mediador;

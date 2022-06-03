@@ -31,7 +31,7 @@ public class ControlHilos extends Thread
                     med.getFCapture().dispose();
                     med.irFinCapture();
                     med.irFinCapturePcapLib();
-                    stop();
+                    interrupt();
                 }
                 sleep(500L);
             }

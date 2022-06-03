@@ -21,7 +21,7 @@ import dominio.export.xml_PcapLib.XmlPacketHandler;
 /**
  * Clase Captura, interactua pcap para la captura de paquetes.
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
@@ -124,7 +124,7 @@ public class Captura extends Thread {
 			throw e;
 		}
 	}
-	/** Metodo donde realiza la apertura de el dispositivo para visualización
+	/** Metodo donde realiza la apertura de el dispositivo para visualizaciï¿½n
 	 * de un archivo pcap .
      * @param String ruta, ruta del archivo a cargar.
      * @return Sin valor de retorno
@@ -305,7 +305,7 @@ public class Captura extends Thread {
 			FachadaDominio.saveMetaCapturaOffline();
 			this.finSaveMeta = true;
 			if (isAlive()) {
-				stop();
+				interrupt();
 			}
 		}
 	}
@@ -359,7 +359,7 @@ public class Captura extends Thread {
 			FachadaDominio.saveMetaCaptura();
 			finSaveMeta = true;
 			if (this.isAlive()) {
-				this.stop();
+				this.interrupt();
 			}
 			
 			
@@ -375,7 +375,7 @@ public class Captura extends Thread {
 		jpcap.close();
 		jpcap_write.close();
 		if (isAlive()) {
-			stop();
+			interrupt();
 		}
 	}
 
