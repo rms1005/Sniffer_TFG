@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
 /** 
  * Clase TablePane. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -72,6 +72,8 @@ public class TablePane {
 
 		modelo = new MiTablaModelo();
 		table = new JTable(modelo);
+		TableRowSorter<TableModel> ordenarCampos = new TableRowSorter<TableModel>(modelo);
+		table.setRowSorter(ordenarCampos);
 		auxTable = new JTable();
 		//AplicarRender();
 

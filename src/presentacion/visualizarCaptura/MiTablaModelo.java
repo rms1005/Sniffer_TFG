@@ -69,22 +69,46 @@ class MiTablaModelo extends AbstractTableModel
     {
         newRow.addElement(macsource);
         newRow.addElement(macdest);
-        newRow.addElement(frame);
+        try {
+        	newRow.addElement(Integer.valueOf(frame));
+        } catch(Exception e) {
+        	newRow.addElement(frame);
+        }
         newRow.addElement(protocol);
         newRow.addElement(ipsrc);
         newRow.addElement(ipdest);
-        newRow.addElement(portsrc);
-        newRow.addElement(portdest);
-        newRow.addElement(seq);
-        newRow.addElement(ack);
-        newRow.addElement(length);
+        try {
+        	newRow.addElement(Integer.valueOf(portsrc));
+        } catch(Exception e) {
+        	newRow.addElement(portsrc);
+        }
+        try {
+        	newRow.addElement(Integer.valueOf(portdest));
+        } catch(Exception e) {
+        	newRow.addElement(portdest);
+        }
+        try {
+        	newRow.addElement(Long.parseLong(seq, 10));
+        } catch(Exception e) {
+        	newRow.addElement(seq);
+        }
+        try {
+        	newRow.addElement(Long.parseLong(ack, 10));
+        } catch(Exception e) {
+        	newRow.addElement(ack);
+        }
+        try {
+        	newRow.addElement(Integer.valueOf(length));
+        } catch(Exception e) {
+        	newRow.addElement(length);
+        }
     }
 
     public void addTimeRow(String numeropaquete, String time, String size)
     {
-        newRow.addElement(numeropaquete);
+        newRow.addElement(Integer.valueOf(numeropaquete));
         newRow.addElement(time);
-        newRow.addElement(size);
+        newRow.addElement(Integer.valueOf(size));
     }
 
     public void addPacket()
