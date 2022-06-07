@@ -10,60 +10,42 @@ import java.awt.event.*;
 import java.io.FileInputStream;
 import java.util.Properties;
 import java.util.StringTokenizer;
-/** 
- * Clase TablePane. 
+
+/**
+ * Clase TablePane.
  * 
  * @author Jose Manuel Saiz, Rodrigo S�nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
- * @version 1.3 
-*/
+ * @version 1.3
+ */
 
 public class TablePane {
 
 	private boolean numeropaquete;
-
 	private boolean time;
-
 	private boolean macsource;
-
 	private boolean macdest;
-
 	private boolean frame;
-
 	private boolean protocol;
-
 	private boolean ipsrc;
-
 	private boolean ipdest;
-
 	private boolean portsrc;
-
 	private boolean portdest;
-
 	private boolean seq;
-
 	private boolean ack;
-
 	private boolean length;
-
 	private boolean size;
 
 	private JPanel Panel;
-
 	protected JScrollPane scrollPane;
 
 	private static MiTablaModelo modelo;
-
 	private JTable table;
-	
 	private JTable auxTable;
-
 	private TableColumn column = null;
 
 	private ListSelectionModel listSelecionModel;
-
 	public VisualizarCaptura venpadre;
-
 	protected Color coloraplicar = Color.RED;
 
 	public TablePane(VisualizarCaptura venpadre) {
@@ -72,10 +54,10 @@ public class TablePane {
 
 		modelo = new MiTablaModelo();
 		table = new JTable(modelo);
-		//TableRowSorter<TableModel> ordenarCampos = new TableRowSorter<TableModel>(modelo);
-		//table.setRowSorter(ordenarCampos);
+		TableRowSorter<TableModel> ordenarCampos = new TableRowSorter<TableModel>(modelo);
+		table.setRowSorter(ordenarCampos);
 		auxTable = new JTable();
-		//AplicarRender();
+		// AplicarRender();
 
 		table.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,14 +65,13 @@ public class TablePane {
 			}
 		});
 
-		//table.setPreferredScrollableViewportSize(new Dimension(30,30));
+		// table.setPreferredScrollableViewportSize(new Dimension(30,30));
 
-		table.getTableHeader().addMouseListener(
-				new java.awt.event.MouseAdapter() {
-					public void mouseClicked(java.awt.event.MouseEvent evt) {
-						tableMouseClicked(evt);
-					}
-				});
+		table.getTableHeader().addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				tableMouseClicked(evt);
+			}
+		});
 
 		initColumnSizes(table);
 		setValues(false);
@@ -99,18 +80,17 @@ public class TablePane {
 
 	}
 
-	public void getprefToViewColumns(){
-		int i,count;
-		boolean del_add, hayUno=false;
+	public void getprefToViewColumns() {
+		int i, count;
+		boolean del_add, hayUno = false;
 		String auxTableView, auxCampo;
 		try {
-			
+
 			auxTableView = venpadre.leerPTV();
-			
-	
-			if(auxTableView!=null || auxTableView==""){
-				StringTokenizer status=new StringTokenizer(auxTableView,",");
-				while(status.hasMoreTokens()){
+
+			if (auxTableView != null || auxTableView == "") {
+				StringTokenizer status = new StringTokenizer(auxTableView, ",");
+				while (status.hasMoreTokens()) {
 					auxCampo = status.nextToken().trim();
 					count = auxTable.getColumnModel().getColumnCount();
 					for (i = 0; i < count; i++) {
@@ -122,19 +102,18 @@ public class TablePane {
 						if (del_add) {
 							table.addColumn(column);
 							auxTable.removeColumn(column);
-							i= count;
+							i = count;
 							activateColumVar(auxCampo);
-							hayUno= true;
+							hayUno = true;
 						}
 					}
-					
+
 				}
-				
-			}
-			else {
+
+			} else {
 				hayUno = false;
 			}
-			if (hayUno==false){
+			if (hayUno == false) {
 				setValues(true);
 				viewColumns();
 			}
@@ -142,28 +121,40 @@ public class TablePane {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	public void activateColumVar(String sVar){
-		if (sVar.equals("Num")) numeropaquete = true;
-		if (sVar.equals("Time"))time = true;
-		if (sVar.equals("Size"))size = true;
-		if (sVar.equals("MAC Src"))macsource = true;
-		if (sVar.equals("MAC Dest")) macdest = true;
-		if (sVar.equals("Frame")) frame = true;
-		if (sVar.equals("Protocol")) protocol = true;
-		if (sVar.equals("IP Src")) ipsrc = true;
-		if (sVar.equals("IP Dest")) ipdest = true;
-		if (sVar.equals("Port Src")) portsrc = true;
-		if (sVar.equals("Port Dest")) portdest = true;
-		if (sVar.equals("SEQ")) seq = true;
-		if (sVar.equals("ACK")) ack = true;
-		if (sVar.equals("Length")) length = true;
+
+	public void activateColumVar(String sVar) {
+		if (sVar.equals("Num"))
+			numeropaquete = true;
+		if (sVar.equals("Time"))
+			time = true;
+		if (sVar.equals("Size"))
+			size = true;
+		if (sVar.equals("MAC Src"))
+			macsource = true;
+		if (sVar.equals("MAC Dest"))
+			macdest = true;
+		if (sVar.equals("Frame"))
+			frame = true;
+		if (sVar.equals("Protocol"))
+			protocol = true;
+		if (sVar.equals("IP Src"))
+			ipsrc = true;
+		if (sVar.equals("IP Dest"))
+			ipdest = true;
+		if (sVar.equals("Port Src"))
+			portsrc = true;
+		if (sVar.equals("Port Dest"))
+			portdest = true;
+		if (sVar.equals("SEQ"))
+			seq = true;
+		if (sVar.equals("ACK"))
+			ack = true;
+		if (sVar.equals("Length"))
+			length = true;
 	}
-	
+
 	public void AplicarRender(int fila) {
-		TableCellRenderer renderer = new CustomTableCellRenderer(coloraplicar,
-				venpadre, fila);
+		TableCellRenderer renderer = new CustomTableCellRenderer(coloraplicar, venpadre, fila);
 		table.setDefaultRenderer(String.class, renderer);
 		table.repaint();
 	}
@@ -172,32 +163,29 @@ public class TablePane {
 		coloraplicar = color;
 	}
 
+	@SuppressWarnings("deprecation")
 	private void tableMouseClicked(java.awt.event.MouseEvent evt) {
-		if ((evt.getModifiersEx() & InputEvent.BUTTON3_DOWN_MASK) == InputEvent.BUTTON3_DOWN_MASK) {
+		if ((evt.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
 			// Opciones de table al pulsar el boton derecho sobre table.
 			new FTableOptions(this).setVisible(true);
 		}
-
 	}
 
+	@SuppressWarnings("deprecation")
 	private void fileMouseClicked(java.awt.event.MouseEvent evt) {
-		if ((evt.getModifiersEx() & InputEvent.BUTTON1_DOWN_MASK) == InputEvent.BUTTON1_DOWN_MASK) {
+		if ((evt.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) {
 			getfila(table.getSelectedRow());
-
 		}
-
 	}
 
 	/***************************************************************************
-	 * Obtenercolumnas Funcion que obtiene la los campos (columnas) de la
-	 * cabecera de la tabla
+	 * Obtenercolumnas Funcion que obtiene la los campos (columnas) de la cabecera
+	 * de la tabla
 	 **************************************************************************/
 
-	public void setColumnas(boolean numpaquete, boolean time,
-			boolean macsource, boolean macdest, boolean frame,
-			boolean protocol, boolean ipsrc, boolean ipdest, boolean portsrc,
-			boolean portdest, boolean seq, boolean ack, boolean length,
-			boolean size) {
+	public void setColumnas(boolean numpaquete, boolean time, boolean macsource, boolean macdest, boolean frame,
+							boolean protocol, boolean ipsrc, boolean ipdest, boolean portsrc, boolean portdest,
+							boolean seq, boolean ack, boolean length, boolean size) {
 
 		this.numeropaquete = numpaquete;
 		this.time = time;
@@ -214,56 +202,45 @@ public class TablePane {
 		this.length = length;
 		this.size = size;
 	}
-	
-	public void viewColumns(){
+
+	public void viewColumns() {
 		int i;
 		boolean del_add;
 
 		for (i = 0; i < table.getColumnModel().getColumnCount(); i++) {
 			del_add = false;
 			column = table.getColumnModel().getColumn(i);
-			if (column.getIdentifier().toString().equals("Num")
-					&& numeropaquete == false) {
+			if (column.getIdentifier().toString().equals("Num") && numeropaquete == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Time")
-					&& time == false) {
+			if (column.getIdentifier().toString().equals("Time") && time == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Size")
-					&& size == false) {
+			if (column.getIdentifier().toString().equals("Size") && size == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("MAC Src")
-					&& macsource == false) {
+			if (column.getIdentifier().toString().equals("MAC Src") && macsource == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("MAC Dest")
-					&& macdest == false) {
+			if (column.getIdentifier().toString().equals("MAC Dest") && macdest == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Frame")
-					&& frame == false) {
+			if (column.getIdentifier().toString().equals("Frame") && frame == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Protocol")
-					&& protocol == false) {
+			if (column.getIdentifier().toString().equals("Protocol") && protocol == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("IP Src")
-					&& ipsrc == false) {
+			if (column.getIdentifier().toString().equals("IP Src") && ipsrc == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("IP Dest")
-					&& ipdest == false) {
+			if (column.getIdentifier().toString().equals("IP Dest") && ipdest == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Port Src")
-					&& portsrc == false) {
+			if (column.getIdentifier().toString().equals("Port Src") && portsrc == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Port Dest")
-					&& portdest == false) {
+			if (column.getIdentifier().toString().equals("Port Dest") && portdest == false) {
 				del_add = true;
 			}
 			if (column.getIdentifier().toString().equals("SEQ") && seq == false) {
@@ -272,8 +249,7 @@ public class TablePane {
 			if (column.getIdentifier().toString().equals("ACK") && ack == false) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Length")
-					&& length == false) {
+			if (column.getIdentifier().toString().equals("Length") && length == false) {
 				del_add = true;
 			}
 			if (del_add) {
@@ -282,52 +258,41 @@ public class TablePane {
 				i--;
 			}
 		}
-		column = auxTable.getColumnModel().getColumn(0); 
+		column = auxTable.getColumnModel().getColumn(0);
 		for (i = 0; i < auxTable.getColumnModel().getColumnCount(); i++) {
 			del_add = false;
 			column = auxTable.getColumnModel().getColumn(i);
-			if (column.getIdentifier().toString().equals("Num")
-					&& numeropaquete == true) {
+			if (column.getIdentifier().toString().equals("Num") && numeropaquete == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Time")
-					&& time == true) {
+			if (column.getIdentifier().toString().equals("Time") && time == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Size")
-					&& size == true) {
+			if (column.getIdentifier().toString().equals("Size") && size == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("MAC Src")
-					&& macsource == true) {
+			if (column.getIdentifier().toString().equals("MAC Src") && macsource == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("MAC Dest")
-					&& macdest == true) {
+			if (column.getIdentifier().toString().equals("MAC Dest") && macdest == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Frame")
-					&& frame == true) {
+			if (column.getIdentifier().toString().equals("Frame") && frame == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Protocol")
-					&& protocol == true) {
+			if (column.getIdentifier().toString().equals("Protocol") && protocol == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("IP Src")
-					&& ipsrc == true) {
+			if (column.getIdentifier().toString().equals("IP Src") && ipsrc == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("IP Dest")
-					&& ipdest == true) {
+			if (column.getIdentifier().toString().equals("IP Dest") && ipdest == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Port Src")
-					&& portsrc == true) {
+			if (column.getIdentifier().toString().equals("Port Src") && portsrc == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Port Dest")
-					&& portdest == true) {
+			if (column.getIdentifier().toString().equals("Port Dest") && portdest == true) {
 				del_add = true;
 			}
 			if (column.getIdentifier().toString().equals("SEQ") && seq == true) {
@@ -336,8 +301,7 @@ public class TablePane {
 			if (column.getIdentifier().toString().equals("ACK") && ack == true) {
 				del_add = true;
 			}
-			if (column.getIdentifier().toString().equals("Length")
-					&& length == true) {
+			if (column.getIdentifier().toString().equals("Length") && length == true) {
 				del_add = true;
 			}
 			if (del_add) {
@@ -348,8 +312,8 @@ public class TablePane {
 		}
 	}
 
-	public String obtenerOrdenColumnas(){
-		String auxS="";
+	public String obtenerOrdenColumnas() {
+		String auxS = "";
 		int i;
 		for (i = 0; i < table.getColumnModel().getColumnCount(); i++) {
 			column = table.getColumnModel().getColumn(i);
@@ -357,7 +321,7 @@ public class TablePane {
 		}
 		return auxS;
 	}
-	
+
 	public void DatosPk() {
 		modelo.newVector();
 	}
@@ -366,12 +330,10 @@ public class TablePane {
 		modelo.addTimeRow(numeropaquete, time, tamano);
 	}
 
-	public void DatosPaquete(String macsource, String macdest, String frame,
-			String protocol, String ipsrc, String ipdest, String portsrc,
-			String portdest, String seq, String ack, String length) {
+	public void DatosPaquete(String macsource, String macdest, String frame, String protocol, String ipsrc,
+			String ipdest, String portsrc, String portdest, String seq, String ack, String length) {
 		//// cogemos los datos que necesitamos para la tabla de cada paquete
-		modelo.addRow(macsource, macdest, frame, protocol, ipsrc, ipdest,
-				portsrc, portdest, seq, ack, length);
+		modelo.addRow(macsource, macdest, frame, protocol, ipsrc, ipdest, portsrc, portdest, seq, ack, length);
 		modelo.addPacket();
 	}
 
@@ -402,7 +364,7 @@ public class TablePane {
 		column.setPreferredWidth(130);
 	}
 
-	public void setValues (boolean valor){
+	public void setValues(boolean valor) {
 		this.numeropaquete = valor;
 		this.time = valor;
 		this.macsource = valor;
@@ -419,64 +381,64 @@ public class TablePane {
 		this.size = valor;
 	}
 
-	public boolean getNumeropaquete(){
+	public boolean getNumeropaquete() {
 		return this.numeropaquete;
 	}
 
-	public boolean getTime(){
+	public boolean getTime() {
 		return this.time;
 	}
-	
-	public boolean getMacsource(){
+
+	public boolean getMacsource() {
 		return this.macsource;
 	}
 
-	public boolean getMacdest(){
+	public boolean getMacdest() {
 		return this.macdest;
 	}
-	
-	public boolean getFrame(){
+
+	public boolean getFrame() {
 		return this.frame;
 	}
 
-	public boolean getProtocol(){
+	public boolean getProtocol() {
 		return this.protocol;
 	}
-	
-	public boolean getIpsrc(){
+
+	public boolean getIpsrc() {
 		return this.ipsrc;
 	}
-	
-	public boolean getIpdest(){
+
+	public boolean getIpdest() {
 		return this.ipdest;
 	}
-	
-	public boolean getPortsrc(){
+
+	public boolean getPortsrc() {
 		return this.portsrc;
 	}
-	
-	public boolean getPortdest(){
+
+	public boolean getPortdest() {
 		return this.portdest;
 	}
-	
-	public boolean getSeq(){
+
+	public boolean getSeq() {
 		return this.seq;
 	}
-	
-	public boolean getAck(){
+
+	public boolean getAck() {
 		return this.ack;
-	}	
-	
-	public boolean getLength(){
+	}
+
+	public boolean getLength() {
 		return this.length;
-	}	
-	public boolean getSize(){
+	}
+
+	public boolean getSize() {
 		return this.size;
 	}
-	
-	public void clearTable(){
+
+	public void clearTable() {
 		modelo.clearAll();
 	}
 }
 // Fin de la clase Table Pane
-
