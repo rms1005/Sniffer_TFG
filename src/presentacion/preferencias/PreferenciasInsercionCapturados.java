@@ -112,14 +112,14 @@ public class PreferenciasInsercionCapturados
     
 
 
-    this.jLabel1.setText("Exportaci�n:");
+    this.jLabel1.setText("Exportación:");
     this.jLabel1.setName("jLabel1");
     
-    this.jLabel2.setText("N� Renvios:");
+    this.jLabel2.setText("Nº Renvios:");
     this.jLabel2.setName("jLabel2");
     
     this.buttonGroup1.add(this.jRunicas);
-    this.jRunicas.setText("Unico");
+    this.jRunicas.setText("Único");
     this.jRunicas.setName("jRunicas");
     this.jRunicas.addFocusListener(new FocusAdapter()
     {

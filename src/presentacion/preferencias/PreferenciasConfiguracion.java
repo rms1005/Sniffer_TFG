@@ -51,7 +51,7 @@
 /*  40:    */   
 /*  41:    */   public PreferenciasConfiguracion()
 /*  42:    */   {
-/*  43: 64 */     super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Configuraci髇", true);
+/*  43: 64 */     super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Configuraci贸n", true);
 /*  44: 65 */     this.mediador = new Mediador();
 /*  45: 66 */     initComponents();
 /*  46: 67 */     setResizable(false);
@@ -60,7 +60,7 @@
 /*  49:    */   
 /*  50:    */   public PreferenciasConfiguracion(Mediador med)
 /*  51:    */   {
-/*  52: 77 */     super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Configuraci髇....", true);
+/*  52: 77 */     super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Configuraci贸n....", true);
 /*  53: 78 */     this.mediador = med;
 /*  54: 79 */     initComponents();
 /*  55: 80 */     setResizable(false);
@@ -91,14 +91,14 @@
 /*  78:    */     
 /*  79:109 */     this.jLabel3.setText("Scripts:");
 /*  80:    */     
-/*  81:111 */     this.jLabel4.setText("Parametrizaci髇:");
+/*  81:111 */     this.jLabel4.setText("Parametrizaci贸n:");
 
 ///*  82:    */     this.jLabel7.setText("Intrusos:");
 /*  83:    */ 
 /*  84:114 */     this.jButton1 = new CBAbrirCarpeta(this.mediador, "Capturas");
 /*  85:115 */     this.jButton2 = new CBAbrirCarpeta(this.mediador, "Exportaciones");
 /*  86:116 */     this.jButton3 = new CBAbrirCarpeta(this.mediador, "Scripts");
-/*  87:117 */     this.jButton4 = new CBAbrirCarpeta(this.mediador, "Paremetrizacion");
+/*  87:117 */     this.jButton4 = new CBAbrirCarpeta(this.mediador, "Paremetrizaci贸n");
 ///*  88:    */     this.jButton7 = new CBAbrirCarpeta(this.mediador, "Resultado");
 
 /*  89:119 */     GroupLayout jPanel1Layout = new GroupLayout(this.jPanel1);

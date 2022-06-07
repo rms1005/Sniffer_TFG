@@ -24,7 +24,7 @@ public class CBAbrirCarpeta extends JButton
         if(titulo.equals("Capturas"))
         {
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open_small.png").toString()));
-            setToolTipText("Seleccionar capeta para Capturas");
+            setToolTipText("Seleccionar carpeta para Capturas");
             setMnemonic('C');
         }
         if(titulo.equals("Exportaciones"))
@@ -49,7 +49,7 @@ public class CBAbrirCarpeta extends JButton
         if(titulo.equals("Resultado"))
         {
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open_small.png").toString()));
-            setToolTipText("Seleccionar Carpeta de resultados");
+            setToolTipText("Seleccionar carpeta de resultados");
             setMnemonic('W');
         }  
         

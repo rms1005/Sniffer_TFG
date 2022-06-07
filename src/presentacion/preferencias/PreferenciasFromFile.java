@@ -409,7 +409,7 @@
      
      this.jButton2 = new CBGuardarFichero(this.mediador, "Browse...FromFile");
      
-     jCheckBox3.setText("Multiples ficheros");
+     jCheckBox3.setText("Múltiples ficheros");
      jCheckBox3.setBorder(BorderFactory.createEmptyBorder(0, 0, 
        0, 0));
      jCheckBox3.setMargin(new Insets(0, 0, 0, 0));
@@ -476,7 +476,7 @@
      jLabel7.setText("ficheros");
      jLabel7.setEnabled(false);
      
-     jCheckBox7.setText("Stop despúes de");
+     jCheckBox7.setText("Parar despúes de");
      jCheckBox7.setBorder(BorderFactory.createEmptyBorder(0, 0, 
        0, 0));
      jCheckBox7.setEnabled(false);
@@ -715,7 +715,7 @@
          PreferenciasFromFile.this.jCheckBox8ItemStateChanged(evt);
        }
      });
-     jCheckBox9.setText("despues de ...");
+     jCheckBox9.setText("después de ...");
      jCheckBox9.setBorder(BorderFactory.createEmptyBorder(0, 0, 
        0, 0));
      jCheckBox9.setMargin(new Insets(0, 0, 0, 0));
@@ -726,7 +726,7 @@
          PreferenciasFromFile.this.jCheckBox9ItemStateChanged(evt);
        }
      });
-     jCheckBox10.setText("despues de ...");
+     jCheckBox10.setText("después de ...");
      jCheckBox10.setBorder(BorderFactory.createEmptyBorder(0, 0, 
        0, 0));
      jCheckBox10.setMargin(new Insets(0, 0, 0, 0));

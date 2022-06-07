@@ -291,7 +291,7 @@ private static int i;
     
     jCheckBox1.setSelected(true);
     jCheckBox1.setEnabled(false);
-    jCheckBox1.setText("Captutar paquetes en modo promíscuo");
+    jCheckBox1.setText("Capturar paquetes en modo promÃ­scuo");
     jCheckBox1.setBorder(BorderFactory.createEmptyBorder(0, 0, 
       0, 0));
     jCheckBox1.setMargin(new Insets(0, 0, 0, 0));
@@ -333,7 +333,7 @@ private static int i;
     
     this.jButton2 = new CBGuardarFichero(this.mediador, "Browse...");
     
-    jCheckBox3.setText("Múltiples ficheros");
+    jCheckBox3.setText("MÃºltiples ficheros");
     jCheckBox3.setBorder(BorderFactory.createEmptyBorder(0, 0, 
       0, 0));
     jCheckBox3.setMargin(new Insets(0, 0, 0, 0));
@@ -344,7 +344,7 @@ private static int i;
         PreferenciasCaptura.this.jCheckBox3ItemStateChanged(evt);
       }
     });
-    jCheckBox4.setText("Próximo fichero cada");
+    jCheckBox4.setText("PrÃ³ximo fichero cada");
     jCheckBox4.setBorder(BorderFactory.createEmptyBorder(0, 0, 
       0, 0));
     jCheckBox4.setEnabled(false);
@@ -361,7 +361,7 @@ private static int i;
     jComboBox4.setModel(new DefaultComboBoxModel(this.Capacidad));
     jComboBox4.setEnabled(false);
     
-    jCheckBox5.setText("Próximo fichero cada");
+    jCheckBox5.setText("PrÃ³ximo fichero cada");
     jCheckBox5.setBorder(BorderFactory.createEmptyBorder(0, 0, 
       0, 0));
     jCheckBox5.setEnabled(false);
@@ -400,7 +400,7 @@ private static int i;
     jLabel7.setText("ficheros");
     jLabel7.setEnabled(false);
     
-    jCheckBox7.setText("Stop despúes de");
+    jCheckBox7.setText("Parar despuÃ©s de");
     jCheckBox7.setBorder(BorderFactory.createEmptyBorder(0, 0, 
       0, 0));
     jCheckBox7.setEnabled(false);
@@ -628,7 +628,7 @@ private static int i;
     
     jPanel5.setBorder(
       BorderFactory.createTitledBorder("Parar Captura"));
-    jCheckBox8.setText("después de ...");
+    jCheckBox8.setText("despuÃ©s de ...");
     jCheckBox8.setBorder(BorderFactory.createEmptyBorder(0, 0, 
       0, 0));
     jCheckBox8.setMargin(new Insets(0, 0, 0, 0));
@@ -639,7 +639,7 @@ private static int i;
         PreferenciasCaptura.this.jCheckBox8ItemStateChanged(evt);
       }
     });
-    jCheckBox9.setText("despúes de ...");
+    jCheckBox9.setText("despuÃ©s de ...");
     jCheckBox9.setBorder(BorderFactory.createEmptyBorder(0, 0, 
       0, 0));
     jCheckBox9.setMargin(new Insets(0, 0, 0, 0));
@@ -650,7 +650,7 @@ private static int i;
         PreferenciasCaptura.this.jCheckBox9ItemStateChanged(evt);
       }
     });
-    jCheckBox10.setText("despúes de ...");
+    jCheckBox10.setText("despuÃ©s de ...");
     jCheckBox10.setBorder(BorderFactory.createEmptyBorder(0, 0, 
       0, 0));
     jCheckBox10.setMargin(new Insets(0, 0, 0, 0));

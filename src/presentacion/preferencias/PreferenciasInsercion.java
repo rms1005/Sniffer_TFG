@@ -170,7 +170,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 	/** Creates new form PreferenciasInsercion */
 	public PreferenciasInsercion() {
-		super(MenuSniffer.getFrames()[0], "Insercion de paquetes definidos",
+		super(MenuSniffer.getFrames()[0], "Inserción de paquetes definidos",
 				true);
 		title = "Inicio Definicion";
 		tipo = true;
@@ -283,7 +283,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Inserci�n",
+						255), 2, true), "Inserción",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma 11 Negrita 12 Simple 12 Simple", 1,
@@ -293,7 +293,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Orden de encapsulacion",
+						255), 2, true), "Orden de encapsulación",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -342,7 +342,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jTextField9.setName("jTextField9"); // NOI18N
 
-		jLabel15.setText("Orden de encapsulacion");
+		jLabel15.setText("Orden de encapsulación");
 		jLabel15.setName("jLabel15"); // NOI18N
 
 		jBEncapsular.setText("Encapsular");
@@ -562,7 +562,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Seleccion IP v4",
+						255), 2, true), "Selección IP v4",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -833,7 +833,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Seleccion IP v6",
+						255), 2, true), "Selección IP v6",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -1053,7 +1053,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Seleccion de Envio",
+						255), 2, true), "Selección de Envío",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -1075,7 +1075,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jLabel1.setText("Capturas :");
 		jLabel1.setName("jLabel1"); // NOI18N
 
-		jtxtCapturas.setText("Seleci�n de fichero de capturas");
+		jtxtCapturas.setText("Selección de fichero de capturas");
 		jtxtCapturas.setName("jtxtCapturas"); // NOI18N
 
 		// jBCaptura.setFont(new
@@ -1275,7 +1275,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Implementacion de Protocolo",
+						255), 2, true), "Implementación de Protocolo",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -1561,7 +1561,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Seleccion IPv6",
+						255), 2, true), "Selección IPv6",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -1871,7 +1871,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 						-1));
 
 		jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-		jLabel13.setText("Aplicacion:");
+		jLabel13.setText("Aplicación:");
 		jLabel13.setName("jLabel13"); // NOI18N
 		jPanel1.add(jLabel13,
 				new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 38, -1,
@@ -1967,7 +1967,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(
 				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Seleccion MAC",
+						255), 2, true), "Selección MAC",
 				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
 				javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
