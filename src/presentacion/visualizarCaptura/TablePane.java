@@ -346,8 +346,7 @@ public class TablePane {
 	}
 
 	public void getfila(int fila) {
-
-		venpadre.CrearArbol(fila);
+		venpadre.CrearArbol(table.getRowSorter().convertRowIndexToModel(fila));
 		venpadre.setVisible(true);
 	}
 
