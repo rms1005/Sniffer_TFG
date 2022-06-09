@@ -4,8 +4,10 @@ package presentacion.visualizarCaptura;
 import dominio.pcap.rules.*;
 import dominio.pcapDumper.Captura;
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.io.File;
-import java.util.Collection;
+import java.util.ArrayList;
+// import java.util.Collection;
 import java.util.Vector;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -19,7 +21,7 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 /** 
  * Clase Sniffer, Clase Principal. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
 */
@@ -27,19 +29,23 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class VisualizarCaptura extends JPanel implements Runnable {
 
-	private Thread captureThread2;
-	private boolean finOneFile;
+	private static final long serialVersionUID = 1255618549349652261L;
+	
+	// private Thread captureThread2;
+	// private boolean finOneFile;
 	protected boolean isLiveCapture;
 	protected int i;
-	private boolean finSaveMeta;
+	// private boolean finSaveMeta;
 
 	public VisualizarCaptura(Mediador med) {
 		contadorarbol = 0;
+		minVertical = 170;
+		minHorizontal = 274;
 		hilo = null;
 		mediador = med;
 		mediador.setPanelEstado("Cargado datos desde fichero");
-		VectorConexiones = new Vector();
-		history = new Vector();
+		VectorConexiones = new Vector<Conexion>();
+		history = new Vector<PcapPacket>();
 		VentanaCaptura();
 	}
 
@@ -55,20 +61,38 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		TablaConexiones = new TableConexions(TablaPaquetes);
 		Paneaux = new JPanel();
 		Paneaux2 = new JPanel();
-		Paneauxtree1 = new JPanel();
-		Paneauxtree2 = new JPanel();
-		Paneauxtree3 = new JPanel();
-		Paneauxtree = new JPanel();
+		
 		Paneconexiones = new JPanel();
 		Paneaux.setLayout(new GridLayout(0, 1));
 		Paneaux2.setLayout(new GridLayout(0, 1));
-		Paneauxtree.setLayout(new GridLayout(1, 3));
-		Paneauxtree1.setLayout(new BorderLayout());
+		
+		// Trees (packets on detail)
+		Paneauxtree = new JPanel();
+		/*Paneauxtree1 = new JPanel();
+		Paneauxtree2 = new JPanel();
+		Paneauxtree3 = new JPanel();*/
+		int vertical = Paneauxtree.getHeight() > minVertical ? (int) Paneauxtree.getHeight()/minVertical : 1;
+		int horizontal = Paneauxtree.getWidth() > minHorizontal*3 ? (int) Paneauxtree.getWidth()/minHorizontal : 3;
+		Paneauxtree.setLayout(new GridLayout(vertical, horizontal));
+		Paneauxtree_list = new ArrayList<JPanel>(vertical*horizontal);
+		for(int i = 0; i < vertical*horizontal; i++) {
+			PaneauxtreeX = new JPanel();
+			PaneauxtreeX.setLayout(new BorderLayout());
+			Paneauxtree_list.add(PaneauxtreeX);
+			Paneauxtree.add(PaneauxtreeX);
+		}
+		Paneauxtree.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				tableMouseClicked(evt);
+			}
+		});
+		/*Paneauxtree1.setLayout(new BorderLayout());
 		Paneauxtree2.setLayout(new BorderLayout());
 		Paneauxtree3.setLayout(new BorderLayout());
 		Paneauxtree.add(Paneauxtree1);
 		Paneauxtree.add(Paneauxtree2);
-		Paneauxtree.add(Paneauxtree3);
+		Paneauxtree.add(Paneauxtree3);*/
+		
 		Paneconexiones.setBorder(new BevelBorder(0));
 		Paneconexiones.setLayout(new BorderLayout());
 		output = new JTextArea(37, 45);
@@ -92,7 +116,6 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		splitPane2.setDividerLocation(300);
 		Paneaux2.add(splitPane2);
 		Paneaux2.setPreferredSize(new Dimension(1023, 760));
-
 	}
 
 	public JPanel getPanel() {
@@ -119,17 +142,43 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		history.clear();
 		TablaPaquetes.clearTable();
 		TablaConexiones.clearTable();
-		Paneauxtree1.removeAll();
+		for(int i = 0; i < Paneauxtree_list.size(); i++) {
+			Paneauxtree_list.get(i).removeAll();
+		}
+		/*Paneauxtree1.removeAll();
 		Paneauxtree2.removeAll();
-		Paneauxtree3.removeAll();
+		Paneauxtree3.removeAll();*/
 		contadorarbol = 0;
+		redimensionar();
+		//System.out.print("RAUL-TAMAÃ‘O -> "+Paneauxtree.getHeight()+"*"+Paneauxtree.getWidth()+"\n");
+	}
+
+	private void redimensionar() {
+		int vertical = Paneauxtree.getHeight() > minVertical ? (int) Paneauxtree.getHeight()/minVertical: 1;
+		int horizontal = Paneauxtree.getWidth() > minHorizontal*3 ? (int) Paneauxtree.getWidth()/minHorizontal : 3;
+		Paneauxtree.removeAll();
+		Paneauxtree.setLayout(new GridLayout(vertical, horizontal));
+		Paneauxtree_list = new ArrayList<JPanel>(vertical*horizontal);
+		for(int i = 0; i < vertical*horizontal; i++) {
+			PaneauxtreeX = new JPanel();
+			PaneauxtreeX.setLayout(new BorderLayout());
+			Paneauxtree_list.add(PaneauxtreeX);
+			Paneauxtree.add(PaneauxtreeX);
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	private void tableMouseClicked(java.awt.event.MouseEvent evt) {
+		if ((evt.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
+			new PacketTreeSize(this).setVisible(true);
+		}
 	}
 
 	public int getLinkLayer() {
 		int Linklayer = -1;
 		return Linklayer;
 	}
-    /** Metodo  se abre el fichero pcap con capturas para su visualización.
+    /** Metodo  se abre el fichero pcap con capturas para su visualizaciï¿½n.
      * @param String nombre 
      * @return sin valor de retorno
      */
@@ -179,14 +228,15 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 
 	public void CrearArbol(int numero) {
 		contadorarbol++;
+		if(contadorarbol > Paneauxtree_list.size())
+			contadorarbol = 1;
 		PcapPacket paquete = (PcapPacket) history.get(numero);
 		Border emptyBorder = BorderFactory.createLoweredBevelBorder();
-		Border selectBorder = BorderFactory.createMatteBorder(2, 2, 2, 2,
-				Color.red);
+		Border selectBorder = BorderFactory.createMatteBorder(2, 2, 2, 2, Color.red);
 		Arbol = new TreePacket(numero, paquete);
 		scrollPane3 = new JScrollPane(Arbol.Arbol());
 		scrollPane3.setBorder(selectBorder);
-		if (contadorarbol == 1) {
+		/*if (contadorarbol == 1) {
 			Paneauxtree1.removeAll();
 			Paneauxtree1.add(scrollPane3, "Center");
 			if (Paneauxtree3.getComponentCount() > 0) {
@@ -211,7 +261,23 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 						.getComponent(0);
 				auxJSPanel.setBorder(emptyBorder);
 			}
+		}*/
+		PaneauxtreeX = Paneauxtree_list.get(contadorarbol-1);
+		PaneauxtreeX.removeAll();
+		PaneauxtreeX.add(scrollPane3, "Center");
+		if (PaneauxtreeX.getComponentCount() > 0) {
+			JScrollPane auxJSPanel;
+			if(contadorarbol == 1)
+				try {
+					auxJSPanel = (JScrollPane) Paneauxtree_list.get(Paneauxtree_list.size()-1).getComponent(0);
+				} catch(ArrayIndexOutOfBoundsException e) {
+					auxJSPanel = scrollPane3;
+				}
+			else
+				auxJSPanel = (JScrollPane) Paneauxtree_list.get(contadorarbol-2).getComponent(0);
+			auxJSPanel.setBorder(emptyBorder);
 		}
+		
 		mediador.repaintVentana(mediador.getVentanaMenuSniffer());
 	}
 
@@ -242,7 +308,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 			Reglas.OrdenarReglas();
 			JOptionPane.showMessageDialog(frameinf, (new StringBuilder(
 					"Fichero de reglas ")).append(nombreficheroreglas).append(
-					" añadido").toString());
+					" aÃ±adido").toString());
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(frameinf,
 					"Formato incorrecto de fichero de reglas");
@@ -265,7 +331,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		history.add(packet);
 	}
 
-	public Vector getConexionesTCP() {
+	public Vector<Conexion> getConexionesTCP() {
 		return VectorConexiones;
 	}
 
@@ -323,14 +389,31 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	public String getColumnPosition() {
 		return TablaPaquetes.obtenerOrdenColumnas();
 	}
+	
+	public int getMinVertical() {
+		return minVertical;
+	}
+	
+	public void setMinVertical(int min) {
+		minVertical = min;
+	}
+	
+	public int getMinHorizontal() {
+		return minHorizontal;
+	}
+	
+	public void setMinHorizontal(int min) {
+		minHorizontal = min;
+	}
+	
 
-	private Vector VectorConexiones;
+	private Vector<Conexion> VectorConexiones;
 	private Rules Reglas;
 	private XMLlog log;
-	private Vector VectorPacket;
+	// private Vector VectorPacket;
 	protected Conexion NuevaConexion;
 	private int contadorarbol;
-	public static Vector history;
+	public static Vector<PcapPacket> history;
 	protected JFrame frameinf;
 	protected Pcap paquete;
 	public boolean visualframe;
@@ -338,21 +421,23 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	protected Pcap pcapLectura;
 	private String fichero;
 	protected Thread hilo;
-	protected Collection Historial;
+	// protected Collection Historial;
 	public static TablePane TablaPaquetes;
 	private TableConexions TablaConexiones;
 	public TableAlerts TablaAlertas;
 	public FAlertsLoad FAlertsLoad;
 	public Mediador mediador;
 	private TreePacket Arbol;
-	public Vector x;
+	// public Vector x;
 	public JTabbedPane jTabbedPane1;
 	public static JPanel Paneaux;
 	public static JPanel Paneaux2;
 	public JPanel Paneauxtree;
-	public JPanel Paneauxtree1;
+	public ArrayList<JPanel> Paneauxtree_list;
+	public JPanel PaneauxtreeX;
+	/*public JPanel Paneauxtree1;
 	public JPanel Paneauxtree2;
-	public JPanel Paneauxtree3;
+	public JPanel Paneauxtree3;*/
 	public JPanel Paneconexiones;
 	public JTextArea output;
 	public JTextArea output2;
@@ -365,5 +450,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	public JToolBar toolBar;
 	public JSeparator jSeparator;
 	public JLabel Label;
+	private int minVertical;
+	private int minHorizontal;
 	// public static SavePacketHandler ficheroxmlenconstruccion;
 }
