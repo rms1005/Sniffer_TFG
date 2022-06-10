@@ -18,12 +18,9 @@ import presentacion.comandos.Comando;
 import presentacion.preferencias.PreferenciasConfiguracion;
 import presentacion.propiedadesVentana.CentrarVentana;
 
-public class PacketTreeSize extends JFrame {
+public class PacketTreeNumber extends JFrame {
 
 	private static final long serialVersionUID = -5605099331734601684L;
-
-	private int height;
-	private int width;
 	
 	private VisualizarCaptura vc;
 
@@ -39,7 +36,7 @@ public class PacketTreeSize extends JFrame {
 	private JTextField jTextField1;
 	private JTextField jTextField2;
 
-	public PacketTreeSize(VisualizarCaptura vc) {
+	public PacketTreeNumber(VisualizarCaptura vc) {
 		this.vc = vc;
 		initComponents();
 		setResizable(false);
@@ -47,9 +44,6 @@ public class PacketTreeSize extends JFrame {
 	}
 
 	private void initComponents() {
-
-		this.height = -1;
-		this.width = -1;
 
 		this.jPanel1 = new JPanel();
 		this.jPanel2 = new JPanel();
@@ -66,23 +60,23 @@ public class PacketTreeSize extends JFrame {
 		getContentPane().setLayout(new GridLayout(3, 2));
 		
 		setDefaultCloseOperation(2);
-		setTitle("Tamaño paquetes");
+		setTitle("Distribución paquetes");
 
-		this.jLabel1.setText("Alto mínimo:");
-		this.jLabel2.setText("Ancho mínimo:");
+		this.jLabel1.setText("Vertical:");
+		this.jLabel2.setText("Horizontal:");
 		
-		this.jTextField1.setText(""+vc.getMinVertical());
-		this.jTextField2.setText(""+vc.getMinHorizontal());
+		this.jTextField1.setText(""+vc.getNumVertical());
+		this.jTextField2.setText(""+vc.getNumHorizontal());
 
 		this.jButton1.setText("Aceptar");
 		this.jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				int minV = Integer.parseInt(jTextField1.getText());
 				int minH = Integer.parseInt(jTextField2.getText());
-				if(minV > vc.getMinVertical())
-					vc.setMinVertical(minV);
-				if(minH > vc.getMinHorizontal())
-					vc.setMinHorizontal(minH);
+				if(minV > vc.getNumVertical())
+					vc.setNumVertical(minV);
+				if(minH > vc.getNumHorizontal())
+					vc.setNumHorizontal(minH);
 				dispose();
 			}
 		});

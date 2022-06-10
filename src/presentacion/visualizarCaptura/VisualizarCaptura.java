@@ -39,8 +39,8 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 
 	public VisualizarCaptura(Mediador med) {
 		contadorarbol = 0;
-		minVertical = 170;
-		minHorizontal = 274;
+		numVertical = 1;
+		numHorizontal = 3;
 		hilo = null;
 		mediador = med;
 		mediador.setPanelEstado("Cargado datos desde fichero");
@@ -71,11 +71,11 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		/*Paneauxtree1 = new JPanel();
 		Paneauxtree2 = new JPanel();
 		Paneauxtree3 = new JPanel();*/
-		int vertical = Paneauxtree.getHeight() > minVertical ? (int) Paneauxtree.getHeight()/minVertical : 1;
-		int horizontal = Paneauxtree.getWidth() > minHorizontal*3 ? (int) Paneauxtree.getWidth()/minHorizontal : 3;
-		Paneauxtree.setLayout(new GridLayout(vertical, horizontal));
-		Paneauxtree_list = new ArrayList<JPanel>(vertical*horizontal);
-		for(int i = 0; i < vertical*horizontal; i++) {
+		//int vertical = Paneauxtree.getHeight() > numVertical ? (int) Paneauxtree.getHeight()/numVertical : 1;
+		//int horizontal = Paneauxtree.getWidth() > numHorizontal*3 ? (int) Paneauxtree.getWidth()/numHorizontal : 3;
+		Paneauxtree.setLayout(new GridLayout(numVertical, numHorizontal));
+		Paneauxtree_list = new ArrayList<JPanel>(numVertical*numHorizontal);
+		for(int i = 0; i < numVertical*numHorizontal; i++) {
 			PaneauxtreeX = new JPanel();
 			PaneauxtreeX.setLayout(new BorderLayout());
 			Paneauxtree_list.add(PaneauxtreeX);
@@ -154,12 +154,12 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	}
 
 	private void redimensionar() {
-		int vertical = Paneauxtree.getHeight() > minVertical ? (int) Paneauxtree.getHeight()/minVertical: 1;
-		int horizontal = Paneauxtree.getWidth() > minHorizontal*3 ? (int) Paneauxtree.getWidth()/minHorizontal : 3;
+		//int vertical = Paneauxtree.getHeight() > numVertical ? (int) Paneauxtree.getHeight()/numVertical: 1;
+		//int horizontal = Paneauxtree.getWidth() > numHorizontal*3 ? (int) Paneauxtree.getWidth()/numHorizontal : 3;
 		Paneauxtree.removeAll();
-		Paneauxtree.setLayout(new GridLayout(vertical, horizontal));
-		Paneauxtree_list = new ArrayList<JPanel>(vertical*horizontal);
-		for(int i = 0; i < vertical*horizontal; i++) {
+		Paneauxtree.setLayout(new GridLayout(numVertical, numHorizontal));
+		Paneauxtree_list = new ArrayList<JPanel>(numVertical*numHorizontal);
+		for(int i = 0; i < numVertical*numHorizontal; i++) {
 			PaneauxtreeX = new JPanel();
 			PaneauxtreeX.setLayout(new BorderLayout());
 			Paneauxtree_list.add(PaneauxtreeX);
@@ -170,7 +170,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	@SuppressWarnings("deprecation")
 	private void tableMouseClicked(java.awt.event.MouseEvent evt) {
 		if ((evt.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
-			new PacketTreeSize(this).setVisible(true);
+			new PacketTreeNumber(this).setVisible(true);
 		}
 	}
 
@@ -265,17 +265,28 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		PaneauxtreeX = Paneauxtree_list.get(contadorarbol-1);
 		PaneauxtreeX.removeAll();
 		PaneauxtreeX.add(scrollPane3, "Center");
+		/*JLabel bytesHex = new JLabel();
+		
+		byte[] bytes = paquete.getByteArray(0, paquete.size() < 200 ? paquete.size() : 200);
+		String bytesString = "";
+		for(int i = 0; i < bytes.length; i++) {
+			String st = String.format("%02X", bytes[i]);
+			bytesString += st + " ";
+		}
+		bytesHex.setText(bytesString);
+		PaneauxtreeX.add(bytesHex);*/
+		
 		if (PaneauxtreeX.getComponentCount() > 0) {
-			JScrollPane auxJSPanel;
+			JScrollPane auxJSPanel = null;
 			if(contadorarbol == 1)
 				try {
 					auxJSPanel = (JScrollPane) Paneauxtree_list.get(Paneauxtree_list.size()-1).getComponent(0);
-				} catch(ArrayIndexOutOfBoundsException e) {
-					auxJSPanel = scrollPane3;
-				}
-			else
+					auxJSPanel.setBorder(emptyBorder);
+				} catch(ArrayIndexOutOfBoundsException e) {}
+			else {
 				auxJSPanel = (JScrollPane) Paneauxtree_list.get(contadorarbol-2).getComponent(0);
-			auxJSPanel.setBorder(emptyBorder);
+				auxJSPanel.setBorder(emptyBorder);
+			}
 		}
 		
 		mediador.repaintVentana(mediador.getVentanaMenuSniffer());
@@ -390,20 +401,20 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		return TablaPaquetes.obtenerOrdenColumnas();
 	}
 	
-	public int getMinVertical() {
-		return minVertical;
+	public int getNumVertical() {
+		return numVertical;
 	}
 	
-	public void setMinVertical(int min) {
-		minVertical = min;
+	public void setNumVertical(int min) {
+		numVertical = min;
 	}
 	
-	public int getMinHorizontal() {
-		return minHorizontal;
+	public int getNumHorizontal() {
+		return numHorizontal;
 	}
 	
-	public void setMinHorizontal(int min) {
-		minHorizontal = min;
+	public void setNumHorizontal(int min) {
+		numHorizontal = min;
 	}
 	
 
@@ -450,7 +461,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	public JToolBar toolBar;
 	public JSeparator jSeparator;
 	public JLabel Label;
-	private int minVertical;
-	private int minHorizontal;
+	private int numVertical;
+	private int numHorizontal;
 	// public static SavePacketHandler ficheroxmlenconstruccion;
 }
