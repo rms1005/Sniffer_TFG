@@ -60,7 +60,7 @@
 /*  49:    */   
 /*  50:    */   public PreferenciasConfiguracion(Mediador med)
 /*  51:    */   {
-/*  52: 77 */     super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Configuración....", true);
+/*  52: 77 */     super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Configuración...", true);
 /*  53: 78 */     this.mediador = med;
 /*  54: 79 */     initComponents();
 /*  55: 80 */     setResizable(false);

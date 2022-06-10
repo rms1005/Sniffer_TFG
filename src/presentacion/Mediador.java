@@ -1020,7 +1020,7 @@ public class Mediador implements ActionListener, ItemListener,
 	public void setPanelEstado(String estado) {
 	}
 
-	public void habiliatarBHelemento(int posicion) {
+	public void habilitarBHelemento(int posicion) {
 		BarraHerramientas.habilitarComponenteBarraHerramientas(posicion);
 	}
 

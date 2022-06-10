@@ -112,7 +112,7 @@ public class FTableOptions
       }
     });
     this.jCheckBox1.setSelected(this.numeropaquete);
-    this.jCheckBox1.setText("nº");
+    this.jCheckBox1.setText("Packet number");
     this.jCheckBox1.addItemListener(new ItemListener()
     {
       public void itemStateChanged(ItemEvent evt)

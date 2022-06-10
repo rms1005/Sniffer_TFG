@@ -18,7 +18,7 @@ public class PrefIdentificacion
     public PrefIdentificacion()
     {
         listaIdentificacion = new ArrayList();
-        tamaF1o = 0;
+        tamano = 0;
         leer = new preferencesFileRead();
         fich = new File("./files/definiciones");
         File todos[] = fich.listFiles();
@@ -32,7 +32,7 @@ public class PrefIdentificacion
         return listaIdentificacion;
     }
 
-    public int getTamaF1oListaIdentificacion()
+    public int getTamanoListaIdentificacion()
     {
         return listaIdentificacion.size();
     }
@@ -60,7 +60,7 @@ public class PrefIdentificacion
         return sms;
     }
 
-    private boolean checkContiene(byte protocolo[], String valor, int inicio, int tamaF1o, String tipo)
+    private boolean checkContiene(byte protocolo[], String valor, int inicio, int tamano, String tipo)
     {
         boolean iguales = true;
         if(protocolo.length != 0)
@@ -75,7 +75,7 @@ public class PrefIdentificacion
             if(tipo.equals("Alfanumerico"))
             {
                 String aux = null;
-                for(int i = inicio; i < inicio + tamaF1o; i++)
+                for(int i = inicio; i < inicio + tamano; i++)
                     aux = (new StringBuilder(String.valueOf(aux))).append((char)protocolo[i]).toString();
 
                 String val[] = valor.split(",");
@@ -89,9 +89,9 @@ public class PrefIdentificacion
             }
             if(tipo.equals("Numerico"))
             {
-                byte valAux[] = new byte[tamaF1o];
+                byte valAux[] = new byte[tamano];
                 int j = 0;
-                for(int i = inicio; i < inicio + tamaF1o; i++)
+                for(int i = inicio; i < inicio + tamano; i++)
                 {
                     valAux[j] = protocolo[i];
                     j++;
@@ -148,13 +148,13 @@ public class PrefIdentificacion
             datos[i][0] = String.valueOf(prefAux.getObjetoTabla(i, 1));
             datos[i][1] = setValor(String.valueOf(prefAux.getObjetoTabla(i, 5)), contPos, Integer.valueOf(String.valueOf(prefAux.getObjetoTabla(i, 2))).intValue() / 8, arr);
             contPos += Integer.valueOf(String.valueOf(prefAux.getObjetoTabla(i, 2))).intValue() / 8;
-            tamaF1o += Integer.valueOf(String.valueOf(prefAux.getObjetoTabla(i, 2))).intValue() / 8;
+            tamano += Integer.valueOf(String.valueOf(prefAux.getObjetoTabla(i, 2))).intValue() / 8;
         }
 
         return datos;
     }
 
-    private static String setValor(String tipo, int inicio, int tamaF1o, byte protocolo[])
+    private static String setValor(String tipo, int inicio, int tamano, byte protocolo[])
     {
         if(tipo.equals("Booleano"))
         {
@@ -166,16 +166,16 @@ public class PrefIdentificacion
         if(tipo.equals("Alfanumerico"))
         {
             String aux = "";
-            for(int i = inicio; i < inicio + tamaF1o; i++)
+            for(int i = inicio; i < inicio + tamano; i++)
                 aux = (new StringBuilder(String.valueOf(aux))).append((char)protocolo[i]).toString();
 
             return aux;
         }
         if(tipo.equals("Numerico"))
         {
-            byte valAux[] = new byte[tamaF1o];
+            byte valAux[] = new byte[tamano];
             int j = 0;
-            for(int i = inicio; i < inicio + tamaF1o; i++)
+            for(int i = inicio; i < inicio + tamano; i++)
             {
                 valAux[j] = protocolo[i];
                 j++;
@@ -189,13 +189,13 @@ public class PrefIdentificacion
         }
     }
 
-    private String getCampoLeido(char cadena[], int tamaF1o, int inicio, String tipo)
+    private String getCampoLeido(char cadena[], int tamano, int inicio, String tipo)
     {
-        char campo[] = new char[tamaF1o];
+        char campo[] = new char[tamano];
         int j = 0;
         if(tipo.equals("Alfanumerico"))
         {
-            for(int i = inicio; i < inicio + tamaF1o; i++)
+            for(int i = inicio; i < inicio + tamano; i++)
             {
                 campo[j] = cadena[i];
                 j++;
@@ -213,7 +213,7 @@ public class PrefIdentificacion
         if(tipo.equals("Numerico"))
         {
             j = 0;
-            for(int i = inicio; i < inicio + tamaF1o; i++)
+            for(int i = inicio; i < inicio + tamano; i++)
             {
                 campo[j] = cadena[i];
                 j++;
@@ -249,13 +249,13 @@ public class PrefIdentificacion
         }
     }
 
-    public int getTamaF1o()
+    public int getTamano()
     {
-        return tamaF1o;
+        return tamano;
     }
 
     private ArrayList listaIdentificacion;
     private File fich;
-    private int tamaF1o;
+    private int tamano;
     private preferencesFileRead leer;
 }

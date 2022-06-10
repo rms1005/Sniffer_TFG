@@ -25,6 +25,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import presentacion.Mediador;
 import presentacion.propiedadesVentana.CentrarVentana;
+import presentacion.visualizarCaptura.GuardadoCaptura;
 import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 /**
@@ -213,7 +214,7 @@ public class Fcaptura extends JFrame {
 		});
 		this.jPanel1.setLayout(new AbsoluteLayout());
 
-		this.jPanel1.setBorder(new TitledBorder("Estadística de Paquetes"));
+		this.jPanel1.setBorder(new TitledBorder("EstadÃ­stica de Paquetes"));
 		this.jPanel1.add(this.jProgressBar1, new AbsoluteConstraints(70, 30,
 				60, 20));
 
@@ -315,7 +316,7 @@ public class Fcaptura extends JFrame {
 		this.jButton1.setText("PARAR Captura");
 		this.jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Fcaptura.this.jButton1ActionPerformed(evt);
+				new GuardadoCaptura(Fcaptura.this).setVisible(true);
 			}
 		});
 		getContentPane().add(this.jButton1,
@@ -339,8 +340,8 @@ public class Fcaptura extends JFrame {
 	public void salir() {
 		this.mediador.irFinCapturePcapLib();
 
-		this.mediador.habiliatarBHelemento(3);
-		this.mediador.habiliatarBHelemento(4);
+		this.mediador.habilitarBHelemento(3);
+		this.mediador.habilitarBHelemento(4);
 
 		this.mediador.deshabilitarComponenteBarraMenus(1, 1);
 
@@ -403,7 +404,7 @@ public class Fcaptura extends JFrame {
 	public void intervalo(int total, int numpackets, int ethernet, int arp,
 			int ip, int icmp, int igmp, int tcp, int udp) {
 		this.jLabel22.setText("Num.");
-		this.jLabelpk.setText("Total paquetes :" + String.valueOf(total));
+		this.jLabelpk.setText("Total paquetes: " + String.valueOf(total));
 
 		this.jProgressBar8.setMaximum(this.PACKET_COUNT);
 		this.jProgressBar8.setValue(total);

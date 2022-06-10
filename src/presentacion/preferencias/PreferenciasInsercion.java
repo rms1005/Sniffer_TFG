@@ -2315,7 +2315,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		boolean encontrado = true;
 		String ruta = "";
 
-		for (int i = 0; i < pref.getTamaF1oListaIdentificacion()
+		for (int i = 0; i < pref.getTamanoListaIdentificacion()
 				&& encontrado == true; i++) {
 			if (pref.getElementoListaIdentificacion(i).getNomProtocolo()
 					.equals(valueOf)) {
@@ -2587,7 +2587,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	private void rellenarNiveles() {
 		pref = new PrefIdentificacion();
 		if (this.pref != null) {
-			for (int i = 0; i < pref.getTamaF1oListaIdentificacion(); i++) {
+			for (int i = 0; i < pref.getTamanoListaIdentificacion(); i++) {
 				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo()
 						.equals("2")) {
 					jcmbNivel1.addItem(pref.getElementoListaIdentificacion(i)

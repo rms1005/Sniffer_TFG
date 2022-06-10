@@ -149,7 +149,7 @@ public class VentanaAbrirElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_CAPTURAS"));
             fc.setCurrentDirectory(directorio);
         }
-        		/*Detención de Captura de intrusos*/
+        		/*Detenciï¿½n de Captura de intrusos*/
 //        if(tip.equals("Seleccionar Archivo de Captura"))
 //        {
 //            fc.setDialogTitle("Seleccionar Archivo de Captura");
@@ -160,7 +160,7 @@ public class VentanaAbrirElegirFichero extends JDialog
 //        } 
 //           
 //        
-//   		/*Detención de intrusos*/
+//   		/*Detenciï¿½n de intrusos*/
 //        if(tip.equals("CapturaIntrusos"))
 //        {
 //            fc.setDialogTitle("Seleccionar Archivo de Captura");
@@ -191,8 +191,8 @@ public class VentanaAbrirElegirFichero extends JDialog
                 if(tip.equals("Abrir fichero de Capturas..."))
                 {
                     mediador.AbrirFicheroCaptura(fRuta);
-                    mediador.habiliatarBHelemento(3);
-                    mediador.habiliatarBHelemento(4);
+                    mediador.habilitarBHelemento(3);
+                    mediador.habilitarBHelemento(4);
                     mediador.habilitarComponenteBarraMenus(1, 1);
                     mediador.habilitarComponenteBarraMenus(0, 1);
                     System.out.println((new StringBuilder("Abrir fichero de Capturas...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
@@ -253,13 +253,13 @@ public class VentanaAbrirElegirFichero extends JDialog
 //                if(tip.equals("CapturaIntrusos"))
 //                {
 //                	PreferenciasIntruso.setOrigen(fRuta);
-//                	System.out.println((new StringBuilder("Selección de fichero xml...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
+//                	System.out.println((new StringBuilder("Selecciï¿½n de fichero xml...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
 //                    
 //                }
 //                if(tip.equals("Intrusos"))
 //                {
 //                	PreferenciasIntruso.setOrigen2(fRuta);
-//                    System.out.println((new StringBuilder("Selección de fichero txt...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
+//                    System.out.println((new StringBuilder("Selecciï¿½n de fichero txt...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
 //                    
 //                }
             } else

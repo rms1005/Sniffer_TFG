@@ -43,8 +43,7 @@ public class SelectColor
     this.jButton1 = new JButton();
     this.jButton2 = new JButton();
     
-    getContentPane().setLayout(
-      new AbsoluteLayout());
+    getContentPane().setLayout(new AbsoluteLayout());
     
     addWindowListener(new WindowAdapter()
     {
@@ -61,10 +60,7 @@ public class SelectColor
           SelectColor.this.newColor = SelectColor.this.jColorChooser1.getColor();
         }
       });
-    getContentPane().add(
-      this.jColorChooser1, 
-      new AbsoluteConstraints(0, 0, 410, 
-      270));
+    getContentPane().add(this.jColorChooser1, new AbsoluteConstraints(0, 0, 410, 270));
     
     this.jButton1.setText("Aceptar");
     this.jButton1.addActionListener(new ActionListener()
@@ -74,10 +70,7 @@ public class SelectColor
         SelectColor.this.jButton1ActionPerformed(evt);
       }
     });
-    getContentPane().add(
-      this.jButton1, 
-      new AbsoluteConstraints(140, 280, -1, 
-      -1));
+    getContentPane().add(this.jButton1, new AbsoluteConstraints(140, 280, -1, -1));
     
     this.jButton2.setText("Cancelar");
     this.jButton2.addActionListener(new ActionListener()
@@ -87,10 +80,7 @@ public class SelectColor
         SelectColor.this.jButton2ActionPerformed(evt);
       }
     });
-    getContentPane().add(
-      this.jButton2, 
-      new AbsoluteConstraints(210, 280, -1, 
-      -1));
+    getContentPane().add(this.jButton2, new AbsoluteConstraints(210, 280, -1, -1));
     
     pack();
   }

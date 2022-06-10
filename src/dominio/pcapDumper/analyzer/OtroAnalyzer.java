@@ -7,7 +7,7 @@ import dominio.preferences.identificacion.PrefIdentificacion;
 /** 
  * Clase OtroAnalyzer. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -30,7 +30,7 @@ public class OtroAnalyzer
     /** Metodo  donde se analiza el paquete recibido si no es ninguno de los esperados se mete aqui.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
     public boolean isAnalyzable(PcapPacket paquete)
     {
@@ -44,7 +44,7 @@ public class OtroAnalyzer
     /** Metodo  donde se analiza el paquete recibido si no es ninguno de los esperados se mete aqui.
      * @param byte arr[], String path, PrefIdentificacion pref
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */  
     public static void analizar(byte arr[], String path, PrefIdentificacion pref)
     {
@@ -52,7 +52,7 @@ public class OtroAnalyzer
         String prot = "";
         nombre = pref.getIdentificacionProtocolo(arr);
         values = pref.getCamposProtocoloIdentificado(nombre, arr);
-        pref.getTamaF1o();
+        pref.getTamano();
     }
 
     private static String dataCaracter(byte arr[])
