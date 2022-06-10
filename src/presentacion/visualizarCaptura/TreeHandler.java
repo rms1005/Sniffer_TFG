@@ -74,6 +74,7 @@ public class TreeHandler
             packetAnalyzer = new FTPAnalyzer();
             if(otro.isAnalyzable(paquete) && !packetAnalyzer.isAnalyzable(paquete))
                 TreePacket.treepkOtro(paquete, pref);
+            TreePacket.mostrarBytesIniciales(paquete);
         }
         catch(Exception e)
         {
