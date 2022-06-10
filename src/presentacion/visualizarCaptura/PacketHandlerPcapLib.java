@@ -18,7 +18,7 @@ import dominio.pcapDumper.analyzer.UDPAnalyzer;
 /** 
  * Clase PacketHandlerPcapLib. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -113,10 +113,9 @@ public class PacketHandlerPcapLib
             }
             RTablePane.DatosPk();
             
-     
-            RTablePane.DatosRawPaquete(String.valueOf(i), String.valueOf(new Date(packet.getCaptureHeader().hdr_sec()+ packet.getCaptureHeader().hdr_usec()).toString()), String.valueOf(packet.getCaptureHeader().caplen()));
+            RTablePane.DatosRawPaquete(String.valueOf(i), String.valueOf(new Date(packet.getCaptureHeader().timestampInMillis()).toString()), String.valueOf(packet.getCaptureHeader().caplen()));
             RTablePane.DatosPaquete(macsource, macdest, frame, protocol, ipsrc, ipdest, portsrc, portdest, seq, ack, length);
-                   
+            
           //  System.out.println(""+macsource+","+ macdest+","+ frame+","+ protocol+","+ ipsrc.toString()+","+ ipdest.toString()+","+ portsrc +","+ portdest+","+ seq+","+ ack+","+ length);
             VisualizarCaptura.addpackethistory(packet);
                   i++;

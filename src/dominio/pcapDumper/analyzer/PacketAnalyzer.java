@@ -55,7 +55,7 @@ public class PacketAnalyzer extends JDPacketAnalyzer
     public Object getValue(String name)
     {
         if(name.equals(valueNames[0]))
-            return (new Date(packet.getCaptureHeader().hdr_sec()+ packet.getCaptureHeader().hdr_usec()).toString());
+            return (new Date(packet.getCaptureHeader().timestampInMillis()).toString());
         	//return (new Date(packet.sec * 1000L + packet.usec / 1000L)).toString();
         if(name.equals(valueNames[1]))
           return Integer.valueOf(packet.getCaptureHeader().caplen());
