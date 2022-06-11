@@ -28,55 +28,55 @@ public class CBGuardarFichero extends JButton
             setToolTipText("Guardar fichero capturado");
             setMnemonic('G');
         }
-        if(titulo.equals("Guardar fichero de preferecias..."))
+        else if(titulo.equals("Guardar fichero de preferecias..."))
         {
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("xml.png").toString()));
             setToolTipText("Guardar fichero preferencias");
             setMnemonic('F');
         }
-        if(titulo.equals("Exportar fichero a XML..."))
+        else if(titulo.equals("Exportar fichero a XML..."))
         {
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("xml.png").toString()));
             setToolTipText("Exportar fichero a XML...");
             setMnemonic('X');
         }
-        if(titulo.equals("Browse..."))
+        else if(titulo.equals("Browse..."))
         {
             setMnemonic('W');
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open.png").toString()));
         }
-        if(titulo.equals("Browse...FromFile"))
+        else if(titulo.equals("Browse...FromFile"))
         {
             setMnemonic('W');
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open.png").toString()));
         }
-        if(titulo.equals("GuardarInicioCapturaXML"))
+        else if(titulo.equals("GuardarInicioCapturaXML"))
         {
             setMnemonic('G');
             setText("Guardar");
         }
-        if(titulo.equals("GuardarInicioCapturaXMLFromFile"))
+        else if(titulo.equals("GuardarInicioCapturaXMLFromFile"))
         {
             setMnemonic('G');
             setText("Guardar");
         }
-        if(titulo.equals("GenerarBatBat"))
+        else if(titulo.equals("GenerarBatBat"))
         {
             setMnemonic('W');
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open_small.png").toString()));
         }
-        if(titulo.equals("GenerarFromFileXML"))
+        else if(titulo.equals("GenerarFromFileXML"))
         {
             setMnemonic('W');
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open_small.png").toString()));
         }
-        if(titulo.equals("GenerarFromFileXMLSaveXML"))
+        else if(titulo.equals("GenerarFromFileXMLSaveXML"))
         {
             setText(" Guardar ");
             setFont(new Font("Arial", 1, 12));
             setAlignmentY(0.5F);
         }
-        if(titulo.equals("GuardarProtocoloDefinido"))
+        else if(titulo.equals("GuardarProtocoloDefinido"))
         {
             setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("save.png").toString()));
             setToolTipText("Guardar Protocolo definido");

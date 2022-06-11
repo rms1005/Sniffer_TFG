@@ -42,32 +42,32 @@ public class CBAceptar extends JButton
         boolean estado = true;
         if(titulo.equals("AceptarInicioCaptura"))
             estado = mediador.botonAceptarInicoCapturaDumper();
-        if(titulo.equals("AceptarConfiguracion"))
+        else if(titulo.equals("AceptarConfiguracion"))
             mediador.botonAceptarConfiguracion();
-        if(titulo.equals("AceptarInicioCapturaFromFile"))
+        else if(titulo.equals("AceptarInicioCapturaFromFile"))
             mediador.botonAceptarInicoCapturaDumperFromFile();
-        if(titulo.equals("GenerarScript"))
+        else if(titulo.equals("GenerarScript"))
             mediador.GenerarBatCaptura();
-        if(titulo.equals("GenerarXML"))
+        else if(titulo.equals("GenerarXML"))
             mediador.GenerarXMLFromFile();
-        if(titulo.equals("GenerarXMLProtocolo"))
+        else if(titulo.equals("GenerarXMLProtocolo"))
             mediador.GenerarXMLProtocolo();
-        if(titulo.equals("ChequearDefinicionProtocolo"))
+        else if(titulo.equals("ChequearDefinicionProtocolo"))
         {
             mediador.ChequearDefinicionProtocolo();
             estado = false;
         }
-        if(titulo.equals("RefrescarTablaProtocolo"))
+        else if(titulo.equals("RefrescarTablaProtocolo"))
         {
             mediador.ChequearIdentificacionProtocolo();
             estado = false;
         }
-        if(titulo.equals("Insertar Paquetes Capturados"))
+        else if(titulo.equals("Insertar Paquetes Capturados"))
         {
             mediador.irAInsertarPaquetes("Insertar Paquetes Capturados", PreferenciasInsercion.getEnvios());
             estado = false;
         }
-        if(titulo.equals("Insertar Paquetes Definidos"))
+        else if(titulo.equals("Insertar Paquetes Definidos"))
         {
             mediador.irAInsertarPaquetes("Insertar Paquetes Definidos", PreferenciasInsercion.getEnvios());
             estado = false;
