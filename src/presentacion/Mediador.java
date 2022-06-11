@@ -44,6 +44,7 @@ import presentacion.preferencias.PreferenciasFromFile;
 import presentacion.preferencias.PreferenciasGenerarBat;
 import presentacion.preferencias.PreferenciasInsercion;
 import presentacion.preferencias.PreferenciasInsercionCapturados; //import presentacion.preferencias.PreferenciasIntruso;
+import presentacion.preferencias.PreferenciasPaqueteDetalle;
 import presentacion.preferencias.PreferenciasVisualizarInsercion;
 import presentacion.propiedadesVentana.CentrarVentana;
 import presentacion.seleccionFicheros.VentanaAbrirElegirFichero;
@@ -267,7 +268,7 @@ public class Mediador implements ActionListener, ItemListener,
 	// }
 	// }
 	public void irInicioCaptureFromFile(boolean tipo) {
-		setPanelEstado("Iniciando preconfiguracin para captura de datos..");
+		setPanelEstado("Iniciando preconfiguración para captura de datos...");
 		PreferenciasFromFile prefCapFromFile = new PreferenciasFromFile(tipo,
 				this);
 		PrefCapLlenarDatosFromFile();
@@ -275,7 +276,7 @@ public class Mediador implements ActionListener, ItemListener,
 	}
 
 	public void irAExportFromFile(boolean tipo) {
-		setPanelEstado("Iniciando preconfiguracin para exportacin de datos..");
+		setPanelEstado("Iniciando preconfiguración para exportación de datos...");
 
 		PreferenciasExportacion prefExp = new PreferenciasExportacion(tipo,
 				this);
@@ -1159,6 +1160,28 @@ public class Mediador implements ActionListener, ItemListener,
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void irADetallePaquete() {
+		setPanelEstado("Iniciando preconfiguración para visualizar paquetes en detalle...");
+		PreferenciasPaqueteDetalle prefPacketDetail = new PreferenciasPaqueteDetalle(this);
+		PrefPacketDetLlenarDatosFromFile();
+		prefPacketDetail.setVisible(true);
+	}
+
+	private void PrefPacketDetLlenarDatosFromFile() {
+		/*try {
+			preferencesBeanExport pBE = FachadaDominio.getPrefBeanExport();
+
+			PreferenciasExportacion.setOrigen(pBE.getExpSource());
+			PreferenciasExportacion.setDestino(pBE.getExpDestination());
+			PreferenciasExportacion.setMultiFile(pBE.getExpMultifile());
+		} catch (NullPointerException e) {
+			System.out
+					.println("Error lectura preferencias. Null Pointer Exception");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
 	}
 
 }

@@ -83,6 +83,8 @@ public class BarraMenu extends JPanel
         menuParametrizacion.add((CJMPreferenciasExportar)cJMPreferenciasExportar);
         cJMPreferenciasFromFile = new CJMPreferenciasFromFile(mediador);
         menuParametrizacion.add((CJMPreferenciasFromFile)cJMPreferenciasFromFile);
+        cJMPreferenciasPaqueteDetalle = new CJMPreferenciasDetallePaquetes(mediador);
+        menuParametrizacion.add((CJMPreferenciasDetallePaquetes) cJMPreferenciasPaqueteDetalle);
         menuParametrizacion.addSeparator();
         cJMPreferenciasGenerar = new CJMPreferenciasGenerar(mediador);
         menuParametrizacion.add((CJMPreferenciasGenerar)cJMPreferenciasGenerar);
@@ -218,6 +220,7 @@ public class BarraMenu extends JPanel
     Comando cJMPreferenciasFromFile;
     Comando cJMPreferenciasGenerar;
     Comando cJMPreferenciasExportar;
+    Comando cJMPreferenciasPaqueteDetalle;
     Comando cJMAyudaContenidos;
     Comando cJMAyudaAcercaDe;
     //Comando cJMIntrusos;
