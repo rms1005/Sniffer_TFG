@@ -30,6 +30,7 @@ import dominio.preferences.preferencesBeanExportInsercion;
 import dominio.preferences.preferencesBeanFromFile;
 import dominio.preferences.preferencesBeanMeta;
 import dominio.preferences.preferencesFileRead;
+import dominio.preferences.preferencesBeanDetallePaquete;
 import dominio.preferences.capture.PreferencesSniffer;
 import dominio.preferences.definicion.PreferencesCheckDefinicion;
 import dominio.preferences.definicion.PreferencesSnifferDefinicion;
@@ -1299,6 +1300,11 @@ public class FachadaDominio
     
     public static void chequearDefinicionProtocolo(){
 		PreferencesCheckDefinicion check = new PreferencesCheckDefinicion();
+	}
+    
+	public static preferencesBeanDetallePaquete getPrefDetallePaquete() {
+		preferencesFileRead aux = getPreferences();
+        return aux.getPBDetallePaquete();
 	}
 
 

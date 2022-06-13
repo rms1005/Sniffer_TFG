@@ -471,6 +471,13 @@ public class preferencesFileRead
             pBDefinicion = new preferencesBeanDefinicion();
         return pBDefinicion;
     }
+    
+    public preferencesBeanDetallePaquete getPBDetallePaquete()
+    {
+        if(pBDetallePaquete == null)
+        	pBDetallePaquete = new preferencesBeanDetallePaquete();
+        return pBDetallePaquete;
+    }
 
     private void prefCapture(Element auxElement)
     {
@@ -821,6 +828,7 @@ public class preferencesFileRead
     private preferencesBeanMeta pBMeta;
     private preferencesBeanDefinicion pBDefinicion;
     private preferencesBeanIdentificacion pBIdentificacion;
+    private preferencesBeanDetallePaquete pBDetallePaquete;
     private String ficheroCapture;
     private String ficheroExport;
     private String ficheroFromFile;

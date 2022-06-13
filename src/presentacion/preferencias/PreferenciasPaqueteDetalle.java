@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import org.jdesktop.layout.GroupLayout;
 
 import presentacion.Mediador;
-import presentacion.comandos.CBAceptar;
+import presentacion.comandos.CBGuardarFichero;
 import presentacion.comandos.Comando;
 import presentacion.propiedadesVentana.CentrarVentana;
 
@@ -36,20 +36,20 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 	private JPanel jPanelNVent;
 	private JLabel jLabelNVent1;
 	private JLabel jLabelNVent2;
-	private JTextField jTextFieldNVent1;
-	private JTextField jTextFieldNVent2;
+	private static JTextField jTextFieldNVent1;
+	private static JTextField jTextFieldNVent2;
 
 	private JPanel jPanelNBytes;
 	private ButtonGroup buttonGroupNBytes;
-	private JRadioButton jRadioButtonNBytes1;
-	private JRadioButton jRadioButtonNBytes2;
-	private JTextField jTextFieldNBytes;
+	private static JRadioButton jRadioButtonNBytes1;
+	private static JRadioButton jRadioButtonNBytes2;
+	private static JTextField jTextFieldNBytes;
 	private JLabel jLabelNBytes;
 
 	private JPanel jPanelBytesType;
 	private ButtonGroup buttonGroupBytesType;
-	private JRadioButton jRadioButtonBytesType1;
-	private JRadioButton jRadioButtonBytesType2;
+	private static JRadioButton jRadioButtonBytesType1;
+	private static JRadioButton jRadioButtonBytesType2;
 
 	private Comando jButtonAceptar;
 	private JButton jButtonCancelar;
@@ -76,22 +76,22 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 		this.jPanelNVent = new JPanel();
 		this.jLabelNVent1 = new JLabel();
 		this.jLabelNVent2 = new JLabel();
-		this.jTextFieldNVent1 = new JTextField();
-		this.jTextFieldNVent2 = new JTextField();
+		jTextFieldNVent1 = new JTextField();
+		jTextFieldNVent2 = new JTextField();
 
 		this.jPanelNBytes = new JPanel();
 		this.buttonGroupNBytes = new ButtonGroup();
-		this.jRadioButtonNBytes1 = new JRadioButton();
-		this.jRadioButtonNBytes2 = new JRadioButton();
-		this.jTextFieldNBytes = new JTextField();
+		jRadioButtonNBytes1 = new JRadioButton();
+		jRadioButtonNBytes2 = new JRadioButton();
+		jTextFieldNBytes = new JTextField();
 		this.jLabelNBytes = new JLabel();
 
 		this.jPanelBytesType = new JPanel();
 		this.buttonGroupBytesType = new ButtonGroup();
-		this.jRadioButtonBytesType1 = new JRadioButton();
-		this.jRadioButtonBytesType2 = new JRadioButton();
+		jRadioButtonBytesType1 = new JRadioButton();
+		jRadioButtonBytesType2 = new JRadioButton();
 
-		this.jButtonAceptar = new CBAceptar(this.mediador, "DetallePaquetes");
+		this.jButtonAceptar = new CBGuardarFichero(this.mediador, "DetallePaquetes");
 		this.jButtonCancelar = new JButton();
 
 		setDefaultCloseOperation(2);
@@ -113,8 +113,8 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(this.jLabelNVent1))
 				.addPreferredGap(0)
 				.add(jPanelLayout1.createParallelGroup(1, false)
-				.add(this.jTextFieldNVent1, -2, 165, -2)
-				.add(this.jTextFieldNVent2))
+				.add(jTextFieldNVent1, -2, 165, -2)
+				.add(jTextFieldNVent2))
 				.addContainerGap(-1, 32767)));
 
 		jPanelLayout1.setVerticalGroup(
@@ -123,28 +123,28 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.addContainerGap()
 				.add(jPanelLayout1.createParallelGroup(2)
 				.add(this.jLabelNVent1)
-				.add(this.jTextFieldNVent1, -2, -1, -2))
+				.add(jTextFieldNVent1, -2, -1, -2))
 				.addPreferredGap(0, 19, 32767)
 				.add(jPanelLayout1.createParallelGroup(2)
 				.add(this.jLabelNVent2)
-				.add(this.jTextFieldNVent2, -2, -1, -2))
+				.add(jTextFieldNVent2, -2, -1, -2))
 				.add(20, 20, 20)));
 
 		this.jPanelNBytes.setBorder(BorderFactory.createTitledBorder("Cantidad de bytes mostrados"));
 
 		this.jLabelNBytes.setText(" bytes");
-		this.jTextFieldNBytes.setHorizontalAlignment(JLabel.CENTER);
+		jTextFieldNBytes.setHorizontalAlignment(JLabel.CENTER);
 
-		this.buttonGroupNBytes.add(this.jRadioButtonNBytes1);
-		this.jRadioButtonNBytes1.setMnemonic(1);
-		this.jRadioButtonNBytes1.setText("Primeros ");
-		this.jRadioButtonNBytes1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		this.jRadioButtonNBytes1.setMargin(new Insets(0, 0, 0, 0));
-		this.buttonGroupNBytes.add(this.jRadioButtonNBytes2);
-		this.jRadioButtonNBytes2.setMnemonic(2);
-		this.jRadioButtonNBytes2.setText("Fichero completo");
-		this.jRadioButtonNBytes2.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		this.jRadioButtonNBytes2.setMargin(new Insets(0, 0, 0, 0));
+		this.buttonGroupNBytes.add(jRadioButtonNBytes1);
+		jRadioButtonNBytes1.setMnemonic(1);
+		jRadioButtonNBytes1.setText("Primeros ");
+		jRadioButtonNBytes1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		jRadioButtonNBytes1.setMargin(new Insets(0, 0, 0, 0));
+		this.buttonGroupNBytes.add(jRadioButtonNBytes2);
+		jRadioButtonNBytes2.setMnemonic(2);
+		jRadioButtonNBytes2.setText("Fichero completo");
+		jRadioButtonNBytes2.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		jRadioButtonNBytes2.setMargin(new Insets(0, 0, 0, 0));
 
 		GroupLayout jPanelLayout2 = new GroupLayout(this.jPanelNBytes);
 		this.jPanelNBytes.setLayout(jPanelLayout2);
@@ -154,10 +154,10 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(26, 26, 26)
 				.add(jPanelLayout2.createParallelGroup(1)
 				.add(jPanelLayout2.createSequentialGroup()
-				.add(this.jRadioButtonNBytes1)
-				.add(this.jTextFieldNBytes)
+				.add(jRadioButtonNBytes1)
+				.add(jTextFieldNBytes)
 				.add(this.jLabelNBytes))
-				.add(this.jRadioButtonNBytes2))
+				.add(jRadioButtonNBytes2))
 				.addContainerGap(36, 32767)));
 
 		jPanelLayout2.setVerticalGroup(
@@ -165,25 +165,25 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(jPanelLayout2.createSequentialGroup()
 				.addContainerGap()
 				.add(jPanelLayout2.createParallelGroup(1)
-				.add(this.jRadioButtonNBytes1)
-				.add(this.jTextFieldNBytes)
+				.add(jRadioButtonNBytes1)
+				.add(jTextFieldNBytes)
 				.add(this.jLabelNBytes))
 				.addPreferredGap(0)
-				.add(this.jRadioButtonNBytes2)
+				.add(jRadioButtonNBytes2)
 				.addContainerGap(-1, 32767)));
 
 		this.jPanelBytesType.setBorder(BorderFactory.createTitledBorder("Tipo representación bytes"));
 
-		this.buttonGroupBytesType.add(this.jRadioButtonBytesType1);
-		this.jRadioButtonBytesType1.setMnemonic(3);
-		this.jRadioButtonBytesType1.setText("Hexadecimal");
-		this.jRadioButtonBytesType1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		this.jRadioButtonBytesType1.setMargin(new Insets(0, 0, 0, 0));
-		this.buttonGroupBytesType.add(this.jRadioButtonBytesType2);
-		this.jRadioButtonBytesType2.setMnemonic(4);
-		this.jRadioButtonBytesType2.setText("Decimal");
-		this.jRadioButtonBytesType2.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		this.jRadioButtonBytesType2.setMargin(new Insets(0, 0, 0, 0));
+		this.buttonGroupBytesType.add(jRadioButtonBytesType1);
+		jRadioButtonBytesType1.setMnemonic(3);
+		jRadioButtonBytesType1.setText("Hexadecimal");
+		jRadioButtonBytesType1.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		jRadioButtonBytesType1.setMargin(new Insets(0, 0, 0, 0));
+		this.buttonGroupBytesType.add(jRadioButtonBytesType2);
+		jRadioButtonBytesType2.setMnemonic(4);
+		jRadioButtonBytesType2.setText("Decimal");
+		jRadioButtonBytesType2.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		jRadioButtonBytesType2.setMargin(new Insets(0, 0, 0, 0));
 
 		GroupLayout jPanelLayout3 = new GroupLayout(this.jPanelBytesType);
 		this.jPanelBytesType.setLayout(jPanelLayout3);
@@ -192,17 +192,17 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(jPanelLayout3.createSequentialGroup()
 				.add(26, 26, 26)
 				.add(jPanelLayout3.createParallelGroup(1)
-				.add(this.jRadioButtonBytesType1)
-				.add(this.jRadioButtonBytesType2))
+				.add(jRadioButtonBytesType1)
+				.add(jRadioButtonBytesType2))
 				.addContainerGap(36, 32767)));
 
 		jPanelLayout3.setVerticalGroup(
 				jPanelLayout3.createParallelGroup(1)
 				.add(jPanelLayout3.createSequentialGroup()
 				.addContainerGap()
-				.add(this.jRadioButtonBytesType1)
+				.add(jRadioButtonBytesType1)
 				.addPreferredGap(0)
-				.add(this.jRadioButtonBytesType2)
+				.add(jRadioButtonBytesType2)
 				.addContainerGap(-1, 32767)));
 
 		this.jButtonCancelar.setText("Cancelar");
@@ -224,7 +224,7 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(this.jPanelNBytes)
 				.add(this.jPanelBytesType)
 				.add(layout.createSequentialGroup()
-				.add((CBAceptar) jButtonAceptar)
+				.add((CBGuardarFichero) jButtonAceptar)
 				.add(this.jButtonCancelar))));
 
 		layout.setVerticalGroup(
@@ -233,9 +233,51 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(this.jPanelNBytes)
 				.add(this.jPanelBytesType)
 				.add(layout.createParallelGroup(1)
-				.add((CBAceptar) this.jButtonAceptar)
+				.add((CBGuardarFichero) this.jButtonAceptar)
 				.add(this.jButtonCancelar)));
 
 		pack();
+	}
+	
+	public static int getFilasPaquetes() {
+		return Integer.valueOf(jTextFieldNVent1.getText());
+	}
+	
+	public static void setFilasPaquetes(int filas) {
+		jTextFieldNVent1.setText(""+filas);
+	}
+	
+	public static int getColumnasPaquetes() {
+		return Integer.valueOf(jTextFieldNVent2.getText());
+	}
+	
+	public static void setColumnasPaquetes(int columnas) {
+		jTextFieldNVent2.setText(""+columnas);
+	}
+	
+	public static boolean getPacketTotalBytes() {
+		return jRadioButtonNBytes2.isSelected();
+	}
+	
+	public static void setPacketTotalBytes(boolean flag) {
+		jRadioButtonNBytes1.setSelected(!flag);
+		jRadioButtonNBytes2.setSelected(flag);
+	}
+	
+	public static int getPacketBytes() {
+		return Integer.valueOf(jTextFieldNBytes.getText());
+	}
+	
+	public static void setPacketBytes(int firstXBytes) {
+		jTextFieldNBytes.setText(""+firstXBytes);
+	}
+	
+	public static boolean getBytesHex() {
+		return jRadioButtonBytesType1.isSelected();
+	}
+	
+	public static void setBytesHex(boolean flag) {
+		jRadioButtonBytesType1.setSelected(flag);
+		jRadioButtonBytesType2.setSelected(!flag);
 	}
 }

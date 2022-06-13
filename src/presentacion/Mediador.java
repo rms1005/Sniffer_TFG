@@ -5,6 +5,7 @@ import dominio.pcap.Insercion;
 import dominio.pcapDumper.SaveTime;
 import dominio.preferences.preferencesBeanCapture;
 import dominio.preferences.preferencesBeanDefinicion;
+import dominio.preferences.preferencesBeanDetallePaquete;
 import dominio.preferences.preferencesBeanExport;
 import dominio.preferences.preferencesBeanExportInsercion;
 import dominio.preferences.preferencesBeanFromFile;
@@ -1170,18 +1171,35 @@ public class Mediador implements ActionListener, ItemListener,
 	}
 
 	private void PrefPacketDetLlenarDatosFromFile() {
-		/*try {
-			preferencesBeanExport pBE = FachadaDominio.getPrefBeanExport();
-
-			PreferenciasExportacion.setOrigen(pBE.getExpSource());
-			PreferenciasExportacion.setDestino(pBE.getExpDestination());
-			PreferenciasExportacion.setMultiFile(pBE.getExpMultifile());
-		} catch (NullPointerException e) {
-			System.out
-					.println("Error lectura preferencias. Null Pointer Exception");
-		} catch (Exception e) {
+		try {
+			preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
+			
+			PreferenciasPaqueteDetalle.setFilasPaquetes(pBDP.getRows());
+			PreferenciasPaqueteDetalle.setColumnasPaquetes(pBDP.getColumns());
+			PreferenciasPaqueteDetalle.setPacketTotalBytes(pBDP.isTotalBytes());
+			PreferenciasPaqueteDetalle.setPacketBytes(pBDP.getBytes());
+			PreferenciasPaqueteDetalle.setBytesHex(pBDP.isBytesHex());
+			
+		} catch(NullPointerException e) {
+			System.out.println("Error lectura preferencias de detalle de paquetes. Null Pointer Exception");
+		} catch(Exception e) {
 			e.printStackTrace();
-		}*/
+		}
+	}
+
+	public void PrefPacketDetGuardarXML(int estate, String ruta) {
+		PrefPacketDetCogerDatos();
+		FachadaDominio.savePreferences(estate, ruta);
+	}
+	
+	public void PrefPacketDetCogerDatos() {
+		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
+		
+		pBDP.setRows(PreferenciasPaqueteDetalle.getFilasPaquetes());
+		pBDP.setColumns(PreferenciasPaqueteDetalle.getColumnasPaquetes());
+		pBDP.setTotalBytes(PreferenciasPaqueteDetalle.getPacketTotalBytes());
+		pBDP.setBytes(PreferenciasPaqueteDetalle.getPacketBytes());
+		pBDP.setBytesHex(PreferenciasPaqueteDetalle.getBytesHex());
 	}
 
 }

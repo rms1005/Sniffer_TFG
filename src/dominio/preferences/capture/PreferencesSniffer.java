@@ -119,4 +119,5 @@ public class PreferencesSniffer
     private preferencesBeanExport pBExport;
     private preferencesBeanFromFile pBFromFile;
     private preferencesBeanFromFile pBMeta;
+    private preferencesBeanDetallePaquete pBDetallePaquete;
 }

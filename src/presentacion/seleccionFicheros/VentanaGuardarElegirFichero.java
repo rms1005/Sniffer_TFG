@@ -59,7 +59,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_CAPTURAS"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("Guardar fichero de preferecias..."))
+        else if(tip.equals("Guardar fichero de preferecias..."))
         {
             fc.setDialogTitle("Guardar fichero de preferecias...");
             fc.setApproveButtonText("Guardar");
@@ -68,7 +68,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_CAPTURAS"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("Exportar fichero a XML...") || tip.equals("Captura a XML..."))
+        else if(tip.equals("Exportar fichero a XML...") || tip.equals("Captura a XML..."))
         {
             fc.setDialogTitle("Exportar fichero...");
             fc.setApproveButtonText("Exportar");
@@ -77,7 +77,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_EXPORTACIONES"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("Browse..."))
+        else if(tip.equals("Browse..."))
         {
             fc.setDialogTitle("Elegir ruta y fichero donde capturar...");
             fc.addChoosableFileFilter(filterpcap);
@@ -85,7 +85,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_CAPTURAS"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("Browse...FromFile"))
+        else if(tip.equals("Browse...FromFile"))
         {
             fc.setDialogTitle("Elegir ruta y fichero donde capturar...");
             fc.addChoosableFileFilter(filterpcap);
@@ -93,7 +93,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_CAPTURAS"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("GuardarInicioCapturaXML"))
+        else if(tip.equals("GuardarInicioCapturaXML"))
         {
             fc.setDialogTitle("Guardar Preferencias de Captura...");
             fc.setApproveButtonText("Guardar");
@@ -102,7 +102,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_PARAMETRIZACION"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("GuardarInicioCapturaXMLFromFile"))
+        else if(tip.equals("GuardarInicioCapturaXMLFromFile"))
         {
             fc.setDialogTitle("Guardar Preferencias de Captura desde fichero...");
             fc.setApproveButtonText("Guardar");
@@ -111,7 +111,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_PARAMETRIZACION"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("GenerarBatBat"))
+        else if(tip.equals("GenerarBatBat"))
         {
             fc.setDialogTitle("Guardar fichero .bat...");
             fc.setApproveButtonText("Aceptar");
@@ -120,7 +120,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_SCRIPTS"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("GenerarFromFileXML"))
+        else if(tip.equals("GenerarFromFileXML"))
         {
             fc.setDialogTitle("Guardar fichero .XML...");
             fc.setApproveButtonText("Aceptar");
@@ -129,7 +129,7 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_EXPORTACIONES"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("GenerarFromFileXMLSaveXML"))
+        else if(tip.equals("GenerarFromFileXMLSaveXML"))
         {
             fc.setDialogTitle("Guardar Preferencias de Exportaci\363n...");
             fc.setApproveButtonText("Guardar");
@@ -138,13 +138,22 @@ public class VentanaGuardarElegirFichero extends JDialog
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_PARAMETRIZACION"));
             fc.setCurrentDirectory(directorio);
         }
-        if(tip.equals("GuardarProtocoloDefinido"))
+        else if(tip.equals("GuardarProtocoloDefinido"))
         {
             fc.setDialogTitle("Guardar definicion de protocolo...");
             fc.setApproveButtonText("Guardar");
             fc.addChoosableFileFilter(filterxml);
             fc.setFileFilter(filterxml);
             File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_DEFINICIONES"));
+            fc.setCurrentDirectory(directorio);
+        }
+        else if(tip.equals("DetallePaquetes"))
+        {
+            fc.setDialogTitle("Guardar Preferencias de Detalle Paquetes...");
+            fc.setApproveButtonText("Guardar");
+            fc.addChoosableFileFilter(filterxml);
+            fc.setFileFilter(filterxml);
+            File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_PARAMETRIZACION"));
             fc.setCurrentDirectory(directorio);
         }
 //        if(tip.equals("ResultadoIntrusos"))
@@ -174,64 +183,69 @@ public class VentanaGuardarElegirFichero extends JDialog
             }
             if(sobreescribir == "Si")
             {
+                System.out.println("=>");
+                System.out.println("=>");
+                System.out.println(tip.toString());
+                System.out.println("=>");
                 if(tip.equals("Guardar fichero capturado..."))
                 {
                     mediador.savePcapFileCaptured(fRuta);
                     System.out.println((new StringBuilder("Guardar fichero capturado...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("Guardar fichero de preferecias..."))
+                else if(tip.equals("Guardar fichero de preferecias..."))
                 {
                     mediador.PrefCapGuardarXML(1, fRuta);
                     System.out.println((new StringBuilder("Guardar fichero de preferecias...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                System.out.println("=>");
-                System.out.println("=>");
-                System.out.println(tip.toString());
-                System.out.println("=>");
-                if(tip.equals("Exportar fichero a XML...") || tip.equals("Exportar Captura a XML...") || tip.equals("Captura a XML..."))
+                else if(tip.equals("Exportar fichero a XML...") || tip.equals("Exportar Captura a XML...") || tip.equals("Captura a XML..."))
                 {
                     mediador.guardarXML(file);
                     System.out.println((new StringBuilder("Exportar fichero......=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("Browse..."))
+                else if(tip.equals("Browse..."))
                 {
                     mediador.setPrefCapFichero(fRuta);
                     System.out.println((new StringBuilder("Fichero donde se guardara la captura...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("Browse...FromFile"))
+                else if(tip.equals("Browse...FromFile"))
                 {
                     mediador.setPrefCapFicheroFromFileFichero(fRuta);
                     System.out.println((new StringBuilder("Fichero donde se guardara la captura...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("GuardarInicioCapturaXML"))
+                else if(tip.equals("GuardarInicioCapturaXML"))
                 {
                     mediador.PrefCapGuardarXML(1, fRuta);
                     System.out.println((new StringBuilder("Guardar fichero de preferecias...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("GuardarInicioCapturaXMLFromFile"))
+                else if(tip.equals("GuardarInicioCapturaXMLFromFile"))
                 {
                     mediador.PrefCapGuardarXMLFromFile(3, fRuta);
                     System.out.println((new StringBuilder("Guardar fichero de preferecias...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("GenerarBatBat"))
+                else if(tip.equals("GenerarBatBat"))
                 {
                     mediador.setPrefGenFicheroBat(fRuta);
                     System.out.println((new StringBuilder("Seleccion de fichero .bat .....=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("GenerarFromFileXML"))
+                else if(tip.equals("GenerarFromFileXML"))
                 {
                     mediador.setExportFromFileXML(fRuta);
                     System.out.println((new StringBuilder("Seleccion de fichero .XML .....=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("GenerarFromFileXMLSaveXML"))
+                else if(tip.equals("GenerarFromFileXMLSaveXML"))
                 {
                     mediador.PrefExpGuardarXML(2, fRuta);
                     System.out.println((new StringBuilder("Guardar fichero de preferecias...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
-                if(tip.equals("GuardarProtocoloDefinido"))
+                else if(tip.equals("GuardarProtocoloDefinido"))
                 {
                     mediador.PrefDefGuardarXML(7, fRuta);
                     System.out.println((new StringBuilder("Guardar definicion de protocolo...=> ")).append(file.getName()).append("   ").append(file.getAbsolutePath()).toString());
+                }
+                else if(tip.equals("DetallePaquetes"))
+                {
+                    mediador.PrefPacketDetGuardarXML(1, fRuta);
+                    System.out.println((new StringBuilder("Guardar fichero de preferecias de detalles...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
 //                if(tip.equals("ResultadoIntrusos"))
 //                {

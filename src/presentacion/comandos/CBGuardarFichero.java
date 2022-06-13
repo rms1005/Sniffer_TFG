@@ -82,6 +82,11 @@ public class CBGuardarFichero extends JButton
             setToolTipText("Guardar Protocolo definido");
             setMnemonic('Q');
         }
+        else if(titulo.equals("DetallePaquetes"))
+        {
+        	setMnemonic('G');
+            setText("Guardar");
+        }
         
 //        if(titulo.equals("Resultado"))
 //        {
