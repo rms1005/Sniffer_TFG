@@ -6,7 +6,9 @@ import java.io.StringReader;
 import java.util.Vector;
 
 import org.jnetpcap.packet.PcapPacket;
+import org.jnetpcap.protocol.tcpip.Http;
 import org.jnetpcap.protocol.tcpip.Tcp;
+import org.jnetpcap.protocol.tcpip.Http.Request;
 
 //import jpcap.packet.Packet;
 //import jpcap.packet.TCPPacket;
@@ -14,29 +16,30 @@ import org.jnetpcap.protocol.tcpip.Tcp;
 /**
  * Clase HTTPAnalyzer.
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
 public class HTTPAnalyzer extends JDPacketAnalyzer {
-	private static final String[] valueNames = { "Method", "Header" };
+	private static final String[] valueNames = { "Method", "Header", "Version", "Host", "Request Url" };
 	String method;
 	Vector headers = new Vector();
 	Tcp tcppacket = new Tcp();
+	Http httpheader = new Http();
+	
 	public HTTPAnalyzer() {
 		this.layer = APPLICATION_LAYER;
 	}
 	/** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo ARP.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
 	public boolean isAnalyzable(PcapPacket p) {
-		if (p.hasHeader(tcppacket) && (tcppacket.source() == 80 || tcppacket.destination() == 80))
-		{
-			return true;
-		}
-		return false;
+		/*if(p.hasHeader(httpheader))
+			System.out.println(httpheader.toString());
+		return p.hasHeader(tcppacket) && p.hasHeader(httpheader);*/
+		return p.hasHeader(tcppacket) && (tcppacket.source() == 80 || tcppacket.destination() == 80);
 	}
 
 	public String getProtocolName() {
@@ -50,7 +53,7 @@ public class HTTPAnalyzer extends JDPacketAnalyzer {
      * con un tipo de protocolo HTTP.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */  
 	public void analyze(PcapPacket p) {
 		this.method = "";
@@ -58,12 +61,13 @@ public class HTTPAnalyzer extends JDPacketAnalyzer {
 		if (!isAnalyzable(p)) {
 			return;
 		}
+		p.getHeader(httpheader);
 		try {
 			BufferedReader in = new BufferedReader(new StringReader(new String(p.toString())));
 
 			this.method = in.readLine();
 			if ((this.method == null) || (this.method.indexOf("HTTP") == -1)) {
-				this.method = "Not HTTP Header";
+				this.method = httpheader.fieldValue(Request.RequestMethod);
 				return;
 			}
 			String l;
@@ -77,30 +81,32 @@ public class HTTPAnalyzer extends JDPacketAnalyzer {
 	}
 
 	public Object getValue(String valueName) {
-		if (valueNames[0].equals(valueName)) {
-			return this.method;
-		}
-		if (valueNames[1].equals(valueName)) {
-			return this.headers;
-		}
+		for (int i = 0; i < valueNames.length; i++)
+			if (valueNames[i].equals(valueName))
+				return getValueAt(i);
+
 		return null;
 	}
 
 	Object getValueAt(int index) {
-		if (index == 0) {
+		if (index == 0)
 			return this.method;
-		}
-		if (index == 1) {
+		else if (index == 1)
 			return this.headers;
-		}
+		else if (index == 2)
+			return httpheader.fieldValue(Request.RequestVersion);
+		else if (index == 3)
+			return httpheader.fieldValue(Request.Host);
+		else if (index == 4)
+			return httpheader.fieldValue(Request.RequestUrl);
 		return null;
 	}
 
 	public Object[] getValues() {
-		Object[] values = new Object[2];
-		values[0] = this.method;
-		values[1] = this.headers;
+		Object v[] = new Object[valueNames.length];
+		for (int i = 0; i < valueNames.length; i++)
+			v[i] = getValueAt(i);
 
-		return values;
+		return v;
 	}
 }

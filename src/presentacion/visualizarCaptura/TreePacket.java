@@ -351,6 +351,8 @@ public class TreePacket {
 			String strAux;
 			for (int i = 0; i < valueNames.length; i++) {
 				strAux = valueNames[i].toString();
+				DefaultMutableTreeNode childP = new DefaultMutableTreeNode(strAux + " : " + String.valueOf(packetAnalyzer.getValue(strAux)));
+				LayerP.add(childP);
 			}
 		}
 	}
