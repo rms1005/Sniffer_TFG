@@ -16,6 +16,7 @@ import dominio.pcapDumper.analyzer.SSHAnalyzer;
 import dominio.pcapDumper.analyzer.TCPAnalyzer;
 import dominio.pcapDumper.analyzer.TelnetAnalyzer;
 import dominio.pcapDumper.analyzer.UDPAnalyzer;
+import dominio.preferences.preferencesBeanDetallePaquete;
 import dominio.preferences.identificacion.PrefIdentificacion;
 import java.awt.Color;
 import java.awt.Component;
@@ -51,20 +52,25 @@ public class TreePacket {
 	private static byte[] auxConver;
 	private static int size;
 	private static int numBytesIniciales;
-	private static int parBytesPorFila;
+	private static int bytesPorFila;
+	private preferencesBeanDetallePaquete pBDP;
+	private static boolean completo;
+	private static boolean hex;
 
-	public TreePacket(int numero, PcapPacket paquete) {
+	public TreePacket(int numero, PcapPacket paquete, preferencesBeanDetallePaquete pBDC) {
 		Paquete = new DefaultMutableTreeNode("Packet");
 		DefaultMutableTreeNode child = new DefaultMutableTreeNode("Num :" + numero);
 		Paquete.add(child);
 		new TreeHandler(paquete);
-
+		this.pBDP = pBDC;
 		DefaultTreeModel modeloArbol = new DefaultTreeModel(Paquete);
 		this.tree = new JTree(modeloArbol);
 		this.tree.setCellRenderer(new MiRendererDeArbol());
 		
-		numBytesIniciales = 200;
-		parBytesPorFila = 10;
+		this.completo = pBDP.isTotalBytes();
+		this.hex = pBDP.isBytesHex();
+		numBytesIniciales = Integer.valueOf(this.pBDP.getBytes());
+		bytesPorFila = 10;
 		
 	}
 
@@ -523,34 +529,41 @@ public class TreePacket {
 	}
 	
 	static void mostrarBytesIniciales(PcapPacket packet) {
-		byte[] bytes = packet.getByteArray(0, packet.size() < numBytesIniciales ? packet.size() : numBytesIniciales);
+		byte[] bytes;
+		
+		if(completo)
+			bytes = packet.getByteArray(0, packet.size());
+		else
+			bytes = packet.getByteArray(0, packet.size() < numBytesIniciales ? packet.size() : numBytesIniciales);
 		
 		DefaultMutableTreeNode LayerP = new DefaultMutableTreeNode("Bytes iniciales: " + bytes.length);
 		Paquete.add(LayerP);
 		
 		String bytesString = "";
+		String byteX = "";
 		int index = 0;
 		
 		while(bytes.length - index != 0) {
 			bytesString = "";
 			
-			if (bytes.length - index < parBytesPorFila) {
+			if (bytes.length - index < bytesPorFila) {
 				for (int i = index; i < bytes.length; i++) {
+					byteX = hex ? String.format("%02X", bytes[i]) : ""+bytes[i];
 					if(i == index)
-						bytesString += String.format("%02X", bytes[i]);
+						bytesString += byteX;
 					else
-						bytesString += " " + String.format("%02X", bytes[i]);
+						bytesString += " " + byteX;
 				}
 				index = bytes.length;
 			} else {
-				for (int i = index; i < index + parBytesPorFila; i++) {
-					
+				for (int i = index; i < index + bytesPorFila; i++) {
+					byteX = hex ? String.format("%02X", bytes[i]) : ""+bytes[i];
 					if(i == index)
-						bytesString += String.format("%02X", bytes[i]);
+						bytesString += byteX;
 					else
-						bytesString += " " + String.format("%02X", bytes[i]);
+						bytesString += " " + byteX;
 				}
-				index += parBytesPorFila;
+				index += bytesPorFila;
 			}
 			DefaultMutableTreeNode childP = new DefaultMutableTreeNode(bytesString);
 			LayerP.add(childP);
