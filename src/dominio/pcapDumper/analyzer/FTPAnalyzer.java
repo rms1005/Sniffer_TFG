@@ -8,7 +8,7 @@ import org.jnetpcap.protocol.tcpip.Tcp;
 /** 
  * Clase FTPAnalyzer. 
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3 
 */
@@ -16,7 +16,9 @@ import org.jnetpcap.protocol.tcpip.Tcp;
 
 public class FTPAnalyzer extends JDPacketAnalyzer
 {
+	private static final String[] valueNames = {};
 	Tcp tcppacket = new Tcp();
+	
     public FTPAnalyzer()
     {
         layer = APPLICATION_LAYER;
@@ -24,7 +26,7 @@ public class FTPAnalyzer extends JDPacketAnalyzer
     /** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo FTP.
      * @param PcapPacket p 
      * @return boolean 
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */
     public boolean isAnalyzable(PcapPacket p)
     {
@@ -38,13 +40,13 @@ public class FTPAnalyzer extends JDPacketAnalyzer
 
     public String[] getValueNames()
     {
-        return null;
+        return valueNames;
     }
     /** Metodo  donde se analiza el paquete recibido convierte a un paquete objeto de 
      * con un tipo de protocolo FTP.
      * @param PcapPacket p 
      * @return sin valor de retorno
-     * @exception exceptions Ningún error (Excepción) definida
+     * @exception exceptions Ningï¿½n error (Excepciï¿½n) definida
      */  
     public void analyze(PcapPacket packet)
     {
@@ -52,16 +54,26 @@ public class FTPAnalyzer extends JDPacketAnalyzer
 
     public Object getValue(String s)
     {
-        return null;
+    	for (int i = 0; i < valueNames.length; i++)
+			if (valueNames[i].equals(s))
+				return getValueAt(i);
+
+		return null;
     }
 
     public Object getValueAt(int i)
     {
-        return null;
+    	if (i == 0)
+			return null;
+		return null;
     }
 
     public Object[] getValues()
     {
-        return null;
+    	Object v[] = new Object[valueNames.length];
+		for (int i = 0; i < valueNames.length; i++)
+			v[i] = getValueAt(i);
+
+		return v;
     }
 }
