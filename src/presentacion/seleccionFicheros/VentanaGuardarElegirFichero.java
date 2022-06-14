@@ -244,7 +244,7 @@ public class VentanaGuardarElegirFichero extends JDialog
                 }
                 else if(tip.equals("DetallePaquetes"))
                 {
-                    mediador.PrefPacketDetGuardarXML(1, fRuta);
+                    mediador.PrefPacketDetGuardarXML(7, fRuta);
                     System.out.println((new StringBuilder("Guardar fichero de preferecias de detalles...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
                 }
 //                if(tip.equals("ResultadoIntrusos"))

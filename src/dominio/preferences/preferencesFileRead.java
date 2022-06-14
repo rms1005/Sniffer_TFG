@@ -16,13 +16,15 @@ import org.jdom.input.SAXBuilder;
 */
 // Referenced classes of package dominio.preferences:
 //            preferencesBeanCapture, preferencesBeanExport, preferencesBeanFromFile, preferencesBeanMeta, 
-//            preferencesBeanDefinicion, preferencesBeanIdentificacion, preferencesBeanExportInsercion
+//            preferencesBeanDefinicion, preferencesBeanIdentificacion, preferencesBeanExportInsercion,
+//			  preferencesBeanDetallePaquete
 
 public class preferencesFileRead
 {
 
     public preferencesFileRead()
     {
+    	leerXML();
     }
 
     public void setFileReadCaptura(String ruta)
@@ -57,6 +59,16 @@ public class preferencesFileRead
         } else
         {
             System.out.println("Fichero de preferencias de lectura desde fichero no encontrado!!");
+            System.out.println("---Se cargar\341 parametros por defecto");
+        }
+        aux = leerXMLDetallePaquete();
+        if(aux)
+        {
+        	System.out.println("Fichero de preferencias de detalle de paquetes leido correctamente");
+        }
+        else
+        {
+        	System.out.println("Fichero de preferencias de detalle de paquetes no encontrado!!");
             System.out.println("---Se cargar\341 parametros por defecto");
         }
     }
@@ -339,6 +351,42 @@ public class preferencesFileRead
             }
             if(!exists)
                 pBExportInsert = new preferencesBeanExportInsercion();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return exists;
+    }
+    
+    public boolean leerXMLDetallePaquete()
+    {
+        boolean exists = true;
+        try
+        {
+            SAXBuilder builder = new SAXBuilder(false);
+            exists = (new File(getFileDetallePaquete())).exists();
+            if(exists)
+            {
+                Document doc = builder.build(new File(getFileDetallePaquete()));
+                Element root = doc.getRootElement();
+                List preferences = root.getChildren();
+                exists = false;
+                for(Iterator i = preferences.iterator(); i.hasNext();)
+                {
+                    Element pref = (Element)i.next();
+                    String auxName = pref.getName();
+                    if(auxName.equals("DetallePaquetePreferences"))
+                    {
+                        exists = true;
+                        pBDetallePaquete = new preferencesBeanDetallePaquete();
+                        prefDetallePaquete(pref);
+                    }
+                }
+
+            }
+            if(!exists)
+            	pBDetallePaquete = new preferencesBeanDetallePaquete();
         }
         catch(Exception e)
         {
@@ -700,6 +748,27 @@ public class preferencesFileRead
         }
 
     }
+    
+    private void prefDetallePaquete(Element auxElement)
+    {
+        prefDetalleNWindows(auxElement.getChild("NWindows"));
+        prefDetalleNBytes(auxElement.getChild("NBytes"));
+        prefDetalleBytesRepr(auxElement.getChild("BytesRepresentation"));
+    }
+    
+    private void prefDetalleNWindows(Element auxElement) {
+    	pBDetallePaquete.setRows(auxElement.getChild("Rows").getText());
+    	pBDetallePaquete.setColumns(auxElement.getChild("Columns").getText());
+    }
+    
+    private void prefDetalleNBytes(Element auxElement) {
+    	pBDetallePaquete.setTotalBytes(validate(auxElement.getChild("Complete").getText()));
+    	pBDetallePaquete.setBytes(auxElement.getChild("FirstBytes").getText());
+    }
+
+	private void prefDetalleBytesRepr(Element auxElement) {
+		pBDetallePaquete.setBytesHex(validate(auxElement.getChild("Hex").getText()));
+	}
 
     private boolean validate(String state)
     {
@@ -799,6 +868,22 @@ public class preferencesFileRead
             System.out.println("\t\t</Multiple_Files>");
             System.out.println("\t</MetaCapture>");
         }
+        if(pBDetallePaquete != null)
+        {
+        	System.out.println("\t<DetallePaquetePreferences>");
+            System.out.println("\t\t<NWindows>");
+            System.out.println((new StringBuilder("\t\t\t<Rows>")).append(noNull(pBDetallePaquete.getRows())).append("</Rows>").toString());
+            System.out.println((new StringBuilder("\t\t\t<Columns>")).append(noNull(pBDetallePaquete.getColumns())).append("</Columns>").toString());
+            System.out.println("\t\t</NWindows>");
+            System.out.println("\t\t<NBytes>");
+            System.out.println((new StringBuilder("\t\t\t<Complete>")).append(noNull(pBDetallePaquete.isTotalBytes())).append("</Complete>").toString());
+            System.out.println((new StringBuilder("\t\t\t<FirstBytes>")).append(pBDetallePaquete.getBytes()).append("</FirstBytes>").toString());
+            System.out.println("\t\t</NBytes>");
+            System.out.println("\t\t<BytesRepresentation>");
+            System.out.println((new StringBuilder("\t\t\t<Hex>")).append(noNull(pBDetallePaquete.isBytesHex())).append("</Hex>").toString());
+            System.out.println("\t\t</BytesRepresentation>");
+            System.out.println("\t</DetallePaquetePreferences>");
+        }
         System.out.println("</CaptureSniffer>");
     }
 
@@ -820,6 +905,27 @@ public class preferencesFileRead
             pBExportInsert = new preferencesBeanExportInsercion();
         return pBExportInsert;
     }
+    
+    public String getDefaultFileDetallePaquete()
+    {
+        return "./files/parametrizacion/DefaultPreferencesDetallePaquete.xml";
+    }
+    
+    public String getFileDetallePaquete()
+    {
+        String aux;
+        if(ficheroDetallePaquete == null || ficheroDetallePaquete == "")
+            aux = getDefaultFileDetallePaquete();
+        else
+            aux = ficheroDetallePaquete;
+        return aux;
+    }
+    
+    public void setFileDetallePaquete(String aux)
+    {
+    	ficheroDetallePaquete = aux;
+    }
+    
 
     private preferencesBeanCapture pBCapture;
     private preferencesBeanExport pBExport;
@@ -834,4 +940,5 @@ public class preferencesFileRead
     private String ficheroFromFile;
     private String ficheroMETA;
     private String ficheroDefinicion;
+    private String ficheroDetallePaquete;
 }

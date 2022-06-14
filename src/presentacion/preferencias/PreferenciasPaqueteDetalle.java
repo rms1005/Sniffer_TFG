@@ -52,7 +52,7 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 	private static JRadioButton jRadioButtonBytesType2;
 
 	private Comando jButtonAceptar;
-	private JButton jButtonCancelar;
+	private JButton jButtonSalir;
 
 	public PreferenciasPaqueteDetalle() {
 		super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Detalle paquetes", true);
@@ -69,7 +69,7 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 		initComponents();
 		setResizable(false);
 		new CentrarVentana(this);
-		setVisible(true);
+		setVisible(false);
 	}
 
 	private void initComponents() {
@@ -92,7 +92,7 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 		jRadioButtonBytesType2 = new JRadioButton();
 
 		this.jButtonAceptar = new CBGuardarFichero(this.mediador, "DetallePaquetes");
-		this.jButtonCancelar = new JButton();
+		this.jButtonSalir = new JButton();
 
 		setDefaultCloseOperation(2);
 
@@ -205,8 +205,8 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(jRadioButtonBytesType2)
 				.addContainerGap(-1, 32767)));
 
-		this.jButtonCancelar.setText("Cancelar");
-		this.jButtonCancelar.addActionListener(new ActionListener() {
+		this.jButtonSalir.setText("Salir");
+		this.jButtonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				dispose();
 			}
@@ -225,7 +225,7 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(this.jPanelBytesType)
 				.add(layout.createSequentialGroup()
 				.add((CBGuardarFichero) jButtonAceptar)
-				.add(this.jButtonCancelar))));
+				.add(this.jButtonSalir))));
 
 		layout.setVerticalGroup(
 			layout.createSequentialGroup()
@@ -234,25 +234,25 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(this.jPanelBytesType)
 				.add(layout.createParallelGroup(1)
 				.add((CBGuardarFichero) this.jButtonAceptar)
-				.add(this.jButtonCancelar)));
+				.add(this.jButtonSalir)));
 
 		pack();
 	}
 	
-	public static int getFilasPaquetes() {
-		return Integer.valueOf(jTextFieldNVent1.getText());
+	public static String getFilasPaquetes() {
+		return jTextFieldNVent1.getText();
 	}
 	
-	public static void setFilasPaquetes(int filas) {
-		jTextFieldNVent1.setText(""+filas);
+	public static void setFilasPaquetes(String filas) {
+		jTextFieldNVent1.setText(filas);
 	}
 	
-	public static int getColumnasPaquetes() {
-		return Integer.valueOf(jTextFieldNVent2.getText());
+	public static String getColumnasPaquetes() {
+		return jTextFieldNVent2.getText();
 	}
 	
-	public static void setColumnasPaquetes(int columnas) {
-		jTextFieldNVent2.setText(""+columnas);
+	public static void setColumnasPaquetes(String columnas) {
+		jTextFieldNVent2.setText(columnas);
 	}
 	
 	public static boolean getPacketTotalBytes() {
@@ -264,12 +264,12 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 		jRadioButtonNBytes2.setSelected(flag);
 	}
 	
-	public static int getPacketBytes() {
-		return Integer.valueOf(jTextFieldNBytes.getText());
+	public static String getPacketBytes() {
+		return jTextFieldNBytes.getText();
 	}
 	
-	public static void setPacketBytes(int firstXBytes) {
-		jTextFieldNBytes.setText(""+firstXBytes);
+	public static void setPacketBytes(String firstXBytes) {
+		jTextFieldNBytes.setText(firstXBytes);
 	}
 	
 	public static boolean getBytesHex() {

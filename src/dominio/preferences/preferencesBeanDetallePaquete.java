@@ -13,27 +13,27 @@ public class preferencesBeanDetallePaquete implements Serializable {
 	
 	public void setDefaultSettings()
     {
-        this.rows = 0;
-        this.columns = 0;
+        this.rows = 1;
+        this.columns = 3;
         this.totalBytes = false;
         this.bytes = 200;
         this.bytesHex = true;;
     }
 	
-	public int getRows() {
-		return rows;
+	public String getRows() {
+		return ""+rows;
 	}
 
-	public void setRows(int rows) {
-		this.rows = rows;
+	public void setRows(String rows) {
+		this.rows = Integer.valueOf(rows);
 	}
 
-	public int getColumns() {
-		return columns;
+	public String getColumns() {
+		return ""+columns;
 	}
 
-	public void setColumns(int columns) {
-		this.columns = columns;
+	public void setColumns(String columns) {
+		this.columns = Integer.valueOf(columns);
 	}
 
 	public boolean isTotalBytes() {
@@ -44,12 +44,12 @@ public class preferencesBeanDetallePaquete implements Serializable {
 		this.totalBytes = totalBytes;
 	}
 
-	public int getBytes() {
-		return bytes;
+	public String getBytes() {
+		return ""+bytes;
 	}
 
-	public void setBytes(int bytes) {
-		this.bytes = bytes;
+	public void setBytes(String bytes) {
+		this.bytes = Integer.valueOf(bytes);
 	}
 
 	public boolean isBytesHex() {

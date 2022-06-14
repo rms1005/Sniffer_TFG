@@ -1201,5 +1201,10 @@ public class Mediador implements ActionListener, ItemListener,
 		pBDP.setBytes(PreferenciasPaqueteDetalle.getPacketBytes());
 		pBDP.setBytesHex(PreferenciasPaqueteDetalle.getBytesHex());
 	}
+	
+	public preferencesBeanDetallePaquete getPrefPacketDet() {
+		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
+		return pBDP;
+	}
 
 }

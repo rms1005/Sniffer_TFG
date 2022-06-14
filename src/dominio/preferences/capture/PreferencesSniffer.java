@@ -46,7 +46,12 @@ public class PreferencesSniffer
         setPrefCaptureMeta(pBMeta);
     }
 
-    private void setPrefCapture(preferencesBeanCapture pBCapture)
+    public void GenerateDetallePaquete(preferencesBeanDetallePaquete pBDetallePaquete)
+    {
+        setPrefDetallePaquete(pBDetallePaquete);
+    }
+
+	private void setPrefCapture(preferencesBeanCapture pBCapture)
     {
         elem = new PrefCapture(pBCapture);
         root.addContent(elem);
@@ -69,6 +74,12 @@ public class PreferencesSniffer
         elem = new PrefMeta(pBMeta);
         root.addContent(elem);
     }
+
+    private void setPrefDetallePaquete(preferencesBeanDetallePaquete pBDetallePaquete)
+    {
+    	elem = new PrefDetallePaquete(pBDetallePaquete);
+        root.addContent(elem);
+	}
 
     public void savePreferences()
     {

@@ -8,7 +8,9 @@ import presentacion.Mediador;
 public class CJMPreferenciasDetallePaquetes extends JMenuItem
 	implements Comando
 {
+	private static final long serialVersionUID = 2505065998505288055L;
 	
+
 	public CJMPreferenciasDetallePaquetes(Mediador mediador)
 	{
 		super("Detalle paquetes", 80);
@@ -22,6 +24,7 @@ public class CJMPreferenciasDetallePaquetes extends JMenuItem
 	public void ejecutar() {
 		mediador.irADetallePaquete();
 	}
+	
 	
 	private Mediador mediador;
 	

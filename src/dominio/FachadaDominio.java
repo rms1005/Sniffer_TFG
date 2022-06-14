@@ -1001,6 +1001,8 @@ public class FachadaDominio
             prue.GenerateFromto(aux.getPBFromFile());
         if(estado == 4 || estado == 5 || estado == 6)
             prue.GenerateMeta(aux.getPBMeta());
+        if(estado == 7)
+        	prue.GenerateDetallePaquete(aux.getPBDetallePaquete());
         prue.savePreferences();
         System.out.println("Guarda XML");
     }

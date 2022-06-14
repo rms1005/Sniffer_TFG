@@ -3,6 +3,8 @@ package presentacion.visualizarCaptura;
 
 import dominio.pcap.rules.*;
 import dominio.pcapDumper.Captura;
+import dominio.preferences.preferencesBeanDetallePaquete;
+
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.io.File;
@@ -39,10 +41,10 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 
 	public VisualizarCaptura(Mediador med) {
 		contadorarbol = 0;
-		numVertical = 1;
-		numHorizontal = 3;
-		hilo = null;
 		mediador = med;
+		pBDP = mediador.getPrefPacketDet();
+		actualizarValoresPreferencias();
+		hilo = null;
 		mediador.setPanelEstado("Cargado datos desde fichero");
 		VectorConexiones = new Vector<Conexion>();
 		history = new Vector<PcapPacket>();
@@ -68,11 +70,6 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		
 		// Trees (packets on detail)
 		Paneauxtree = new JPanel();
-		/*Paneauxtree1 = new JPanel();
-		Paneauxtree2 = new JPanel();
-		Paneauxtree3 = new JPanel();*/
-		//int vertical = Paneauxtree.getHeight() > numVertical ? (int) Paneauxtree.getHeight()/numVertical : 1;
-		//int horizontal = Paneauxtree.getWidth() > numHorizontal*3 ? (int) Paneauxtree.getWidth()/numHorizontal : 3;
 		Paneauxtree.setLayout(new GridLayout(numVertical, numHorizontal));
 		Paneauxtree_list = new ArrayList<JPanel>(numVertical*numHorizontal);
 		for(int i = 0; i < numVertical*numHorizontal; i++) {
@@ -81,17 +78,6 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 			Paneauxtree_list.add(PaneauxtreeX);
 			Paneauxtree.add(PaneauxtreeX);
 		}
-		Paneauxtree.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				tableMouseClicked(evt);
-			}
-		});
-		/*Paneauxtree1.setLayout(new BorderLayout());
-		Paneauxtree2.setLayout(new BorderLayout());
-		Paneauxtree3.setLayout(new BorderLayout());
-		Paneauxtree.add(Paneauxtree1);
-		Paneauxtree.add(Paneauxtree2);
-		Paneauxtree.add(Paneauxtree3);*/
 		
 		Paneconexiones.setBorder(new BevelBorder(0));
 		Paneconexiones.setLayout(new BorderLayout());
@@ -145,17 +131,13 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		for(int i = 0; i < Paneauxtree_list.size(); i++) {
 			Paneauxtree_list.get(i).removeAll();
 		}
-		/*Paneauxtree1.removeAll();
-		Paneauxtree2.removeAll();
-		Paneauxtree3.removeAll();*/
+		
 		contadorarbol = 0;
 		redimensionar();
-		//System.out.print("RAUL-TAMAÑO -> "+Paneauxtree.getHeight()+"*"+Paneauxtree.getWidth()+"\n");
 	}
 
 	private void redimensionar() {
-		//int vertical = Paneauxtree.getHeight() > numVertical ? (int) Paneauxtree.getHeight()/numVertical: 1;
-		//int horizontal = Paneauxtree.getWidth() > numHorizontal*3 ? (int) Paneauxtree.getWidth()/numHorizontal : 3;
+		actualizarValoresPreferencias();
 		Paneauxtree.removeAll();
 		Paneauxtree.setLayout(new GridLayout(numVertical, numHorizontal));
 		Paneauxtree_list = new ArrayList<JPanel>(numVertical*numHorizontal);
@@ -164,13 +146,6 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 			PaneauxtreeX.setLayout(new BorderLayout());
 			Paneauxtree_list.add(PaneauxtreeX);
 			Paneauxtree.add(PaneauxtreeX);
-		}
-	}
-	
-	@SuppressWarnings("deprecation")
-	private void tableMouseClicked(java.awt.event.MouseEvent evt) {
-		if ((evt.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
-			new PacketTreeNumber(this).setVisible(true);
 		}
 	}
 
@@ -233,48 +208,13 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		PcapPacket paquete = (PcapPacket) history.get(numero);
 		Border emptyBorder = BorderFactory.createLoweredBevelBorder();
 		Border selectBorder = BorderFactory.createMatteBorder(2, 2, 2, 2, Color.red);
-		Arbol = new TreePacket(numero, paquete);
+		Arbol = new TreePacket(numero, paquete, pBDP);
 		scrollPane3 = new JScrollPane(Arbol.Arbol());
 		scrollPane3.setBorder(selectBorder);
-		/*if (contadorarbol == 1) {
-			Paneauxtree1.removeAll();
-			Paneauxtree1.add(scrollPane3, "Center");
-			if (Paneauxtree3.getComponentCount() > 0) {
-				JScrollPane auxJSPanel = (JScrollPane) Paneauxtree3
-						.getComponent(0);
-				auxJSPanel.setBorder(emptyBorder);
-			}
-		} else if (contadorarbol == 2) {
-			Paneauxtree2.removeAll();
-			Paneauxtree2.add(scrollPane3, "Center");
-			if (Paneauxtree2.getComponentCount() > 0) {
-				JScrollPane auxJSPanel = (JScrollPane) Paneauxtree1
-						.getComponent(0);
-				auxJSPanel.setBorder(emptyBorder);
-			}
-		} else if (contadorarbol == 3) {
-			Paneauxtree3.removeAll();
-			Paneauxtree3.add(scrollPane3, "Center");
-			contadorarbol = 0;
-			if (Paneauxtree2.getComponentCount() > 0) {
-				JScrollPane auxJSPanel = (JScrollPane) Paneauxtree2
-						.getComponent(0);
-				auxJSPanel.setBorder(emptyBorder);
-			}
-		}*/
+		
 		PaneauxtreeX = Paneauxtree_list.get(contadorarbol-1);
 		PaneauxtreeX.removeAll();
 		PaneauxtreeX.add(scrollPane3, "Center");
-		/*JLabel bytesHex = new JLabel();
-		
-		byte[] bytes = paquete.getByteArray(0, paquete.size() < 200 ? paquete.size() : 200);
-		String bytesString = "";
-		for(int i = 0; i < bytes.length; i++) {
-			String st = String.format("%02X", bytes[i]);
-			bytesString += st + " ";
-		}
-		bytesHex.setText(bytesString);
-		PaneauxtreeX.add(bytesHex);*/
 		
 		if (PaneauxtreeX.getComponentCount() > 0) {
 			JScrollPane auxJSPanel = null;
@@ -401,20 +341,9 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		return TablaPaquetes.obtenerOrdenColumnas();
 	}
 	
-	public int getNumVertical() {
-		return numVertical;
-	}
-	
-	public void setNumVertical(int min) {
-		numVertical = min;
-	}
-	
-	public int getNumHorizontal() {
-		return numHorizontal;
-	}
-	
-	public void setNumHorizontal(int min) {
-		numHorizontal = min;
+	private void actualizarValoresPreferencias() {
+		this.numVertical = Integer.valueOf(pBDP.getRows());
+		this.numHorizontal = Integer.valueOf(pBDP.getColumns());
 	}
 	
 
@@ -446,9 +375,6 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	public JPanel Paneauxtree;
 	public ArrayList<JPanel> Paneauxtree_list;
 	public JPanel PaneauxtreeX;
-	/*public JPanel Paneauxtree1;
-	public JPanel Paneauxtree2;
-	public JPanel Paneauxtree3;*/
 	public JPanel Paneconexiones;
 	public JTextArea output;
 	public JTextArea output2;
@@ -463,5 +389,6 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	public JLabel Label;
 	private int numVertical;
 	private int numHorizontal;
+	private preferencesBeanDetallePaquete pBDP;
 	// public static SavePacketHandler ficheroxmlenconstruccion;
 }
