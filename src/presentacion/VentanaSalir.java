@@ -9,7 +9,7 @@ import presentacion.ventanaMenuSniffer.MenuSniffer;
  * 
  * @author Jose Manuel Saiz, Carlos Mardones
  * @author jmsaizg@gmail.com,  
- * @version 1.2 
+ * @version 1.2
 */
 // Referenced classes of package presentacion:
 //            Mediador
@@ -33,10 +33,12 @@ public class VentanaSalir extends JDialog
         {
             respuesta = "Si";
             venpadre.grabarProperties();
+            System.out.print("--- Se cierra la aplicaci\u00f3n. ---\n");
             System.exit(1);
         } else
         {
             respuesta = "No";
+            System.out.print("No sale a\u00fan la aplicaci\u00f3n.\n");
             dispose();
         }
     }

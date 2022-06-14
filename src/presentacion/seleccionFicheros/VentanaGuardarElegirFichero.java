@@ -42,7 +42,7 @@ public class VentanaGuardarElegirFichero extends JDialog
         filterxml.setDescription("Ficheros XML ");
         FiltroFileChooser filterpcap = new FiltroFileChooser();
         filterpcap.addExtension("pcap");
-        filterpcap.setDescription("Ficheros de Captuta ");
+        filterpcap.setDescription("Ficheros de Captura ");
         FiltroFileChooser filterbat = new FiltroFileChooser();
         filterbat.addExtension("bat");
         filterbat.setDescription("Proceso por lotes ");

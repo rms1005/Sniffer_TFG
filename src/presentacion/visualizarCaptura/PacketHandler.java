@@ -75,6 +75,7 @@ class PacketHandler implements PacketListener
             {
                 desc_protocol_short = new String("arp");
                 ARPPacket arppacket = (ARPPacket)packet;
+                //length = String.valueOf(arppacket.getARPHeader().length);
             }
             if(packet instanceof IPPacket)
             {
@@ -87,6 +88,7 @@ class PacketHandler implements PacketListener
                 ipsrc = ipPacket.getSourceAddress();
                 ipdest = ipPacket.getDestinationAddress();
                 protocol = IPProtocol.getDescription(ipPacket.getIPProtocol());
+                //length = String.valueOf(ipPacket.getHeaderLength());
             }
             if(packet instanceof ICMPPacket)
             {
@@ -94,11 +96,13 @@ class PacketHandler implements PacketListener
                 ICMPPacket icmpPacket = (ICMPPacket)packet;
                 itype = String.valueOf(icmpPacket.getMessageType());
                 icode = String.valueOf(icmpPacket.getMessageCode());
+                //length = String.valueOf(icmpPacket.getICMPHeader().length);
             }
             if(packet instanceof IGMPPacket)
             {
                 desc_protocol_short = new String("igmp");
-                IGMPPacket igmppacket = (IGMPPacket)packet;
+                IGMPPacket igmpPacket = (IGMPPacket)packet;
+                //length = String.valueOf(igmpPacket.getIGMPHeader().length);
             }
             if(packet instanceof TCPPacket)
             {
@@ -133,6 +137,7 @@ class PacketHandler implements PacketListener
             }
             if(Reglas != null && (packet instanceof IPPacket))
                 Reglas.DatosRules(ipsrc, ipdest, portsrc, portdest, desc_protocol_short, data, itype, icode, dsize, id, ttl, flags, ack, seq, packet, i);
+            // System.out.printf(""+i+" "+length+"\n");
             RTablePane.DatosPaquete(macsource, macdest, frame, protocol, ipsrc, ipdest, portsrc, portdest, seq, ack, length);
             i++;
         }

@@ -3,7 +3,6 @@ package dominio.pcapDumper.analyzer;
 import javax.xml.transform.Source;
 
 import org.jnetpcap.packet.PcapPacket;
-
 //import jpcap.packet.EthernetPacket;
 //import jpcap.packet.Packet;
 import org.jnetpcap.packet.JHeader;
@@ -92,8 +91,7 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 		return v;
 	}
 
-	private static final String valueNames[] = { "Frame Type", "Source MAC",
-			"Destination MAC" };
+	private static final String valueNames[] = { "Frame Type", "Source MAC", "Destination MAC" };
 	
 	private Ethernet eth;
 

@@ -116,15 +116,15 @@ public class Captura extends Thread {
 			jpcap = Pcap.openLive(FachadaDominio.dispoName, caplen, flags,
 					timeout, MsgError);
 
-			jpcap_write = Pcap.openLive(FachadaDominio.dispoName, caplen,
-					flags, timeout, MsgError);
+			jpcap_write = Pcap.openLive(FachadaDominio.dispoName, caplen, flags,
+					timeout, MsgError);
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
 			throw e;
 		}
 	}
-	/** Metodo donde realiza la apertura de el dispositivo para visualizaci�n
+	/** Metodo donde realiza la apertura de el dispositivo para visualización
 	 * de un archivo pcap .
      * @param String ruta, ruta del archivo a cargar.
      * @return Sin valor de retorno

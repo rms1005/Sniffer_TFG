@@ -57,7 +57,6 @@ public class TCPAnalyzer extends JDPacketAnalyzer
             return;
         } else
         {
-
             values.put(valueNames[0], Integer.valueOf(tcp.source()));
             values.put(valueNames[1], Integer.valueOf(tcp.destination()));
             values.put(valueNames[2], Long.valueOf(tcp.seq()));

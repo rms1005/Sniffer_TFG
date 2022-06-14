@@ -68,7 +68,7 @@ public class SavePacketHandler {
 	 *            ,SaveFileName (Nombre de archivo),
 	 *            CountPacketHandler,JpcapCaptor
 	 * @exception exceptions
-	 *                Ning�n error (Excepci�n) definida
+	 *                Ningún error (Excepción) definida
 	 */
 
 	public SavePacketHandler(Captura cap, SaveFileName SFN,
@@ -416,7 +416,7 @@ public class SavePacketHandler {
 		setSpace(0);
 
 		getVenPadre().stopCaptureThread();
-		savefichero();
+		// savefichero();
 
 	}
 

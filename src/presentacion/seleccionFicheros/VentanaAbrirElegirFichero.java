@@ -42,7 +42,7 @@ public class VentanaAbrirElegirFichero extends JDialog
         filterxml.setDescription("Ficheros XML ");
         FiltroFileChooser filterpcap = new FiltroFileChooser();
         filterpcap.addExtension("pcap");
-        filterpcap.setDescription("Ficheros de Captuta ");
+        filterpcap.setDescription("Ficheros de Captura ");
         String barra = System.getProperty("file.separator");
         if(tip.equals("Abrir fichero de Capturas..."))
         {
