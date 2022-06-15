@@ -184,8 +184,8 @@ public class TablePane {
 	 **************************************************************************/
 
 	public void setColumnas(boolean numpaquete, boolean time, boolean macsource, boolean macdest, boolean frame,
-							boolean protocol, boolean ipsrc, boolean ipdest, boolean portsrc, boolean portdest,
-							boolean seq, boolean ack, boolean length, boolean size) {
+			boolean protocol, boolean ipsrc, boolean ipdest, boolean portsrc, boolean portdest, boolean seq,
+			boolean ack, boolean length, boolean size) {
 
 		this.numeropaquete = numpaquete;
 		this.time = time;

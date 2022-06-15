@@ -7,19 +7,15 @@ import dominio.preferences.preferencesBeanDetallePaquete;
 public class PrefDetallePaquete extends Element {
 
 	private static final long serialVersionUID = -5701701986123880964L;
-	
-	public PrefDetallePaquete(preferencesBeanDetallePaquete pBDetallePaquete)
-	{
+
+	public PrefDetallePaquete(preferencesBeanDetallePaquete pBDetallePaquete) {
 		super("DetallePaquetePreferences");
-		try
-		{
+		try {
 			setPBDetallePaquete(pBDetallePaquete);
-            setElemNWindows();
-            setElemNBytes();
-            setElemBytesRepresentation();
-		}
-		catch(Exception e)
-		{
+			setElemNWindows();
+			setElemNBytes();
+			setElemBytesRepresentation();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -31,22 +27,19 @@ public class PrefDetallePaquete extends Element {
 	private void setElemNBytes() {
 		addContent(new ElemPacketDetNBytes(getPBDetallePaquete()));
 	}
-	
+
 	private void setElemBytesRepresentation() {
 		addContent(new ElemPacketDetBytesRepr(getPBDetallePaquete()));
 	}
 
-	private preferencesBeanDetallePaquete getPBDetallePaquete()
-	{
+	private preferencesBeanDetallePaquete getPBDetallePaquete() {
 		return pBDetallePaquete;
 	}
 
-	private void setPBDetallePaquete(preferencesBeanDetallePaquete pBDetallePaquete)
-	{
+	private void setPBDetallePaquete(preferencesBeanDetallePaquete pBDetallePaquete) {
 		this.pBDetallePaquete = pBDetallePaquete;
 	}
 
-
 	private preferencesBeanDetallePaquete pBDetallePaquete;
-	
+
 }

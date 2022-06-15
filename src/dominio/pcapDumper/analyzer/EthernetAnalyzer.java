@@ -18,7 +18,6 @@ import org.jnetpcap.protocol.lan.Ethernet.EthernetType;
  * @version 1.3
  */
 
-
 public class EthernetAnalyzer extends JDPacketAnalyzer {
 
 	Ethernet ethernetPacket = new Ethernet();
@@ -26,11 +25,15 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 	public EthernetAnalyzer() {
 		layer = DATALINK_LAYER;
 	}
-	/** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo Ethernet.
-     * @param PcapPacket p 
-     * @return boolean 
-     * @exception exceptions Ning�n error (Excepci�n) definida
-     */
+
+	/**
+	 * Metodo donde se analiza el paquete recibido y se sabe su protocolo es o no de
+	 * tipo Ethernet.
+	 * 
+	 * @param PcapPacket p
+	 * @return boolean
+	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 */
 	public boolean isAnalyzable(PcapPacket packet) {
 		return !packet.equals(null) && packet.hasHeader(ethernetPacket);
 	}
@@ -42,12 +45,15 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 	public String[] getValueNames() {
 		return valueNames;
 	}
-    /** Metodo  donde se analiza el paquete recibido convierte a un paquete objeto de 
-     * con un tipo de protocolo Ethernet.
-     * @param PcapPacket p 
-     * @return sin valor de retorno
-     * @exception exceptions Ning�n error (Excepci�n) definida
-     */  
+
+	/**
+	 * Metodo donde se analiza el paquete recibido convierte a un paquete objeto de
+	 * con un tipo de protocolo Ethernet.
+	 * 
+	 * @param PcapPacket p
+	 * @return sin valor de retorno
+	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 */
 	public void analyze(PcapPacket packet) {
 		if (!isAnalyzable(packet)) {
 			return;
@@ -72,12 +78,11 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 //		
 			return Integer.valueOf(eth.type());
 		case 1: // '\001'
-			
-			 return org.jnetpcap.packet.format.FormatUtils.mac(eth.source());
-			 
-			
+
+			return org.jnetpcap.packet.format.FormatUtils.mac(eth.source());
+
 		case 2: // '\002'
-			
+
 			return org.jnetpcap.packet.format.FormatUtils.mac(eth.destination());
 		}
 		return null;
@@ -92,7 +97,7 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 	}
 
 	private static final String valueNames[] = { "Frame Type", "Source MAC", "Destination MAC" };
-	
+
 	private Ethernet eth;
 
 }

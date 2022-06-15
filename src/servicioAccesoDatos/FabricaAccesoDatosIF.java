@@ -18,7 +18,7 @@ public abstract class FabricaAccesoDatosIF
 
     public FabricaAccesoDatosIF()
     {
-    }
+	}
 
-    public abstract FachadaFichero creaFachadaFichero(String s, String s1);
+	public abstract FachadaFichero creaFachadaFichero(String s, String s1);
 }

@@ -42,7 +42,7 @@ public class VentanaPresentacion
   
   public VentanaPresentacion()
   {
-    super("Presentaci�n Sniffer III");
+    super("Presentación Sniffer III");
     initBottons();
     initComponents();
     new CentrarVentana(this);

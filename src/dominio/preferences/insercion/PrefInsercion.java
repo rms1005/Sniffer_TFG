@@ -1,17 +1,15 @@
 
 package dominio.preferences.insercion;
 
-/** 
- * Clase PrefInsercion. 
+/**
+ * Clase PrefInsercion.
  * 
  * @author Jose Manuel Saiz, Carlos Mardones
- * @author jmsaizg@gmail.com,  
- * @version 1.2 
-*/
-public class PrefInsercion
-{
+ * @author jmsaizg@gmail.com,
+ * @version 1.2
+ */
+public class PrefInsercion {
 
-    public PrefInsercion()
-    {
-    }
+	public PrefInsercion() {
+	}
 }

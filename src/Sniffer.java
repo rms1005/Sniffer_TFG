@@ -7,14 +7,13 @@ import javax.swing.JOptionPane;
 import org.jnetpcap.*;
 import presentacion.VentanaPresentacion;
 
-/** 
- * Clase Sniffer, Clase Principal. 
+/**
+ * Clase Sniffer, Clase Principal.
  * 
- * @author Jose Manuel Saiz, Rodrigo Sánchez
+ * @author Jose Manuel Saiz, Rodrigo Sï¿½nchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
-*/
-
+ */
 
 public class Sniffer {
 
@@ -148,50 +147,44 @@ public class Sniffer {
 		try {
 			Properties p = new Properties(System.getProperties());
 			System.setProperties(p);
-			
+
 			System.out.println(p);
-			
-			if (System.getProperty("os.name").compareTo("Linux") != 0){
-		
-				if (System.getProperty("os.arch").indexOf("x86")== 0)
+
+			if (System.getProperty("os.name").compareTo("Linux") != 0) {
+
+				if (System.getProperty("os.arch").indexOf("x86") == 0)
 					System.loadLibrary("./dll/jnetpcap");
-				else{
-					if (System.getProperty("os.arch").indexOf("amd64")== 0)
+				else {
+					if (System.getProperty("os.arch").indexOf("amd64") == 0)
 						System.loadLibrary("./dll/jnetpcap");
 					else
 						System.out.println("\n * * Sistema Operativo no encontrado ** ");
-				   }	 
-		}else{
-			System.out.println("\n * * Sistema Operativo Linux **");
-		}
-			
-		
+				}
+			} else {
+				System.out.println("\n * * Sistema Operativo Linux **");
+			}
+
 		} catch (Exception e) {
 			System.err.println("I/O failed.");
 		}
 		try {
 
-			
 			List<PcapIf> alldevs = new ArrayList<PcapIf>(); // Will be filled with NICs
-           StringBuilder errbuf = new StringBuilder(); // For any error msgs
+			StringBuilder errbuf = new StringBuilder(); // For any error msgs
 
+			int r = Pcap.findAllDevs(alldevs, errbuf);
+			if (r == Pcap.NOT_OK || alldevs.isEmpty()) {
+				System.err.printf("Can't read list of devices, error is %s\n", errbuf.toString());
+				return;
+			}
+			// System.out.println("HERE IS ALL THE DEVICES");
+			for (int i = 0; i < alldevs.size(); i++) {
+				// System.out.println(alldevs.get(i));
+			}
+			devices = alldevs.get(0); // We know we have atleast 1 device
 
-			 int r = Pcap.findAllDevs(alldevs, errbuf);
-           if (r == Pcap.NOT_OK || alldevs.isEmpty()) {
-                   System.err.printf("Can't read list of devices, error is %s\n",
-                                   errbuf.toString());
-                   return;
-           }
-           //System.out.println("HERE IS ALL THE DEVICES");
-           for (int i = 0; i < alldevs.size(); i++) {
-                  // System.out.println(alldevs.get(i));
-           }
-            devices = alldevs.get(0); // We know we have atleast 1 device
-
-			
-			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null,"Cannot find Jpcap. Please install Jpcap.", "Error", 0);
+			JOptionPane.showMessageDialog(null, "Cannot find Jpcap. Please install Jpcap.", "Error", 0);
 			System.exit(-1);
 		}
 	}

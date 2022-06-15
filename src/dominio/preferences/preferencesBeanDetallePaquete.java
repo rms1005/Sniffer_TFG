@@ -5,23 +5,22 @@ import java.io.Serializable;
 public class preferencesBeanDetallePaquete implements Serializable {
 
 	private static final long serialVersionUID = -8436686830545248455L;
-	
-	public preferencesBeanDetallePaquete()
-	{
+
+	public preferencesBeanDetallePaquete() {
 		setDefaultSettings();
 	}
-	
-	public void setDefaultSettings()
-    {
-        this.rows = 1;
-        this.columns = 3;
-        this.totalBytes = false;
-        this.bytes = 200;
-        this.bytesHex = true;;
-    }
-	
+
+	public void setDefaultSettings() {
+		this.rows = 1;
+		this.columns = 3;
+		this.totalBytes = false;
+		this.bytes = 200;
+		this.bytesHex = true;
+		;
+	}
+
 	public String getRows() {
-		return ""+rows;
+		return "" + rows;
 	}
 
 	public void setRows(String rows) {
@@ -29,7 +28,7 @@ public class preferencesBeanDetallePaquete implements Serializable {
 	}
 
 	public String getColumns() {
-		return ""+columns;
+		return "" + columns;
 	}
 
 	public void setColumns(String columns) {
@@ -45,7 +44,7 @@ public class preferencesBeanDetallePaquete implements Serializable {
 	}
 
 	public String getBytes() {
-		return ""+bytes;
+		return "" + bytes;
 	}
 
 	public void setBytes(String bytes) {
@@ -59,7 +58,6 @@ public class preferencesBeanDetallePaquete implements Serializable {
 	public void setBytesHex(boolean bytesHex) {
 		this.bytesHex = bytesHex;
 	}
-
 
 	private int rows;
 	private int columns;

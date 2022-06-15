@@ -1,9 +1,7 @@
 
 package presentacion.comandos;
 
+public interface Comando {
 
-public interface Comando
-{
-
-    public abstract void ejecutar();
+	public abstract void ejecutar();
 }

@@ -12,9 +12,9 @@ import javax.swing.table.AbstractTableModel;
  * @version 1.2
  */
 class MiTablaModelo extends AbstractTableModel {
-	
+
 	private static final long serialVersionUID = 825185341471200122L;
-	
+
 	public MiTablaModelo() {
 		tableColumns = new Vector<String>();
 		tableData = new Vector<Vector<Object>>();
@@ -119,7 +119,7 @@ class MiTablaModelo extends AbstractTableModel {
 	public void clearAll() {
 		tableData.clear();
 	}
-	
+
 	public int getNumeroPaquete(int fila) {
 		System.out.print(this.tableData.get(fila));
 		return 0;

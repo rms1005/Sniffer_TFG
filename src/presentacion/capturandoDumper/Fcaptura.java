@@ -215,8 +215,7 @@ public class Fcaptura extends JFrame {
 		this.jPanel1.setLayout(new AbsoluteLayout());
 
 		this.jPanel1.setBorder(new TitledBorder("Estadística de Paquetes"));
-		this.jPanel1.add(this.jProgressBar1, new AbsoluteConstraints(70, 30,
-				60, 20));
+		this.jPanel1.add(this.jProgressBar1, new AbsoluteConstraints(70, 30, 60, 20));
 
 		this.jLabel1.setText("Ethernet");
 		this.jPanel1.add(this.jLabel1, new AbsoluteConstraints(10, 30, -1, -1));
@@ -228,73 +227,46 @@ public class Fcaptura extends JFrame {
 		this.jPanel1.add(this.jLabel3, new AbsoluteConstraints(10, 90, -1, -1));
 
 		this.jLabel4.setText("Icmp");
-		this.jPanel1
-				.add(this.jLabel4, new AbsoluteConstraints(10, 120, -1, -1));
+		this.jPanel1.add(this.jLabel4, new AbsoluteConstraints(10, 120, -1, -1));
 
 		this.jLabel5.setText("Igmp");
-		this.jPanel1
-				.add(this.jLabel5, new AbsoluteConstraints(10, 150, -1, -1));
+		this.jPanel1.add(this.jLabel5, new AbsoluteConstraints(10, 150, -1, -1));
 
 		this.jLabel6.setText("Tcp");
-		this.jPanel1
-				.add(this.jLabel6, new AbsoluteConstraints(10, 180, -1, -1));
+		this.jPanel1.add(this.jLabel6, new AbsoluteConstraints(10, 180, -1, -1));
 
 		this.jLabel7.setText("Udp");
-		this.jPanel1
-				.add(this.jLabel7, new AbsoluteConstraints(10, 210, -1, -1));
+		this.jPanel1.add(this.jLabel7, new AbsoluteConstraints(10, 210, -1, -1));
 
-		this.jPanel1.add(this.jProgressBar2, new AbsoluteConstraints(70, 60,
-				60, 20));
+		this.jPanel1.add(this.jProgressBar2, new AbsoluteConstraints(70, 60, 60, 20));
 
-		this.jPanel1.add(this.jProgressBar3, new AbsoluteConstraints(70, 90,
-				60, 20));
+		this.jPanel1.add(this.jProgressBar3, new AbsoluteConstraints(70, 90, 60, 20));
 
-		this.jPanel1.add(this.jProgressBar4, new AbsoluteConstraints(70, 120,
-				60, 20));
+		this.jPanel1.add(this.jProgressBar4, new AbsoluteConstraints(70, 120, 60, 20));
 
-		this.jPanel1.add(this.jProgressBar5, new AbsoluteConstraints(70, 150,
-				60, 20));
+		this.jPanel1.add(this.jProgressBar5, new AbsoluteConstraints(70, 150, 60, 20));
 
-		this.jPanel1.add(this.jProgressBar6, new AbsoluteConstraints(70, 180,
-				60, 20));
+		this.jPanel1.add(this.jProgressBar6, new AbsoluteConstraints(70, 180, 60, 20));
 
-		this.jPanel1.add(this.jProgressBar7, new AbsoluteConstraints(70, 210,
-				60, 20));
-		this.jPanel1.add(this.jLabel22,
-				new AbsoluteConstraints(185, 10, -1, -1));
-		this.jPanel1
-				.add(this.jLabel8, new AbsoluteConstraints(150, 30, -1, -1));
-		this.jPanel1.add(this.jLabel15,
-				new AbsoluteConstraints(200, 30, -1, -1));
-		this.jPanel1.add(this.jLabel20, new AbsoluteConstraints(200, 180, -1,
-				-1));
-		this.jPanel1
-				.add(this.jLabel9, new AbsoluteConstraints(150, 60, -1, -1));
-		this.jPanel1.add(this.jLabel16,
-				new AbsoluteConstraints(200, 60, -1, -1));
-		this.jPanel1.add(this.jLabel10,
-				new AbsoluteConstraints(150, 90, -1, -1));
-		this.jPanel1.add(this.jLabel10,
-				new AbsoluteConstraints(150, 90, -1, -1));
-		this.jPanel1.add(this.jLabel17,
-				new AbsoluteConstraints(200, 90, -1, -1));
-		this.jPanel1.add(this.jLabel11, new AbsoluteConstraints(150, 120, -1,
-				-1));
-		this.jPanel1.add(this.jLabel18, new AbsoluteConstraints(200, 120, -1,
-				-1));
-		this.jPanel1.add(this.jLabel12, new AbsoluteConstraints(150, 150, -1,
-				-1));
-		this.jPanel1.add(this.jLabel19, new AbsoluteConstraints(200, 150, -1,
-				-1));
-		this.jPanel1.add(this.jLabel13, new AbsoluteConstraints(150, 180, -1,
-				-1));
-		this.jPanel1.add(this.jLabel14, new AbsoluteConstraints(150, 210, -1,
-				-1));
-		this.jPanel1.add(this.jLabel21, new AbsoluteConstraints(200, 210, -1,
-				-1));
+		this.jPanel1.add(this.jProgressBar7, new AbsoluteConstraints(70, 210, 60, 20));
+		this.jPanel1.add(this.jLabel22, new AbsoluteConstraints(185, 10, -1, -1));
+		this.jPanel1.add(this.jLabel8, new AbsoluteConstraints(150, 30, -1, -1));
+		this.jPanel1.add(this.jLabel15, new AbsoluteConstraints(200, 30, -1, -1));
+		this.jPanel1.add(this.jLabel20, new AbsoluteConstraints(200, 180, -1, -1));
+		this.jPanel1.add(this.jLabel9, new AbsoluteConstraints(150, 60, -1, -1));
+		this.jPanel1.add(this.jLabel16, new AbsoluteConstraints(200, 60, -1, -1));
+		this.jPanel1.add(this.jLabel10, new AbsoluteConstraints(150, 90, -1, -1));
+		this.jPanel1.add(this.jLabel10, new AbsoluteConstraints(150, 90, -1, -1));
+		this.jPanel1.add(this.jLabel17, new AbsoluteConstraints(200, 90, -1, -1));
+		this.jPanel1.add(this.jLabel11, new AbsoluteConstraints(150, 120, -1, -1));
+		this.jPanel1.add(this.jLabel18, new AbsoluteConstraints(200, 120, -1, -1));
+		this.jPanel1.add(this.jLabel12, new AbsoluteConstraints(150, 150, -1, -1));
+		this.jPanel1.add(this.jLabel19, new AbsoluteConstraints(200, 150, -1, -1));
+		this.jPanel1.add(this.jLabel13, new AbsoluteConstraints(150, 180, -1, -1));
+		this.jPanel1.add(this.jLabel14, new AbsoluteConstraints(150, 210, -1, -1));
+		this.jPanel1.add(this.jLabel21, new AbsoluteConstraints(200, 210, -1, -1));
 
-		getContentPane().add(this.jPanel1,
-				new AbsoluteConstraints(0, 0, 230, 250));
+		getContentPane().add(this.jPanel1, new AbsoluteConstraints(0, 0, 230, 250));
 
 		this.jPanel2.setLayout(new BorderLayout());
 
@@ -307,11 +279,9 @@ public class Fcaptura extends JFrame {
 		this.jPanel2.add(this.jLabelpk, "North");
 		this.jPanel2.add(this.jScrollPane1, "Center");
 
-		getContentPane().add(this.jPanel2,
-				new AbsoluteConstraints(238, 0, 460, 250));
+		getContentPane().add(this.jPanel2, new AbsoluteConstraints(238, 0, 460, 250));
 
-		this.jButton1.setIcon(new ImageIcon(FachadaFicheroDirectorios
-				.getdirectorioData("DIR_IMAGES")
+		this.jButton1.setIcon(new ImageIcon(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")
 				+ System.getProperty("file.separator") + "stop.png"));
 		this.jButton1.setText("PARAR Captura");
 		this.jButton1.addActionListener(new ActionListener() {
@@ -319,8 +289,7 @@ public class Fcaptura extends JFrame {
 				new GuardadoCaptura(Fcaptura.this).setVisible(true);
 			}
 		});
-		getContentPane().add(this.jButton1,
-				new AbsoluteConstraints(280, 260, -1, -1));
+		getContentPane().add(this.jButton1, new AbsoluteConstraints(280, 260, -1, -1));
 
 		pack();
 	}
@@ -330,12 +299,10 @@ public class Fcaptura extends JFrame {
 	}
 
 	private void jButton1ActionPerformed(ActionEvent evt) {
-		
-		//setPararcaptura( true);
+
+		// setPararcaptura( true);
 		salir();
 	}
-
-	
 
 	public void salir() {
 		this.mediador.irFinCapturePcapLib();
@@ -396,13 +363,12 @@ public class Fcaptura extends JFrame {
 		int numSize = aux.size();
 		for (int i = 0; i < numSize; i++) {
 			int cont = numP - numSize + i;
-			this.jTextArea1.append("(" + cont + ")" + aux.elementAt(i)
-					+ this.newline);
+			this.jTextArea1.append("(" + cont + ")" + aux.elementAt(i) + this.newline);
 		}
 	}
 
-	public void intervalo(int total, int numpackets, int ethernet, int arp,
-			int ip, int icmp, int igmp, int tcp, int udp) {
+	public void intervalo(int total, int numpackets, int ethernet, int arp, int ip, int icmp, int igmp, int tcp,
+			int udp) {
 		this.jLabel22.setText("Num.");
 		this.jLabelpk.setText("Total paquetes: " + String.valueOf(total));
 

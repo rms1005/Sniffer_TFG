@@ -66,9 +66,8 @@ public class Captura extends Thread {
 	protected int i;
 	private Thread captureThread2;
 
-	
 	public Captura() {
-	
+
 		this.filtro = new PcapBpfProgram();
 		this.PACKET_COUNT = 0;
 		caplen = 64 * 1024; // Capture all packets, no trucation
@@ -78,56 +77,58 @@ public class Captura extends Thread {
 		this.endCapture = false;
 	}
 
-	 /** Metodo donde realiza la capturas de perifericos.
-     * @param Sin valor de entrada
-     * @return String[] 
-      */
+	/**
+	 * Metodo donde realiza la capturas de perifericos.
+	 * 
+	 * @param Sin valor de entrada
+	 * @return String[]
+	 */
 	public String[] capDispositivos() {
 
 		TodosDispositivos = new ArrayList<PcapIf>(); // Will be filled with NICs
-	
+
 		int NumeroDispositivos = Pcap.findAllDevs(TodosDispositivos, MsgError);
 		if (NumeroDispositivos == Pcap.NOT_OK || TodosDispositivos.isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"No se encuentra la red.\n System error: errbuf",
-					"Warning", 2);
+			JOptionPane.showMessageDialog(null, "No se encuentra la red.\n System error: errbuf", "Warning", 2);
 
 		}
 		System.out.println("Aqui estan todos los perifericos");
 
 		devices = new String[TodosDispositivos.size()];
 		for (int i = 0; i < TodosDispositivos.size(); i++) {
-			devices[i] = TodosDispositivos.get(i).getDescription() != null ? TodosDispositivos
-					.get(i).getDescription()
+			devices[i] = TodosDispositivos.get(i).getDescription() != null ? TodosDispositivos.get(i).getDescription()
 					: TodosDispositivos.get(i).getName();
 		}
-			return devices;
+		return devices;
 	}
 
-	 /** Metodo donde realiza la apertura de el dispositivo para la captura de paquetes .
-     * @param PcapIf devices Devuelve
-     * @return Sin valor de retorno
-      */
+	/**
+	 * Metodo donde realiza la apertura de el dispositivo para la captura de
+	 * paquetes .
+	 * 
+	 * @param PcapIf devices Devuelve
+	 * @return Sin valor de retorno
+	 */
 	public void openCaptura(PcapIf devices) throws Exception {
 		try {
-		
 
-			jpcap = Pcap.openLive(FachadaDominio.dispoName, caplen, flags,
-					timeout, MsgError);
+			jpcap = Pcap.openLive(FachadaDominio.dispoName, caplen, flags, timeout, MsgError);
 
-			jpcap_write = Pcap.openLive(FachadaDominio.dispoName, caplen, flags,
-					timeout, MsgError);
+			jpcap_write = Pcap.openLive(FachadaDominio.dispoName, caplen, flags, timeout, MsgError);
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
 			throw e;
 		}
 	}
-	/** Metodo donde realiza la apertura de el dispositivo para visualización
-	 * de un archivo pcap .
-     * @param String ruta, ruta del archivo a cargar.
-     * @return Sin valor de retorno
-      */
+
+	/**
+	 * Metodo donde realiza la apertura de el dispositivo para visualización de un
+	 * archivo pcap .
+	 * 
+	 * @param String ruta, ruta del archivo a cargar.
+	 * @return Sin valor de retorno
+	 */
 	public static void openOffline(String ruta) {
 		try {
 			jpcap = Pcap.openOffline(ruta, MsgError);
@@ -137,27 +138,33 @@ public class Captura extends Thread {
 			System.out.println(nfe.getMessage());
 		}
 	}
-	/** Metodo donde realiza la apertura de del dispositivo para la lectura
-	 * de un archivo pcap que contiene paquetes .
-     * @param String ruta, ruta del archivo a cargar.
-     * @return Sin valor de retorno
-      */
+
+	/**
+	 * Metodo donde realiza la apertura de del dispositivo para la lectura de un
+	 * archivo pcap que contiene paquetes .
+	 * 
+	 * @param String ruta, ruta del archivo a cargar.
+	 * @return Sin valor de retorno
+	 */
 	public void openOffline_read(String ruta) {
 		try {
-			
+
 			jpcap = Pcap.openOffline(ruta, MsgError);
 		} catch (Exception nfe) {
 			nfe.printStackTrace();
 		}
 	}
-	/** Metodo donde realiza la apertura de del dispositivo para la escritura
-	 * de un archivo pcap que contiene paquetes .
-     * @param String ruta, ruta del archivo a cargar.
-     * @return Sin valor de retorno
-      */
+
+	/**
+	 * Metodo donde realiza la apertura de del dispositivo para la escritura de un
+	 * archivo pcap que contiene paquetes .
+	 * 
+	 * @param String ruta, ruta del archivo a cargar.
+	 * @return Sin valor de retorno
+	 */
 	public void openOffline_writer(String ruta) {
 		try {
-		
+
 			jpcap_write = Pcap.openOffline(ruta, MsgError);
 		} catch (Exception nfe) {
 			nfe.printStackTrace();
@@ -168,7 +175,6 @@ public class Captura extends Thread {
 		try {
 			PcapBpfProgram programa = new PcapBpfProgram();
 			if (!getTypeOffline()) {
-				
 
 				jpcap.setFilter(this.filtro);
 				this.isLiveCapture = true;
@@ -177,11 +183,10 @@ public class Captura extends Thread {
 				this.SavePH.runHilos();
 				// output file
 
-			
 				while (this.isLiveCapture) {
 					SavePacketHandler.receivePacket(jpcap /** ,dumper */
 					);
-					
+
 					if ((SavePacketHandler.aux == 0) && (!this.isLiveCapture)) {
 						stopCaptureThread();
 					}
@@ -190,16 +195,15 @@ public class Captura extends Thread {
 				}
 				endCapture(true);
 			} else {
-				
+
 				jpcap.setFilter(this.filtro);
 				this.finOneFile = false;
 				this.isLiveCapture = true;
 				this.finSaveMeta = false;
 
-				
 				while (this.isLiveCapture) {
 					OfflineSavePacketHandler.receivePacket(jpcap);
-					
+
 					if ((OfflineSavePacketHandler.aux == 0) && (!this.isLiveCapture)) {
 						stopCaptureThread();
 					}
@@ -212,10 +216,13 @@ public class Captura extends Thread {
 			e.printStackTrace();
 		}
 	}
-	/** Metodo Offfffff()
-     * @param String ruta, ruta del archivo a cargar.
-     * @return Sin valor de retorno
-      */
+
+	/**
+	 * Metodo Offfffff()
+	 * 
+	 * @param String ruta, ruta del archivo a cargar.
+	 * @return Sin valor de retorno
+	 */
 	public void offfffff() {
 		this.finOneFile = false;
 		this.isLiveCapture = true;
@@ -227,8 +234,7 @@ public class Captura extends Thread {
 
 			public void run() {
 				while (Captura.this.captureThread != null) {
-					if ((Captura.this.OfflineSPH == null)
-							&& (Captura.this.isLiveCapture)) {
+					if ((Captura.this.OfflineSPH == null) && (Captura.this.isLiveCapture)) {
 
 						Captura.this.stopCaptureThread();
 						Captura.this.finOneFile = true;
@@ -243,33 +249,34 @@ public class Captura extends Thread {
 		}
 		this.endCapture = true;
 	}
-	/** Metodo donde realiza la apertura de un archivo de tipo XML para su lectura
-     * @param XmlPacketHandler xmlPH.
-     * @return Sin valor de retorno
-      */
+
+	/**
+	 * Metodo donde realiza la apertura de un archivo de tipo XML para su lectura
+	 * 
+	 * @param XmlPacketHandler xmlPH.
+	 * @return Sin valor de retorno
+	 */
 	public void offline_xml(XmlPacketHandler xmlPH) {
-		this.XmlPH=xmlPH;
-		
+		this.XmlPH = xmlPH;
 
 		this.finSaveMeta = false;
 
 		setXmlHalder(XmlPH);
-				do {
-					i = 0;
-					
-					PcapPacketHandler<String> handler = new PcapPacketHandler<String>() {
+		do {
+			i = 0;
 
-						public void nextPacket(PcapPacket packet, String user) {
-							XmlPH.receivePacket(packet);
-							i = 1;
-						}
-					};
-				jpcap.loop(1, handler, "jNetPcap rocks!");
+			PcapPacketHandler<String> handler = new PcapPacketHandler<String>() {
 
-				} while (i == 1);
+				public void nextPacket(PcapPacket packet, String user) {
+					XmlPH.receivePacket(packet);
+					i = 1;
+				}
+			};
+			jpcap.loop(1, handler, "jNetPcap rocks!");
+
+		} while (i == 1);
 
 	}
-
 
 	public void setXmlHalder(XmlPacketHandler auxXmlPH) {
 		this.XmlPH = auxXmlPH;
@@ -285,17 +292,16 @@ public class Captura extends Thread {
 	}
 
 	public void stopCaptureThread() {
-		
+
 		captureThread = null;
 		isLiveCapture = false;
-		
-	
+
 	}
 
 	public void endCaptureOffline(boolean tipo) {
 		this.endCapture = true;
 		this.isLiveCapture = false;
-		this.finSaveMeta=true;
+		this.finSaveMeta = true;
 		if ((tipo) && (jpcap != null)) {
 			jpcap.close();
 			jpcap = null;
@@ -344,15 +350,13 @@ public class Captura extends Thread {
 
 	public void endCapture(boolean tipo) {
 		endCapture = true;
-		isLiveCapture=false;
-		
-		
-		
+		isLiveCapture = false;
+
 		SavePH.stopCaptura();
 		if (SavePH != null) {
 			SavePH.stopHilos();
 		}
-		if (tipo){
+		if (tipo) {
 			jpcap.close();
 			jpcap_write.close();
 			FachadaDominio.saveMetaCaptura();
@@ -360,11 +364,11 @@ public class Captura extends Thread {
 			if (this.isAlive()) {
 				this.interrupt();
 			}
-			
-			
+
 		}
 		endCapture = true;
 	}
+
 	public void endCaptureCommand() {
 		this.endCapture = true;
 		this.SavePH.stopCaptura();
@@ -384,11 +388,9 @@ public class Captura extends Thread {
 		setSFName();
 		this.RCountPacketHandler = new CountPacketHandler();
 		if (aux.equals("")) {
-			this.SavePH = new SavePacketHandler(this, getSFname(),
-					this.RCountPacketHandler, jpcap);
+			this.SavePH = new SavePacketHandler(this, getSFname(), this.RCountPacketHandler, jpcap);
 		} else {
-			this.SavePH = new SavePacketHandler(this, getSFname(),
-					this.RCountPacketHandler, jpcap, aux);
+			this.SavePH = new SavePacketHandler(this, getSFname(), this.RCountPacketHandler, jpcap, aux);
 		}
 		this.SavePH.setWriter(jpcap_write);
 		this.SavePH.setNumPacket(getNumPaquetes());
@@ -404,14 +406,12 @@ public class Captura extends Thread {
 		aux = FachadaDominio.getPrefBeanFromFile().getffFilLocate();
 		setSFName();
 		if (aux.equals("")) {
-			this.OfflineSPH = new OfflineSavePacketHandler(this, getSFname(),
-					jpcap);
+			this.OfflineSPH = new OfflineSavePacketHandler(this, getSFname(), jpcap);
 		} else {
-			this.OfflineSPH = new OfflineSavePacketHandler(this, getSFname(),
-					jpcap, aux);
+			this.OfflineSPH = new OfflineSavePacketHandler(this, getSFname(), jpcap, aux);
 		}
 		this.OfflineSPH.setNumPacket(getNumPaquetes());
-		}
+	}
 
 	public CountPacketHandler getCountPacketHandler() {
 		return this.RCountPacketHandler;
@@ -565,5 +565,5 @@ public class Captura extends Thread {
 	public boolean getEndCapture() {
 		return this.endCapture;
 	}
-	
+
 }

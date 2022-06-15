@@ -12,9 +12,9 @@ import javax.swing.table.AbstractTableModel;
  * @version 1.2
  */
 class MiTablaModeloCx extends AbstractTableModel {
-	
+
 	private static final long serialVersionUID = -4640128181969749503L;
-	
+
 	public MiTablaModeloCx() {
 		tableColumns = new Vector<String>();
 		tableData = new Vector<Vector<String>>();

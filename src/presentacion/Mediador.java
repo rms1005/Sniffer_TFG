@@ -31,7 +31,6 @@ import javax.swing.event.TreeSelectionListener;
 
 import org.jnetpcap.packet.PcapPacket;
 
-
 import presentacion.avisos.Aviso;
 import presentacion.capturandoDumper.ControlHilos;
 import presentacion.capturandoDumper.Fcaptura;
@@ -66,8 +65,8 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
-public class Mediador implements ActionListener, ItemListener,
-		ListSelectionListener, TreeSelectionListener, WindowListener {
+public class Mediador
+		implements ActionListener, ItemListener, ListSelectionListener, TreeSelectionListener, WindowListener {
 	private MenuSniffer MSniffer;
 	private Fcaptura FCaptura;
 
@@ -249,15 +248,15 @@ public class Mediador implements ActionListener, ItemListener,
 	// setPanelEstado("Busqueda de Intrusos");
 	// prefInt = new PreferenciasIntruso();
 	// //prefInt.setVisible(true);
-	//		
+	//
 	// }
-	//	
+	//
 	// public void CargarDatosPantallaIntruso(){
 	// PrefConfLlenarDatos("Intruso");
 	// }
 	//
 	// public void saveFileIntrusos() {
-	//		
+	//
 	// boolean aux =
 	// FachadaDominio.FachadaSaveFileIntrusos(prefInt.getOrigen(),prefInt.getOrigen2(),prefInt.getDestino());
 	// if (aux) {
@@ -270,8 +269,7 @@ public class Mediador implements ActionListener, ItemListener,
 	// }
 	public void irInicioCaptureFromFile(boolean tipo) {
 		setPanelEstado("Iniciando preconfiguración para captura de datos...");
-		PreferenciasFromFile prefCapFromFile = new PreferenciasFromFile(tipo,
-				this);
+		PreferenciasFromFile prefCapFromFile = new PreferenciasFromFile(tipo, this);
 		PrefCapLlenarDatosFromFile();
 		prefCapFromFile.setVisible(true);
 	}
@@ -279,8 +277,7 @@ public class Mediador implements ActionListener, ItemListener,
 	public void irAExportFromFile(boolean tipo) {
 		setPanelEstado("Iniciando preconfiguración para exportación de datos...");
 
-		PreferenciasExportacion prefExp = new PreferenciasExportacion(tipo,
-				this);
+		PreferenciasExportacion prefExp = new PreferenciasExportacion(tipo, this);
 		PrefExpLlenarDatos();
 		prefExp.setVisible(true);
 	}
@@ -378,18 +375,15 @@ public class Mediador implements ActionListener, ItemListener,
 
 			PreferenciasCaptura.setDespuesEspacio(pBC.getstpAfterSpaceId());
 			PreferenciasCaptura.setDespuesEspacio(pBC.getstpAfterSpace());
-			PreferenciasCaptura.setDespuesEspacioTipo(pBC
-					.getstpAfterSpaceType());
+			PreferenciasCaptura.setDespuesEspacioTipo(pBC.getstpAfterSpaceType());
 
 			PreferenciasCaptura.setDespuesTiempo(pBC.getstpAfterTimeId());
 			PreferenciasCaptura.setDespuesTiempo(pBC.getstpAfterTime());
 			PreferenciasCaptura.setDespuesTiempoTipo(pBC.getstpAfterTimeType());
 
-			PreferenciasCaptura
-					.setMultiplesFicheros(pBC.getFilMultipleFileId());
+			PreferenciasCaptura.setMultiplesFicheros(pBC.getFilMultipleFileId());
 		} catch (NullPointerException e) {
-			System.out
-					.println("Error lectura preferencias. Null Pointer Exception");
+			System.out.println("Error lectura preferencias. Null Pointer Exception");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -412,8 +406,7 @@ public class Mediador implements ActionListener, ItemListener,
 			} else {
 				PreferenciasFromFile.setAvanzado(false);
 			}
-			PreferenciasFromFile
-					.setProximoEspacioTipo(pBFF.getffFilSpaceType());
+			PreferenciasFromFile.setProximoEspacioTipo(pBFF.getffFilSpaceType());
 			PreferenciasFromFile.setProximoEspacio(pBFF.getffFilSpaceId());
 			PreferenciasFromFile.setProximoEspacio(pBFF.getffFilSpace());
 
@@ -422,37 +415,30 @@ public class Mediador implements ActionListener, ItemListener,
 			PreferenciasFromFile.setStop(pBFF.getffFilStopAfterId());
 			PreferenciasFromFile.setStop(pBFF.getffFilStopAfter());
 
-			PreferenciasFromFile.setDespuesPaquetes(pBFF
-					.getffStpAfterPacketsId());
-			PreferenciasFromFile
-					.setDespuesPaquetes(pBFF.getffStpAfterPackets());
+			PreferenciasFromFile.setDespuesPaquetes(pBFF.getffStpAfterPacketsId());
+			PreferenciasFromFile.setDespuesPaquetes(pBFF.getffStpAfterPackets());
 
-			PreferenciasFromFile.setMultiplesFicheros(pBFF
-					.getffFilMultipleFileId());
+			PreferenciasFromFile.setMultiplesFicheros(pBFF.getffFilMultipleFileId());
 		} catch (NullPointerException e) {
-			System.out
-					.println("Error lectura preferencias. Null Pointer Exception");
+			System.out.println("Error lectura preferencias. Null Pointer Exception");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void PrefCapLlenarDispositivos() {
-		PreferenciasCaptura.addDispositivo(FachadaDominio
-				.getCapDispositivosPcapLibDes(), FachadaDominio
-				.getCapDispositivosPcapLibDes());
+		PreferenciasCaptura.addDispositivo(FachadaDominio.getCapDispositivosPcapLibDes(),
+				FachadaDominio.getCapDispositivosPcapLibDes());
 	}
 
 	public void PrefCapLlenarDispositivosInsercion() {
-		PreferenciasInsercion.addDispositivo(FachadaDominio
-				.getCapDispositivosPcapLibDes(), FachadaDominio
-				.getCapDispositivosPcapLibDes());
+		PreferenciasInsercion.addDispositivo(FachadaDominio.getCapDispositivosPcapLibDes(),
+				FachadaDominio.getCapDispositivosPcapLibDes());
 	}
 
 	public void PrefCapLlenarDispositivosInsercionCap() {
-		PreferenciasInsercionCapturados.addDispositivo(FachadaDominio
-				.getCapDispositivosPcapLibDes(), FachadaDominio
-				.getCapDispositivosPcapLibDes());
+		PreferenciasInsercionCapturados.addDispositivo(FachadaDominio.getCapDispositivosPcapLibDes(),
+				FachadaDominio.getCapDispositivosPcapLibDes());
 	}
 
 	public void PrefExpLlenarDatos() {
@@ -463,8 +449,7 @@ public class Mediador implements ActionListener, ItemListener,
 			PreferenciasExportacion.setDestino(pBE.getExpDestination());
 			PreferenciasExportacion.setMultiFile(pBE.getExpMultifile());
 		} catch (NullPointerException e) {
-			System.out
-					.println("Error lectura preferencias. Null Pointer Exception");
+			System.out.println("Error lectura preferencias. Null Pointer Exception");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -473,15 +458,10 @@ public class Mediador implements ActionListener, ItemListener,
 	public void PrefConfLlenarDatos() {
 		try {
 			PreferenciasConfiguracion
-					.setParametrizacion(FachadaFicheroDirectorios
-							.getdirectorio("DIR_PARAMETRIZACION"));
-			PreferenciasConfiguracion.setScripts(FachadaFicheroDirectorios
-					.getdirectorio("DIR_SCRIPTS"));
-			PreferenciasConfiguracion.setCapturas(FachadaFicheroDirectorios
-					.getdirectorio("DIR_CAPTURAS"));
-			PreferenciasConfiguracion
-					.setExportaciones(FachadaFicheroDirectorios
-							.getdirectorio("DIR_EXPORTACIONES"));
+					.setParametrizacion(FachadaFicheroDirectorios.getdirectorio("DIR_PARAMETRIZACION"));
+			PreferenciasConfiguracion.setScripts(FachadaFicheroDirectorios.getdirectorio("DIR_SCRIPTS"));
+			PreferenciasConfiguracion.setCapturas(FachadaFicheroDirectorios.getdirectorio("DIR_CAPTURAS"));
+			PreferenciasConfiguracion.setExportaciones(FachadaFicheroDirectorios.getdirectorio("DIR_EXPORTACIONES"));
 			// PreferenciasConfiguracion.setIntruso(FachadaFicheroDirectorios.getdirectorio("DIR_INTRUSO"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -502,13 +482,11 @@ public class Mediador implements ActionListener, ItemListener,
 
 	public void PrefDefLlenarDatos(String ruta) {
 		try {
-			preferencesBeanDefinicion pBD = FachadaDominio
-					.getPrefBeanDefinicion();
+			preferencesBeanDefinicion pBD = FachadaDominio.getPrefBeanDefinicion();
 
 			PreferenciasDefinicion.setRFCProtocolo(pBD.getRFCProtocolo());
 			PreferenciasDefinicion.setNombreProtocolo(pBD.getNomProtocolo());
-			PreferenciasDefinicion
-					.setCamposClaveProtocolo(pBD.getCamposClave());
+			PreferenciasDefinicion.setCamposClaveProtocolo(pBD.getCamposClave());
 			PreferenciasDefinicion.setNivelProtocolo(pBD.getNivelProtocolo());
 			PreferenciasDefinicion.setCamposProtocolo(pBD.getNumCampos());
 			PreferenciasDefinicion.setFicheroCapturas(ruta);
@@ -516,8 +494,7 @@ public class Mediador implements ActionListener, ItemListener,
 			PreferenciasDefinicion.setTablaCampos(pBD.getTabla());
 			PreferenciasDefinicion.refrescar();
 		} catch (NullPointerException e) {
-			System.out
-					.println("Error lectura preferencias. Null Pointer Exception");
+			System.out.println("Error lectura preferencias. Null Pointer Exception");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -525,20 +502,16 @@ public class Mediador implements ActionListener, ItemListener,
 
 	public void PrefDefLlenarDatosInsercion(String ruta) {
 		try {
-			preferencesBeanDefinicion pBDefIns = FachadaDominio
-					.getPrefBeanDefinicion();
+			preferencesBeanDefinicion pBDefIns = FachadaDominio.getPrefBeanDefinicion();
 
 			PreferenciasInsercion.setRFCProtocolo(pBDefIns.getRFCProtocolo());
-			PreferenciasInsercion
-					.setNombreProtocolo(pBDefIns.getNomProtocolo());
-			PreferenciasInsercion.setNivelProtocolo(String.valueOf(pBDefIns
-					.getNivelProtocolo()));
+			PreferenciasInsercion.setNombreProtocolo(pBDefIns.getNomProtocolo());
+			PreferenciasInsercion.setNivelProtocolo(String.valueOf(pBDefIns.getNivelProtocolo()));
 			PreferenciasInsercion.setFicheroDefinicion(ruta);
 
 			PreferenciasInsercion.setTablaCampos(pBDefIns.getTabla());
 		} catch (NullPointerException e) {
-			System.out
-					.println("Error lectura preferencias. Null Pointer Exception");
+			System.out.println("Error lectura preferencias. Null Pointer Exception");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -611,13 +584,9 @@ public class Mediador implements ActionListener, ItemListener,
 		pBFF.setffFilStopAfter(PreferenciasFromFile.getStopDato());
 
 		pBFF.setffStpAfterPacketsId(PreferenciasFromFile.getDespuesPaquetes());
-		pBFF
-				.setffStpAfterPackets(PreferenciasFromFile
-						.getDespuesPaquetesDato());
+		pBFF.setffStpAfterPackets(PreferenciasFromFile.getDespuesPaquetesDato());
 
-		pBFF
-				.setffFilMultipleFileId(PreferenciasFromFile
-						.getMultiplesFicheros());
+		pBFF.setffFilMultipleFileId(PreferenciasFromFile.getMultiplesFicheros());
 	}
 
 	public void PrefExpCogerDatos() {
@@ -629,20 +598,19 @@ public class Mediador implements ActionListener, ItemListener,
 		pBE.setExpStatistics(false);
 		pBE.setExpType("XML");
 	}
-    /** Metodo  donde cargan los directorios por defecto, capturas, exportatciones,
-     * parametrizacion, scripts.
-     * @param sin valor de entrada
-     * @return sin valor de retorno
-     */
+
+	/**
+	 * Metodo donde cargan los directorios por defecto, capturas, exportatciones,
+	 * parametrizacion, scripts.
+	 * 
+	 * @param sin valor de entrada
+	 * @return sin valor de retorno
+	 */
 	public void PrefConfCogerDatos() {
-		FachadaFicheroDirectorios.setdirectorio("DIR_CAPTURAS",
-				PreferenciasConfiguracion.getCapturas());
-		FachadaFicheroDirectorios.setdirectorio("DIR_EXPORTACIONES",
-				PreferenciasConfiguracion.getExportaciones());
-		FachadaFicheroDirectorios.setdirectorio("DIR_PARAMETRIZACION",
-				PreferenciasConfiguracion.getParametrizacion());
-		FachadaFicheroDirectorios.setdirectorio("DIR_SCRIPTS",
-				PreferenciasConfiguracion.getScripts());
+		FachadaFicheroDirectorios.setdirectorio("DIR_CAPTURAS", PreferenciasConfiguracion.getCapturas());
+		FachadaFicheroDirectorios.setdirectorio("DIR_EXPORTACIONES", PreferenciasConfiguracion.getExportaciones());
+		FachadaFicheroDirectorios.setdirectorio("DIR_PARAMETRIZACION", PreferenciasConfiguracion.getParametrizacion());
+		FachadaFicheroDirectorios.setdirectorio("DIR_SCRIPTS", PreferenciasConfiguracion.getScripts());
 
 	}
 
@@ -693,14 +661,12 @@ public class Mediador implements ActionListener, ItemListener,
 
 	public void PrefDefGuardarXML(int estate, String ruta) {
 		try {
-			preferencesBeanDefinicion pBD = FachadaDominio
-					.getPrefBeanDefinicion();
+			preferencesBeanDefinicion pBD = FachadaDominio.getPrefBeanDefinicion();
 
 			prefDefCogerDatos(pBD);
 			FachadaDominio.savePreferencesDefinicion(estate, ruta, pBD);
 		} catch (NullPointerException e) {
-			System.out
-					.println("Error recogida preferencias. Null Pointer Exception");
+			System.out.println("Error recogida preferencias. Null Pointer Exception");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -781,13 +747,10 @@ public class Mediador implements ActionListener, ItemListener,
 			sPathFile = pBM.getMetLocAbsotutePath();
 		}
 		String sNamePathFile;
-		if ((pBM.getMetMultipleFileId()) || (pBC.getstpAfterSpaceId())
-				|| (pBC.getstpAfterTimeId())) {
-			sNamePathFile = sPathFile + System.getProperty("file.separator")
-					+ sNameFile + "_" + pBM.getMetMFEnd();
+		if ((pBM.getMetMultipleFileId()) || (pBC.getstpAfterSpaceId()) || (pBC.getstpAfterTimeId())) {
+			sNamePathFile = sPathFile + System.getProperty("file.separator") + sNameFile + "_" + pBM.getMetMFEnd();
 		} else {
-			sNamePathFile = sPathFile + System.getProperty("file.separator")
-					+ sNameFile;
+			sNamePathFile = sPathFile + System.getProperty("file.separator") + sNameFile;
 		}
 		sNamePathFile = sNamePathFile + ".pcap";
 
@@ -808,8 +771,7 @@ public class Mediador implements ActionListener, ItemListener,
 			System.out.println("Mediador -> Captura Parada");
 			System.out.println("Mediador -> IrFinCapture => INICIO");
 			FachadaDominio.stopCaptura();
-			System.out
-					.println("Mediador -> IrFinCapture => ABRIRDESPUESCAPTURA");
+			System.out.println("Mediador -> IrFinCapture => ABRIRDESPUESCAPTURA");
 			AbrirDespuesCaptura();
 			System.out.println("Mediador -> IrFinCapture => FIN");
 			TimePacket.setParar(false);
@@ -828,18 +790,18 @@ public class Mediador implements ActionListener, ItemListener,
 			setPanelEstado("Parando Captura...");
 
 			FachadaDominio.stopCapturaPcapLib();
-			
-			for (int x=0; x<=10;x++){
+
+			for (int x = 0; x <= 10; x++) {
 				try {
-					//System.out.println(x);
+					// System.out.println(x);
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
-			
-			while (!FachadaDominio.getEndAll()==true) {
+
+			while (!FachadaDominio.getEndAll() == true) {
 			}
 			setPanelEstado("Captura Parada");
 			AbrirDespuesCaptura();
@@ -861,16 +823,14 @@ public class Mediador implements ActionListener, ItemListener,
 	}
 
 	public void irAAyuda() {
-		File index = new File(FachadaFicheroDirectorios
-				.getdirectorioData("DIR_HELP")
+		File index = new File(FachadaFicheroDirectorios.getdirectorioData("DIR_HELP")
 				+ System.getProperty("file.separator") + "Ayuda-Sniffer.htm");
 
 		FachadaDominio.mostrarAyudaSniffer(index.getAbsolutePath());
 	}
 
 	public void irAPrueba() {
-		FachadaDominio
-				.saveXMLfromEstate("C:\\Capturas\\captura_090708_180812_state.xml");
+		FachadaDominio.saveXMLfromEstate("C:\\Capturas\\captura_090708_180812_state.xml");
 	}
 
 	public void irAPrueba2() {
@@ -882,8 +842,7 @@ public class Mediador implements ActionListener, ItemListener,
 	}
 
 	public void irAAyudaFilter() {
-		File index = new File(FachadaFicheroDirectorios
-				.getdirectorioData("DIR_HELP")
+		File index = new File(FachadaFicheroDirectorios.getdirectorioData("DIR_HELP")
 				+ System.getProperty("file.separator") + "filtrado.html");
 		FachadaDominio.mostrarAyudaSniffer(index.getAbsolutePath());
 	}
@@ -919,25 +878,21 @@ public class Mediador implements ActionListener, ItemListener,
 		try {
 			PrefCapCogerDatos();
 
-			String aux = FachadaDominio.getPrefBeanCaptura()
-					.getCapDispositive();
-			if (!FachadaDominio.getPrefBeanCaptura().getCapDispositive()
-					.equals("\n Seleccione un dispositivo")) {
+			String aux = FachadaDominio.getPrefBeanCaptura().getCapDispositive();
+			if (!FachadaDominio.getPrefBeanCaptura().getCapDispositive().equals("\n Seleccione un dispositivo")) {
 				FachadaDominio.openCapturaPcapLib();
 				FachadaDominio.setPrefCapturaDumper();
 				FachadaDominio.setListenerPcapLib();
 				FachadaDominio.setControlPacket(true);
-				this.FCaptura = new Fcaptura(this, FachadaDominio
-						.getCountPacketHandler());
+				this.FCaptura = new Fcaptura(this, FachadaDominio.getCountPacketHandler());
 				this.FCaptura.setVisible(true);
 				this.FCaptura.repaint();
 				FachadaDominio.startCapturaPcapLib();
 				setPanelEstado(String.valueOf("Captura inicializada"));
-				if ((pBC.getFilMultipleFileId()) || (pBC.getstpAfterTimeId())
-						|| (pBC.getstpAfterSpaceId())
+				if ((pBC.getFilMultipleFileId()) || (pBC.getstpAfterTimeId()) || (pBC.getstpAfterSpaceId())
 						|| (pBC.getstpAfterPacketsId())) {
 					this.hilo = new ControlHilos(Thread.activeCount(), this);
-					this.hilo.start(); //hilo controlos hilos
+					this.hilo.start(); // hilo controlos hilos
 				}
 				return true;
 			}
@@ -978,21 +933,17 @@ public class Mediador implements ActionListener, ItemListener,
 
 	public void cargardirectorios() {
 		FabricaAccesoDatosIF fabrica = new FabricaAccesoDatos();
-		String auxDirectorios = FachadaFicheroDirectorios
-				.getdirectorioData("DIR_PROPERTIES")
+		String auxDirectorios = FachadaFicheroDirectorios.getdirectorioData("DIR_PROPERTIES")
 				+ System.getProperty("file.separator") + "userfiles.property";
-		FachadaFichero f = fabrica.creaFachadaFichero("directorios",
-				auxDirectorios);
+		FachadaFichero f = fabrica.creaFachadaFichero("directorios", auxDirectorios);
 		Object[] directoriosnom = f.leer();
 	}
 
 	public void guardardirectorios() {
 		FabricaAccesoDatosIF fabrica = new FabricaAccesoDatos();
-		String auxDirectorios = FachadaFicheroDirectorios
-				.getdirectorioData("DIR_PROPERTIES")
+		String auxDirectorios = FachadaFicheroDirectorios.getdirectorioData("DIR_PROPERTIES")
 				+ System.getProperty("file.separator") + "userfiles.property";
-		FachadaFichero f = fabrica.creaFachadaFichero("directorios",
-				auxDirectorios);
+		FachadaFichero f = fabrica.creaFachadaFichero("directorios", auxDirectorios);
 		f.escribir("");
 		System.out.println("Preferencias de usuario grabadas correctamente");
 	}
@@ -1045,8 +996,7 @@ public class Mediador implements ActionListener, ItemListener,
 		BarraMenu.habilitarComponenteBarraMenus(posicion, positem);
 	}
 
-	public void EnabledComponenteBarraMenus(int posicion, int positem, int pos,
-			boolean bEstado) {
+	public void EnabledComponenteBarraMenus(int posicion, int positem, int pos, boolean bEstado) {
 		BarraMenu.EnabledComponenteBarraMenus(posicion, positem, pos, bEstado);
 	}
 
@@ -1075,8 +1025,8 @@ public class Mediador implements ActionListener, ItemListener,
 		Object[][] arr = PreferenciasDefinicion.getTabla();
 		for (int i = 0; i < arr.length - 1; i++) {
 			int j = i + 1;
-			if (Integer.valueOf(String.valueOf(arr[i][0])).intValue() > Integer
-					.valueOf(String.valueOf(arr[j][0])).intValue()) {
+			if (Integer.valueOf(String.valueOf(arr[i][0])).intValue() > Integer.valueOf(String.valueOf(arr[j][0]))
+					.intValue()) {
 				for (int k = 0; k < PreferenciasDefinicion.getColumnas(); k++) {
 					aux = arr[i][k];
 					arr[i][k] = arr[j][k];
@@ -1103,16 +1053,14 @@ public class Mediador implements ActionListener, ItemListener,
 
 	public void irAInsertarPaquetes(String titulo, int tot) {
 		if (titulo.equals("Insertar Paquetes Capturados")) {
-			if ((PreferenciasInsercionCapturados.getDispositivo()
-					.equals("Seleccione un dispositivo"))
+			if ((PreferenciasInsercionCapturados.getDispositivo().equals("Seleccione un dispositivo"))
 					|| (PreferenciasInsercionCapturados.getRepeticiones() == 0)
 					|| (PreferenciasInsercionCapturados.getRuta().equals(""))) {
 				lanzaraviso("Datos Insercion Incompletos", "Error");
 			} else {
-				Insercion ins = new Insercion(PreferenciasInsercionCapturados
-						.getDispositivo(), PreferenciasInsercionCapturados
-						.getRuta(), PreferenciasInsercionCapturados
-						.getRepeticiones(), 2);
+				Insercion ins = new Insercion(PreferenciasInsercionCapturados.getDispositivo(),
+						PreferenciasInsercionCapturados.getRuta(), PreferenciasInsercionCapturados.getRepeticiones(),
+						2);
 				PreferenciasVisualizarInsercion prefIns = new PreferenciasVisualizarInsercion(
 						"Insercion Paquetes Capturados", tot, ins);
 				PreferenciasVisualizarInsercion.iniciarInsercion();
@@ -1123,7 +1071,7 @@ public class Mediador implements ActionListener, ItemListener,
 		if (titulo.equals("Insertar Paquetes Definidos")) {
 			try {
 				PcapPacket p = PreferenciasInsercion.crearPaquete();
-				if ((p != null)	&& (PreferenciasInsercion.getDispositivo() != "")) {
+				if ((p != null) && (PreferenciasInsercion.getDispositivo() != "")) {
 					Insercion ins = new Insercion(PreferenciasInsercion.getDispositivo(), p, 1);
 					PreferenciasVisualizarInsercion prefIns = new PreferenciasVisualizarInsercion(
 							"Insertar Paquetes Definidos", -1, ins);
@@ -1147,21 +1095,19 @@ public class Mediador implements ActionListener, ItemListener,
 
 	public void PrefInsCapLlenarDatos() {
 		try {
-			preferencesBeanExportInsercion pBE = FachadaDominio
-					.getPrefBeanExportInsercion();
+			preferencesBeanExportInsercion pBE = FachadaDominio.getPrefBeanExportInsercion();
 
 			PreferenciasInsercion.setIpDestino(pBE.getIpDestino());
 			PreferenciasInsercion.setIpOrigen(pBE.getIpOrigen());
 			PreferenciasInsercion.setMacDestino(pBE.getMacDestino());
 			PreferenciasInsercion.setMacOrigen(pBE.getMacOrigen());
 		} catch (NullPointerException e) {
-			System.out
-					.println("Error lectura preferencias. Null Pointer Exception");
+			System.out.println("Error lectura preferencias. Null Pointer Exception");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void irADetallePaquete() {
 		setPanelEstado("Iniciando preconfiguración para visualizar paquetes en detalle...");
 		PreferenciasPaqueteDetalle prefPacketDetail = new PreferenciasPaqueteDetalle(this);
@@ -1172,16 +1118,16 @@ public class Mediador implements ActionListener, ItemListener,
 	private void PrefPacketDetLlenarDatosFromFile() {
 		try {
 			preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
-			
+
 			PreferenciasPaqueteDetalle.setFilasPaquetes(pBDP.getRows());
 			PreferenciasPaqueteDetalle.setColumnasPaquetes(pBDP.getColumns());
 			PreferenciasPaqueteDetalle.setPacketTotalBytes(pBDP.isTotalBytes());
 			PreferenciasPaqueteDetalle.setPacketBytes(pBDP.getBytes());
 			PreferenciasPaqueteDetalle.setBytesHex(pBDP.isBytesHex());
-			
-		} catch(NullPointerException e) {
+
+		} catch (NullPointerException e) {
 			System.out.println("Error lectura preferencias de detalle de paquetes. Null Pointer Exception");
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -1190,17 +1136,17 @@ public class Mediador implements ActionListener, ItemListener,
 		PrefPacketDetCogerDatos();
 		FachadaDominio.savePreferences(estate, ruta);
 	}
-	
+
 	public void PrefPacketDetCogerDatos() {
 		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
-		
+
 		pBDP.setRows(PreferenciasPaqueteDetalle.getFilasPaquetes());
 		pBDP.setColumns(PreferenciasPaqueteDetalle.getColumnasPaquetes());
 		pBDP.setTotalBytes(PreferenciasPaqueteDetalle.getPacketTotalBytes());
 		pBDP.setBytes(PreferenciasPaqueteDetalle.getPacketBytes());
 		pBDP.setBytesHex(PreferenciasPaqueteDetalle.getBytesHex());
 	}
-	
+
 	public preferencesBeanDetallePaquete getPrefPacketDet() {
 		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
 		return pBDP;

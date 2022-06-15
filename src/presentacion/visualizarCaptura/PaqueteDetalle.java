@@ -15,23 +15,17 @@ import javax.swing.border.Border;
 import presentacion.Mediador;
 import servicioAccesoDatos.FachadaFicheroDirectorios;
 
+public class PaqueteDetalle extends JPanel {
 
-public class PaqueteDetalle extends JPanel 
-{
+	/*
+	 * public class PaqueteDetalle(){
+	 * 
+	 * contadorarbol = 0; hilo = null; mediador = med;
+	 * mediador.setPanelEstado("Cargado datos del paquete"); VectorConexiones = new
+	 * Vector(); history = new Vector(); VentanaDetalle(); }
+	 */
 
-	/*public class PaqueteDetalle(){
+	public void VentanaDetalle() {
 
-		contadorarbol = 0;
-		hilo = null;
-		mediador = med;
-		mediador.setPanelEstado("Cargado datos del paquete");
-		VectorConexiones = new Vector();
-		history = new Vector();
-		VentanaDetalle();	
-	}*/
-
-	public void VentanaDetalle(){
-		
-    
 	}
 }

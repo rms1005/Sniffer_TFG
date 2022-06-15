@@ -26,19 +26,24 @@ public class HTTPAnalyzer extends JDPacketAnalyzer {
 	Vector headers = new Vector();
 	Tcp tcppacket = new Tcp();
 	Http httpheader = new Http();
-	
+
 	public HTTPAnalyzer() {
 		this.layer = APPLICATION_LAYER;
 	}
-	/** Metodo  donde se analiza el paquete recibido y se sabe su protocolo es o no de tipo ARP.
-     * @param PcapPacket p 
-     * @return boolean 
-     * @exception exceptions Ning�n error (Excepci�n) definida
-     */
+
+	/**
+	 * Metodo donde se analiza el paquete recibido y se sabe su protocolo es o no de
+	 * tipo ARP.
+	 * 
+	 * @param PcapPacket p
+	 * @return boolean
+	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 */
 	public boolean isAnalyzable(PcapPacket p) {
-		/*if(p.hasHeader(httpheader))
-			System.out.println(httpheader.toString());
-		return p.hasHeader(tcppacket) && p.hasHeader(httpheader);*/
+		/*
+		 * if(p.hasHeader(httpheader)) System.out.println(httpheader.toString()); return
+		 * p.hasHeader(tcppacket) && p.hasHeader(httpheader);
+		 */
 		return p.hasHeader(tcppacket) && (tcppacket.source() == 80 || tcppacket.destination() == 80);
 	}
 
@@ -49,12 +54,15 @@ public class HTTPAnalyzer extends JDPacketAnalyzer {
 	public String[] getValueNames() {
 		return valueNames;
 	}
-    /** Metodo  donde se analiza el paquete recibido convierte a un paquete objeto de 
-     * con un tipo de protocolo HTTP.
-     * @param PcapPacket p 
-     * @return sin valor de retorno
-     * @exception exceptions Ning�n error (Excepci�n) definida
-     */  
+
+	/**
+	 * Metodo donde se analiza el paquete recibido convierte a un paquete objeto de
+	 * con un tipo de protocolo HTTP.
+	 * 
+	 * @param PcapPacket p
+	 * @return sin valor de retorno
+	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 */
 	public void analyze(PcapPacket p) {
 		this.method = "";
 		this.headers.removeAllElements();
@@ -72,7 +80,7 @@ public class HTTPAnalyzer extends JDPacketAnalyzer {
 			}
 			String l;
 			while ((l = in.readLine()).length() > 0) {
-				
+
 				this.headers.addElement(l);
 			}
 		} catch (IOException localIOException) {

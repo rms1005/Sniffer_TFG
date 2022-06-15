@@ -64,15 +64,12 @@ public class SavePacketHandler {
 	/**
 	 * Metodo Gestor de los paquetes capturados
 	 * 
-	 * @param Captura
-	 *            ,SaveFileName (Nombre de archivo),
-	 *            CountPacketHandler,JpcapCaptor
-	 * @exception exceptions
-	 *                Ningún error (Excepción) definida
+	 * @param Captura ,SaveFileName (Nombre de archivo),
+	 *                CountPacketHandler,JpcapCaptor
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 
-	public SavePacketHandler(Captura cap, SaveFileName SFN,
-			CountPacketHandler CPH, Pcap jpcap) {
+	public SavePacketHandler(Captura cap, SaveFileName SFN, CountPacketHandler CPH, Pcap jpcap) {
 		this.jpcap = jpcap;
 		this.venpadre = cap;
 		String aux = "./files/Capturas";
@@ -101,14 +98,11 @@ public class SavePacketHandler {
 	/**
 	 * Metodo Gestor de los paquetes capturados
 	 * 
-	 * @param Captura
-	 *            ,SaveFileName (Nombre de archivo),
-	 *            CountPacketHandler,JpcapCaptor, fullPath
-	 * @exception exceptions
-	 *                Ning�n error (Excepci�n) definida
+	 * @param Captura ,SaveFileName (Nombre de archivo),
+	 *                CountPacketHandler,JpcapCaptor, fullPath
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
-	public SavePacketHandler(Captura cap, SaveFileName SFN,
-			CountPacketHandler CPH, Pcap jpcap, String fullPath) {
+	public SavePacketHandler(Captura cap, SaveFileName SFN, CountPacketHandler CPH, Pcap jpcap, String fullPath) {
 		this.jpcap = jpcap;
 		this.venpadre = cap;
 
@@ -134,10 +128,8 @@ public class SavePacketHandler {
 	/**
 	 * Metodo Gestor de los paquetes capturados
 	 * 
-	 * @param SaveFileName
-	 *            (Nombre de archivo), fullPath
-	 * @exception exceptions
-	 *                Ning�n error (Excepci�n) definida
+	 * @param SaveFileName (Nombre de archivo), fullPath
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public SavePacketHandler(SaveFileName SFN, String fullPath) {
 		this.SFName = SFN;
@@ -161,15 +153,14 @@ public class SavePacketHandler {
 	 * objetos que lo van a componer.
 	 * 
 	 * @param nombrefichero
-	 * @exception exceptions
-	 *                Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public static void DefinirXML(String nombrefichero) {
 
 		nombreficheroxml = nombrefichero;
 		/*
-		 * En esta Clase CrearXMLOffline creamos los datos (Nombre) del archivo
-		 * XML a crear a la vez que el pcap
+		 * En esta Clase CrearXMLOffline creamos los datos (Nombre) del archivo XML a
+		 * crear a la vez que el pcap
 		 */
 		CrearXMLOffline crearxmloffline = new CrearXMLOffline(nombreficheroxml);
 		/* En esta clase podemos crear XmlPacketHandler */
@@ -179,20 +170,18 @@ public class SavePacketHandler {
 	}
 
 	/**
-	 * Metodo donde se Define los hilos para las capturas como algunas detalles
-	 * de la captura, si es archivos multiples.
+	 * Metodo donde se Define los hilos para las capturas como algunas detalles de
+	 * la captura, si es archivos multiples.
 	 * 
-	 * @exception exceptions
-	 *                Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void runHilos() {
-		
-		if (getTime() !=0){
+
+		if (getTime() != 0) {
 			this.STime = new SaveTime(this, getTime(), this.SFName);
 			this.STime.start();
 			this.multiFile = true;
-		}
-		else if (getSpace() != 0) {
+		} else if (getSpace() != 0) {
 			if (getNumPacket() != 0) {
 				this.captureThread = new Thread(new Runnable() {
 					public void run() {
@@ -219,12 +208,12 @@ public class SavePacketHandler {
 				});
 				this.captureThread.setPriority(1);
 				this.captureThread.start();
-				
-			}else {
+
+			} else {
 				setTcpDumpWriter_first();
 				this.SFName.saveState(true);
+			}
 		}
-			} 
 	}
 
 	public static PcapDumper getDumper() {
@@ -236,11 +225,9 @@ public class SavePacketHandler {
 	}
 
 	/**
-	 * Metodo se paran las conexi�nes con la red para para el proceso de
-	 * captura.
+	 * Metodo se paran las conexiones con la red para para el proceso de captura.
 	 * 
-	 * @exception exceptions
-	 *                Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void stopHilos() {
 		if (this.STime != null) {
@@ -255,11 +242,10 @@ public class SavePacketHandler {
 	}
 
 	/**
-	 * Metodo donde prepara la apertura del fichero *.pcap, donde se guardaran
-	 * las capturas, se guardan en un objeto file.
+	 * Metodo donde prepara la apertura del fichero *.pcap, donde se guardaran las
+	 * capturas, se guardan en un objeto file.
 	 * 
-	 * @exception exceptions
-	 *                por si falla la carga en el objeto
+	 * @exception exceptions por si falla la carga en el objeto
 	 */
 	public void setTcpDumpWriter_first() {
 		try {
@@ -306,29 +292,31 @@ public class SavePacketHandler {
 	}
 
 	/**
-	 * Metodo donde se recive los paquetes capturados aqui se guardan en un
-	 * objeto para su posterior guardado en un archivo.
+	 * Metodo donde se recive los paquetes capturados aqui se guardan en un objeto
+	 * para su posterior guardado en un archivo.
 	 * 
 	 * @param jpcap2
 	 * @param jpcap2
 	 * @param packet
-	 * @exception exceptions
-	 *                si falla el guardado secuencial de la captura
+	 * @exception exceptions si falla el guardado secuencial de la captura
 	 */
 	public static void receivePacket(Pcap jpcap2) {
-		
-		if (isMultiFile()){
-			
-		if ((!(SFName.getPath() + SFName.getSeparator() + getFile()).equalsIgnoreCase(ruta) )|| SaveTime.isCambiaArchivo()==true  ) {
-			
-			DefinirXML(SFName.getPath() + SFName.getSeparator()+ SFName.getNameFile() + "_" + SFName.getDateTime() + "_"+SFName.getContador() + ".xml");
-			setDumper(jpcap2.dumpOpen(SFName.getPath() + SFName.getSeparator()+ getFile()));
-			
-			SaveTime.setCambiaArchivo(false);
-		
-		}}
 
- 		PcapPacketHandler<PcapDumper> dumpHandler = new PcapPacketHandler<PcapDumper>() {
+		if (isMultiFile()) {
+
+			if ((!(SFName.getPath() + SFName.getSeparator() + getFile()).equalsIgnoreCase(ruta))
+					|| SaveTime.isCambiaArchivo() == true) {
+
+				DefinirXML(SFName.getPath() + SFName.getSeparator() + SFName.getNameFile() + "_" + SFName.getDateTime()
+						+ "_" + SFName.getContador() + ".xml");
+				setDumper(jpcap2.dumpOpen(SFName.getPath() + SFName.getSeparator() + getFile()));
+
+				SaveTime.setCambiaArchivo(false);
+
+			}
+		}
+
+		PcapPacketHandler<PcapDumper> dumpHandler = new PcapPacketHandler<PcapDumper>() {
 
 			public void nextPacket(PcapPacket packet, PcapDumper dumper) {
 
@@ -338,7 +326,6 @@ public class SavePacketHandler {
 					RCountPH.nextPacket(packet);
 					ficheroxmlenconstruccion.receivePacket(packet);
 					contSpaceLen += packet.size();
-
 				}
 			}
 		};
@@ -346,9 +333,7 @@ public class SavePacketHandler {
 		jpcap2.loop(1, dumpHandler, getDumper());
 		nextContPacket();
 		/* Se crean en Multiarchivos */
-		
 
-		
 		if (contSpaceLen >= getSpace() && (getSpace() != 0)) {
 			SFName.setNext();
 			if (SFName.getNext() == -1) {
@@ -363,10 +348,10 @@ public class SavePacketHandler {
 				SFName.saveStateMulti(true);
 			}
 
-			}else {
+		} else {
 			ruta = (SFName.getPath() + SFName.getSeparator() + getFile());
 
-			}
+		}
 
 		/* Una vez grabado podemos vaciar el buffer de memoria */
 		try {
@@ -387,24 +372,21 @@ public class SavePacketHandler {
 
 	static void savefichero() {
 
-		
 		/*
-		 * Cerramos Objeto para que se guarde completamente las capturas en el
-		 * fichero xml
+		 * Cerramos Objeto para que se guarde completamente las capturas en el fichero
+		 * xml
 		 */
 		ficheroxmlenconstruccion.finEntrada();
-		System.out.println("\n Se ha realizado el archivo en XML en "
-				+ nombreficheroxml);
+		System.out.println("\n Se ha realizado el archivo en XML en " + nombreficheroxml);
 		// dumper.close();
 
 	}
 
 	/**
-	 * Metodo donde se para la captura de paquetes, ya sea por orden del usuario
-	 * o por que ya ha llegado al numero de paquetes pedido por el usuario.
+	 * Metodo donde se para la captura de paquetes, ya sea por orden del usuario o
+	 * por que ya ha llegado al numero de paquetes pedido por el usuario.
 	 * 
-	 * @exception exceptions
-	 *                si falla el guardado secuencial de la captura
+	 * @exception exceptions si falla el guardado secuencial de la captura
 	 */
 	public static void stopCaptura() {
 
@@ -477,8 +459,7 @@ public class SavePacketHandler {
 	}
 
 	public String getAuxFullName() {
-		return this.SFName.getPath() + this.SFName.getSeparator()
-				+ getAuxFile();
+		return this.SFName.getPath() + this.SFName.getSeparator() + getAuxFile();
 	}
 
 	public void setNumPacket(long aux) {

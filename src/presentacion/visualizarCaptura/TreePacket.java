@@ -66,12 +66,12 @@ public class TreePacket {
 		DefaultTreeModel modeloArbol = new DefaultTreeModel(Paquete);
 		this.tree = new JTree(modeloArbol);
 		this.tree.setCellRenderer(new MiRendererDeArbol());
-		
+
 		this.completo = pBDP.isTotalBytes();
 		this.hex = pBDP.isBytesHex();
 		numBytesIniciales = Integer.valueOf(this.pBDP.getBytes());
 		bytesPorFila = 10;
-		
+
 	}
 
 	/**
@@ -351,7 +351,8 @@ public class TreePacket {
 			String strAux;
 			for (int i = 0; i < valueNames.length; i++) {
 				strAux = valueNames[i].toString();
-				DefaultMutableTreeNode childP = new DefaultMutableTreeNode(strAux + " : " + String.valueOf(packetAnalyzer.getValue(strAux)));
+				DefaultMutableTreeNode childP = new DefaultMutableTreeNode(
+						strAux + " : " + String.valueOf(packetAnalyzer.getValue(strAux)));
 				LayerP.add(childP);
 			}
 		}
@@ -529,29 +530,29 @@ public class TreePacket {
 			LayerP.add(childP);
 		}
 	}
-	
+
 	static void mostrarBytesIniciales(PcapPacket packet) {
 		byte[] bytes;
-		
-		if(completo)
+
+		if (completo)
 			bytes = packet.getByteArray(0, packet.size());
 		else
 			bytes = packet.getByteArray(0, packet.size() < numBytesIniciales ? packet.size() : numBytesIniciales);
-		
+
 		DefaultMutableTreeNode LayerP = new DefaultMutableTreeNode("Bytes iniciales: " + bytes.length);
 		Paquete.add(LayerP);
-		
+
 		String bytesString = "";
 		String byteX = "";
 		int index = 0;
-		
-		while(bytes.length - index != 0) {
+
+		while (bytes.length - index != 0) {
 			bytesString = "";
-			
+
 			if (bytes.length - index < bytesPorFila) {
 				for (int i = index; i < bytes.length; i++) {
-					byteX = hex ? String.format("%02X", bytes[i]) : ""+bytes[i];
-					if(i == index)
+					byteX = hex ? String.format("%02X", bytes[i]) : "" + bytes[i];
+					if (i == index)
 						bytesString += byteX;
 					else
 						bytesString += " " + byteX;
@@ -559,8 +560,8 @@ public class TreePacket {
 				index = bytes.length;
 			} else {
 				for (int i = index; i < index + bytesPorFila; i++) {
-					byteX = hex ? String.format("%02X", bytes[i]) : ""+bytes[i];
-					if(i == index)
+					byteX = hex ? String.format("%02X", bytes[i]) : "" + bytes[i];
+					if (i == index)
 						bytesString += byteX;
 					else
 						bytesString += " " + byteX;

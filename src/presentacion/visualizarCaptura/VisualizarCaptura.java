@@ -1,6 +1,5 @@
 package presentacion.visualizarCaptura;
 
-
 import dominio.pcap.rules.*;
 import dominio.pcapDumper.Captura;
 import dominio.preferences.preferencesBeanDetallePaquete;
@@ -20,19 +19,18 @@ import org.jnetpcap.packet.PcapPacketHandler;
 import presentacion.Mediador;
 import servicioAccesoDatos.FachadaFicheroDirectorios;
 
-/** 
- * Clase Sniffer, Clase Principal. 
+/**
+ * Clase Sniffer, Clase Principal.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
-*/
-
+ */
 
 public class VisualizarCaptura extends JPanel implements Runnable {
 
 	private static final long serialVersionUID = 1255618549349652261L;
-	
+
 	// private Thread captureThread2;
 	// private boolean finOneFile;
 	protected boolean isLiveCapture;
@@ -53,32 +51,30 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 
 	public void VentanaCaptura() {
 		Label = new JLabel();
-		Label.setIcon(new ImageIcon((new StringBuilder(String
-				.valueOf(FachadaFicheroDirectorios
-						.getdirectorioData("DIR_IMAGES")))).append(
-				System.getProperty("file.separator")).append("tcp.png")
-				.toString()));
+		Label.setIcon(new ImageIcon(
+				(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+						.append(System.getProperty("file.separator")).append("tcp.png").toString()));
 		Label.setText("Conexiones TCP");
 		TablaPaquetes = new TablePane(this);
 		TablaConexiones = new TableConexions(TablaPaquetes);
 		Paneaux = new JPanel();
 		Paneaux2 = new JPanel();
-		
+
 		Paneconexiones = new JPanel();
 		Paneaux.setLayout(new GridLayout(0, 1));
 		Paneaux2.setLayout(new GridLayout(0, 1));
-		
+
 		// Trees (packets on detail)
 		Paneauxtree = new JPanel();
 		Paneauxtree.setLayout(new GridLayout(numVertical, numHorizontal));
-		Paneauxtree_list = new ArrayList<JPanel>(numVertical*numHorizontal);
-		for(int i = 0; i < numVertical*numHorizontal; i++) {
+		Paneauxtree_list = new ArrayList<JPanel>(numVertical * numHorizontal);
+		for (int i = 0; i < numVertical * numHorizontal; i++) {
 			PaneauxtreeX = new JPanel();
 			PaneauxtreeX.setLayout(new BorderLayout());
 			Paneauxtree_list.add(PaneauxtreeX);
 			Paneauxtree.add(PaneauxtreeX);
 		}
-		
+
 		Paneconexiones.setBorder(new BevelBorder(0));
 		Paneconexiones.setLayout(new BorderLayout());
 		output = new JTextArea(37, 45);
@@ -112,7 +108,6 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		resetGraficos();
 
 		AbrirFile(getFile());
-		
 	}
 
 	public void setFile(String aux) {
@@ -128,10 +123,10 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		history.clear();
 		TablaPaquetes.clearTable();
 		TablaConexiones.clearTable();
-		for(int i = 0; i < Paneauxtree_list.size(); i++) {
+		for (int i = 0; i < Paneauxtree_list.size(); i++) {
 			Paneauxtree_list.get(i).removeAll();
 		}
-		
+
 		contadorarbol = 0;
 		redimensionar();
 	}
@@ -140,8 +135,8 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		actualizarValoresPreferencias();
 		Paneauxtree.removeAll();
 		Paneauxtree.setLayout(new GridLayout(numVertical, numHorizontal));
-		Paneauxtree_list = new ArrayList<JPanel>(numVertical*numHorizontal);
-		for(int i = 0; i < numVertical*numHorizontal; i++) {
+		Paneauxtree_list = new ArrayList<JPanel>(numVertical * numHorizontal);
+		for (int i = 0; i < numVertical * numHorizontal; i++) {
 			PaneauxtreeX = new JPanel();
 			PaneauxtreeX.setLayout(new BorderLayout());
 			Paneauxtree_list.add(PaneauxtreeX);
@@ -153,23 +148,22 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		int Linklayer = -1;
 		return Linklayer;
 	}
-    /** Metodo  se abre el fichero pcap con capturas para su visualizaci�n.
-     * @param String nombre 
-     * @return sin valor de retorno
-     */
+
+	/**
+	 * Metodo se abre el fichero pcap con capturas para su visualizaci�n.
+	 * 
+	 * @param String nombre
+	 * @return sin valor de retorno
+	 */
 	public void AbrirFile(String nombre) {
 		String fichero = nombre;
-		System.out.println((new StringBuilder("1............")).append(fichero)
-				.toString());
-		PacketHandlerPcapLib PacketHPL = new PacketHandlerPcapLib(this,
-				TablaPaquetes);
+		System.out.println((new StringBuilder("1............")).append(fichero).toString());
+		PacketHandlerPcapLib PacketHPL = new PacketHandlerPcapLib(this, TablaPaquetes);
 		try {
-				abrirFichero();
+			abrirFichero();
 			System.out.println("5............");
 			AddConexionesTabla();
-			System.err
-					.println((new StringBuilder("Establecio fichero leido => "))
-							.append(fichero).toString());
+			System.err.println((new StringBuilder("Establecio fichero leido => ")).append(fichero).toString());
 			mediador.setFileReaded(fichero);
 			mediador.getVentanaMenuSniffer().dispose();
 			Captura.eCOFwithoutSaveMeta(pcap);
@@ -198,12 +192,12 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 			pcap.loop(1, handler, "jNetPcap rocks!");
 
 		} while (i == 1 && (VisualizarCaptura.this.isLiveCapture));
-		
+
 	}
 
 	public void CrearArbol(int numero) {
 		contadorarbol++;
-		if(contadorarbol > Paneauxtree_list.size())
+		if (contadorarbol > Paneauxtree_list.size())
 			contadorarbol = 1;
 		PcapPacket paquete = (PcapPacket) history.get(numero);
 		Border emptyBorder = BorderFactory.createLoweredBevelBorder();
@@ -211,24 +205,25 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		Arbol = new TreePacket(numero, paquete, pBDP);
 		scrollPane3 = new JScrollPane(Arbol.Arbol());
 		scrollPane3.setBorder(selectBorder);
-		
-		PaneauxtreeX = Paneauxtree_list.get(contadorarbol-1);
+
+		PaneauxtreeX = Paneauxtree_list.get(contadorarbol - 1);
 		PaneauxtreeX.removeAll();
 		PaneauxtreeX.add(scrollPane3, "Center");
-		
+
 		if (PaneauxtreeX.getComponentCount() > 0) {
 			JScrollPane auxJSPanel = null;
-			if(contadorarbol == 1)
+			if (contadorarbol == 1)
 				try {
-					auxJSPanel = (JScrollPane) Paneauxtree_list.get(Paneauxtree_list.size()-1).getComponent(0);
+					auxJSPanel = (JScrollPane) Paneauxtree_list.get(Paneauxtree_list.size() - 1).getComponent(0);
 					auxJSPanel.setBorder(emptyBorder);
-				} catch(ArrayIndexOutOfBoundsException e) {}
+				} catch (ArrayIndexOutOfBoundsException e) {
+				}
 			else {
-				auxJSPanel = (JScrollPane) Paneauxtree_list.get(contadorarbol-2).getComponent(0);
+				auxJSPanel = (JScrollPane) Paneauxtree_list.get(contadorarbol - 2).getComponent(0);
 				auxJSPanel.setBorder(emptyBorder);
 			}
 		}
-		
+
 		mediador.repaintVentana(mediador.getVentanaMenuSniffer());
 	}
 
@@ -244,8 +239,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 
 	public void LoadFileRules(File nombre) {
 		try {
-			String nombreficheroreglas = (new StringBuilder()).append(
-					nombre.getAbsoluteFile()).toString();
+			String nombreficheroreglas = (new StringBuilder()).append(nombre.getAbsoluteFile()).toString();
 			if (nombreficheroreglas.indexOf(".rules") == -1)
 				throw new Exception("Fichero no de reglas");
 			if (Reglas == null) {
@@ -257,12 +251,10 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 			Reglas.LoadRules(nombre);
 			FAlertsLoad.DatosTablaAlertsLoad(nombre.getAbsolutePath());
 			Reglas.OrdenarReglas();
-			JOptionPane.showMessageDialog(frameinf, (new StringBuilder(
-					"Fichero de reglas ")).append(nombreficheroreglas).append(
-					" añadido").toString());
+			JOptionPane.showMessageDialog(frameinf, (new StringBuilder("Fichero de reglas "))
+					.append(nombreficheroreglas).append(" añadido").toString());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(frameinf,
-					"Formato incorrecto de fichero de reglas");
+			JOptionPane.showMessageDialog(frameinf, "Formato incorrecto de fichero de reglas");
 		}
 	}
 
@@ -286,24 +278,22 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		return VectorConexiones;
 	}
 
-	public void DatosConexion(String IpOrigen, String IpDestino,
-			int PuertoOrigen, int PuertoDestino, int numeropaquete) {
+	public void DatosConexion(String IpOrigen, String IpDestino, int PuertoOrigen, int PuertoDestino,
+			int numeropaquete) {
 		int i = 0;
 		boolean existente = false;
-		NuevaConexion = new Conexion(IpOrigen, IpDestino, PuertoOrigen,
-				PuertoDestino);
+		NuevaConexion = new Conexion(IpOrigen, IpDestino, PuertoOrigen, PuertoDestino);
 		if (VectorConexiones.size() != 0) {
 			for (; i < VectorConexiones.size() && !existente; i++) {
-				Conexion objetoConexion = (Conexion) VectorConexiones
-						.elementAt(i);
+				Conexion objetoConexion = (Conexion) VectorConexiones.elementAt(i);
 				if ((objetoConexion.getIpSrc().compareTo(IpOrigen) == 0
-						&& objetoConexion.getIpDest().compareTo(IpDestino) == 0 || objetoConexion
-						.getIpSrc().compareTo(IpDestino) == 0
-						&& objetoConexion.getIpDest().compareTo(IpOrigen) == 0)
+						&& objetoConexion.getIpDest().compareTo(IpDestino) == 0
+						|| objetoConexion.getIpSrc().compareTo(IpDestino) == 0
+								&& objetoConexion.getIpDest().compareTo(IpOrigen) == 0)
 						&& (objetoConexion.getPuertoSrc() == PuertoOrigen
-								&& objetoConexion.getPuertoDst() == PuertoDestino || objetoConexion
-								.getPuertoSrc() == PuertoDestino
-								&& objetoConexion.getPuertoDst() == PuertoOrigen)) {
+								&& objetoConexion.getPuertoDst() == PuertoDestino
+								|| objetoConexion.getPuertoSrc() == PuertoDestino
+										&& objetoConexion.getPuertoDst() == PuertoOrigen)) {
 					objetoConexion.addpaquete(numeropaquete);
 					existente = true;
 				}
@@ -322,12 +312,10 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	public void AddConexionesTabla() {
 		for (int i = 0; i < VectorConexiones.size(); i++) {
 			Conexion objetoConexion = (Conexion) VectorConexiones.elementAt(i);
-			TablaConexiones.DatosTablaConexion(String.valueOf(i),
-					objetoConexion.getTimeEstablecimiento(), objetoConexion
-							.getIpSrc(), objetoConexion.getIpDest(), String
-							.valueOf(objetoConexion.getPuertoSrc()), String
-							.valueOf(objetoConexion.getPuertoDst()), String
-							.valueOf(objetoConexion.getnumeropaquetes()));
+			TablaConexiones.DatosTablaConexion(String.valueOf(i), objetoConexion.getTimeEstablecimiento(),
+					objetoConexion.getIpSrc(), objetoConexion.getIpDest(),
+					String.valueOf(objetoConexion.getPuertoSrc()), String.valueOf(objetoConexion.getPuertoDst()),
+					String.valueOf(objetoConexion.getnumeropaquetes()));
 		}
 
 	}
@@ -339,12 +327,11 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	public String getColumnPosition() {
 		return TablaPaquetes.obtenerOrdenColumnas();
 	}
-	
+
 	private void actualizarValoresPreferencias() {
 		this.numVertical = Integer.valueOf(pBDP.getRows());
 		this.numHorizontal = Integer.valueOf(pBDP.getColumns());
 	}
-	
 
 	private Vector<Conexion> VectorConexiones;
 	private Rules Reglas;

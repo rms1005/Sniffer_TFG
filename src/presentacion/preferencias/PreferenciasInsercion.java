@@ -170,8 +170,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 	/** Creates new form PreferenciasInsercion */
 	public PreferenciasInsercion() {
-		super(MenuSniffer.getFrames()[0], "Inserción de paquetes definidos",
-				true);
+		super(MenuSniffer.getFrames()[0], "Inserción de paquetes definidos", true);
 		title = "Inicio Definicion";
 		tipo = true;
 		mediador = new Mediador();
@@ -267,10 +266,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		// jBCancelar = new javax.swing.JButton();
 		// jBInsertar = new javax.swing.JButton();
 
-		jBDefinicion = new CBAbrirFichero(mediador,
-				"AbrirDefinicionProtocoloInsercion");
-		jBCaptura = new CBAbrirFichero(mediador,
-				"Abrir fichero de exportaciones...");
+		jBDefinicion = new CBAbrirFichero(mediador, "AbrirDefinicionProtocoloInsercion");
+		jBCaptura = new CBAbrirFichero(mediador, "Abrir fichero de exportaciones...");
 		jBDispositivo = new CBAbrirFichero(mediador, "AbrirDefinicionProtocolo");
 		jBCancelar = new CBAceptar(mediador, "Salir");
 		jBInsertar = new CBAceptar(mediador, "Insertar Paquetes Definidos");
@@ -282,20 +279,15 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		setResizable(false);
 
 		jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Inserción",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
-				new java.awt.Font("Tahoma 11 Negrita 12 Simple 12 Simple", 1,
-						14))); // NOI18N
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true), "Inserción",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				new java.awt.Font("Tahoma 11 Negrita 12 Simple 12 Simple", 1, 14))); // NOI18N
 		jPanel3.setName("jPanel3"); // NOI18N
 		jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
 		jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Orden de encapsulación",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true), "Orden de encapsulación",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 		jPanel1.setName("jPanel1"); // NOI18N
 		jPanel1.setPreferredSize(new java.awt.Dimension(670, 172));
@@ -353,8 +345,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		jBDesencap.setFont(new java.awt.Font(
-				"Tahoma 11 Negrita 12 Negrita 12 Simple", 0, 12));
+		jBDesencap.setFont(new java.awt.Font("Tahoma 11 Negrita 12 Negrita 12 Simple", 0, 12));
 		jBDesencap.setText("Desencapsular");
 		jBDesencap.setName("jBDesencap"); // NOI18N
 
@@ -366,205 +357,71 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(
-				jPanel1);
+		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
 		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout
-				.setHorizontalGroup(jPanel1Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel1Layout
-										.createSequentialGroup()
-										.addGroup(
-												jPanel1Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel1Layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				jLabel15))
-														.addGroup(
-																jPanel1Layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				jTextField9,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				554,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																jPanel1Layout
-																		.createSequentialGroup()
-																		.addGroup(
-																				jPanel1Layout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addGroup(
-																								jPanel1Layout
-																										.createSequentialGroup()
-																										.addGap(
-																												121,
-																												121,
-																												121)
-																										.addComponent(
-																												jBEncapsular,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												131,
-																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																						.addGroup(
-																								jPanel1Layout
-																										.createSequentialGroup()
-																										.addGap(
-																												10,
-																												10,
-																												10)
-																										.addComponent(
-																												jLabel10)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												jcmbNivel1,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												73,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												jLabel11)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												jcmbNivel2,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												73,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)))
-																		.addGap(
-																				18,
-																				18,
-																				18)
-																		.addComponent(
-																				jLabel12)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addGroup(
-																				jPanel1Layout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								jPanel1Layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												jcmbNivel3,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												83,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(
-																												18,
-																												18,
-																												18)
-																										.addComponent(
-																												jLabel13)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												jcmbNivel4,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												74,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(
-																												6,
-																												6,
-																												6))
-																						.addComponent(
-																								jBDesencap))))
-										.addContainerGap()));
-		jPanel1Layout
-				.setVerticalGroup(jPanel1Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel1Layout
-										.createSequentialGroup()
-										.addGap(19, 19, 19)
-										.addGroup(
-												jPanel1Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel1Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				4,
-																				4,
-																				4)
-																		.addComponent(
-																				jLabel10))
-														.addGroup(
-																jPanel1Layout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																		.addComponent(
-																				jcmbNivel1,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addComponent(
-																				jcmbNivel2,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addComponent(
-																				jLabel12)
-																		.addComponent(
-																				jLabel11)
-																		.addComponent(
-																				jLabel13)
-																		.addComponent(
-																				jcmbNivel3,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addComponent(
-																				jcmbNivel4,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addGap(27, 27, 27)
-										.addGroup(
-												jPanel1Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																jBDesencap, 0,
-																0,
-																Short.MAX_VALUE)
-														.addComponent(
-																jBEncapsular))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-												8, Short.MAX_VALUE)
-										.addComponent(jLabel15)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												jTextField9,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addContainerGap()));
+		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(jLabel15))
+						.addGroup(jPanel1Layout.createSequentialGroup().addContainerGap().addComponent(jTextField9,
+								javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
+								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(jPanel1Layout.createSequentialGroup().addGap(121, 121, 121).addComponent(
+										jBEncapsular, javax.swing.GroupLayout.PREFERRED_SIZE, 131,
+										javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addGroup(
+										jPanel1Layout.createSequentialGroup().addGap(10, 10, 10).addComponent(jLabel10)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(jcmbNivel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+												.addComponent(jLabel11)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(jcmbNivel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73,
+														javax.swing.GroupLayout.PREFERRED_SIZE)))
+								.addGap(18, 18, 18).addComponent(jLabel12)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout
+												.createSequentialGroup()
+												.addComponent(jcmbNivel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addGap(18, 18, 18).addComponent(jLabel13)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(jcmbNivel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addGap(6, 6, 6))
+										.addComponent(jBDesencap))))
+						.addContainerGap()));
+		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel1Layout.createSequentialGroup().addGap(19, 19, 19).addGroup(jPanel1Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanel1Layout.createSequentialGroup().addGap(4, 4, 4).addComponent(jLabel10))
+						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(jcmbNivel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(jcmbNivel2, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(jLabel12).addComponent(jLabel11).addComponent(jLabel13)
+								.addComponent(jcmbNivel3, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(jcmbNivel4, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGap(27, 27, 27)
+						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(jBDesencap, 0, 0, Short.MAX_VALUE).addComponent(jBEncapsular))
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+						.addComponent(jLabel15).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addContainerGap()));
 
-		jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(
-				670, 460, 640, -1));
+		jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, 640, -1));
 
 		jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Selección IP v4",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true), "Selección IP v4",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 		jPanel4.setName("jPanel4"); // NOI18N
 		jPanel4.setPreferredSize(new java.awt.Dimension(640, 120));
@@ -631,8 +488,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		jcmbIpOcap.setEnabled(false);
 		jcmbIpOcap.setName("jcmbIpOcap"); // NOI18N
-		jcmbIpOcap.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent evt) {
+		jcmbIpOcap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				jcmbIpOcapFocusLost(evt);
 			}
 		});
@@ -645,197 +502,60 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(
-				jPanel4);
+		javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
 		jPanel4.setLayout(jPanel4Layout);
-		jPanel4Layout
-				.setHorizontalGroup(jPanel4Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel4Layout
-										.createSequentialGroup()
-										.addGroup(
-												jPanel4Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel4Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				74,
-																				74,
-																				74)
-																		.addComponent(
-																				jrIpOmanual)
-																		.addGap(
-																				22,
-																				22,
-																				22)
-																		.addComponent(
-																				jtxtIpOmanual,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				110,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(
-																				114,
-																				114,
-																				114)
-																		.addComponent(
-																				jrIpDmanual)
-																		.addGap(
-																				24,
-																				24,
-																				24)
-																		.addComponent(
-																				jtxtIpDmanual,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				112,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																jPanel4Layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				jLabel4)
-																		.addGap(
-																				243,
-																				243,
-																				243)
-																		.addComponent(
-																				jLabel6,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				81,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																jPanel4Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				74,
-																				74,
-																				74)
-																		.addComponent(
-																				jrIpOcap)
-																		.addGap(
-																				8,
-																				8,
-																				8)
-																		.addComponent(
-																				jcmbIpOcap,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				110,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(
-																				114,
-																				114,
-																				114)
-																		.addComponent(
-																				jrIpDcap)
-																		.addGap(
-																				6,
-																				6,
-																				6)
-																		.addComponent(
-																				jcmbIpDcap,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				110,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addGap(40, 40, 40)));
-		jPanel4Layout
-				.setVerticalGroup(jPanel4Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel4Layout
-										.createSequentialGroup()
-										.addGap(9, 9, 9)
-										.addGroup(
-												jPanel4Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel4Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				1,
-																				1,
-																				1)
-																		.addComponent(
-																				jrIpOmanual))
-														.addGroup(
-																jPanel4Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				1,
-																				1,
-																				1)
-																		.addComponent(
-																				jtxtIpOmanual,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addComponent(
-																jrIpDmanual)
-														.addGroup(
-																jPanel4Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				1,
-																				1,
-																				1)
-																		.addComponent(
-																				jtxtIpDmanual,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addGap(3, 3, 3)
-										.addGroup(
-												jPanel4Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(jLabel6)
-														.addComponent(jLabel4))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												jPanel4Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(jrIpOcap)
-														.addGroup(
-																jPanel4Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				2,
-																				2,
-																				2)
-																		.addComponent(
-																				jcmbIpOcap,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addComponent(jrIpDcap)
-														.addGroup(
-																jPanel4Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				1,
-																				1,
-																				1)
-																		.addComponent(
-																				jcmbIpDcap,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))));
+		jPanel4Layout.setHorizontalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel4Layout.createSequentialGroup()
+						.addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(jPanel4Layout.createSequentialGroup().addGap(74, 74, 74)
+										.addComponent(jrIpOmanual).addGap(22, 22, 22)
+										.addComponent(jtxtIpOmanual, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addGap(114, 114, 114).addComponent(jrIpDmanual).addGap(24, 24, 24)
+										.addComponent(jtxtIpDmanual, javax.swing.GroupLayout.PREFERRED_SIZE, 112,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addGroup(jPanel4Layout.createSequentialGroup().addContainerGap().addComponent(jLabel4)
+										.addGap(243, 243, 243)
+										.addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 81,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addGroup(jPanel4Layout.createSequentialGroup().addGap(74, 74, 74)
+										.addComponent(jrIpOcap).addGap(8, 8, 8)
+										.addComponent(jcmbIpOcap, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addGap(114, 114, 114).addComponent(jrIpDcap).addGap(6, 6, 6)
+										.addComponent(jcmbIpDcap, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+												javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGap(40, 40, 40)));
+		jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel4Layout.createSequentialGroup().addGap(9, 9, 9).addGroup(jPanel4Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanel4Layout.createSequentialGroup().addGap(1, 1, 1).addComponent(jrIpOmanual))
+						.addGroup(jPanel4Layout.createSequentialGroup().addGap(1, 1, 1).addComponent(jtxtIpOmanual,
+								javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addComponent(jrIpDmanual)
+						.addGroup(jPanel4Layout.createSequentialGroup().addGap(1, 1, 1).addComponent(jtxtIpDmanual,
+								javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGap(3, 3, 3)
+						.addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(jLabel6).addComponent(jLabel4))
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(jrIpOcap)
+								.addGroup(jPanel4Layout.createSequentialGroup().addGap(2, 2, 2).addComponent(jcmbIpOcap,
+										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addComponent(jrIpDcap)
+								.addGroup(jPanel4Layout.createSequentialGroup().addGap(1, 1, 1).addComponent(jcmbIpDcap,
+										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.PREFERRED_SIZE)))));
 
-		jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(
-				20, 230, 640, 120));
+		jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 640, 120));
 
 		jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Selección IP v6",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true), "Selección IP v6",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 		jPanel5.setName("jPanel5"); // NOI18N
 
@@ -878,184 +598,64 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jcmbMacDcap.setEnabled(false);
 		jcmbMacDcap.setName("jcmbMacDcap"); // NOI18N
 
-		javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(
-				jPanel5);
+		javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
 		jPanel5.setLayout(jPanel5Layout);
-		jPanel5Layout
-				.setHorizontalGroup(jPanel5Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel5Layout
-										.createSequentialGroup()
-										.addGroup(
-												jPanel5Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING,
-																false)
-														.addGroup(
-																jPanel5Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				5,
-																				5,
-																				5)
-																		.addComponent(
-																				jLabel7,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				79,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				jrMacOmanual)
-																		.addGap(
-																				25,
-																				25,
-																				25)
-																		.addGroup(
-																				jPanel5Layout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING)
-																						.addGroup(
-																								jPanel5Layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												jtxtMacOmanual,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												110,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(
-																												102,
-																												102,
-																												102))
-																						.addGroup(
-																								jPanel5Layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												jLabel16)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-																		.addComponent(
-																				jrMacDmanual,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				98,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				jtxtMacDmanual,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				103,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																jPanel5Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				84,
-																				84,
-																				84)
-																		.addComponent(
-																				jrMacOcap)
-																		.addGap(
-																				11,
-																				11,
-																				11)
-																		.addComponent(
-																				jcmbMacOcap,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				110,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addGap(
-																				103,
-																				103,
-																				103)
-																		.addComponent(
-																				jrMacDcap)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				jcmbMacDcap,
-																				0,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)))
-										.addContainerGap(19, Short.MAX_VALUE)));
-		jPanel5Layout
-				.setVerticalGroup(jPanel5Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel5Layout
-										.createSequentialGroup()
-										.addGap(10, 10, 10)
-										.addGroup(
-												jPanel5Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																jrMacOmanual)
-														.addGroup(
-																jPanel5Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				20,
-																				20,
-																				20)
-																		.addGroup(
-																				jPanel5Layout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.BASELINE)
-																						.addComponent(
-																								jLabel16)
-																						.addComponent(
-																								jLabel7)))
-														.addComponent(
-																jtxtMacOmanual,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGroup(
-																jPanel5Layout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																		.addComponent(
-																				jrMacDmanual)
-																		.addComponent(
-																				jtxtMacDmanual,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addGap(6, 6, 6)
-										.addGroup(
-												jPanel5Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(jrMacOcap)
-														.addComponent(
-																jcmbMacOcap,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGroup(
-																jPanel5Layout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																		.addComponent(
-																				jrMacDcap)
-																		.addComponent(
-																				jcmbMacDcap,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))));
+		jPanel5Layout.setHorizontalGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel5Layout.createSequentialGroup().addGroup(jPanel5Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+						.addGroup(jPanel5Layout.createSequentialGroup().addGap(5, 5, 5)
+								.addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 79,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(jrMacOmanual).addGap(25, 25, 25)
+								.addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+										.addGroup(jPanel5Layout.createSequentialGroup()
+												.addComponent(jtxtMacOmanual, javax.swing.GroupLayout.PREFERRED_SIZE,
+														110, javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addGap(102, 102, 102))
+										.addGroup(jPanel5Layout.createSequentialGroup().addComponent(jLabel16)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+								.addComponent(jrMacDmanual, javax.swing.GroupLayout.PREFERRED_SIZE, 98,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(jtxtMacDmanual, javax.swing.GroupLayout.PREFERRED_SIZE, 103,
+										javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addGroup(jPanel5Layout.createSequentialGroup().addGap(84, 84, 84).addComponent(jrMacOcap)
+								.addGap(11, 11, 11)
+								.addComponent(jcmbMacOcap, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGap(103, 103, 103).addComponent(jrMacDcap)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(jcmbMacDcap, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+						.addContainerGap(19, Short.MAX_VALUE)));
+		jPanel5Layout.setVerticalGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel5Layout.createSequentialGroup().addGap(10, 10, 10).addGroup(jPanel5Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jrMacOmanual)
+						.addGroup(jPanel5Layout.createSequentialGroup().addGap(20, 20, 20)
+								.addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(jLabel16).addComponent(jLabel7)))
+						.addComponent(jtxtMacOmanual, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(jrMacDmanual)
+								.addComponent(jtxtMacDmanual, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGap(6, 6, 6)
+						.addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(jrMacOcap)
+								.addComponent(jcmbMacOcap, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(jrMacDcap).addComponent(jcmbMacDcap,
+												javax.swing.GroupLayout.PREFERRED_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.PREFERRED_SIZE)))));
 
-		jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(
-				20, 420, 640, 110));
+		jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 640, 110));
 
 		jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Selección de Envío",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true), "Selección de Envío",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 		jPanel6.setName("jPanel6"); // NOI18N
 		jPanel6.setPreferredSize(new java.awt.Dimension(600, 99));
@@ -1106,179 +706,68 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(
-				jPanel6);
+		javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
 		jPanel6.setLayout(jPanel6Layout);
-		jPanel6Layout
-				.setHorizontalGroup(jPanel6Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel6Layout
-										.createSequentialGroup()
-										.addGap(4, 4, 4)
-										.addGroup(
-												jPanel6Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel6Layout
-																		.createSequentialGroup()
-																		.addComponent(
-																				jLabel3)
-																		.addGap(
-																				3,
-																				3,
-																				3)
-																		.addComponent(
-																				jcmbDisp,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				420,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																jPanel6Layout
-																		.createSequentialGroup()
-																		.addGroup(
-																				jPanel6Layout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								false)
-																						.addGroup(
-																								jPanel6Layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												jLabel17)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												jtxtPorigen,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												86,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												Short.MAX_VALUE)
-																										.addComponent(
-																												jLabel19)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												jtxtPdestino,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												86,
-																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																						.addGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								jPanel6Layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												jLabel1)
-																										.addGap(
-																												13,
-																												13,
-																												13)
-																										.addComponent(
-																												jtxtCapturas,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												420,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)))
-																		.addGap(
-																				20,
-																				20,
-																				20)
-																		.addComponent(
-																				(CBAbrirFichero) jBCaptura,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				89,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addContainerGap(19, Short.MAX_VALUE)));
-		jPanel6Layout
-				.setVerticalGroup(jPanel6Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel6Layout
-										.createSequentialGroup()
-										.addGap(10, 10, 10)
-										.addGroup(
-												jPanel6Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel6Layout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																		.addComponent(
-																				jLabel17)
-																		.addComponent(
-																				jtxtPorigen,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addGroup(
-																jPanel6Layout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																		.addComponent(
-																				jtxtPdestino,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addComponent(
-																				jLabel19)))
-										.addGap(20, 20, 20)
-										.addGroup(
-												jPanel6Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel6Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				10,
-																				10,
-																				10)
-																		.addComponent(
-																				jLabel1))
-														.addGroup(
-																jPanel6Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				10,
-																				10,
-																				10)
-																		.addComponent(
-																				jtxtCapturas,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addComponent(
-																(CBAbrirFichero) jBCaptura,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																35,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(25, 25, 25)
-										.addGroup(
-												jPanel6Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(jLabel3)
-														.addComponent(
-																jcmbDisp,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))));
+		jPanel6Layout.setHorizontalGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel6Layout.createSequentialGroup().addGap(4, 4, 4).addGroup(jPanel6Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanel6Layout.createSequentialGroup().addComponent(jLabel3).addGap(3, 3, 3)
+								.addComponent(jcmbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 420,
+										javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addGroup(jPanel6Layout.createSequentialGroup()
+								.addGroup(jPanel6Layout
+										.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+										.addGroup(jPanel6Layout.createSequentialGroup().addComponent(jLabel17)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+												.addComponent(jtxtPorigen, javax.swing.GroupLayout.PREFERRED_SIZE, 86,
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(jLabel19)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+												.addComponent(jtxtPdestino, javax.swing.GroupLayout.PREFERRED_SIZE, 86,
+														javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addGroup(javax.swing.GroupLayout.Alignment.LEADING,
+												jPanel6Layout.createSequentialGroup().addComponent(jLabel1)
+														.addGap(13, 13, 13).addComponent(jtxtCapturas,
+																javax.swing.GroupLayout.PREFERRED_SIZE, 420,
+																javax.swing.GroupLayout.PREFERRED_SIZE)))
+								.addGap(20, 20, 20).addComponent((CBAbrirFichero) jBCaptura,
+										javax.swing.GroupLayout.PREFERRED_SIZE, 89,
+										javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addContainerGap(19, Short.MAX_VALUE)));
+		jPanel6Layout.setVerticalGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel6Layout.createSequentialGroup().addGap(10, 10, 10).addGroup(jPanel6Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(jLabel17).addComponent(jtxtPorigen,
+										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(jtxtPdestino, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(jLabel19)))
+						.addGap(20, 20, 20)
+						.addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(
+										jPanel6Layout.createSequentialGroup().addGap(10, 10, 10).addComponent(jLabel1))
+								.addGroup(jPanel6Layout.createSequentialGroup().addGap(10, 10, 10).addComponent(
+										jtxtCapturas, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addComponent((CBAbrirFichero) jBCaptura, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+										javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addGap(25, 25, 25)
+						.addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addComponent(jLabel3).addComponent(jcmbDisp, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.PREFERRED_SIZE))));
 
-		jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(
-				20, 30, 640, 200));
+		jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 640, 200));
 
 		jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Implementación de Protocolo",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
-				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true),
+				"Implementación de Protocolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+				javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 		jPanel2.setName("jPanel2"); // NOI18N
 		jPanel2.setPreferredSize(new java.awt.Dimension(670, 432));
 
@@ -1289,34 +778,19 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jLabel2.setName("jLabel2"); // NOI18N
 		jScrollPane1.setName("jScrollPane1"); // NOI18N
 
-		jTable1.setModel(new javax.swing.table.DefaultTableModel(
-				new Object[][] { { null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null },
-						{ null, null, null, null, null } }, new String[] {
-						"Nombre del Campo", "Valor del campo",
-						"Tama�o del campo", "Tipo de dato", "Opcional" }) {
-			Class[] types = new Class[] { java.lang.String.class,
-					java.lang.String.class, java.lang.Integer.class,
+		jTable1.setModel(new javax.swing.table.DefaultTableModel(new Object[][] { { null, null, null, null, null },
+				{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
+				{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
+				{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
+				{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
+				{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
+				{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
+				{ null, null, null, null, null } },
+				new String[] { "Nombre del Campo", "Valor del campo", "Tama�o del campo", "Tipo de dato",
+						"Opcional" }) {
+			Class[] types = new Class[] { java.lang.String.class, java.lang.String.class, java.lang.Integer.class,
 					java.lang.String.class, java.lang.String.class };
-			boolean[] canEdit = new boolean[] { false, true, false, false,
-					false };
+			boolean[] canEdit = new boolean[] { false, true, false, false, false };
 
 			public Class getColumnClass(int columnIndex) {
 				return types[columnIndex];
@@ -1329,13 +803,11 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jTable1.setName("jTable1"); // NOI18N
 		jScrollPane1.setViewportView(jTable1);
 		jTable1.getColumnModel().getColumn(0).setResizable(false);
-		jTable1.getColumnModel().getColumn(0)
-				.setHeaderValue("Nombre del Campo");
+		jTable1.getColumnModel().getColumn(0).setHeaderValue("Nombre del Campo");
 		jTable1.getColumnModel().getColumn(1).setResizable(false);
 		jTable1.getColumnModel().getColumn(1).setHeaderValue("Valor del campo");
 		jTable1.getColumnModel().getColumn(2).setResizable(false);
-		jTable1.getColumnModel().getColumn(2)
-				.setHeaderValue("Tama�o del campo");
+		jTable1.getColumnModel().getColumn(2).setHeaderValue("Tama�o del campo");
 		jTable1.getColumnModel().getColumn(3).setResizable(false);
 		jTable1.getColumnModel().getColumn(3).setHeaderValue("Tipo de dato");
 		jTable1.getColumnModel().getColumn(4).setResizable(false);
@@ -1360,8 +832,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jtxtNivel.setName("jtxtNivel"); // NOI18N
 
 		jBEncapDefinidos.setText("Encapsular Protocolo Generado");
-		jBEncapDefinidos.setFont(new java.awt.Font(
-				"Tahoma 11 Negrita 12 Negrita 12 Simple", 1, 12));
+		jBEncapDefinidos.setFont(new java.awt.Font("Tahoma 11 Negrita 12 Negrita 12 Simple", 1, 12));
 		jBEncapDefinidos.setName("jBEncapDefinidos"); // NOI18N
 		jBEncapDefinidos.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1369,172 +840,59 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(
-				jPanel2);
+		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
 		jPanel2.setLayout(jPanel2Layout);
-		jPanel2Layout
-				.setHorizontalGroup(jPanel2Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel2Layout
-										.createSequentialGroup()
-										.addGroup(
-												jPanel2Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel2Layout
-																		.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.LEADING,
-																				false)
-																		.addGroup(
-																				jPanel2Layout
-																						.createSequentialGroup()
-																						.addGap(
-																								10,
-																								10,
-																								10)
-																						.addComponent(
-																								jLabel5)
-																						.addPreferredGap(
-																								javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																						.addComponent(
-																								jtxtNombre,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								69,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addGap(
-																								42,
-																								42,
-																								42)
-																						.addComponent(
-																								jLabel8)
-																						.addPreferredGap(
-																								javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																						.addComponent(
-																								jtxtRfc,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								69,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)
-																						.addGap(
-																								35,
-																								35,
-																								35)
-																						.addComponent(
-																								jLabel9)
-																						.addPreferredGap(
-																								javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																						.addComponent(
-																								jtxtNivel,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								75,
-																								javax.swing.GroupLayout.PREFERRED_SIZE))
-																		.addGroup(
-																				jPanel2Layout
-																						.createSequentialGroup()
-																						.addGap(
-																								10,
-																								10,
-																								10)
-																						.addComponent(
-																								jLabel2)
-																						.addPreferredGap(
-																								javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																						.addComponent(
-																								jtxtDirDef))
-																		.addGroup(
-																				jPanel2Layout
-																						.createSequentialGroup()
-																						.addContainerGap()
-																						.addComponent(
-																								jScrollPane1,
-																								javax.swing.GroupLayout.PREFERRED_SIZE,
-																								602,
-																								javax.swing.GroupLayout.PREFERRED_SIZE)))
-														.addGroup(
-																jPanel2Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				88,
-																				88,
-																				88)
-																		.addComponent(
-																				jBEncapDefinidos,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				467,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addContainerGap(16, Short.MAX_VALUE)));
-		jPanel2Layout
-				.setVerticalGroup(jPanel2Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel2Layout
-										.createSequentialGroup()
-										.addGroup(
-												jPanel2Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanel2Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				20,
-																				20,
-																				20)
-																		.addComponent(
-																				jLabel2))
-														.addGroup(
-																jPanel2Layout
-																		.createSequentialGroup()
-																		.addGap(
-																				19,
-																				19,
-																				19)
-																		.addComponent(
-																				jtxtDirDef,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addGap(28, 28, 28)
-										.addGroup(
-												jPanel2Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(jLabel5)
-														.addComponent(
-																jtxtNombre,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jLabel8)
-														.addComponent(
-																jtxtRfc,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jLabel9)
-														.addComponent(
-																jtxtNivel,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addGap(14, 14, 14)
-										.addComponent(
-												jScrollPane1,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												239,
+		jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel2Layout.createSequentialGroup().addGroup(jPanel2Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addGroup(jPanel2Layout.createSequentialGroup().addGap(10, 10, 10).addComponent(jLabel5)
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(jtxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 69,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(18, 18, 18)
-										.addComponent(
-												jBEncapDefinidos,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												35, Short.MAX_VALUE)
-										.addContainerGap()));
+										.addGap(42, 42, 42).addComponent(jLabel8)
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(jtxtRfc, javax.swing.GroupLayout.PREFERRED_SIZE, 69,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addGap(35, 35, 35).addComponent(jLabel9)
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(jtxtNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 75,
+												javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addGroup(jPanel2Layout.createSequentialGroup().addGap(10, 10, 10).addComponent(jLabel2)
+										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(jtxtDirDef))
+								.addGroup(jPanel2Layout.createSequentialGroup().addContainerGap().addComponent(
+										jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602,
+										javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGroup(jPanel2Layout.createSequentialGroup().addGap(88, 88, 88).addComponent(
+								jBEncapDefinidos, javax.swing.GroupLayout.PREFERRED_SIZE, 467,
+								javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addContainerGap(16, Short.MAX_VALUE)));
+		jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel2Layout.createSequentialGroup().addGroup(jPanel2Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanel2Layout.createSequentialGroup().addGap(20, 20, 20).addComponent(jLabel2))
+						.addGroup(jPanel2Layout.createSequentialGroup().addGap(19, 19, 19).addComponent(jtxtDirDef,
+								javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGap(28, 28, 28)
+						.addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(jLabel5)
+								.addComponent(jtxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(jLabel8)
+								.addComponent(jtxtRfc, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(jLabel9).addComponent(jtxtNivel, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addGap(14, 14, 14)
+						.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(18, 18, 18)
+						.addComponent(jBEncapDefinidos, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+						.addContainerGap()));
 
-		jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(
-				670, 22, 640, -1));
+		jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 22, 640, -1));
 
 		jBLimpiar.setText("Limpiar");
 		jBLimpiar.setName("jBLimpiar"); // NOI18N
@@ -1543,27 +901,19 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jBLimpiarMouseClicked(evt);
 			}
 		});
-		jPanel3.add(jBLimpiar,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 160,
-						31));
+		jPanel3.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 160, 31));
 
 		// jBCancelar.setText("CANCELAR");
 		// jBCancelar.setName("jBCancelar"); // NOI18N
-		jPanel3.add((CBAceptar) jBCancelar,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 570,
-						160, 31));
+		jPanel3.add((CBAceptar) jBCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 570, 160, 31));
 
 		// jBInsertar.setText("INSERTAR");
 		// jBInsertar.setName("jBInsertar"); // NOI18N
-		jPanel3.add((CBAceptar) jBInsertar,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 570,
-						160, 31));
+		jPanel3.add((CBAceptar) jBInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 570, 160, 31));
 
 		jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Selección IPv6",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true), "Selección IPv6",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 		jPanel7.setName("jPanel7"); // NOI18N
 
@@ -1587,84 +937,42 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(
-				jPanel7);
+		javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
 		jPanel7.setLayout(jPanel7Layout);
-		jPanel7Layout
-				.setHorizontalGroup(jPanel7Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								javax.swing.GroupLayout.Alignment.TRAILING,
-								jPanel7Layout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(jLabel14)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-												30, Short.MAX_VALUE)
-										.addComponent(
-												jtxtIp6origen,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												174,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(61, 61, 61)
-										.addComponent(jLabel20)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(
-												jtxtIp6destino,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												170,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(40, 40, 40)));
-		jPanel7Layout
-				.setVerticalGroup(jPanel7Layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanel7Layout
-										.createSequentialGroup()
-										.addGroup(
-												jPanel7Layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(jLabel14)
-														.addComponent(
-																jtxtIp6origen,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jLabel20)
-														.addComponent(
-																jtxtIp6destino,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																20,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addContainerGap(
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)));
+		jPanel7Layout.setHorizontalGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+						.addContainerGap().addComponent(jLabel14)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+						.addComponent(jtxtIp6origen, javax.swing.GroupLayout.PREFERRED_SIZE, 174,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(61, 61, 61).addComponent(jLabel20)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+						.addComponent(jtxtIp6destino, javax.swing.GroupLayout.PREFERRED_SIZE, 170,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(40, 40, 40)));
+		jPanel7Layout.setVerticalGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanel7Layout.createSequentialGroup().addGroup(jPanel7Layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(jLabel14)
+						.addComponent(jtxtIp6origen, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(jLabel20).addComponent(jtxtIp6destino, javax.swing.GroupLayout.PREFERRED_SIZE, 20,
+								javax.swing.GroupLayout.PREFERRED_SIZE))
+						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-		jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(
-				20, 350, 640, 60));
+		jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 640, 60));
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap().addComponent(
-						jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1333,
-						javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-								Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap().addComponent(
-						jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 663,
-						javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-								Short.MAX_VALUE)));
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
+						.addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1333,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
+						.addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 663,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
 		jcmbNivel1.addFocusListener(new java.awt.event.FocusAdapter() {
 			public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1732,14 +1040,14 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		jcmbIpOcap.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent evt) {
+		jcmbIpOcap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				jcmbIpOcapFocusLost(evt);
 			}
 		});
 
-		jcmbIpDcap.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent evt) {
+		jcmbIpDcap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				jcmbIpDcapFocusLost(evt);
 			}
 		});
@@ -1780,8 +1088,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		jrMacOcap.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent evt) {
+		jrMacOcap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				jrMacOcapFocusGained(evt);
 			}
 		});
@@ -1792,8 +1100,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		jrMacDcap.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent evt) {
+		jrMacDcap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				jrMacDcapFocusGained(evt);
 			}
 		});
@@ -1808,17 +1116,17 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			public void focusLost(FocusEvent evt) {
 				jtxtMacDmanualFocusLost(evt);
 			}
-		
+
 		});
 
-		jcmbMacDcap.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent evt) {
+		jcmbMacDcap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				jcmbMacDcapFocusLost(evt);
 			}
 		});
 
-		jcmbMacOcap.addActionListener(new ActionListener() {          
-		    public void actionPerformed(ActionEvent evt) {
+		jcmbMacOcap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				jcmbMacOcapFocusLost(evt);
 			}
 		});
@@ -1847,10 +1155,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jcmbNivel4.addItem("Seleccione");
 
 		jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Orden de encapsulacion",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true), "Orden de encapsulacion",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 		jPanel1.setName("jPanel1"); // NOI18N
 		jPanel1.setPreferredSize(new java.awt.Dimension(670, 172));
@@ -1859,30 +1165,22 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 		jLabel10.setText("Enlace:");
 		jLabel10.setName("jLabel10"); // NOI18N
-		jPanel1.add(jLabel10,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 41, 50,
-						-1));
+		jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 41, 50, -1));
 
 		jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 		jLabel11.setText("Red :");
 		jLabel11.setName("jLabel11"); // NOI18N
-		jPanel1.add(jLabel11,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1,
-						-1));
+		jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
 
 		jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 		jLabel13.setText("Aplicación:");
 		jLabel13.setName("jLabel13"); // NOI18N
-		jPanel1.add(jLabel13,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 38, -1,
-						-1));
+		jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 38, -1, -1));
 
 		jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 		jLabel12.setText("Transp:");
 		jLabel12.setName("jLabel12"); // NOI18N
-		jPanel1.add(jLabel12,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 38, -1,
-						-1));
+		jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 38, -1, -1));
 
 		jcmbNivel1.setName("jcmbNivel1"); // NOI18N
 		jcmbNivel1.setPreferredSize(new java.awt.Dimension(23, 18));
@@ -1891,9 +1189,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jcmbNivel1FocusLost(evt);
 			}
 		});
-		jPanel1.add(jcmbNivel1,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 40, 80,
-						-1));
+		jPanel1.add(jcmbNivel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 40, 80, -1));
 
 		jcmbNivel2.setName("jcmbNivel2"); // NOI18N
 		jcmbNivel2.setPreferredSize(new java.awt.Dimension(23, 18));
@@ -1902,9 +1198,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jcmbNivel2FocusLost(evt);
 			}
 		});
-		jPanel1.add(jcmbNivel2,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 90,
-						-1));
+		jPanel1.add(jcmbNivel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 90, -1));
 
 		jcmbNivel3.setName("jcmbNivel3"); // NOI18N
 		jcmbNivel3.setPreferredSize(new java.awt.Dimension(23, 18));
@@ -1913,21 +1207,15 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jcmbNivel3FocusLost(evt);
 			}
 		});
-		jPanel1.add(jcmbNivel3,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 38, 100,
-						-1));
+		jPanel1.add(jcmbNivel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 38, 100, -1));
 
 		jTextField9.setName("jTextField9"); // NOI18N
-		jPanel1.add(jTextField9,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 135, 554,
-						-1));
+		jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 135, 554, -1));
 
 		jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 		jLabel15.setText("Orden de encapsulacion");
 		jLabel15.setName("jLabel15"); // NOI18N
-		jPanel1.add(jLabel15,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 114, -1,
-						-1));
+		jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 114, -1, -1));
 
 		jBEncapsular.setText("Encapsular");
 		jBEncapsular.setName("jBEncapsular"); // NOI18N
@@ -1937,12 +1225,9 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 		});
 
-		jPanel1.add(jBEncapsular,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 83, 131,
-						-1));
+		jPanel1.add(jBEncapsular, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 83, 131, -1));
 
-		jBDesencap.setFont(new java.awt.Font(
-				"Tahoma 11 Negrita 12 Negrita 12 Simple", 1, 12));
+		jBDesencap.setFont(new java.awt.Font("Tahoma 11 Negrita 12 Negrita 12 Simple", 1, 12));
 		jBDesencap.setText("Desencapsular");
 		jBDesencap.setName("jBDesencap"); // NOI18N
 		jBDesencap.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1950,9 +1235,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jBDesencapMouseClicked(evt);
 			}
 		});
-		jPanel1.add(jBDesencap,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 83, -1,
-						23));
+		jPanel1.add(jBDesencap, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 83, -1, 23));
 
 		jcmbNivel4.setName("jcmbNivel4"); // NOI18N
 		jcmbNivel4.setPreferredSize(new java.awt.Dimension(23, 18));
@@ -1961,15 +1244,11 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jcmbNivel4FocusLost(evt);
 			}
 		});
-		jPanel1.add(jcmbNivel4,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 37, 74,
-						-1));
+		jPanel1.add(jcmbNivel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 37, 74, -1));
 
 		jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				new javax.swing.border.LineBorder(new java.awt.Color(153, 204,
-						255), 2, true), "Selección MAC",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 2, true), "Selección MAC",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
 				new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 		jPanel5.setName("jPanel5"); // NOI18N
 		jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1977,8 +1256,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		jLabel7.setText("MAC Origen :");
 		jLabel7.setName("jLabel7"); // NOI18N
-		jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(
-				11, 53, 79, -1));
+		jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 53, 79, -1));
 
 		buttonGroup3.add(jrMacOmanual);
 		jrMacOmanual.setText("Manual");
@@ -1988,9 +1266,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jrMacOmanualFocusGained(evt);
 			}
 		});
-		jPanel5.add(jrMacOmanual,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 33, -1,
-						-1));
+		jPanel5.add(jrMacOmanual, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 33, -1, -1));
 
 		buttonGroup3.add(jrMacOcap);
 		jrMacOcap.setText("Capturada");
@@ -2000,9 +1276,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jrMacOcapFocusGained(evt);
 			}
 		});
-		jPanel5.add(jrMacOcap,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 73, -1,
-						-1));
+		jPanel5.add(jrMacOcap, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 73, -1, -1));
 
 		jtxtMacOmanual.setEnabled(false);
 		jtxtMacOmanual.setName("jtxtMacOmanual"); // NOI18N
@@ -2011,9 +1285,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jtxtMacOmanualFocusLost(evt);
 			}
 		});
-		jPanel5.add(jtxtMacOmanual,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 33, 110,
-						-1));
+		jPanel5.add(jtxtMacOmanual, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 33, 110, -1));
 
 		jcmbMacOcap.setEnabled(false);
 		jcmbMacOcap.setName("jcmbMacOcap"); // NOI18N
@@ -2022,30 +1294,22 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jcmbMacOcapFocusLost(evt);
 			}
 		});
-		jPanel5.add(jcmbMacOcap,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 73, 110,
-						-1));
+		jPanel5.add(jcmbMacOcap, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 73, 110, -1));
 
 		jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		jLabel16.setText("MAC Destino :");
 		jLabel16.setName("jLabel16"); // NOI18N
-		jPanel5.add(jLabel16,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 53, -1,
-						-1));
+		jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 53, -1, -1));
 
 		buttonGroup4.add(jrMacDmanual);
 		jrMacDmanual.setText("Manual");
 		jrMacDmanual.setName("jrMacDmanual"); // NOI18N
-		jPanel5.add(jrMacDmanual,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 33, 98,
-						-1));
+		jPanel5.add(jrMacDmanual, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 33, 98, -1));
 
 		buttonGroup4.add(jrMacDcap);
 		jrMacDcap.setText("Capturada");
 		jrMacDcap.setName("jrMacDcap"); // NOI18N
-		jPanel5.add(jrMacDcap,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 73, -1,
-						-1));
+		jPanel5.add(jrMacDcap, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 73, -1, -1));
 
 		jtxtMacDmanual.setEnabled(false);
 		jtxtMacDmanual.setName("jtxtMacDmanual"); // NOI18N
@@ -2054,9 +1318,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jtxtMacDmanualFocusLost(evt);
 			}
 		});
-		jPanel5.add(jtxtMacDmanual,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 34, 103,
-						-1));
+		jPanel5.add(jtxtMacDmanual, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 34, 103, -1));
 
 		jcmbMacDcap.setEnabled(false);
 		jcmbMacDcap.setName("jcmbMacDcap"); // NOI18N
@@ -2065,31 +1327,26 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				jcmbMacDcapFocusLost(evt);
 			}
 		});
-		jPanel5.add(jcmbMacDcap,
-				new org.netbeans.lib.awtextra.AbsoluteConstraints(514, 74, 101,
-						-1));
+		jPanel5.add(jcmbMacDcap, new org.netbeans.lib.awtextra.AbsoluteConstraints(514, 74, 101, -1));
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * A�ade el dispositivo
 	 * 
-	 * @param dispo
-	 *            dispositivo
-	 * @param des
-	 *            descripcion
+	 * @param dispo dispositivo
+	 * @param des   descripcion
 	 */
 	public static void addDispositivo(String dispo[], String des[]) {
 		// TODO: Agrege su codigo aqui: Multiples fichero
 		String name;
 		String sAux;
 		Dispo = new String[dispo.length + 1];
-		DispoName = new String[des.length +1];
+		DispoName = new String[des.length + 1];
 		Dispo[0] = "";
-		DispoName[0] ="";
+		DispoName[0] = "";
 		for (int i = 0; i < dispo.length; i++) {
-			
-			
+
 //			sAux = des[i].toString().trim();
 //			if (sAux != "") {
 //				name = sAux;
@@ -2099,9 +1356,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 //			}
 			jcmbDisp.addItem(dispo[i].toString().trim());
 			Dispo[i + 1] = dispo[i];
-			DispoName[i+1]=des[i];
-			
-			
+			DispoName[i + 1] = des[i];
+
 		}
 	}
 
@@ -2188,7 +1444,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * @param ipOrigenCap
 	 */
 	public static void setIpOrigen(ArrayList<String> ipOrigenCap) {
-		ipOrigenCap.add(0,"Seleccione...");
+		ipOrigenCap.add(0, "Seleccione...");
 		for (int i = 0; i < ipOrigenCap.size(); i++) {
 			jcmbIpOcap.addItem(ipOrigenCap.get(i));
 		}
@@ -2200,7 +1456,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * @param ipDestinoCap
 	 */
 	public static void setIpDestino(ArrayList<String> ipDestinoCap) {
-		ipDestinoCap.add(0,"Seleccione...");
+		ipDestinoCap.add(0, "Seleccione...");
 		for (int i = 0; i < ipDestinoCap.size(); i++) {
 			jcmbIpDcap.addItem(ipDestinoCap.get(i));
 		}
@@ -2213,7 +1469,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 */
 	public static void setMacOrigen(ArrayList<String> macOrigenCap) {
 		jcmbMacOcap.removeAllItems();
-		macOrigenCap.add(0,"Seleccione...");
+		macOrigenCap.add(0, "Seleccione...");
 		for (int i = 0; i < macOrigenCap.size(); i++) {
 			jcmbMacOcap.addItem(macOrigenCap.get(i));
 		}
@@ -2226,7 +1482,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 */
 	public static void setMacDestino(ArrayList<String> macDestinoCap) {
 		jcmbMacDcap.removeAllItems();
-		macDestinoCap.add(0,"Seleccione...");
+		macDestinoCap.add(0, "Seleccione...");
 		for (int i = 0; i < macDestinoCap.size(); i++) {
 			jcmbMacDcap.addItem(macDestinoCap.get(i));
 		}
@@ -2239,14 +1495,12 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 */
 	private void jcmbNivel1FocusLost(java.awt.event.FocusEvent evt) {
 		enlace = String.valueOf(jcmbNivel1.getSelectedItem());
-		if (enlace.equals("Ethernet") == false
-				&& enlace.equals("Seleccione") == false) {
+		if (enlace.equals("Ethernet") == false && enlace.equals("Seleccione") == false) {
 			// cargar definicion de protocolo en la ventana
 			// despues cuando se de a encapsular se crea paquet
 			cargarPaquete(String.valueOf(jcmbNivel1.getSelectedItem()));
 		}
-		if (!encapsulacion.contains(enlace)
-				&& enlace.equals("Seleccione") == false) {
+		if (!encapsulacion.contains(enlace) && enlace.equals("Seleccione") == false) {
 			encapsulacion.add(enlace);
 		}
 	}
@@ -2258,16 +1512,14 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 */
 	private void jcmbNivel2FocusLost(java.awt.event.FocusEvent evt) {
 		red = String.valueOf(jcmbNivel2.getSelectedItem());
-		if (red.equals("IP v4") == false && red.equals("IP v6") == false
-				&& red.equals("ARP") == false && red.equals("RARP") == false
-				&& red.equals("Seleccione") == false) {
+		if (red.equals("IP v4") == false && red.equals("IP v6") == false && red.equals("ARP") == false
+				&& red.equals("RARP") == false && red.equals("Seleccione") == false) {
 			// cargar definicion de protocolo en la ventana
 			// despues cuando se de a encapsular se crea paquet
 			cargarPaquete(String.valueOf(jcmbNivel2.getSelectedItem()));
 		}
 		if (!encapsulacion.contains(red) && red.equals("Seleccione") == false) {
-			if (encapsulacion.contains("IP v4")
-					|| encapsulacion.contains("IP v6")) {
+			if (encapsulacion.contains("IP v4") || encapsulacion.contains("IP v6")) {
 				encapsulacion.clear();
 				encapsulacion.add(enlace);
 				encapsulacion.add(red);
@@ -2284,8 +1536,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 */
 	private void jcmbNivel3FocusLost(java.awt.event.FocusEvent evt) {
 		transporte = String.valueOf(jcmbNivel3.getSelectedItem());
-		if (!encapsulacion.contains(transporte)
-				&& transporte.equals("Seleccione") == false) {
+		if (!encapsulacion.contains(transporte) && transporte.equals("Seleccione") == false) {
 			encapsulacion.add(transporte);
 		}
 	}
@@ -2306,8 +1557,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	}
 
 	/**
-	 * Carga la definicion del protocolo especificado para determinar los
-	 * valores.
+	 * Carga la definicion del protocolo especificado para determinar los valores.
 	 * 
 	 * @param valueOf
 	 */
@@ -2315,12 +1565,9 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		boolean encontrado = true;
 		String ruta = "";
 
-		for (int i = 0; i < pref.getTamanoListaIdentificacion()
-				&& encontrado == true; i++) {
-			if (pref.getElementoListaIdentificacion(i).getNomProtocolo()
-					.equals(valueOf)) {
-				ruta = pref.getElementoListaIdentificacion(i)
-						.getRutaProtocolo();
+		for (int i = 0; i < pref.getTamanoListaIdentificacion() && encontrado == true; i++) {
+			if (pref.getElementoListaIdentificacion(i).getNomProtocolo().equals(valueOf)) {
+				ruta = pref.getElementoListaIdentificacion(i).getRutaProtocolo();
 				encontrado = false;
 			}
 		}
@@ -2367,9 +1614,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	private void jBEncapDefinidosMouseClicked(java.awt.event.MouseEvent evt) {
 		jtxtDirDef.requestFocus();
 
-		if (!encapsulacion.contains(String.valueOf(jcmbNivel4.getSelectedItem()))
-				&& enlace != ""
-				&& red != ""
+		if (!encapsulacion.contains(String.valueOf(jcmbNivel4.getSelectedItem())) && enlace != "" && red != ""
 				&& (transporte.equals("TCP") || transporte.equals("UDP"))) {
 			if (obligatoriosRellenados()) {
 				definidos.add(datosDefinidos());
@@ -2400,18 +1645,16 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		int fila = 0;
 
 		do {
-			if (getValorTabla(fila, 0) != null
-					&& getValorTabla(fila, 1) == null) {
-				mediador.lanzaraviso("En la fila "+fila+" el valor del campo est� vac�o", "Error");
-				System.out.println("En la fila "+fila+" el valor del campo est� vac�o");
+			if (getValorTabla(fila, 0) != null && getValorTabla(fila, 1) == null) {
+				mediador.lanzaraviso("En la fila " + fila + " el valor del campo est� vac�o", "Error");
+				System.out.println("En la fila " + fila + " el valor del campo est� vac�o");
 				return false;
-			
+
 			} else {
-				if (getValorTabla(fila, 4).equals("No")
-						&& getValorTabla(fila, 1).equals("")) {
+				if (getValorTabla(fila, 4).equals("No") && getValorTabla(fila, 1).equals("")) {
 					return false;
 				}
-				
+
 			}
 			fila++;
 		} while (getValorTabla(fila, 0) != null);
@@ -2432,8 +1675,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		int fila = 0, cont = 0, tam = 0;
 
 		while (getValorTabla(fila, 1) != null) {
-			tam = Integer.valueOf(String.valueOf(getValorTabla(fila, 2)))
-					.intValue() / 8;
+			tam = Integer.valueOf(String.valueOf(getValorTabla(fila, 2))).intValue() / 8;
 			cont += tam;
 			fila++;
 		}
@@ -2443,13 +1685,11 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		while (getValorTabla(fila, 0) != null) {
 			if (getValorTabla(fila, 4) != "") {
 				aux = String.valueOf(getValorTabla(fila, 1));
-				byte cambio[] = new byte[Integer.valueOf(
-						String.valueOf(getValorTabla(fila, 2))).intValue() / 8];
+				byte cambio[] = new byte[Integer.valueOf(String.valueOf(getValorTabla(fila, 2))).intValue() / 8];
 				// data+=convertirBinario(aux,String.valueOf(getValorTabla(fila,3)),String.valueOf(getValorTabla(fila,2)));
 				// recoger lo definido pero comom cadena
-				cambio = recogerDatos(aux, String
-						.valueOf(getValorTabla(fila, 3)), String
-						.valueOf(getValorTabla(fila, 2)));
+				cambio = recogerDatos(aux, String.valueOf(getValorTabla(fila, 3)),
+						String.valueOf(getValorTabla(fila, 2)));
 				if (cambio != null) {
 					int j = 0;
 					while (pos < data.length && j < cambio.length) {
@@ -2495,8 +1735,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	}
 
 	/**
-	 * Convierte el valor definido a su valor binario en funcion del tipo de
-	 * dato.
+	 * Convierte el valor definido a su valor binario en funcion del tipo de dato.
 	 * 
 	 * @param cadena
 	 * @param tipo
@@ -2546,8 +1785,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	}
 
 	/**
-	 * Convierte valor definido como booleano a su correspondiente valor en
-	 * binario.
+	 * Convierte valor definido como booleano a su correspondiente valor en binario.
 	 * 
 	 * @param cadena
 	 * @param tama�o
@@ -2573,40 +1811,30 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	/**
 	 * Devuelve le valor pedido de la tabla
 	 * 
-	 * @param fila
-	 *            , columna
+	 * @param fila , columna
 	 */
 	public static Object getValorTabla(int fila, int columna) {
 		return jTable1.getValueAt(fila, columna);
 	}
 
 	/**
-	 * Rellena los Niveles de protocolo con los datos de los protcoloc
-	 * definidos.
+	 * Rellena los Niveles de protocolo con los datos de los protcoloc definidos.
 	 */
 	private void rellenarNiveles() {
 		pref = new PrefIdentificacion();
 		if (this.pref != null) {
 			for (int i = 0; i < pref.getTamanoListaIdentificacion(); i++) {
-				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo()
-						.equals("2")) {
-					jcmbNivel1.addItem(pref.getElementoListaIdentificacion(i)
-							.getNomProtocolo());
+				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo().equals("2")) {
+					jcmbNivel1.addItem(pref.getElementoListaIdentificacion(i).getNomProtocolo());
 				}
-				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo()
-						.equals("3")) {
-					jcmbNivel2.addItem(pref.getElementoListaIdentificacion(i)
-							.getNomProtocolo());
+				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo().equals("3")) {
+					jcmbNivel2.addItem(pref.getElementoListaIdentificacion(i).getNomProtocolo());
 				}
-				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo()
-						.equals("4")) {
-					jcmbNivel3.addItem(pref.getElementoListaIdentificacion(i)
-							.getNomProtocolo());
+				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo().equals("4")) {
+					jcmbNivel3.addItem(pref.getElementoListaIdentificacion(i).getNomProtocolo());
 				}
-				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo()
-						.equals("5")) {
-					jcmbNivel4.addItem(pref.getElementoListaIdentificacion(i)
-							.getNomProtocolo());
+				if (pref.getElementoListaIdentificacion(i).getNivelProtocolo().equals("5")) {
+					jcmbNivel4.addItem(pref.getElementoListaIdentificacion(i).getNomProtocolo());
 				}
 
 			}
@@ -2658,8 +1886,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * @param evt
 	 */
 	private void jcmbDispFocusLost(java.awt.event.FocusEvent evt) {
-		dispoSel = String.valueOf(jcmbDisp.getSelectedItem()); 
-		dispoSelName=DispoName[jcmbDisp.getSelectedIndex()];
+		dispoSel = String.valueOf(jcmbDisp.getSelectedItem());
+		dispoSelName = DispoName[jcmbDisp.getSelectedIndex()];
 	}
 
 	/**
@@ -2667,7 +1895,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * 
 	 * @return dispoSel
 	 */
-	
+
 	public static String getDispositivo() {
 		return dispoSel;
 	}
@@ -2679,9 +1907,9 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 */
 
 	public static PcapPacket crearPaquete() throws IOException {
-		
+
 		packete = new JMemoryPacket(1024);
-		
+
 		packete.order(ByteOrder.BIG_ENDIAN);
 		Ethernet ether = null;
 		Tcp p1 = null;
@@ -2691,10 +1919,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		Arp p5 = null;
 		Ip4 p6 = null;
 		Ip6 p7 = null;
-		
 
-		
-	
 //		p2 = packete.getHeader(new Udp());
 //		p3 = packete.getHeader(new Icmp());
 //		p4 = packete.getHeader(new Arp());
@@ -2707,7 +1932,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			return null;
 		} else {
 			if (lista[0].equals("Ethernet")) {
-				
+
 				packete.setUByte(12, 0x0800);
 				packete.scan(JProtocol.ETHERNET_ID);
 				ether = packete.getHeader(new Ethernet());
@@ -2716,8 +1941,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				// set source and destination MAC addresses
 				// a�adir las seleccionados
 				if (macOr.equals("")) {
-					ether.source(new byte[] { (byte) 1, (byte) 2, (byte) 3,
-							(byte) 4, (byte) 5, (byte) 6 });
+					ether.source(new byte[] { (byte) 1, (byte) 2, (byte) 3, (byte) 4, (byte) 5, (byte) 6 });
 				} else {
 					String[] mac = macOr.split(":");
 					Integer[] aux = new Integer[mac.length];
@@ -2731,8 +1955,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 					ether.source(macAux);
 				}
 				if (macDes.equals("")) {
-					ether.destination(new byte[] { (byte) 0, (byte) 6,
-							(byte) 7, (byte) 8, (byte) 9, (byte) 10 });
+					ether.destination(new byte[] { (byte) 0, (byte) 6, (byte) 7, (byte) 8, (byte) 9, (byte) 10 });
 				} else {
 					String[] mac = macDes.split(":");
 					Integer[] aux = new Integer[mac.length];
@@ -2745,115 +1968,111 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 					}
 					ether.destination(macAux);
 				}
-				
+
 				ether.checksum(ether.calculateChecksum());
 			}
 			if (lista[1].equals("IP v4") && lista[2].equals("TCP")) {
-					try {
-						// p1.setIPv4Parameter(0, false, false, false, 0,
-						// false,false, false, 0, 1010101, 100,Ip4.IPPROTO_TCP,
-						// InetAddress.getByName(ipOr),
-						// InetAddress.getByName(ipDes));
-						packete.setUByte(14, 0x04 |0x05);
-						packete.scan(JProtocol.ETHERNET_ID);
-						p6 = packete.getHeader(new Ip4());
-						p6.type(Ip4Type.TCP);
-						p6.tos_CodepointDescription();
-						p6.tos_ECN();
-						p6.tos_ECE();
-						p6.flags_DF();
-						p6.flags_MF();
-						p6.offset(0);
-						p6.id(1010101);
-						p6.ttl(100);
-						p6.id(Tcp.ID);
-						p6.length(1024-ether.size());
+				try {
+					// p1.setIPv4Parameter(0, false, false, false, 0,
+					// false,false, false, 0, 1010101, 100,Ip4.IPPROTO_TCP,
+					// InetAddress.getByName(ipOr),
+					// InetAddress.getByName(ipDes));
+					packete.setUByte(14, 0x04 | 0x05);
+					packete.scan(JProtocol.ETHERNET_ID);
+					p6 = packete.getHeader(new Ip4());
+					p6.type(Ip4Type.TCP);
+					p6.tos_CodepointDescription();
+					p6.tos_ECN();
+					p6.tos_ECE();
+					p6.flags_DF();
+					p6.flags_MF();
+					p6.offset(0);
+					p6.id(1010101);
+					p6.ttl(100);
+					p6.id(Tcp.ID);
+					p6.length(1024 - ether.size());
 
-						// Convierte la ip dada en string a byte[];
-						p6.source(InetAddress.getByName(ipOr).getAddress());
-						p6.destination(InetAddress.getByName(ipDes)
-								.getAddress());
+					// Convierte la ip dada en string a byte[];
+					p6.source(InetAddress.getByName(ipOr).getAddress());
+					p6.destination(InetAddress.getByName(ipDes).getAddress());
 
-					} catch (UnknownHostException e) {
-						e.printStackTrace();
-					}
-					p6.checksum(p6.calculateChecksum());
-					System.out.println(packete.toString());
+				} catch (UnknownHostException e) {
+					e.printStackTrace();
 				}
-				
-				if (lista[1].equals("IP v4") && lista[2].equals("UDP")) {
-					try {
-						// p2.setIPv4Parameter(0, false, false, false, 0,
-						// false,false, false, 0, 1010101,
-						// 100,iPacket.IPPROTO_UDP, InetAddress.getByName(ipOr),
-						// InetAddress.getByName(ipDes));
-						packete.setUByte(14, 0x04 |0x05);
-						packete.scan(JProtocol.ETHERNET_ID);
-						p6 = packete.getHeader(new Ip4());
-						p6.type(Ip4Type.UDP);
-						p6.tos_CodepointDescription();
-						p6.tos_ECN();
-						p6.tos_ECE();
-						p6.flags_DF();
-						p6.flags_MF();
-						p6.offset(0);
-						p6.id(1010101);
-						p6.ttl(100);
-						p6.id(Udp.ID);
-						p6.length(1024-ether.size());
-						// Convierte la ip dada en string a byte[];
-						p6.source(InetAddress.getByName(ipOr).getAddress());
-						p6.destination(InetAddress.getByName(ipDes)
-								.getAddress());
-					} catch (UnknownHostException e) {
-						e.printStackTrace();
-					}
-					p6.checksum(p6.calculateChecksum());
+				p6.checksum(p6.calculateChecksum());
+				System.out.println(packete.toString());
+			}
+
+			if (lista[1].equals("IP v4") && lista[2].equals("UDP")) {
+				try {
+					// p2.setIPv4Parameter(0, false, false, false, 0,
+					// false,false, false, 0, 1010101,
+					// 100,iPacket.IPPROTO_UDP, InetAddress.getByName(ipOr),
+					// InetAddress.getByName(ipDes));
+					packete.setUByte(14, 0x04 | 0x05);
+					packete.scan(JProtocol.ETHERNET_ID);
+					p6 = packete.getHeader(new Ip4());
+					p6.type(Ip4Type.UDP);
+					p6.tos_CodepointDescription();
+					p6.tos_ECN();
+					p6.tos_ECE();
+					p6.flags_DF();
+					p6.flags_MF();
+					p6.offset(0);
+					p6.id(1010101);
+					p6.ttl(100);
+					p6.id(Udp.ID);
+					p6.length(1024 - ether.size());
+					// Convierte la ip dada en string a byte[];
+					p6.source(InetAddress.getByName(ipOr).getAddress());
+					p6.destination(InetAddress.getByName(ipDes).getAddress());
+				} catch (UnknownHostException e) {
+					e.printStackTrace();
 				}
-				if (lista[1].equals("IP v4") && lista[2].equals("ICMP")) {
-					try {
-						// p3.setIPv4Parameter(0, false, false, false, 0, false,
-						// false, false, 0, 1010101, 100,
-						// IPPacket.IPPROTO_ICMP, InetAddress
-						// .getByName(ipOr), InetAddress
-						// .getByName(ipDes));
-						packete.setUByte(14, 0x04 |0x05);
-						packete.scan(JProtocol.ETHERNET_ID);
-						p6 = packete.getHeader(new Ip4());
-						p6.type(Ip4Type.ICMP);
-						p6.tos_CodepointDescription();
-						p6.tos_ECN();
-						p6.tos_ECE();
-						p6.flags_DF();
-						p6.flags_MF();
-						p6.offset(0);
-						p6.id(1010101);
-						p6.ttl(100);
-						p6.id(Icmp.ID);
-						p6.length(1024-ether.size());
-						// Convierte la ip dada en string a byte[];
-						p6.source(InetAddress.getByName(ipOr).getAddress());
-						p6.destination(InetAddress.getByName(ipDes).getAddress());
-						
-						
-						
-					} catch (UnknownHostException e) {
-						e.printStackTrace();
-					}
-					p6.checksum(p6.calculateChecksum());
-					System.out.println(packete.toString());
+				p6.checksum(p6.calculateChecksum());
+			}
+			if (lista[1].equals("IP v4") && lista[2].equals("ICMP")) {
+				try {
+					// p3.setIPv4Parameter(0, false, false, false, 0, false,
+					// false, false, 0, 1010101, 100,
+					// IPPacket.IPPROTO_ICMP, InetAddress
+					// .getByName(ipOr), InetAddress
+					// .getByName(ipDes));
+					packete.setUByte(14, 0x04 | 0x05);
+					packete.scan(JProtocol.ETHERNET_ID);
+					p6 = packete.getHeader(new Ip4());
+					p6.type(Ip4Type.ICMP);
+					p6.tos_CodepointDescription();
+					p6.tos_ECN();
+					p6.tos_ECE();
+					p6.flags_DF();
+					p6.flags_MF();
+					p6.offset(0);
+					p6.id(1010101);
+					p6.ttl(100);
+					p6.id(Icmp.ID);
+					p6.length(1024 - ether.size());
+					// Convierte la ip dada en string a byte[];
+					p6.source(InetAddress.getByName(ipOr).getAddress());
+					p6.destination(InetAddress.getByName(ipDes).getAddress());
+
+				} catch (UnknownHostException e) {
+					e.printStackTrace();
 				}
-			
+				p6.checksum(p6.calculateChecksum());
+				System.out.println(packete.toString());
+			}
+
 			if (lista.length > 2) {
 				if (lista[2].equals("TCP")) {
 					// p1 = new Tcp(Integer.valueOf(puertoOrigen), Integer
 					// .valueOf(puertoDestino), 56, 78, false, false,false,
 					// false, true, true, true, true, 10, 10);
-					
+
 					packete.setUByte(46, 0x050);
 					packete.scan(JProtocol.ETHERNET_ID);
 					System.out.println(packete.toString());
-					p1=packete.getHeader(new Tcp());
+					p1 = packete.getHeader(new Tcp());
 					p1.source(Integer.parseInt(puertoOrigen));
 					p1.destination(Integer.parseInt(puertoDestino));
 					p1.seq(56);
@@ -2867,29 +2086,28 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 					p1.window(10);
 					p1.urgent(10);
 					p1.checksum(p1.calculateChecksum());
-					
+
 					System.out.println(packete.toString());
 				}
 				if (lista[2].equals("UDP")) {
 					// p2 = new Udp(Integer.valueOf(puertoOrigen),
 					// Integer.valueOf(puertoDestino));
-					packete.setUByte(14+9, 0x11);
-					
+					packete.setUByte(14 + 9, 0x11);
+
 					packete.scan(JProtocol.ETHERNET_ID);
 					p2 = packete.getHeader(new Udp());
 					p2.source(Integer.parseInt(puertoOrigen));
 					p2.destination(Integer.parseInt(puertoDestino));
-					p2.length(1024-ether.size()-p6.size());
+					p2.length(1024 - ether.size() - p6.size());
 					p2.checksum(p2.calculateChecksum());
 				}
-				
+
 				System.out.println(packete.toString());
-				
+
 				if (lista[2].equals("ICMP")) {
-					
+
 				}
-				
-				
+
 				if ((lista[1].equals("IP v6") && lista[2].equals("TCP"))
 						|| (lista[1].equals("IP v6") && lista[2].equals("UDP"))
 						|| (lista[1].equals("IP v6") && lista[2].equals("ICMP"))) {
@@ -2897,15 +2115,13 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 						// p1.setIPv6Parameter(10, 10, 10, 100,
 						// InetAddress.getByAddress(convertirIp6(ipOr)),
 						// InetAddress.getByAddress(convertirIp6(ipDes)));
-						
+
 						p7.trafficClass();
 						p7.flowLabel();
 						p7.length();
 						p7.hopLimit();
-						p7.sourceToByteArray(InetAddress.getByName(ipOr)
-								.getAddress());
-						p7.destinationToByteArray(InetAddress.getByName(ipDes)
-								.getAddress());
+						p7.sourceToByteArray(InetAddress.getByName(ipOr).getAddress());
+						p7.destinationToByteArray(InetAddress.getByName(ipDes).getAddress());
 
 					} catch (UnknownHostException e) {
 						e.printStackTrace();
@@ -2932,13 +2148,13 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			}
 			// Creacion de paquetes arp y rarp
 			if (lista[1].equals("ARP")) {
-				
+
 				// p4.data = ("data").getBytes();
 				p4.transferFrom(("data").getBytes());
 			}
 
 			if (lista[1].equals("ARP Man")) {
-				
+
 				// p5.data = ("data").getBytes();
 				p5.transferFrom(("data").getBytes());
 			}
@@ -2946,7 +2162,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			// crteacion de icmp
 			if (lista.length > 2) {
 				if (lista[2].equals("ICMP")) {
-					
+
 					p3.type();
 					p3.typeEnum().getId();
 					// p3.typeEnum().SOURCE_QUENCH_ID;
@@ -2980,7 +2196,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 					}
 					// p1.data = datAux;
 					p1.peerPayloadTo(new JBuffer(datAux));
-					//packete.transferFrom(datAux);
+					// packete.transferFrom(datAux);
 				}
 				if (p2 != null) {
 					int pos = 0;
@@ -3005,14 +2221,13 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				if (p1 != null) {
 					p1.peerPayloadTo(new JBuffer(("data").getBytes()));
 					// p1.data = ("data").getBytes();
-				
+
 					p1.checksum(p1.calculateChecksum());
-					
-					
-				//	
-					//p5.checksum(p5.calculateChecksum());
-					
-					//p7.checksum(p7.calculateChecksum());
+
+					//
+					// p5.checksum(p5.calculateChecksum());
+
+					// p7.checksum(p7.calculateChecksum());
 				}
 				if (p2 != null) {
 					p2.transferFrom(("data").getBytes());
@@ -3021,12 +2236,12 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				}
 				if (p3 != null) {
 					p3.transferFrom(("data").getBytes());
-					//p3.checksum(p3.calculateChecksum());
+					// p3.checksum(p3.calculateChecksum());
 					// p3.data = ("data").getBytes();
 				}
 				if (p4 != null) {
 					p4.transferFrom(("data").getBytes());
-					//p4.checksum(p4.calculateChecksum());
+					// p4.checksum(p4.calculateChecksum());
 					// p4.data = ("data").getBytes();
 				}
 				if (p5 != null) {
@@ -3177,17 +2392,14 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 			// }
 		}
 		PcapHeader header = new PcapHeader(packete.size(), packete.size());
-		 p = new PcapPacket(header, packete);
+		p = new PcapPacket(header, packete);
 		p.scan(Ethernet.ID);
-		
-		
-		
-		
+
 //		p= new PcapPacket(JMemoryPacket.POINTER);
 //		p.peer(packete);
 //		p.scan(JProtocol.ETHERNET_ID);
 //		System.out.println(p.toString());
-		return p;		
+		return p;
 	}
 
 	/**
@@ -3433,8 +2645,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				}
 				return cadAux;
 			} else {
-				mediador.lanzaraviso("La cadena " + cadena
-						+ " es demasiado grande", "Error");
+				mediador.lanzaraviso("La cadena " + cadena + " es demasiado grande", "Error");
 			}
 		}
 		if (tipo.equals("Numerico")) {
@@ -3446,26 +2657,21 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 					return auxB;
 				}
 				if (res == 2) {
-					byte[] auxB = new byte[] { (byte) (pas.intValue() >>> 8),
-							(byte) pas.intValue() };
+					byte[] auxB = new byte[] { (byte) (pas.intValue() >>> 8), (byte) pas.intValue() };
 					return auxB;
 				}
 				if (res == 3) {
-					byte[] auxB = new byte[] { (byte) (pas.intValue() >>> 16),
-							(byte) (pas.intValue() >>> 8),
+					byte[] auxB = new byte[] { (byte) (pas.intValue() >>> 16), (byte) (pas.intValue() >>> 8),
 							(byte) pas.intValue() };
 					return auxB;
 				}
 				if (res == 4) {
-					byte[] auxB = new byte[] { (byte) (pas.intValue() >>> 24),
-							(byte) (pas.intValue() >>> 16),
-							(byte) (pas.intValue() >>> 8),
-							(byte) pas.intValue() };
+					byte[] auxB = new byte[] { (byte) (pas.intValue() >>> 24), (byte) (pas.intValue() >>> 16),
+							(byte) (pas.intValue() >>> 8), (byte) pas.intValue() };
 					return auxB;
 				}
 			} else {
-				mediador.lanzaraviso("El valor " + cadena + " no es numerico",
-						"Error");
+				mediador.lanzaraviso("El valor " + cadena + " no es numerico", "Error");
 			}
 		}
 		if (tipo.equals("Booleano")) {

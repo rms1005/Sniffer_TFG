@@ -6,88 +6,79 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import presentacion.Mediador;
 import servicioAccesoDatos.FachadaFicheroDirectorios;
-/** 
- * Clase CBGuardarFichero. 
+
+/**
+ * Clase CBGuardarFichero.
  * 
  * @author Jose Manuel Saiz, Rodrigo Sanchez Gonzalez
- * @author jmsaizg@gmail.com,  rsg0040@alu.ubu.es
- * @version 1.3 
-*/
+ * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
+ * @version 1.3
+ */
 // Referenced classes of package presentacion.comandos:
 //            Comando
 
-public class CBGuardarFichero extends JButton
-    implements Comando
-{
+public class CBGuardarFichero extends JButton implements Comando {
 
-    public CBGuardarFichero(Mediador mediador, String titulo)
-    {
-        if(titulo.equals("Guardar fichero capturado..."))
-        {
-            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("save.png").toString()));
-            setToolTipText("Guardar fichero capturado");
-            setMnemonic('G');
-        }
-        else if(titulo.equals("Guardar fichero de preferecias..."))
-        {
-            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("xml.png").toString()));
-            setToolTipText("Guardar fichero preferencias");
-            setMnemonic('F');
-        }
-        else if(titulo.equals("Exportar fichero a XML..."))
-        {
-            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("xml.png").toString()));
-            setToolTipText("Exportar fichero a XML...");
-            setMnemonic('X');
-        }
-        else if(titulo.equals("Browse..."))
-        {
-            setMnemonic('W');
-            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open.png").toString()));
-        }
-        else if(titulo.equals("Browse...FromFile"))
-        {
-            setMnemonic('W');
-            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open.png").toString()));
-        }
-        else if(titulo.equals("GuardarInicioCapturaXML"))
-        {
-            setMnemonic('G');
-            setText("Guardar");
-        }
-        else if(titulo.equals("GuardarInicioCapturaXMLFromFile"))
-        {
-            setMnemonic('G');
-            setText("Guardar");
-        }
-        else if(titulo.equals("GenerarBatBat"))
-        {
-            setMnemonic('W');
-            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open_small.png").toString()));
-        }
-        else if(titulo.equals("GenerarFromFileXML"))
-        {
-            setMnemonic('W');
-            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open_small.png").toString()));
-        }
-        else if(titulo.equals("GenerarFromFileXMLSaveXML"))
-        {
-            setText(" Guardar ");
-            setFont(new Font("Arial", 1, 12));
-            setAlignmentY(0.5F);
-        }
-        else if(titulo.equals("GuardarProtocoloDefinido"))
-        {
-            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("save.png").toString()));
-            setToolTipText("Guardar Protocolo definido");
-            setMnemonic('Q');
-        }
-        else if(titulo.equals("DetallePaquetes"))
-        {
-        	setMnemonic('G');
-            setText("Guardar");
-        }
-        
+	public CBGuardarFichero(Mediador mediador, String titulo) {
+		if (titulo.equals("Guardar fichero capturado...")) {
+			setIcon(new ImageIcon(
+					(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+							.append(System.getProperty("file.separator")).append("save.png").toString()));
+			setToolTipText("Guardar fichero capturado");
+			setMnemonic('G');
+		} else if (titulo.equals("Guardar fichero de preferecias...")) {
+			setIcon(new ImageIcon(
+					(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+							.append(System.getProperty("file.separator")).append("xml.png").toString()));
+			setToolTipText("Guardar fichero preferencias");
+			setMnemonic('F');
+		} else if (titulo.equals("Exportar fichero a XML...")) {
+			setIcon(new ImageIcon(
+					(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+							.append(System.getProperty("file.separator")).append("xml.png").toString()));
+			setToolTipText("Exportar fichero a XML...");
+			setMnemonic('X');
+		} else if (titulo.equals("Browse...")) {
+			setMnemonic('W');
+			setIcon(new ImageIcon(
+					(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+							.append(System.getProperty("file.separator")).append("open.png").toString()));
+		} else if (titulo.equals("Browse...FromFile")) {
+			setMnemonic('W');
+			setIcon(new ImageIcon(
+					(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+							.append(System.getProperty("file.separator")).append("open.png").toString()));
+		} else if (titulo.equals("GuardarInicioCapturaXML")) {
+			setMnemonic('G');
+			setText("Guardar");
+		} else if (titulo.equals("GuardarInicioCapturaXMLFromFile")) {
+			setMnemonic('G');
+			setText("Guardar");
+		} else if (titulo.equals("GenerarBatBat")) {
+			setMnemonic('W');
+			setIcon(new ImageIcon(
+					(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+							.append(System.getProperty("file.separator")).append("open_small.png").toString()));
+		} else if (titulo.equals("GenerarFromFileXML")) {
+			setMnemonic('W');
+			setIcon(new ImageIcon(
+					(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+							.append(System.getProperty("file.separator")).append("open_small.png").toString()));
+		} else if (titulo.equals("GenerarFromFileXMLSaveXML")) {
+			setText(" Guardar ");
+			setFont(new Font("Arial", 1, 12));
+			setAlignmentY(0.5F);
+		} else if (titulo.equals("GuardarProtocoloDefinido")) {
+			setIcon(new ImageIcon(
+					(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))
+							.append(System.getProperty("file.separator")).append("save.png").toString()));
+			setToolTipText("Guardar Protocolo definido");
+			setMnemonic('Q');
+		} else if (titulo.equals("DetallePaquetes")) {
+			setMnemonic('G');
+			setText("Guardar");
+		}
+
 //        if(titulo.equals("Resultado"))
 //        {
 //            setIcon(new ImageIcon((new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES")))).append(System.getProperty("file.separator")).append("open_small.png").toString()));
@@ -101,18 +92,17 @@ public class CBGuardarFichero extends JButton
 //            setToolTipText("Seleccionar Carpeta de resultados");
 //            setMnemonic('I');
 //        }
-        
-        this.titulo = titulo;
-        setAlignmentY(0.5F);
-        this.mediador = mediador;
-        addActionListener(mediador);
-    }
 
-    public void ejecutar()
-    {
-        mediador.irAGuardarElegirFichero(titulo);
-    }
+		this.titulo = titulo;
+		setAlignmentY(0.5F);
+		this.mediador = mediador;
+		addActionListener(mediador);
+	}
 
-    private Mediador mediador;
-    private String titulo;
+	public void ejecutar() {
+		mediador.irAGuardarElegirFichero(titulo);
+	}
+
+	private Mediador mediador;
+	private String titulo;
 }

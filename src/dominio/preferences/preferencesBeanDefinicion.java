@@ -7,133 +7,112 @@ package dominio.preferences;
 
 import java.io.Serializable;
 import presentacion.preferencias.PreferenciasDefinicion;
-/** 
- * Clase preferencesBeanDefinicion. 
+
+/**
+ * Clase preferencesBeanDefinicion.
  * 
  * @author Jose Manuel Saiz, Carlos Mardones
- * @author jmsaizg@gmail.com,  
- * @version 1.2 
-*/
-public class preferencesBeanDefinicion
-    implements Serializable
-{
+ * @author jmsaizg@gmail.com,
+ * @version 1.2
+ */
+public class preferencesBeanDefinicion implements Serializable {
 
-    public preferencesBeanDefinicion()
-    {
-        numColumnas = 8;
-        setDefaultSettings();
-    }
+	public preferencesBeanDefinicion() {
+		numColumnas = 8;
+		setDefaultSettings();
+	}
 
-    public void setDefaultSettings()
-    {
-        numCampos = 0;
-        numColumnas = 8;
-        nomProtocolo = "";
-        RFC = "";
-        camposClave = "";
-        nivel = 0;
-    }
+	public void setDefaultSettings() {
+		numCampos = 0;
+		numColumnas = 8;
+		nomProtocolo = "";
+		RFC = "";
+		camposClave = "";
+		nivel = 0;
+	}
 
-    public int getNumCampos()
-    {
-        return numCampos;
-    }
+	public int getNumCampos() {
+		return numCampos;
+	}
 
-    public int getNumColumnas()
-    {
-        return numColumnas;
-    }
+	public int getNumColumnas() {
+		return numColumnas;
+	}
 
-    public void setNumCampos(int aux)
-    {
-        numCampos = aux;
-    }
+	public void setNumCampos(int aux) {
+		numCampos = aux;
+	}
 
-    public void setNivel(int aux)
-    {
-        nivel = aux;
-    }
+	public void setNivel(int aux) {
+		nivel = aux;
+	}
 
-    public String getNomProtocolo()
-    {
-        return nomProtocolo;
-    }
+	public String getNomProtocolo() {
+		return nomProtocolo;
+	}
 
-    public void setNomProtocolo(String aux)
-    {
-        nomProtocolo = aux;
-    }
+	public void setNomProtocolo(String aux) {
+		nomProtocolo = aux;
+	}
 
-    public String getRFCProtocolo()
-    {
-        return RFC;
-    }
+	public String getRFCProtocolo() {
+		return RFC;
+	}
 
-    public int getNivelProtocolo()
-    {
-        return nivel;
-    }
+	public int getNivelProtocolo() {
+		return nivel;
+	}
 
-    public void setRFCProtocolo(String aux)
-    {
-        RFC = aux;
-    }
+	public void setRFCProtocolo(String aux) {
+		RFC = aux;
+	}
 
-    public String getCamposClave()
-    {
-        return camposClave;
-    }
+	public String getCamposClave() {
+		return camposClave;
+	}
 
-    public void setCamposClave(String aux)
-    {
-        camposClave = aux;
-    }
+	public void setCamposClave(String aux) {
+		camposClave = aux;
+	}
 
-    public Object getObjetoTabla(int fila, int columna)
-    {
-        return valores[fila][columna];
-    }
+	public Object getObjetoTabla(int fila, int columna) {
+		return valores[fila][columna];
+	}
 
-    public void setObjetoTabla(int fila, int columna, Object aux)
-    {
-        valores[fila][columna] = aux;
-    }
+	public void setObjetoTabla(int fila, int columna, Object aux) {
+		valores[fila][columna] = aux;
+	}
 
-    public void setTabla(Object tabla[][])
-    {
-        valores = new Object[numCampos][numColumnas];
-        if(tabla != null)
-            valores = tabla;
-    }
+	public void setTabla(Object tabla[][]) {
+		valores = new Object[numCampos][numColumnas];
+		if (tabla != null)
+			valores = tabla;
+	}
 
-    public Object[][] getTabla()
-    {
-        return valores;
-    }
+	public Object[][] getTabla() {
+		return valores;
+	}
 
-    public void setNivelProtocolo(int aux)
-    {
-        nivel = aux;
-    }
+	public void setNivelProtocolo(int aux) {
+		nivel = aux;
+	}
 
-    public void setValoresDefinicion(boolean fichero)
-    {
-        if(!fichero)
-        {
-            setNumCampos(PreferenciasDefinicion.getNumCamposProtocolo());
-            setNomProtocolo(PreferenciasDefinicion.getNombreProtocolo());
-            setRFCProtocolo(PreferenciasDefinicion.getRFCProtocolo());
-            setCamposClave(PreferenciasDefinicion.getCamposClave());
-            setNivelProtocolo(PreferenciasDefinicion.getNivelProtocolo());
-            setTabla(PreferenciasDefinicion.getTabla());
-        }
-    }
+	public void setValoresDefinicion(boolean fichero) {
+		if (!fichero) {
+			setNumCampos(PreferenciasDefinicion.getNumCamposProtocolo());
+			setNomProtocolo(PreferenciasDefinicion.getNombreProtocolo());
+			setRFCProtocolo(PreferenciasDefinicion.getRFCProtocolo());
+			setCamposClave(PreferenciasDefinicion.getCamposClave());
+			setNivelProtocolo(PreferenciasDefinicion.getNivelProtocolo());
+			setTabla(PreferenciasDefinicion.getTabla());
+		}
+	}
 
-    private int numCampos;
-    private int numColumnas;
-    private String nomProtocolo;
-    private String RFC;
-    private String camposClave;
-    private int nivel;
-    private Object valores[][];
+	private int numCampos;
+	private int numColumnas;
+	private String nomProtocolo;
+	private String RFC;
+	private String camposClave;
+	private int nivel;
+	private Object valores[][];
 }
