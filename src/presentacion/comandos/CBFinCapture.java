@@ -1,7 +1,6 @@
 
 package presentacion.comandos;
 
-import java.io.PrintStream;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import presentacion.Mediador;

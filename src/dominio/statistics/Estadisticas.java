@@ -1,6 +1,5 @@
 package dominio.statistics;
 
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -29,6 +28,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @version 1.2
  */
 public class Estadisticas extends JFrame {
+	
+	private static final long serialVersionUID = -8394384540950962439L;
+	
 	protected Packet paquete;
 	protected static int[] v = new int[7];
 

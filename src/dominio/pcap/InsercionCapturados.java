@@ -4,18 +4,12 @@ package dominio.pcap;
 import dominio.FachadaDominio;
 import java.io.*;
 
-import net.sourceforge.jpcap.net.Packet;
-
 import org.jnetpcap.Pcap;
 import org.jnetpcap.PcapIf;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.PcapPacketHandler;
 
-//import jpcap.*;
-//import jpcap.packet.Packet;
 import presentacion.preferencias.PreferenciasVisualizarInsercion;
-import presentacion.visualizarCaptura.PacketHandlerPcapLib;
-import presentacion.visualizarCaptura.VisualizarCaptura;
 
 /**
  * Clase InsercionCapturados.

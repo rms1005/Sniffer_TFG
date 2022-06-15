@@ -6,7 +6,6 @@
 package dominio.pcap;
 
 import java.io.IOException;
-import java.io.PrintStream;
 import net.sourceforge.jpcap.capture.RawPacketListener;
 import net.sourceforge.jpcap.net.RawPacket;
 import net.sourceforge.jpcap.util.TcpdumpWriter;

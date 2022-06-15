@@ -20,12 +20,12 @@ public class Rules {
 
 	public Rules(TableAlerts TablaAlertas, XMLlog log) {
 		try {
-			VectorRules = new Vector();
+			VectorRules = new Vector<Rule>();
 			lines = 0;
 			int trat_cabezera = 0;
 			this.TablaAlertas = TablaAlertas;
 			this.log = log;
-			VectorClasification = new Vector();
+			VectorClasification = new Vector<ClassificationRules>();
 			for (BufferedReader lector = new BufferedReader(new FileReader("./rules/classification.config")); lector
 					.ready();) {
 				String cadena = lector.readLine();
@@ -399,7 +399,7 @@ public class Rules {
 		return alert_contiene;
 	}
 
-	public Vector getVectorRules() {
+	public Vector<Rule> getVectorRules() {
 		return VectorRules;
 	}
 
@@ -420,8 +420,8 @@ public class Rules {
 	int res;
 	int inicio_opcion;
 	public Rule NuevaRegla;
-	public Vector VectorRules;
-	public Vector VectorClasification;
+	public Vector<Rule> VectorRules;
+	public Vector<ClassificationRules> VectorClasification;
 	public TableAlerts TablaAlertas;
 	private XMLlog log;
 }

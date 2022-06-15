@@ -1,7 +1,6 @@
 
 package dominio.pcapDumper.rules;
 
-import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
@@ -20,6 +19,9 @@ import net.sourceforge.jpcap.net.Packet;
 
 public class TableAlerts extends JFrame {
 
+	private static final long serialVersionUID = -8877505117154787755L;
+	
+	
 	public TableAlerts() {
 		super("TypeAlert");
 		column = null;

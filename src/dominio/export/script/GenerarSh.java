@@ -1,8 +1,6 @@
 
 package dominio.export.script;
 
-import java.io.PrintStream;
-
 /**
  * Clase GenerarSh.
  * 

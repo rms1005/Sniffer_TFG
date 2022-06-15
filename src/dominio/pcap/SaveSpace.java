@@ -2,7 +2,6 @@
 package dominio.pcap;
 
 import java.io.File;
-import java.io.PrintStream;
 
 /**
  * Clase SaveSpace.

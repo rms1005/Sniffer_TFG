@@ -2,7 +2,6 @@
 package dominio.export.xml;
 
 import net.sourceforge.jpcap.net.EthernetPacket;
-import net.sourceforge.jpcap.util.Timeval;
 import org.jdom.Element;
 
 /**
@@ -14,6 +13,9 @@ import org.jdom.Element;
  */
 public class Etherlayer extends Element {
 
+	private static final long serialVersionUID = 3042250225524954858L;
+	
+	
 	public Etherlayer(EthernetPacket ethernetPacket) {
 		super("Ethernet_Layer");
 		sourceAddress = ethernetPacket.getSourceHwAddress();

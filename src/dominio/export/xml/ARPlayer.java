@@ -14,6 +14,9 @@ import org.jdom.Element;
 
 public class ARPlayer extends Element {
 
+	private static final long serialVersionUID = -2335878591949199198L;
+	
+	
 	public ARPlayer(ARPPacket arpPacket) {
 		super("Address_Resolution_Protocol");
 		addContent((new Element("Operation_ARP")).setText(arpPacket.getOperation() != 1 ? "Reply" : "Request"));

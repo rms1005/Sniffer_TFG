@@ -2,9 +2,6 @@
 package dominio.preferences;
 
 import java.io.Serializable;
-import java.util.List;
-
-import org.jnetpcap.PcapIf;
 
 /**
  * Clase preferencesBeanCapture.
@@ -15,6 +12,9 @@ import org.jnetpcap.PcapIf;
  */
 public class preferencesBeanCapture implements Serializable {
 
+	private static final long serialVersionUID = -2100329599825156019L;
+	
+	
 	public preferencesBeanCapture() {
 		setDefaultSettings();
 	}

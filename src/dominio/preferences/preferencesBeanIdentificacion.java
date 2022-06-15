@@ -12,6 +12,9 @@ import java.io.Serializable;
  */
 public class preferencesBeanIdentificacion implements Serializable {
 
+	private static final long serialVersionUID = -8573101036424510968L;
+	
+	
 	public preferencesBeanIdentificacion() {
 		identificadores = new String[20][4];
 		setDefaultSettings();

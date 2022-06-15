@@ -3,20 +3,12 @@ package dominio.pcap;
 
 import dominio.FachadaDominio;
 import dominio.pcapDumper.Filtro;
-import dominio.pcapDumper.SavePacketHandler;
 
-import java.io.PrintStream;
-import java.util.List;
 import java.util.Vector;
 
-import org.jnetpcap.PcapIf;
-
-import presentacion.visualizarCaptura.VisualizarCaptura;
 import net.sourceforge.jpcap.capture.*;
 import net.sourceforge.jpcap.client.CaptureHistory;
 import net.sourceforge.jpcap.net.Packet;
-import net.sourceforge.jpcap.net.RawPacket;
-import net.sourceforge.jpcap.util.TcpdumpWriter;
 
 /**
  * Clase Captura.
@@ -327,7 +319,6 @@ public class Captura extends Thread {
 	private Filtro filtro;
 	private String FILTER;
 	public static CaptureHistory history;
-	private static Packet pakete;
 	private Vector rawPacket;
 
 }

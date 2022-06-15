@@ -1,7 +1,6 @@
 
 package dominio.pcapDumper.rules;
 
-import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
@@ -19,6 +18,8 @@ import javax.swing.table.TableColumn;
 
 public class FAlertsLoad extends JFrame {
 
+	private static final long serialVersionUID = -924664153901450795L;
+	
 	public FAlertsLoad() {
 		super("AlertsLoad");
 		column = null;

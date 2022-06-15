@@ -5,8 +5,6 @@ import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
-import net.sourceforge.jpcap.net.Packet;
-
 import org.jnetpcap.Pcap;
 import org.jnetpcap.PcapBpfProgram;
 import org.jnetpcap.PcapIf;
@@ -14,7 +12,6 @@ import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.PcapPacketHandler;
 
 import presentacion.visualizarCaptura.PacketHandlerPcapLib;
-import presentacion.visualizarCaptura.VisualizarCaptura;
 import dominio.FachadaDominio;
 import dominio.export.xml_PcapLib.XmlPacketHandler;
 

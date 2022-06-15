@@ -2,7 +2,6 @@
 package dominio.pcap.rules;
 
 import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.Calendar;
 import java.util.Date;
 import net.sourceforge.jpcap.net.Packet;

@@ -12,6 +12,9 @@ import java.io.Serializable;
  */
 public class preferencesBeanMeta implements Serializable {
 
+	private static final long serialVersionUID = 4144578220504191898L;
+	
+	
 	public preferencesBeanMeta() {
 	}
 

@@ -25,7 +25,7 @@ public class UtilNavegador {
 		String nombreSO = System.getProperty("os.name");
 		try {
 			if (nombreSO.startsWith("Mac OS")) {
-				Class manager = Class.forName("com.apple.eio.FileManager");
+				Class<?> manager = Class.forName("com.apple.eio.FileManager");
 				Method openURL = manager.getDeclaredMethod("openURL", new Class[] { String.class });
 				openURL.invoke(null, new Object[] { url });
 			}

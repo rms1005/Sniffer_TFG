@@ -1,11 +1,6 @@
 package presentacion.comandos;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
-import presentacion.Mediador;
-
-import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 /**
  * Clase CB_Prueba2.

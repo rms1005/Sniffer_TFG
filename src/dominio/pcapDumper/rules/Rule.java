@@ -10,10 +10,10 @@ import java.util.Vector;
  * @author jmsaizg@gmail.com,
  * @version 1.2
  */
-public class Rule implements Comparable {
+public class Rule implements Comparable<Object> {
 
 	public Rule() {
-		VectorContent = new Vector();
+		VectorContent = new Vector<String>();
 	}
 
 	public int compareTo(Object o) {
@@ -169,7 +169,7 @@ public class Rule implements Comparable {
 		return id;
 	}
 
-	public Vector getVectorContent() {
+	public Vector<String> getVectorContent() {
 		return VectorContent;
 	}
 
@@ -255,5 +255,5 @@ public class Rule implements Comparable {
 	private String seq;
 	private String ack;
 	private String offset;
-	public Vector VectorContent;
+	public Vector<String> VectorContent;
 }

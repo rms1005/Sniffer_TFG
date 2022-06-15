@@ -2,7 +2,6 @@
 package dominio.preferences;
 
 import java.io.File;
-import java.io.PrintStream;
 import java.util.*;
 import org.jdom.Document;
 import org.jdom.Element;
@@ -105,9 +104,9 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(new File(getFileCapture()));
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
+				List<?> preferences = root.getChildren();
 				exists = false;
-				for (Iterator i = preferences.iterator(); i.hasNext();) {
+				for (Iterator<?> i = preferences.iterator(); i.hasNext();) {
 					Element pref = (Element) i.next();
 					String auxName = pref.getName();
 					if (auxName.equals("CapturePreferences")) {
@@ -134,8 +133,8 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(new File(getFileExport()));
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
-				Iterator i = preferences.iterator();
+				List<?> preferences = root.getChildren();
+				Iterator<?> i = preferences.iterator();
 				exists = false;
 				while (i.hasNext()) {
 					Element pref = (Element) i.next();
@@ -163,8 +162,8 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(new File(getFileFromFile()));
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
-				Iterator i = preferences.iterator();
+				List<?> preferences = root.getChildren();
+				Iterator<?> i = preferences.iterator();
 				exists = false;
 				while (i.hasNext()) {
 					Element pref = (Element) i.next();
@@ -194,8 +193,8 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(new File(getFileMETA()));
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
-				for (Iterator i = preferences.iterator(); i.hasNext();) {
+				List<?> preferences = root.getChildren();
+				for (Iterator<?> i = preferences.iterator(); i.hasNext();) {
 					Element pref = (Element) i.next();
 					String auxName = pref.getName();
 					if (auxName.equals("MetaCapture")) {
@@ -221,8 +220,8 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(new File(getFileDefinicion()));
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
-				for (Iterator i = preferences.iterator(); i.hasNext();) {
+				List<?> preferences = root.getChildren();
+				for (Iterator<?> i = preferences.iterator(); i.hasNext();) {
 					Element pref = (Element) i.next();
 					String auxName = pref.getName();
 					if (auxName.equals("DefinicionProtocolo")) {
@@ -247,8 +246,8 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(aux);
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
-				for (Iterator i = preferences.iterator(); i.hasNext();) {
+				List<?> preferences = root.getChildren();
+				for (Iterator<?> i = preferences.iterator(); i.hasNext();) {
 					Element pref = (Element) i.next();
 					String auxName = pref.getName();
 					if (auxName.equals("DefinicionProtocolo")) {
@@ -274,8 +273,8 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(aux);
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
-				for (Iterator i = preferences.iterator(); i.hasNext();) {
+				List<?> preferences = root.getChildren();
+				for (Iterator<?> i = preferences.iterator(); i.hasNext();) {
 					Element pref = (Element) i.next();
 					String auxName = pref.getName();
 					if (auxName.equals("DefinicionProtocolo")) {
@@ -301,8 +300,8 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(new File(getFileExport()));
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
-				Iterator i = preferences.iterator();
+				List<?> preferences = root.getChildren();
+				Iterator<?> i = preferences.iterator();
 				exists = false;
 				pBExportInsert = new preferencesBeanExportInsercion();
 				while (i.hasNext()) {
@@ -330,9 +329,9 @@ public class preferencesFileRead {
 			if (exists) {
 				Document doc = builder.build(new File(getFileDetallePaquete()));
 				Element root = doc.getRootElement();
-				List preferences = root.getChildren();
+				List<?> preferences = root.getChildren();
 				exists = false;
-				for (Iterator i = preferences.iterator(); i.hasNext();) {
+				for (Iterator<?> i = preferences.iterator(); i.hasNext();) {
 					Element pref = (Element) i.next();
 					String auxName = pref.getName();
 					if (auxName.equals("DetallePaquetePreferences")) {

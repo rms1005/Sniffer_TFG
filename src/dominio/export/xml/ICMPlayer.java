@@ -15,6 +15,9 @@ import org.jdom.Element;
 
 public class ICMPlayer extends Element {
 
+	private static final long serialVersionUID = -7444839445673553805L;
+	
+	
 	public ICMPlayer(ICMPPacket icmpPacket) {
 		super("ICMP_Protocol");
 		sourceAddress = icmpPacket.getSourceAddress();

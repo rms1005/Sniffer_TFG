@@ -1,10 +1,6 @@
 
 package dominio.pcapDumper;
 
-import java.io.PrintStream;
-
-import presentacion.preferencias.PreferenciasCaptura;
-
 /**
  * Clase SaveTime.
  * 

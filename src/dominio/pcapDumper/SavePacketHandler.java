@@ -16,9 +16,6 @@ import org.jnetpcap.PcapHeader;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.PcapPacketHandler;
 
-import presentacion.preferencias.PreferenciasCaptura;
-import presentacion.preferencias.PreferenciasFromFile;
-
 import dominio.export.xml_PcapLib.CrearXMLOffline;
 import dominio.export.xml_PcapLib.XmlPacketHandler;
 

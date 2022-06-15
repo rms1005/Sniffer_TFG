@@ -14,6 +14,9 @@ import org.jdom.Element;
 
 public class TCPflags extends Element {
 
+	private static final long serialVersionUID = -3544826417231268808L;
+	
+
 	public TCPflags(TCPPacket tcpPacket) {
 		super("TCPflags");
 		if (tcpPacket.isUrg())

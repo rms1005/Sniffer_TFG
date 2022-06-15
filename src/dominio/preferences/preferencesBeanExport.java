@@ -12,6 +12,9 @@ import java.io.Serializable;
  */
 public class preferencesBeanExport implements Serializable {
 
+	private static final long serialVersionUID = -90317676710058550L;
+	
+	
 	public preferencesBeanExport() {
 		setDefaultSettings();
 	}

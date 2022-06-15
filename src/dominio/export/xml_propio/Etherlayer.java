@@ -2,7 +2,6 @@
 package dominio.export.xml_propio;
 
 import net.sourceforge.jpcap.net.EthernetPacket;
-import net.sourceforge.jpcap.util.Timeval;
 
 /**
  * Clase Etherlayer.

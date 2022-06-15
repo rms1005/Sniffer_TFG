@@ -17,6 +17,9 @@ import presentacion.preferencias.PreferenciasDefinicion;
  */
 public class preferencesBeanDefinicion implements Serializable {
 
+	private static final long serialVersionUID = 3835439602104013367L;
+	
+	
 	public preferencesBeanDefinicion() {
 		numColumnas = 8;
 		setDefaultSettings();

@@ -24,18 +24,6 @@ import org.jnetpcap.protocol.tcpip.Udp;
 import org.jnetpcap.protocol.tcpip.Tcp;
 import org.jnetpcap.protocol.lan.Ethernet;
 
-//import jpcap.NetworkInterface;
-//import jpcap.NetworkInterfaceAddress;
-//import jpcap.packet.ARPPacket;
-//import jpcap.packet.EthernetPacket;
-//import jpcap.packet.ICMPPacket;
-//import jpcap.packet.IPPacket;
-//import jpcap.packet.Packet;
-//import jpcap.packet.TCPPacket;
-//import jpcap.packet.UDPPacket;
-
-import dominio.FachadaDominio;
-import dominio.preferences.preferencesBeanDefinicion;
 import dominio.preferences.identificacion.PrefIdentificacion;
 
 import presentacion.Mediador;
@@ -82,7 +70,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	/** *Direcion mac Destino */
 	private static String macDes = "";
 	/** *Orden de encapsulacion */
-	private static ArrayList<String> encapsulacion = new ArrayList();
+	private static ArrayList<String> encapsulacion = new ArrayList<String>();
 	/** * Nivel de enlace */
 	private static String enlace = "";
 	/** * Nivel de red */
@@ -779,11 +767,11 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				{ null, null, null, null, null } },
 				new String[] { "Nombre del Campo", "Valor del campo", "Tama�o del campo", "Tipo de dato",
 						"Opcional" }) {
-			Class[] types = new Class[] { java.lang.String.class, java.lang.String.class, java.lang.Integer.class,
+			Class<?>[] types = new Class[] { java.lang.String.class, java.lang.String.class, java.lang.Integer.class,
 					java.lang.String.class, java.lang.String.class };
 			boolean[] canEdit = new boolean[] { false, true, false, false, false };
 
-			public Class getColumnClass(int columnIndex) {
+			public Class<?> getColumnClass(int columnIndex) {
 				return types[columnIndex];
 			}
 
@@ -2823,6 +2811,5 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	private javax.swing.JTextField jtxtTimestamp;
 	private javax.swing.JTextField jtxtIp6destino;
 	private javax.swing.JTextField jtxtIp6origen;
-	// End of variables declaration//GEN-END:variables
 
 }

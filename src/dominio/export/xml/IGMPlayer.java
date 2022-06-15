@@ -15,6 +15,9 @@ import org.jdom.Element;
 
 public class IGMPlayer extends Element {
 
+	private static final long serialVersionUID = -8235168543541699617L;
+	
+	
 	public IGMPlayer(IGMPPacket igmpPacket) {
 		super("IGMP_Protocol");
 		try {

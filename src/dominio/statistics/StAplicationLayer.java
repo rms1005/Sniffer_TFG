@@ -1,6 +1,5 @@
 package dominio.statistics;
 
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -23,6 +22,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @version 1.2
  */
 public class StAplicationLayer extends JFrame {
+
+	private static final long serialVersionUID = -143136220689457445L;
+	
 	protected Packet paquete;
 	protected static int[] vaplicationlayer = new int[7];
 	protected static String[][] hack = new String[10][2];

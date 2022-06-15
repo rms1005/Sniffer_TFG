@@ -1,14 +1,9 @@
 
 package dominio.pcap;
 
-import dominio.FachadaDominio;
-
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.ArrayList;
-
-import net.sourceforge.jpcap.net.Packet;
 
 import org.jnetpcap.Pcap;
 import org.jnetpcap.PcapIf;

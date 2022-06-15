@@ -17,7 +17,7 @@ import java.util.Iterator;
 public class PrefIdentificacion {
 
 	public PrefIdentificacion() {
-		listaIdentificacion = new ArrayList();
+		listaIdentificacion = new ArrayList<preferencesBeanIdentificacion>();
 		tamano = 0;
 		leer = FachadaDominio.getPreferences();
 		fich = new File("./files/definiciones");
@@ -27,7 +27,7 @@ public class PrefIdentificacion {
 
 	}
 
-	public ArrayList getListaIdentificacion() {
+	public ArrayList<preferencesBeanIdentificacion> getListaIdentificacion() {
 		return listaIdentificacion;
 	}
 
@@ -42,7 +42,7 @@ public class PrefIdentificacion {
 	public String getIdentificacionProtocolo(byte cadena[]) {
 		String sms = "";
 		boolean coincide = true;
-		for (Iterator iterator = listaIdentificacion.iterator(); iterator.hasNext();) {
+		for (Iterator<preferencesBeanIdentificacion> iterator = listaIdentificacion.iterator(); iterator.hasNext();) {
 			preferencesBeanIdentificacion aux = (preferencesBeanIdentificacion) iterator.next();
 			for (int i = 0; aux.getIdentificador(i, 0) != null && coincide; i++)
 				coincide = checkContiene(cadena, aux.getIdentificador(i, 0),
@@ -184,7 +184,6 @@ public class PrefIdentificacion {
 			if (cadena[inicio] == '0')
 				return "false";
 		}
-		String auxCampo;
 		if (tipo.equals("Numerico")) {
 			j = 0;
 			for (int i = inicio; i < inicio + tamano; i++) {
@@ -215,7 +214,7 @@ public class PrefIdentificacion {
 
 			return String.valueOf(res);
 		} else {
-			return auxCampo = new String(campo);
+			return new String(campo);
 		}
 	}
 
@@ -223,7 +222,7 @@ public class PrefIdentificacion {
 		return tamano;
 	}
 
-	private ArrayList listaIdentificacion;
+	private ArrayList<preferencesBeanIdentificacion> listaIdentificacion;
 	private File fich;
 	private int tamano;
 	private preferencesFileRead leer;

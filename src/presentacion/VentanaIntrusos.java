@@ -138,7 +138,8 @@ public class VentanaIntrusos extends JDialog {
 			while (sCadenaTabla != null) {
 				modelo.addRow(new Object[] { sCadenaTabla });
 				sCadenaTabla = BufferDestinoTabla.readLine();
-			} // End While
+			}
+			BufferDestinoTabla.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

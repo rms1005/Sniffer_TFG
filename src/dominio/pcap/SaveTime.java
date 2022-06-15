@@ -1,8 +1,6 @@
 
 package dominio.pcap;
 
-import java.io.PrintStream;
-
 /**
  * Clase SaveTime.
  * 
@@ -59,5 +57,4 @@ public class SaveTime extends Thread {
 	public SaveRawPacketHandler venpadre;
 	private SaveFileName SFName;
 	public long timeSleep;
-	private int i;
 }

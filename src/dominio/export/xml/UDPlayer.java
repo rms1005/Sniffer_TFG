@@ -15,6 +15,9 @@ import org.jdom.Element;
 
 public class UDPlayer extends Element {
 
+	private static final long serialVersionUID = 4364125160999214098L;
+	
+
 	public UDPlayer(UDPPacket udpPacket) {
 		super("UDP_Protocol");
 		try {

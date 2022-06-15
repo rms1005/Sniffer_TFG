@@ -2,7 +2,6 @@
 package dominio.pcapDumper.rules;
 
 import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.Calendar;
 import java.util.Date;
 import net.sourceforge.jpcap.net.Packet;
@@ -61,7 +60,6 @@ public class XMLlog {
 	}
 
 	private Element root;
-	private Element packet;
 	private String nombrefichero;
 	private boolean logcreado;
 	private int nalert;

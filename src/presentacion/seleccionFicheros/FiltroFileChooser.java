@@ -15,13 +15,13 @@ import javax.swing.filechooser.FileFilter;
 public class FiltroFileChooser extends FileFilter {
 	private static String TYPE_UNKNOWN = "Type Unknown";
 	private static String HIDDEN_FILE = "Hidden File";
-	private Hashtable filters = null;
+	private Hashtable<String, FiltroFileChooser> filters = null;
 	private String description = null;
 	private String fullDescription = null;
 	private boolean useExtensionsInDescription = true;
 
 	public FiltroFileChooser() {
-		this.filters = new Hashtable();
+		this.filters = new Hashtable<String, FiltroFileChooser>();
 	}
 
 	public FiltroFileChooser(String extension) {
@@ -78,7 +78,7 @@ public class FiltroFileChooser extends FileFilter {
 
 	public void addExtension(String extension) {
 		if (this.filters == null) {
-			this.filters = new Hashtable(5);
+			this.filters = new Hashtable<String, FiltroFileChooser>(5);
 		}
 		this.filters.put(extension.toLowerCase(), this);
 		this.fullDescription = null;
@@ -89,7 +89,7 @@ public class FiltroFileChooser extends FileFilter {
 			if ((this.description == null) || (isExtensionListInDescription())) {
 				this.fullDescription = (this.description + " (");
 
-				Enumeration extensions = this.filters.keys();
+				Enumeration<String> extensions = this.filters.keys();
 				if (extensions != null) {
 					this.fullDescription = (this.fullDescription + "." + (String) extensions.nextElement());
 					while (extensions.hasMoreElements()) {

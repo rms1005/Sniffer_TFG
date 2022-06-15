@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class TCPlayer extends Element {
 
+	private static final long serialVersionUID = -4755883179671558123L;
+	
+
 	public TCPlayer(TCPPacket tcpPacket) {
 		super("TCP_Protocol");
 		TCPflags tcpflags = new TCPflags(tcpPacket);

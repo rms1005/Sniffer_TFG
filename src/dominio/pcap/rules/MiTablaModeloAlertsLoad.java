@@ -13,9 +13,12 @@ import javax.swing.table.AbstractTableModel;
  */
 class MiTablaModeloAlertsLoad extends AbstractTableModel {
 
+	private static final long serialVersionUID = 3283662437125250727L;
+	
+	
 	public MiTablaModeloAlertsLoad() {
-		tableColumns = new Vector();
-		tableData = new Vector();
+		tableColumns = new Vector<String>();
+		tableData = new Vector<Vector<String>>();
 		tableColumns.addElement(new String("Regla"));
 	}
 
@@ -32,20 +35,20 @@ class MiTablaModeloAlertsLoad extends AbstractTableModel {
 	}
 
 	public Object getValueAt(int row, int col) {
-		Vector rowVector = (Vector) tableData.elementAt(row);
+		Vector<String> rowVector = (Vector<String>) tableData.elementAt(row);
 		return rowVector.elementAt(col);
 	}
 
-	public Class getColumnClass(int c) {
+	public Class<?> getColumnClass(int c) {
 		return getValueAt(0, c).getClass();
 	}
 
 	public void addRow(String fichero_reglas) {
-		Vector newRow = new Vector();
+		Vector<String> newRow = new Vector<String>();
 		newRow.addElement(fichero_reglas);
 		tableData.addElement(newRow);
 	}
 
-	Vector tableColumns;
-	Vector tableData;
+	Vector<String> tableColumns;
+	Vector<Vector<String>> tableData;
 }

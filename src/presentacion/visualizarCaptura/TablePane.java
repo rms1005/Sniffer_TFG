@@ -7,8 +7,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.event.*;
-import java.io.FileInputStream;
-import java.util.Properties;
 import java.util.StringTokenizer;
 
 /**

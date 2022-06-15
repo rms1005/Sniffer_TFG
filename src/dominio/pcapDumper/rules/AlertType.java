@@ -14,6 +14,9 @@ import org.jdom.Element;
 
 public class AlertType extends Element {
 
+	private static final long serialVersionUID = 2567044706984612268L;
+	
+
 	public AlertType(Rule objetoRule, Packet paquete, int numeropaquete, String IpOrigen, String IpDestino,
 			String portsrc, String portdest) {
 		super("TypeAlert");

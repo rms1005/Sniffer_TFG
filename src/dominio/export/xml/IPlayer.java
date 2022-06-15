@@ -15,6 +15,9 @@ import org.jdom.Element;
 
 public class IPlayer extends Element {
 
+	private static final long serialVersionUID = -7989307165813721913L;
+	
+	
 	public IPlayer(IPPacket ipPacket) {
 		super("IP_Protocol");
 		sourceAddress = ipPacket.getSourceAddress();

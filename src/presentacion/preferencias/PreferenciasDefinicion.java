@@ -158,10 +158,10 @@ public class PreferenciasDefinicion extends JDialog {
 
 				new String[] { "ID Campo", "Nombre del Campo", "Tama�o del campo", "Valor por defecto", "Descripcion",
 						"Tipo de Dato", "Campo Opcional", "Campo Relacionado" }) {
-			Class[] types = { Integer.class, String.class, Integer.class, String.class, String.class, String.class,
+			Class<?>[] types = { Integer.class, String.class, Integer.class, String.class, String.class, String.class,
 					String.class, String.class };
 
-			public Class getColumnClass(int columnIndex) {
+			public Class<?> getColumnClass(int columnIndex) {
 				return this.types[columnIndex];
 			}
 		});
