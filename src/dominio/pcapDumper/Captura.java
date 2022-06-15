@@ -65,7 +65,6 @@ public class Captura extends Thread {
 	private String strF;
 	protected int i;
 	private Thread captureThread2;
-	public VisualizarCaptura vc;
 
 	
 	public Captura() {

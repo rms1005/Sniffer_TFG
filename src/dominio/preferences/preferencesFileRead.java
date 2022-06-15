@@ -24,7 +24,18 @@ public class preferencesFileRead
 
     public preferencesFileRead()
     {
+    	initBooleans();
     	leerXML();
+    }
+    
+    private void initBooleans()
+    {
+    	this.capture = false;
+    	this.export = false;
+    	this.fromfile = false;
+    	this.meta = false;
+    	this.definicion = false;
+    	this.detalle = false;
     }
 
     public void setFileReadCaptura(String ruta)
@@ -34,43 +45,86 @@ public class preferencesFileRead
 
     public void leerXML()
     {
-        boolean aux = leerXMLCapture(true);
-        if(aux)
-        {
-            System.out.println("Fichero de preferencias de captura leido correctamente");
-        } else
-        {
-            System.out.println("Fichero de preferencias de captura no encontrado!!");
-            System.out.println("---Se cargar\341 parametros por defecto");
-        }
-        aux = leerXMLExport();
-        if(aux)
-        {
-            System.out.println("Fichero de preferencias de exportacion leido correctamente");
-        } else
-        {
-            System.out.println("Fichero de preferencias de exportaci\363n no encontrado!!");
-            System.out.println("---Se cargar\341 parametros por defecto");
-        }
-        aux = leerXMLFromFile();
-        if(aux)
-        {
-            System.out.println("Fichero de preferencias de lectura desde fichero leido correctamente");
-        } else
-        {
-            System.out.println("Fichero de preferencias de lectura desde fichero no encontrado!!");
-            System.out.println("---Se cargar\341 parametros por defecto");
-        }
-        aux = leerXMLDetallePaquete();
-        if(aux)
-        {
-        	System.out.println("Fichero de preferencias de detalle de paquetes leido correctamente");
-        }
-        else
-        {
-        	System.out.println("Fichero de preferencias de detalle de paquetes no encontrado!!");
-            System.out.println("---Se cargar\341 parametros por defecto");
-        }
+    	boolean aux = false;
+    	if(!this.capture)
+    	{
+	        aux = leerXMLCapture(true);
+	        if(aux)
+	        {
+	            System.out.println("Fichero de preferencias de captura leido correctamente");
+	        } else
+	        {
+	            System.out.println("Fichero de preferencias de captura no encontrado!!");
+	            System.out.println("---Se cargar\341 parametros por defecto");
+	        }
+	        this.capture = true;
+    	}
+    	if(!this.export)
+    	{
+	        aux = leerXMLExport();
+	        if(aux)
+	        {
+	            System.out.println("Fichero de preferencias de exportacion leido correctamente");
+	        } else
+	        {
+	            System.out.println("Fichero de preferencias de exportaci\363n no encontrado!!");
+	            System.out.println("---Se cargar\341 parametros por defecto");
+	        }
+	        this.export = true;
+    	}
+    	if(!this.fromfile)
+    	{
+	        aux = leerXMLFromFile();
+	        if(aux)
+	        {
+	            System.out.println("Fichero de preferencias de lectura desde fichero leido correctamente");
+	        } else
+	        {
+	            System.out.println("Fichero de preferencias de lectura desde fichero no encontrado!!");
+	            System.out.println("---Se cargar\341 parametros por defecto");
+	        }
+	        this.fromfile = true;
+    	}
+    	/*if(!this.meta)
+    	{
+	        aux = leerXMLMETA();
+	        if(aux)
+	        {
+	            System.out.println("Fichero de preferencias meta leido correctamente");
+	        } else
+	        {
+	            System.out.println("Fichero de preferencias meta no encontrado!!");
+	            System.out.println("---Se cargar\341 parametros por defecto");
+	        }
+	        this.meta = true;
+    	}
+    	if(!this.definicion)
+    	{
+	        aux = leerXMLDefinicion();
+	        if(aux)
+	        {
+	            System.out.println("Fichero de preferencias de definicion leido correctamente");
+	        } else
+	        {
+	            System.out.println("Fichero de preferencias de definicion no encontrado!!");
+	            System.out.println("---Se cargar\341 parametros por defecto");
+	        }
+	        this.definicion = true;
+    	}*/
+    	if(!this.detalle)
+    	{
+	        aux = leerXMLDetallePaquete();
+	        if(aux)
+	        {
+	        	System.out.println("Fichero de preferencias de detalle de paquetes leido correctamente");
+	        }
+	        else
+	        {
+	        	System.out.println("Fichero de preferencias de detalle de paquetes no encontrado!!");
+	            System.out.println("---Se cargar\341 parametros por defecto");
+	        }
+	        this.detalle = true;
+    	}
     }
 
     public boolean leerXMLCapture(boolean porDefecto)
@@ -219,7 +273,7 @@ public class preferencesFileRead
         return exists;
     }
 
-    public preferencesBeanDefinicion leerXMLDefinicion()
+    public boolean leerXMLDefinicion()
     {
         boolean exists = true;
         try
@@ -251,7 +305,7 @@ public class preferencesFileRead
         {
             e.printStackTrace();
         }
-        return pBDefinicion;
+        return exists;
     }
 
     public preferencesBeanIdentificacion leerXMLIdentificacion(File aux)
@@ -289,7 +343,7 @@ public class preferencesFileRead
         return pBIdentificacion;
     }
 
-    public preferencesBeanDefinicion leerXMLProtocoloIdentificado(File aux)
+    public boolean leerXMLProtocoloIdentificado(File aux)
     {
         boolean exists = true;
         try
@@ -320,7 +374,7 @@ public class preferencesFileRead
         {
             e.printStackTrace();
         }
-        return pBDefinicion;
+        return exists;
     }
 
     public boolean leerXMLExportInsercion()
@@ -475,14 +529,24 @@ public class preferencesFileRead
         return aux;
     }
 
-    public String getFileDefinicion()
-    {
-        return ficheroDefinicion;
-    }
-
     public String getDefaultFileMETA()
     {
         return "./files/preferencias/DefaultPreferencesFromFile.xml";
+    }
+
+    public String getFileDefinicion()
+    {
+    	String aux;
+        if(ficheroDefinicion == null || ficheroDefinicion == "")
+            aux = getDefaultFileDefinicion();
+        else
+            aux = ficheroDefinicion;
+        return aux;
+    }
+    
+    public String getDefaultFileDefinicion()
+    {
+        return "./files/preferencias/DefaultPreferencesDefinicion.xml";
     }
 
     public preferencesBeanCapture getPBCapture()
@@ -941,4 +1005,10 @@ public class preferencesFileRead
     private String ficheroMETA;
     private String ficheroDefinicion;
     private String ficheroDetallePaquete;
+    private boolean capture;
+    private boolean export;
+    private boolean fromfile;
+    private boolean meta;
+    private boolean definicion;
+    private boolean detalle;
 }

@@ -1,6 +1,7 @@
 
 package dominio.preferences.insercion;
 
+import dominio.FachadaDominio;
 import dominio.preferences.preferencesFileRead;
 import java.io.File;
 /** 
@@ -15,7 +16,7 @@ public class PrefExpInsercion
 
     public PrefExpInsercion()
     {
-        leer = new preferencesFileRead();
+        leer = FachadaDominio.getPreferences();
     }
 
     private File fich;

@@ -31,13 +31,8 @@ class PacketHandler implements PacketListener
         this.RTablePane = RTablePane;
         this.Reglas = Reglas;
     }
-
-	/*@Override
-	public void packetArrived(Packet packet) {
-		// TODO Auto-generated method stub
-		
-	}*/
     
+    @Override
     public void packetArrived(Packet packet)
     {
         String macsource = "----";

@@ -320,8 +320,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	}
 
 	public void AddConexionesTabla() {
-		int i = 0;
-		for (i = 0; i < VectorConexiones.size(); i++) {
+		for (int i = 0; i < VectorConexiones.size(); i++) {
 			Conexion objetoConexion = (Conexion) VectorConexiones.elementAt(i);
 			TablaConexiones.DatosTablaConexion(String.valueOf(i),
 					objetoConexion.getTimeEstablecimiento(), objetoConexion

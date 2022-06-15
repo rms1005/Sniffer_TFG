@@ -1,6 +1,7 @@
 
 package dominio.preferences.identificacion;
 
+import dominio.FachadaDominio;
 import dominio.preferences.*;
 import java.io.File;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class PrefIdentificacion
     {
         listaIdentificacion = new ArrayList();
         tamano = 0;
-        leer = new preferencesFileRead();
+        leer = FachadaDominio.getPreferences();
         fich = new File("./files/definiciones");
         File todos[] = fich.listFiles();
         for(int i = 0; i < todos.length; i++)
@@ -141,7 +142,7 @@ public class PrefIdentificacion
     {
         int contPos = 0;
         File aux = new File(file);
-        preferencesBeanDefinicion prefAux = leer.leerXMLProtocoloIdentificado(aux);
+        preferencesBeanDefinicion prefAux = leer.getPBDefinicion();
         String datos[][] = new String[prefAux.getNumCampos()][2];
         for(int i = 0; i < prefAux.getNumCampos(); i++)
         {

@@ -869,7 +869,7 @@ public class FachadaDominio
         return returnVal;
     }
 
-    private static preferencesFileRead getPreferences()
+    public static preferencesFileRead getPreferences()
     {
         if(preferences == null)
         {
