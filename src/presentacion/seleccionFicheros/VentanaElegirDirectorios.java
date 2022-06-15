@@ -16,6 +16,9 @@ import presentacion.ventanaMenuSniffer.MenuSniffer;
  */
 public class VentanaElegirDirectorios extends JDialog {
 
+	private static final long serialVersionUID = -2261970608126239758L;
+	
+	
 	public VentanaElegirDirectorios(String ventana) {
 		vent = ventana;
 		inicializacionComponentes();

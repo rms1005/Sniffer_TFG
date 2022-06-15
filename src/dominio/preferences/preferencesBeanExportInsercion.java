@@ -13,15 +13,18 @@ import java.util.ArrayList;
  */
 public class preferencesBeanExportInsercion implements Serializable {
 
+	private static final long serialVersionUID = -9145883526138646849L;
+	
+	
 	public preferencesBeanExportInsercion() {
 		setDefaultSettings();
 	}
 
 	public void setDefaultSettings() {
-		ipOrigen = new ArrayList();
-		ipDestino = new ArrayList();
-		macOrigen = new ArrayList();
-		macDestino = new ArrayList();
+		ipOrigen = new ArrayList<String>();
+		ipDestino = new ArrayList<String>();
+		macOrigen = new ArrayList<String>();
+		macDestino = new ArrayList<String>();
 	}
 
 	public void setIpOrigen(String text) {
@@ -40,24 +43,24 @@ public class preferencesBeanExportInsercion implements Serializable {
 		macDestino.add(text);
 	}
 
-	public ArrayList getIpOrigen() {
+	public ArrayList<String> getIpOrigen() {
 		return ipOrigen;
 	}
 
-	public ArrayList getIpDestino() {
+	public ArrayList<String> getIpDestino() {
 		return ipDestino;
 	}
 
-	public ArrayList getMacOrigen() {
+	public ArrayList<String> getMacOrigen() {
 		return macOrigen;
 	}
 
-	public ArrayList getMacDestino() {
+	public ArrayList<String> getMacDestino() {
 		return macDestino;
 	}
 
-	ArrayList ipOrigen;
-	ArrayList ipDestino;
-	ArrayList macOrigen;
-	ArrayList macDestino;
+	ArrayList<String> ipOrigen;
+	ArrayList<String> ipDestino;
+	ArrayList<String> macOrigen;
+	ArrayList<String> macDestino;
 }

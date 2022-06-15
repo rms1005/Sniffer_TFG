@@ -3,7 +3,6 @@ package presentacion.visualizarCaptura;
 
 import dominio.pcapDumper.analyzer.*;
 import dominio.preferences.identificacion.PrefIdentificacion;
-import java.io.PrintStream;
 
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.protocol.lan.Ethernet;

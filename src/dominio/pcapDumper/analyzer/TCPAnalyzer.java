@@ -20,7 +20,7 @@ public class TCPAnalyzer extends JDPacketAnalyzer {
 	Tcp tcp = new Tcp();
 
 	public TCPAnalyzer() {
-		values = new Hashtable();
+		values = new Hashtable<String, Object>();
 		layer = TRANSPORT_LAYER;
 	}
 
@@ -30,7 +30,7 @@ public class TCPAnalyzer extends JDPacketAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return boolean
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public boolean isAnalyzable(PcapPacket p) {
 		return p.hasHeader(tcp);
@@ -50,7 +50,7 @@ public class TCPAnalyzer extends JDPacketAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void analyze(PcapPacket p) {
 		values.clear();
@@ -93,6 +93,6 @@ public class TCPAnalyzer extends JDPacketAnalyzer {
 
 	private static final String valueNames[] = { "Source Port", "Destination Port", "Sequence Number", "Ack Number",
 			"URG Flag", "ACK Flag", "PSH Flag", "RST Flag", "SYN Flag", "FIN Flag", "Window Size" };
-	Hashtable values;
+	Hashtable<String, Object> values;
 
 }

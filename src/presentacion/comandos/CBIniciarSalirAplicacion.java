@@ -16,6 +16,9 @@ import presentacion.Mediador;
  * @version 1.2
  */
 public class CBIniciarSalirAplicacion extends JButton implements Comando {
+
+	private static final long serialVersionUID = -4098381101632391159L;
+	
 	private Mediador mediador;
 	private String bnombre;
 

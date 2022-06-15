@@ -18,6 +18,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class CBAbrirCarpeta extends JButton implements Comando {
 
+	private static final long serialVersionUID = -5332406334751831935L;
+	
+	
 	public CBAbrirCarpeta(Mediador mediador, String titulo) {
 		if (titulo.equals("Capturas")) {
 			setIcon(new ImageIcon(

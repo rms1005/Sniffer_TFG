@@ -1,8 +1,6 @@
 
 package presentacion.ventanaMenuSniffer;
 
-import java.awt.Component;
-import java.io.PrintStream;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import presentacion.Mediador;
@@ -17,6 +15,9 @@ import presentacion.comandos.*;
  */
 public class BarraHerramientas extends JPanel {
 
+	private static final long serialVersionUID = 1182203172893931464L;
+	
+	
 	public BarraHerramientas(Mediador med) {
 		mediador = med;
 		toolBar = new JToolBar();

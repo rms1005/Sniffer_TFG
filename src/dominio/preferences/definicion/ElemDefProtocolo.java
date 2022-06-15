@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemDefProtocolo extends Element {
 
+	private static final long serialVersionUID = 1999793451455634290L;
+	
+	
 	public ElemDefProtocolo(preferencesBeanDefinicion pBDefinicion) {
 		super("CamposProtocolo");
 		try {

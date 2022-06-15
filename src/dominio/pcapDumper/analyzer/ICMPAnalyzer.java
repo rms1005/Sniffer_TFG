@@ -27,7 +27,7 @@ public class ICMPAnalyzer extends JDPacketAnalyzer {
 	private Icmp icmp;
 
 	public ICMPAnalyzer() {
-		values = new Hashtable();
+		values = new Hashtable<String, Object>();
 		layer = TRANSPORT_LAYER;
 	}
 
@@ -113,6 +113,6 @@ public class ICMPAnalyzer extends JDPacketAnalyzer {
 			"Destination Unreachable(3)", "Source Quench(4)", "Redirect(5)", "Unknown(6)", "Unknown(7)", "Echo(8)",
 			"Unknown(9)", "Unknown(10)", "Time Exceeded(11)", "Parameter Problem(12)", "Timestamp(13)",
 			"Timestamp Reply(14)", "Unknown(15)", "Unknown(16)", "Address Mask Request(17)", "Address Mask Reply(18)" };
-	private Hashtable values;
+	private Hashtable<String, Object> values;
 
 }

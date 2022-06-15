@@ -1,6 +1,5 @@
 package presentacion.visualizarCaptura;
 
-import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +21,9 @@ import presentacion.propiedadesVentana.CentrarVentana;
  * @version 1.2
  */
 public class FTableOptions extends JFrame {
+
+	private static final long serialVersionUID = 7621629431120661423L;
+	
 	private boolean numeropaquete;
 	private boolean time;
 	private boolean macsource;

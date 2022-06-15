@@ -18,6 +18,9 @@ import presentacion.preferencias.PreferenciasInsercion;
 
 public class CBAceptar extends JButton implements Comando {
 
+	private static final long serialVersionUID = -3904791047244078375L;
+	
+	
 	public CBAceptar(Mediador mediador, String ventana) {
 		if (ventana.toLowerCase().equals("salir")) {
 			setText("   Salir   ");

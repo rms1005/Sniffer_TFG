@@ -19,6 +19,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class CBFinCapture extends JButton implements Comando {
 
+	private static final long serialVersionUID = -2328346394365734685L;
+	
+
 	public CBFinCapture(Mediador mediador) {
 		super(new ImageIcon(
 				(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))

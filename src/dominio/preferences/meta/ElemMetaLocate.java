@@ -1,5 +1,5 @@
 
-package dominio.preferences.capture;
+package dominio.preferences.meta;
 
 import dominio.preferences.preferencesBeanMeta;
 import dominio.preferences.preferencesOperation;
@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemMetaLocate extends Element {
 
+	private static final long serialVersionUID = 5558587482358688343L;
+	
+	
 	public ElemMetaLocate(preferencesBeanMeta pBMeta) {
 		super("Locate");
 		try {

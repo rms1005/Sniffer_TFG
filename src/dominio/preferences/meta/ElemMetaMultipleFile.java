@@ -1,5 +1,5 @@
 
-package dominio.preferences.capture;
+package dominio.preferences.meta;
 
 import dominio.preferences.preferencesBeanMeta;
 import dominio.preferences.preferencesOperation;
@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemMetaMultipleFile extends Element {
 
+	private static final long serialVersionUID = -638548412359379500L;
+	
+	
 	public ElemMetaMultipleFile(preferencesBeanMeta pBMeta) {
 		super("Multiple_Files");
 		try {

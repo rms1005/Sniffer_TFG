@@ -18,7 +18,7 @@ public class FachadaFicheroDirectorios extends FachadaFichero {
 
 	public FachadaFicheroDirectorios(String nombreRutaF) throws IOException {
 		FachadaFichero.nombreRutaF = nombreRutaF;
-		this.nombreRutaF = nombreRutaF;
+		FachadaFicheroDirectorios.nombreRutaF = nombreRutaF;
 	}
 
 	public PrintWriter getOutput() {

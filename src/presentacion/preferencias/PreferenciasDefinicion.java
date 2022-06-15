@@ -1,7 +1,6 @@
 package presentacion.preferencias;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -11,9 +10,6 @@ import javax.swing.BorderFactory;
 import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout.ParallelGroup;
-import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -22,13 +18,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
 import presentacion.Mediador;
 import presentacion.comandos.CBAbrirFichero;
 import presentacion.comandos.CBAceptar;
@@ -45,6 +37,9 @@ import presentacion.propiedadesVentana.CentrarVentana;
  * @version 1.2
  */
 public class PreferenciasDefinicion extends JDialog {
+	
+	private static final long serialVersionUID = 5468304667493746533L;
+	
 	private static String title;
 	private static boolean tipo;
 	private static String nomProtocolo = "";

@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMConfiguracion extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = -3206300248585344389L;
+	
+
 	public CJMConfiguracion(Mediador mediador) {
 		super("Configuración", 71);
 		KeyStroke ctrlA = KeyStroke.getKeyStroke("F5");

@@ -1,4 +1,4 @@
-package dominio.preferences.capture;
+package dominio.preferences.detalle;
 
 import org.jdom.Element;
 

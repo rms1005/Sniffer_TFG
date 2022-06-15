@@ -18,6 +18,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class CBInicioInsert extends JButton implements Comando {
 
+	private static final long serialVersionUID = 2867576315127238117L;
+	
+
 	public CBInicioInsert(Mediador mediador) {
 		super(new ImageIcon(
 				(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))

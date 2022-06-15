@@ -3,7 +3,6 @@ package dominio.pcapDumper.analyzer;
 
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.protocol.tcpip.Tcp;
-import org.jnetpcap.protocol.tcpip.Http.Request;
 
 //import jpcap.packet.Packet;
 //import jpcap.packet.TCPPacket;

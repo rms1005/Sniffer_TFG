@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemDefTablaProtocolo extends Element {
 
+	private static final long serialVersionUID = 3768289796263291437L;
+	
+	
 	public ElemDefTablaProtocolo(preferencesBeanDefinicion pBDefinicion, int campo) {
 		super((new StringBuilder("Campo")).append(String.valueOf(campo)).toString());
 		try {

@@ -22,6 +22,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class VentanaGuardarElegirFichero extends JDialog {
 
+	private static final long serialVersionUID = -3002476389209409641L;
+	
+	
 	public VentanaGuardarElegirFichero(String tip) {
 		this.tip = tip;
 		inicializacionComponentes();

@@ -23,7 +23,7 @@ import org.jnetpcap.protocol.tcpip.Http.Request;
 public class HTTPAnalyzer extends JDPacketAnalyzer {
 	private static final String[] valueNames = { "Method", "Header", "Version", "Host", "Request Url" };
 	String method;
-	Vector headers = new Vector();
+	Vector<String> headers = new Vector<String>();
 	Tcp tcppacket = new Tcp();
 	Http httpheader = new Http();
 

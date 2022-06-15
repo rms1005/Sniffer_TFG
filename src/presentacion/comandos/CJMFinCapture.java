@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMFinCapture extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = 4311869154292748670L;
+	
+
 	public CJMFinCapture(Mediador mediador) {
 		super("Finalizar Captura", 70);
 		KeyStroke ctrlF = KeyStroke.getKeyStroke(70, 2);

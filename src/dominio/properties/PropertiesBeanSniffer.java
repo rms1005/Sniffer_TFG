@@ -12,6 +12,9 @@ import java.io.Serializable;
  */
 public class PropertiesBeanSniffer implements Serializable {
 
+	private static final long serialVersionUID = 3632977037861179619L;
+	
+	
 	public PropertiesBeanSniffer() {
 		setDefaultSettings();
 	}

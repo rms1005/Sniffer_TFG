@@ -36,6 +36,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
  * @version 1.2
  */
 public class Fcaptura extends JFrame {
+
+	private static final long serialVersionUID = 3308670449428123741L;
+	
 	private JButton jButton1;
 	private JButton jButton2;
 	private JLabel jLabelpk;

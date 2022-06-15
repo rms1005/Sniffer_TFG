@@ -20,6 +20,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class CBInsert extends JButton implements Comando {
 
+	private static final long serialVersionUID = 525062872987178216L;
+	
+	
 	public CBInsert(Mediador mediador, String titulo) {
 		if (titulo.equals("Insertar Paquetes Capturados")) {
 			setIcon(new ImageIcon(

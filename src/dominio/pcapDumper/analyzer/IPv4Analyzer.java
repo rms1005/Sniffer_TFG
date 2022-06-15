@@ -2,12 +2,10 @@ package dominio.pcapDumper.analyzer;
 
 import java.net.InetAddress;
 import java.net.SocketAddress;
-import java.net.UnknownHostException;
 
 import java.util.Hashtable;
 
 import org.jnetpcap.packet.PcapPacket;
-import org.jnetpcap.protocol.lan.Ethernet;
 import org.jnetpcap.protocol.network.Ip4;
 
 //import jpcap.packet.IPPacket;
@@ -36,7 +34,7 @@ public class IPv4Analyzer extends JDPacketAnalyzer {
 	 * @exception exceptions Ning�n error (Excepci�n) definida
 	 */
 	public IPv4Analyzer() {
-		values = new Hashtable();
+		values = new Hashtable<String, Object>();
 		layer = NETWORK_LAYER;
 	}
 
@@ -62,7 +60,6 @@ public class IPv4Analyzer extends JDPacketAnalyzer {
 	 * @return sin valor de retorno
 	 * @exception exceptions Ning�n error (Excepci�n) definida
 	 */
-	@SuppressWarnings("unchecked")
 	public void analyze(PcapPacket packet) {
 		values.clear();
 		if (!isAnalyzable(packet)) {
@@ -116,6 +113,6 @@ public class IPv4Analyzer extends JDPacketAnalyzer {
 	private static final String valueNames[] = { "Version", "TOS: CodePoint ", "TOS: ECN", "TOS: ECE", "Length",
 			"Identification", "Fragment: Don't Fragment", "Fragment: More Fragment", "Fragment Offset", "Time To Live",
 			"Protocol", "Source IP", "Destination IP" };
-	private Hashtable values;
+	private Hashtable<String, Object> values;
 
 }

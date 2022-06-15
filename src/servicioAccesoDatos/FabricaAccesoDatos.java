@@ -2,7 +2,6 @@
 package servicioAccesoDatos;
 
 import java.io.IOException;
-import java.io.PrintStream;
 
 /**
  * Clase FabricaAccesoDatos.
@@ -15,6 +14,9 @@ import java.io.PrintStream;
 //            FabricaAccesoDatosIF, FachadaFicheroDirectorios, FachadaFicheroExportacion, FachadaFichero
 
 public class FabricaAccesoDatos extends FabricaAccesoDatosIF {
+
+	private static final long serialVersionUID = -6427905538060949160L;
+	
 
 	public FabricaAccesoDatos() {
 	}

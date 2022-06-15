@@ -15,7 +15,7 @@ import java.util.Vector;
 public class Conexion {
 
 	public Conexion(String IpOrigen, String IpDestino, int PuertoOrigen, int PuertoDestino) {
-		VectorPaquetes = new Vector();
+		VectorPaquetes = new Vector<Integer>();
 		IpSrc = IpOrigen;
 		IpDst = IpDestino;
 		PortSrc = PuertoOrigen;
@@ -31,7 +31,7 @@ public class Conexion {
 		return horaActual;
 	}
 
-	public Vector getvector() {
+	public Vector<Integer> getvector() {
 		return VectorPaquetes;
 	}
 
@@ -71,6 +71,6 @@ public class Conexion {
 	private int PortSrc;
 	private int PortDest;
 	private int numeropaquetes;
-	private Vector VectorPaquetes;
+	private Vector<Integer> VectorPaquetes;
 	private Integer posicionpk;
 }

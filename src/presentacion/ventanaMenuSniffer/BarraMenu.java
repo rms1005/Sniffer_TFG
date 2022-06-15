@@ -1,7 +1,6 @@
 
 package presentacion.ventanaMenuSniffer;
 
-import java.io.PrintStream;
 import javax.swing.*;
 
 import presentacion.Mediador;
@@ -16,6 +15,9 @@ import presentacion.comandos.*;
  */
 public class BarraMenu extends JPanel {
 
+	private static final long serialVersionUID = 759130897378373364L;
+	
+	
 	public BarraMenu(Mediador med) {
 		mediador = med;
 		menuBar = new JMenuBar();

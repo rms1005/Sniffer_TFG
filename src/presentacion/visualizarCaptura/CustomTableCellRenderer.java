@@ -23,9 +23,12 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 public class CustomTableCellRenderer extends DefaultTableCellRenderer {
 
+	private static final long serialVersionUID = 5110739106563801345L;
+	
+	
 	public CustomTableCellRenderer(Color color, VisualizarCaptura venpadre, int fila_seleccionada) {
-		VectorConexiones = new Vector();
-		Vectoraux = new Vector();
+		VectorConexiones = new Vector<Conexion>();
+		Vectoraux = new Vector<Integer>();
 		this.venpadre = venpadre;
 		this.color = color;
 		int i = 0;
@@ -62,9 +65,9 @@ public class CustomTableCellRenderer extends DefaultTableCellRenderer {
 	}
 
 	private int conexiontcp;
-	private Vector VectorConexiones;
+	private Vector<Conexion> VectorConexiones;
 	private Conexion objetoConexion;
-	private Vector Vectoraux;
+	private Vector<Integer> Vectoraux;
 	protected Color color;
 	public VisualizarCaptura venpadre;
 }

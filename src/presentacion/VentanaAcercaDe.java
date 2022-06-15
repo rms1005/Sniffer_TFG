@@ -1,7 +1,6 @@
 package presentacion;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,8 +13,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.jdesktop.layout.GroupLayout;
-import org.jdesktop.layout.GroupLayout.ParallelGroup;
-import org.jdesktop.layout.GroupLayout.SequentialGroup;
 import presentacion.propiedadesVentana.CentrarVentana;
 import servicioAccesoDatos.FachadaFicheroDirectorios;
 
@@ -27,6 +24,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
  * @version 1.2
  */
 public class VentanaAcercaDe extends JDialog {
+
+	private static final long serialVersionUID = 7057011466852743407L;
+	
 	private JButton jButton1;
 	private JButton jButton2;
 	private JLabel jLabel1;

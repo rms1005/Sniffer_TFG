@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMFinInsert extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = -8239746133940924825L;
+	
+
 	public CJMFinInsert(Mediador mediador) {
 		super("Finalizar Insercion", 77);
 		KeyStroke ctrlM = KeyStroke.getKeyStroke(77, 2);

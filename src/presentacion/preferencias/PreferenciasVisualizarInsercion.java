@@ -1,22 +1,16 @@
 package presentacion.preferencias;
 
 import dominio.pcap.Insercion;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.PrintStream;
 import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout.ParallelGroup;
-import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import presentacion.Mediador;
 import presentacion.propiedadesVentana.CentrarVentana;
 import servicioAccesoDatos.FachadaFicheroDirectorios;
@@ -29,6 +23,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
  * @version 1.2
  */
 public class PreferenciasVisualizarInsercion extends JDialog {
+
+	private static final long serialVersionUID = -435194823580380946L;
+	
 	private static String title;
 	private int tot;
 	static Mediador mediador;

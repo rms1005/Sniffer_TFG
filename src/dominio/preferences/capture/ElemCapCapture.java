@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemCapCapture extends Element {
 
+	private static final long serialVersionUID = -8775026343471213461L;
+	
+	
 	public ElemCapCapture(preferencesBeanCapture pBCapture) {
 		super("Capture");
 		try {

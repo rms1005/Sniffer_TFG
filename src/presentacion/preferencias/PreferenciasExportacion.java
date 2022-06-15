@@ -2,7 +2,6 @@
 package presentacion.preferencias;
 
 /* Aqui se crea la pantalla de elección de la captura .pcap a export a xml*/
-import java.awt.Container;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,8 +16,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import org.jdesktop.layout.GroupLayout;
-import org.jdesktop.layout.GroupLayout.ParallelGroup;
-import org.jdesktop.layout.GroupLayout.SequentialGroup;
 import presentacion.Mediador;
 import presentacion.comandos.CBAbrirFichero;
 import presentacion.comandos.CBAceptar;
@@ -33,7 +30,10 @@ import presentacion.propiedadesVentana.CentrarVentana;
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
-public class PreferenciasExportacion/* 28: */ extends JDialog {
+public class PreferenciasExportacion extends JDialog {
+
+	private static final long serialVersionUID = -410943735259253089L;
+	
 	Mediador mediador;
 	private boolean tipo;
 	private String title;

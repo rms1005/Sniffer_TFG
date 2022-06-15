@@ -19,6 +19,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class CBAbrirFichero extends JButton implements Comando {
 
+	private static final long serialVersionUID = -2519185333093869864L;
+	
+	
 	public CBAbrirFichero(Mediador mediador, String titulo) {
 		if (titulo.equals("Abrir fichero de Capturas...")) {
 			setIcon(new ImageIcon(

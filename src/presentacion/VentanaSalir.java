@@ -17,6 +17,9 @@ import presentacion.ventanaMenuSniffer.MenuSniffer;
 
 public class VentanaSalir extends JDialog {
 
+	private static final long serialVersionUID = 8605790830306396610L;
+	
+
 	public VentanaSalir(Mediador aux) {
 		super(MenuSniffer.getFrames()[0], "Salir", true);
 		venpadre = aux;

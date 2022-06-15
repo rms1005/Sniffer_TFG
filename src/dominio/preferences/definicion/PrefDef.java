@@ -16,6 +16,9 @@ import org.jdom.Element;
 
 public class PrefDef extends Element {
 
+	private static final long serialVersionUID = -1345544397711431333L;
+	
+
 	public PrefDef(preferencesBeanDefinicion pBDefinicion) {
 		super("DefinicionProtocolo");
 		try {

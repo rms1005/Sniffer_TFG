@@ -1,19 +1,6 @@
 package presentacion.visualizarCaptura;
 
-import dominio.FachadaDominio;
-import dominio.pcap.rules.*;
-import dominio.pcapDumper.Captura;
-import java.awt.*;
-import java.io.File;
-import java.io.PrintStream;
-import java.util.Collection;
-import java.util.Vector;
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-//import jpcap.packet.Packet;
-import presentacion.Mediador;
-import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class PaqueteDetalle extends JPanel {
 
@@ -25,6 +12,9 @@ public class PaqueteDetalle extends JPanel {
 	 * Vector(); history = new Vector(); VentanaDetalle(); }
 	 */
 
+	private static final long serialVersionUID = -6187152831254413562L;
+
+	
 	public void VentanaDetalle() {
 
 	}

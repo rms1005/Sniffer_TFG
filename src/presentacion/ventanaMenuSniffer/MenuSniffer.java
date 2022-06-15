@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.PrintStream;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,6 +23,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
  * @version 1.2
  */
 public class MenuSniffer extends JFrame {
+
+	private static final long serialVersionUID = 2213566305123971196L;
+	
 	JPanel statusPanel;
 	static JLabel statusMsg1;
 	static JLabel statusMsg2;

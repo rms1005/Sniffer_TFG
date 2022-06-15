@@ -1,7 +1,6 @@
 
 package presentacion.comandos;
 
-import java.io.PrintStream;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import presentacion.Mediador;
@@ -18,6 +17,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 //            Comando
 
 public class CBFinInsert extends JButton implements Comando {
+
+	private static final long serialVersionUID = -5860573982867212559L;
+	
 
 	public CBFinInsert(Mediador mediador) {
 		super(new ImageIcon(

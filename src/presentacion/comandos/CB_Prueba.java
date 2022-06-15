@@ -18,6 +18,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class CB_Prueba extends JButton implements Comando {
 
+	private static final long serialVersionUID = 6393189252096105727L;
+	
+
 	public CB_Prueba(Mediador mediador) {
 		super(new ImageIcon(
 				(new StringBuilder(String.valueOf(FachadaFicheroDirectorios.getdirectorioData("DIR_IMAGES"))))

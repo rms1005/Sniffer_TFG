@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMInicioDefinicion extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = -2321088521074949017L;
+	
+
 	public CJMInicioDefinicion(Mediador mediador) {
 		super("Definición de Paquetes", 76);
 		KeyStroke ctrlN = KeyStroke.getKeyStroke(76, 2);

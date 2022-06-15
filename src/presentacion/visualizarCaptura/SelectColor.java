@@ -1,7 +1,6 @@
 package presentacion.visualizarCaptura;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -9,7 +8,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
-import javax.swing.colorchooser.ColorSelectionModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -23,6 +21,9 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
  * @version 1.2
  */
 public class SelectColor extends JFrame {
+	
+	private static final long serialVersionUID = -5824050604308083125L;
+	
 	protected Color newColor;
 	private TablePane RTablePane;
 	private JButton jButton1;

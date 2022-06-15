@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMPreferenciasFromFile extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = -721589612875992090L;
+	
+
 	public CJMPreferenciasFromFile(Mediador mediador) {
 		super("Captura desde fichero", 68);
 		KeyStroke ctrlD = KeyStroke.getKeyStroke(68, 2);

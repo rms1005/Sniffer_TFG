@@ -1,6 +1,5 @@
 package presentacion.preferencias;
 
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -17,8 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import org.jdesktop.layout.GroupLayout;
-import org.jdesktop.layout.GroupLayout.ParallelGroup;
-import org.jdesktop.layout.GroupLayout.SequentialGroup;
 import presentacion.Mediador;
 import presentacion.comandos.CBAbrirFichero;
 import presentacion.comandos.CBAceptar;
@@ -35,6 +32,9 @@ import presentacion.propiedadesVentana.CentrarVentana;
  * @version 1.2
  */
 public class PreferenciasFromFile extends JDialog {
+	
+	private static final long serialVersionUID = -2770284792475430050L;
+	
 	private String title;
 	private String[] Protocolos = { "", "TCP", "UDP", "ICMP" };
 	private String[] Puertos = { "", "80", "20", "21", "23", "22", "25", "110" };

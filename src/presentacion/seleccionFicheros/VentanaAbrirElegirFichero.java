@@ -22,6 +22,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class VentanaAbrirElegirFichero extends JDialog {
 
+	private static final long serialVersionUID = 6648621609901022707L;
+	
+	
 	public VentanaAbrirElegirFichero(String tipo, Mediador med) {
 		tip = tipo;
 		mediador = med;

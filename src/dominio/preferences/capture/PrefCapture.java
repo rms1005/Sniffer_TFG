@@ -16,6 +16,9 @@ import org.jdom.Element;
 
 public class PrefCapture extends Element {
 
+	private static final long serialVersionUID = 4749645782622756551L;
+	
+
 	public PrefCapture(preferencesBeanCapture pBCapture) {
 		super("CapturePreferences");
 		try {

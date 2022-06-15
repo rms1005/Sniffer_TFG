@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMGuardarFichero extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = 8530124850097808981L;
+	
+	
 	public CJMGuardarFichero(Mediador mediador, String titulo) {
 		super(titulo);
 		if (titulo.equals("Guardar fichero capturado...")) {

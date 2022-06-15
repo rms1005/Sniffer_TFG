@@ -2,7 +2,6 @@
 package presentacion.visualizarCaptura;
 
 import dominio.FachadaDominio;
-import dominio.pcap.Captura;
 import dominio.pcap.rules.Rules;
 import java.text.SimpleDateFormat;
 import java.util.Date;

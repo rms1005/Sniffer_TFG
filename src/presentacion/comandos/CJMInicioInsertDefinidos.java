@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMInicioInsertDefinidos extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = -4556970542360725529L;
+	
+
 	public CJMInicioInsertDefinidos(Mediador mediador) {
 		super("Inserci\363n Paquetes Definidos", 74);
 		KeyStroke ctrlN = KeyStroke.getKeyStroke(74, 2);

@@ -1,14 +1,7 @@
 package dominio.pcapDumper.analyzer;
 
-import javax.xml.transform.Source;
-
 import org.jnetpcap.packet.PcapPacket;
-//import jpcap.packet.EthernetPacket;
-//import jpcap.packet.Packet;
-import org.jnetpcap.packet.JHeader;
-import org.jnetpcap.packet.annotate.Protocol;
 import org.jnetpcap.protocol.lan.Ethernet;
-import org.jnetpcap.protocol.lan.Ethernet.EthernetType;
 
 /**
  * Clase EthernetAnalyzer.

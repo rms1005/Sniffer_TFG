@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMPreferenciasCaptura extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = -935867867705266339L;
+	
+
 	public CJMPreferenciasCaptura(Mediador mediador) {
 		super("Captura", 71);
 		KeyStroke ctrlC = KeyStroke.getKeyStroke(71, 2);

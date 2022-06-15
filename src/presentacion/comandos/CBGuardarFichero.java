@@ -19,6 +19,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 public class CBGuardarFichero extends JButton implements Comando {
 
+	private static final long serialVersionUID = 5659047102637646862L;
+	
+	
 	public CBGuardarFichero(Mediador mediador, String titulo) {
 		if (titulo.equals("Guardar fichero capturado...")) {
 			setIcon(new ImageIcon(

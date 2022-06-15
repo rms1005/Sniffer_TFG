@@ -1,13 +1,11 @@
 package presentacion.preferencias;
 
-import java.awt.Container;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Enumeration;
-import javax.accessibility.AccessibleContext;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -19,8 +17,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import org.jdesktop.layout.GroupLayout;
-import org.jdesktop.layout.GroupLayout.ParallelGroup;
-import org.jdesktop.layout.GroupLayout.SequentialGroup;
 import presentacion.Mediador;
 import presentacion.comandos.CBAbrirFichero;
 import presentacion.comandos.CBAceptar;
@@ -36,6 +32,9 @@ import presentacion.propiedadesVentana.CentrarVentana;
  * @version 1.2
  */
 public class PreferenciasGenerarBat extends JDialog {
+
+	private static final long serialVersionUID = 1236280515998456448L;
+	
 	Mediador mediador;
 	private Comando jButton1;
 	private Comando jButton2;

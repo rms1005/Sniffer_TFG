@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMAbrirFichero extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = 3089201101715379564L;
+	
+	
 	public CJMAbrirFichero(Mediador mediador, String titulo) {
 		super(titulo);
 		if (titulo.equals("Abrir fichero de Capturas...")) {

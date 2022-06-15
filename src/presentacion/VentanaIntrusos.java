@@ -27,6 +27,8 @@ import presentacion.propiedadesVentana.CentrarVentana;
  */
 public class VentanaIntrusos extends JDialog {
 
+	private static final long serialVersionUID = 9084051146487893526L;
+	
 	private JButton jButtonCancelar;
 	private JScrollPane jScrollPane1;
 	private JTable Tabla;

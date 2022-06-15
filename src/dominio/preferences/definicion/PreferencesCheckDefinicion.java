@@ -34,7 +34,7 @@ public class PreferencesCheckDefinicion {
 	}
 
 	private boolean checkCamposDefinicion() {
-		String mensaje = "Faltan campos por rellenar";
+		// String mensaje = "Faltan campos por rellenar";
 		if (PreferenciasDefinicion.getNombreProtocolo().equals("")) {
 			med.lanzaraviso("Falta el nombre del protocolo", "Error");
 			return false;
@@ -81,7 +81,6 @@ public class PreferencesCheckDefinicion {
 	private boolean checkValoresBoolean() {
 		boolean ok = true;
 		String mensaje = "Valores validos: TRUE, VERDADERO,FALSE O FALSO";
-		String booleano;
 		for (int i = 0; i < valores.length && ok; i++)
 			if (valores[i][3] == null || String.valueOf(valores[i][3]).equals(""))
 				ok = true;

@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMSalir extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = 822106026328889715L;
+	
+
 	public CJMSalir(Mediador mediador) {
 		super("Salir", 83);
 		KeyStroke ctrlS = KeyStroke.getKeyStroke(83, 2);

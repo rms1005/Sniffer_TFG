@@ -1,9 +1,6 @@
 
 package presentacion.comandos;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import presentacion.Mediador;
@@ -19,6 +16,9 @@ import presentacion.Mediador;
 //            Comando
 
 public class CJMPreferenciasGenerar extends JMenuItem implements Comando {
+
+	private static final long serialVersionUID = 2528620663836361798L;
+	
 
 	public CJMPreferenciasGenerar(Mediador mediador) {
 		super("Generar Script...", 83);

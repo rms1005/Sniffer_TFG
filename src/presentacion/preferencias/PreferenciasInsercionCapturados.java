@@ -1,7 +1,6 @@
 package presentacion.preferencias;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -9,9 +8,6 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout.ParallelGroup;
-import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -19,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 import presentacion.Mediador;
 import presentacion.comandos.CBAbrirFichero;
@@ -35,6 +30,9 @@ import presentacion.propiedadesVentana.CentrarVentana;
  * @version 1.2
  */
 public class PreferenciasInsercionCapturados extends JDialog {
+
+	private static final long serialVersionUID = -3499859303255002175L;
+	
 	private static String title;
 	private static String[] Dispositivos = { "Seleccione un dispositivo" };
 	private static String[] Dispo;

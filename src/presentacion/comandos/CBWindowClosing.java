@@ -16,6 +16,9 @@ import presentacion.Mediador;
 
 public class CBWindowClosing extends JDialog implements Comando {
 
+	private static final long serialVersionUID = 1585213400680187696L;
+	
+
 	public CBWindowClosing(Mediador mediador, JDialog ventana) {
 		this.mediador = mediador;
 		addWindowListener(mediador);

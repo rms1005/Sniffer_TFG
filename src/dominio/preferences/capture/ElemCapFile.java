@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemCapFile extends Element {
 
+	private static final long serialVersionUID = -1459568414827416047L;
+	
+	
 	public ElemCapFile(preferencesBeanCapture pBCapture) {
 		super("File");
 		try {

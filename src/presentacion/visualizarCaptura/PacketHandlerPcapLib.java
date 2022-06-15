@@ -6,7 +6,6 @@ import java.util.Date;
 
 import org.jnetpcap.packet.PcapPacket;
 
-import dominio.pcapDumper.Captura;
 import dominio.pcapDumper.analyzer.EthernetAnalyzer;
 import dominio.pcapDumper.analyzer.IPv4Analyzer;
 import dominio.pcapDumper.analyzer.IPv6Analyzer;
@@ -22,9 +21,7 @@ import dominio.pcapDumper.analyzer.UDPAnalyzer;
  * @version 1.3
  */
 
-public class PacketHandlerPcapLib
-
-{
+public class PacketHandlerPcapLib {
 
 	static String macsource = "----";
 	static String macdest = "----";

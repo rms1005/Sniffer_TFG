@@ -1,5 +1,5 @@
 
-package dominio.preferences.capture;
+package dominio.preferences.export;
 
 import dominio.preferences.preferencesBeanExport;
 import dominio.preferences.preferencesOperation;

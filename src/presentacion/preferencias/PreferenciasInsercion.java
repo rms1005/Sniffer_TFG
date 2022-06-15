@@ -1,25 +1,16 @@
 package presentacion.preferencias;
 
-import java.awt.Component;
 import java.awt.event.*;
 import java.io.IOException;
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.swing.JTable;
 
-//import jpcap.JpcapCaptor;
-//import jpcap.JpcapSender;
-import org.jnetpcap.JBufferHandler;
 import org.jnetpcap.PcapHeader;
-import org.jnetpcap.PcapIf;
-import org.jnetpcap.PcapAddr;
 import org.jnetpcap.nio.JBuffer;
-import org.jnetpcap.nio.JMemory;
 import org.jnetpcap.packet.JMemoryPacket;
 import org.jnetpcap.packet.JPacket;
 import org.jnetpcap.packet.PcapPacket;
@@ -28,12 +19,10 @@ import org.jnetpcap.protocol.network.Arp;
 import org.jnetpcap.protocol.network.Icmp;
 import org.jnetpcap.protocol.network.Ip4;
 import org.jnetpcap.protocol.network.Ip6;
-import org.jnetpcap.protocol.network.Icmp.Echo;
 import org.jnetpcap.protocol.network.Ip4.Ip4Type;
 import org.jnetpcap.protocol.tcpip.Udp;
 import org.jnetpcap.protocol.tcpip.Tcp;
 import org.jnetpcap.protocol.lan.Ethernet;
-import org.jnetpcap.protocol.lan.Ethernet.EthernetType;
 
 //import jpcap.NetworkInterface;
 //import jpcap.NetworkInterfaceAddress;
@@ -66,6 +55,8 @@ import presentacion.ventanaMenuSniffer.MenuSniffer;
  */
 public class PreferenciasInsercion extends javax.swing.JDialog {
 
+	private static final long serialVersionUID = -1565748505352157216L;
+	
 	/** * Titulo de la ventana. */
 	private static String title;
 	/** * Si es captura o veer las preferencias. */

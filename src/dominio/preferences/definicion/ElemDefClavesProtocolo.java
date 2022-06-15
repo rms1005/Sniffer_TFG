@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemDefClavesProtocolo extends Element {
 
+	private static final long serialVersionUID = -4152630879770679297L;
+	
+	
 	public ElemDefClavesProtocolo(preferencesBeanDefinicion pBDefinicion, int clave, int id) {
 		super((new StringBuilder("Clave")).append(String.valueOf(id)).toString());
 		try {

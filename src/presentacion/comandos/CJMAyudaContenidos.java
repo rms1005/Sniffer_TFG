@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMAyudaContenidos extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = 5640437888703811171L;
+	
+
 	public CJMAyudaContenidos(Mediador mediador) {
 		super("Contenidos");
 		KeyStroke ctrlF1 = KeyStroke.getKeyStroke("F1");

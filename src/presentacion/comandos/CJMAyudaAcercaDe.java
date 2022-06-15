@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMAyudaAcercaDe extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = 7251147349756594476L;
+	
+
 	public CJMAyudaAcercaDe(Mediador mediador) {
 		super("Acerca de Sniffer III", 65);
 		KeyStroke ctrlA = KeyStroke.getKeyStroke("F2");

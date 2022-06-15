@@ -6,9 +6,6 @@ import java.util.Hashtable;
 import org.jnetpcap.packet.PcapPacket;
 
 import org.jnetpcap.protocol.network.Ip6;
-
-//import jpcap.packet.IPPacket;
-//import jpcap.packet.Packet;
 /**
  * Clase IPv6Analyzer.
  * 
@@ -23,7 +20,7 @@ public class IPv6Analyzer extends JDPacketAnalyzer {
 	Ip6 ipPacket = new Ip6();
 
 	public IPv6Analyzer() {
-		values = new Hashtable();
+		values = new Hashtable<String, Object>();
 		layer = NETWORK_LAYER;
 	}
 
@@ -106,6 +103,6 @@ public class IPv6Analyzer extends JDPacketAnalyzer {
 
 	private static final String valueNames[] = { "Version", "Traffic Class", "Flow Label", "Length", "Protocol",
 			"Hop Limit", "Source IP", "Destination IP" };
-	Hashtable values;
+	Hashtable<String, Object> values;
 
 }

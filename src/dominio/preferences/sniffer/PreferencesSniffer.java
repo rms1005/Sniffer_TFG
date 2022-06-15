@@ -1,7 +1,13 @@
 
-package dominio.preferences.capture;
+package dominio.preferences.sniffer;
 
 import dominio.preferences.*;
+import dominio.preferences.capture.PrefCapture;
+import dominio.preferences.detalle.PrefDetallePaquete;
+import dominio.preferences.export.PrefExport;
+import dominio.preferences.fromfile.PrefFromFile;
+import dominio.preferences.meta.PrefMeta;
+
 import java.io.FileOutputStream;
 import org.jdom.Document;
 import org.jdom.Element;
@@ -109,9 +115,4 @@ public class PreferencesSniffer {
 	protected static Element root;
 	protected static Element elem;
 	private String fichero;
-	private preferencesBeanCapture pBCapture;
-	private preferencesBeanExport pBExport;
-	private preferencesBeanFromFile pBFromFile;
-	private preferencesBeanFromFile pBMeta;
-	private preferencesBeanDetallePaquete pBDetallePaquete;
 }

@@ -4,7 +4,6 @@ package presentacion.visualizarCaptura;
 import java.util.Vector;
 import net.sourceforge.jpcap.capture.RawPacketListener;
 import net.sourceforge.jpcap.net.RawPacket;
-import net.sourceforge.jpcap.util.Timeval;
 
 /**
  * Clase RawPacketHandler.
@@ -21,7 +20,7 @@ public class RawPacketHandler implements RawPacketListener {
 	public RawPacketHandler(TablePane RTablePane) {
 		this.RTablePane = RTablePane;
 		i = 0;
-		VRawPackets = new Vector();
+		VRawPackets = new Vector<RawPacket>();
 	}
 
 	public void rawPacketArrived(RawPacket rawPacket) {
@@ -37,6 +36,6 @@ public class RawPacketHandler implements RawPacketListener {
 	}
 
 	public int i;
-	private static Vector VRawPackets;
+	private static Vector<RawPacket> VRawPackets;
 	private TablePane RTablePane;
 }

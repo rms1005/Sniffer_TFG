@@ -1,5 +1,5 @@
 
-package dominio.preferences.capture;
+package dominio.preferences.meta;
 
 import dominio.preferences.preferencesBeanMeta;
 import org.jdom.Element;
@@ -15,6 +15,9 @@ import org.jdom.Element;
 //            ElemMetaLocate, ElemMetaMultipleFile
 
 public class PrefMeta extends Element {
+
+	private static final long serialVersionUID = -8608137728419812443L;
+	
 
 	public PrefMeta(preferencesBeanMeta pBMeta) {
 		super("MetaCapture");

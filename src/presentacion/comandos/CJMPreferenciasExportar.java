@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMPreferenciasExportar extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = 1999287927600664892L;
+	
+
 	public CJMPreferenciasExportar(Mediador mediador) {
 		super("Exportación", 79);
 		KeyStroke ctrlO = KeyStroke.getKeyStroke(79, 2);

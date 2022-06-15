@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMInicioCaptureFromFile extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = -2721289003030071989L;
+	
+
 	public CJMInicioCaptureFromFile(Mediador mediador) {
 		super("Captura desde fichero", 69);
 		KeyStroke ctrlE = KeyStroke.getKeyStroke(69, 2);

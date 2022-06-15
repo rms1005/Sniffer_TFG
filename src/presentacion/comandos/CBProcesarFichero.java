@@ -15,6 +15,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
  * @version 1.2
  */
 public class CBProcesarFichero extends JButton implements Comando {
+
+	private static final long serialVersionUID = 3605236188109218865L;
+	
 	private String Origen;
 	private String Origen2;
 	private String Destino;

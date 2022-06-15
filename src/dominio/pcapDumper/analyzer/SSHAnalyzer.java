@@ -5,7 +5,6 @@ package dominio.pcapDumper.analyzer;
 //import jpcap.packet.TCPPacket;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.protocol.tcpip.Tcp;
-import org.jnetpcap.protocol.tcpip.Http.Request;
 
 /**
  * Clase SSHAnalyzer.

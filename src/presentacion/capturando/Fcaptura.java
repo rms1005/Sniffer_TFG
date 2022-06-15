@@ -1,10 +1,8 @@
 package presentacion.capturando;
 
 import dominio.FachadaDominio;
-import dominio.pcap.Captura;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,6 +33,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
  * @version 1.2
  */
 public class Fcaptura extends JFrame {
+	
+	private static final long serialVersionUID = -106265018245245584L;
+	
 	private JButton jButton1;
 	private JButton jButton2;
 	private JLabel jLabelpk;

@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CJMInicioInsertCapturados extends JMenuItem implements Comando {
 
+	private static final long serialVersionUID = 9042609528207229287L;
+	
+
 	public CJMInicioInsertCapturados(Mediador mediador) {
 		super("Inserci\363n Paquetes Capturados", 75);
 		KeyStroke ctrlN = KeyStroke.getKeyStroke(75, 2);

@@ -13,6 +13,9 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
  */
 public class Aviso extends JDialog {
 
+	private static final long serialVersionUID = 691043566846297757L;
+	
+	
 	public Aviso(String mensaje, String tipo) {
 		this.mensaje = mensaje;
 		this.tipo = tipo;

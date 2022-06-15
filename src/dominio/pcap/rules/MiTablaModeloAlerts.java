@@ -17,9 +17,12 @@ import net.sourceforge.jpcap.net.Packet;
 
 class MiTablaModeloAlerts extends AbstractTableModel {
 
+	private static final long serialVersionUID = 8145500464308377172L;
+	
+	
 	public MiTablaModeloAlerts() {
-		tableColumns = new Vector();
-		tableData = new Vector();
+		tableColumns = new Vector<String>();
+		tableData = new Vector<Vector<Object>>();
 		tableColumns.addElement(new String("Paquete"));
 		tableColumns.addElement(new String("Timeval"));
 		tableColumns.addElement(new String("Msg"));
@@ -44,17 +47,17 @@ class MiTablaModeloAlerts extends AbstractTableModel {
 	}
 
 	public Object getValueAt(int row, int col) {
-		Vector rowVector = (Vector) tableData.elementAt(row);
+		Vector<Object> rowVector = (Vector<Object>) tableData.elementAt(row);
 		return rowVector.elementAt(col);
 	}
 
-	public Class getColumnClass(int c) {
+	public Class<?> getColumnClass(int c) {
 		return getValueAt(0, c).getClass();
 	}
 
 	public void addRow(Rule objetoRule, Packet paquete, int numeropaquete, String IpOrigen, String IpDestino,
 			String portsrc, String portdest) {
-		Vector newRow = new Vector();
+		Vector<Object> newRow = new Vector<Object>();
 		newRow.addElement(String.valueOf(numeropaquete));
 		newRow.addElement(String.valueOf(paquete.getTimeval()));
 		newRow.addElement(objetoRule.getMsg());
@@ -67,6 +70,6 @@ class MiTablaModeloAlerts extends AbstractTableModel {
 		tableData.addElement(newRow);
 	}
 
-	Vector tableColumns;
-	Vector tableData;
+	Vector<String> tableColumns;
+	Vector<Vector<Object>> tableData;
 }

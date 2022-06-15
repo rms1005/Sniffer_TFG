@@ -17,6 +17,9 @@ import presentacion.Mediador;
 
 public class CBChequear extends JButton implements Comando {
 
+	private static final long serialVersionUID = -5115052832865119125L;
+	
+	
 	public CBChequear(Mediador mediador, String ventana) {
 		setText("   Chequear  ");
 		setMnemonic('S');

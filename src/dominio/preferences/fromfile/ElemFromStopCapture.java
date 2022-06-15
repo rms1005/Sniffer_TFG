@@ -1,5 +1,5 @@
 
-package dominio.preferences.capture;
+package dominio.preferences.fromfile;
 
 import dominio.preferences.preferencesBeanFromFile;
 import dominio.preferences.preferencesOperation;
@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemFromStopCapture extends Element {
 
+	private static final long serialVersionUID = 4409355228762577388L;
+	
+	
 	public ElemFromStopCapture(preferencesBeanFromFile pBFromFile) {
 		super("Stop_Capture");
 		try {

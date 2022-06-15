@@ -1,5 +1,5 @@
 
-package dominio.preferences.capture;
+package dominio.preferences.fromfile;
 
 import dominio.preferences.preferencesBeanFromFile;
 import dominio.preferences.preferencesOperation;
@@ -14,6 +14,9 @@ import org.jdom.Element;
  */
 public class ElemFromFile extends Element {
 
+	private static final long serialVersionUID = 7951958021466264609L;
+	
+	
 	public ElemFromFile(preferencesBeanFromFile pBFromFile) {
 		super("File");
 		try {

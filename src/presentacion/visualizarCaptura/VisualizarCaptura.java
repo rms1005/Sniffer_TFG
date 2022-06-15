@@ -5,7 +5,6 @@ import dominio.pcapDumper.Captura;
 import dominio.preferences.preferencesBeanDetallePaquete;
 
 import java.awt.*;
-import java.awt.event.InputEvent;
 import java.io.File;
 import java.util.ArrayList;
 // import java.util.Collection;

@@ -13,6 +13,9 @@ import javax.swing.*;
  */
 public class AvisoFicheroExiste extends JDialog {
 
+	private static final long serialVersionUID = 1435577152266283178L;
+	
+	
 	public AvisoFicheroExiste(File fichero) {
 		respuesta = null;
 		this.fichero = fichero;

@@ -1,13 +1,7 @@
 
 package dominio.pcapDumper.analyzer;
 
-//import jpcap.packet.Packet;
-
-import java.net.UnknownHostException;
-
 import org.jnetpcap.packet.PcapPacket;
-
-//import jpcap.packet.Packet;
 /**
  * Clase JDPacketAnalyzer.
  * 

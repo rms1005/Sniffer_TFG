@@ -2,7 +2,6 @@
 package presentacion.capturando;
 
 import presentacion.Mediador;
-import presentacion.capturandoDumper.Fcaptura;
 
 /**
  * Clase ControlHilos.
