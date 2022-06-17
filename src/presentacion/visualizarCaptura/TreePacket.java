@@ -51,7 +51,7 @@ public class TreePacket {
 	private static byte[] auxConver;
 	private static int size;
 	private static int numBytesIniciales;
-	private static int bytesPorFila;
+	private static int charsPerRow;
 	private preferencesBeanDetallePaquete pBDP;
 	private static boolean completo;
 	private static boolean hex;
@@ -69,7 +69,7 @@ public class TreePacket {
 		this.completo = pBDP.isTotalBytes();
 		this.hex = pBDP.isBytesHex();
 		numBytesIniciales = Integer.valueOf(this.pBDP.getBytes());
-		bytesPorFila = 10;
+		charsPerRow = 29;
 
 	}
 
@@ -541,34 +541,25 @@ public class TreePacket {
 		DefaultMutableTreeNode LayerP = new DefaultMutableTreeNode("Bytes iniciales: " + bytes.length);
 		Paquete.add(LayerP);
 
-		String bytesString = "";
+		String bytesRow = "";
 		String byteX = "";
 		int index = 0;
-
+		
 		while (bytes.length - index != 0) {
-			bytesString = "";
-
-			if (bytes.length - index < bytesPorFila) {
-				for (int i = index; i < bytes.length; i++) {
-					byteX = hex ? String.format("%02X", bytes[i]) : "" + bytes[i];
-					if (i == index)
-						bytesString += byteX;
-					else
-						bytesString += " " + byteX;
-				}
-				index = bytes.length;
-			} else {
-				for (int i = index; i < index + bytesPorFila; i++) {
-					byteX = hex ? String.format("%02X", bytes[i]) : "" + bytes[i];
-					if (i == index)
-						bytesString += byteX;
-					else
-						bytesString += " " + byteX;
-				}
-				index += bytesPorFila;
+			byteX = hex ? String.format("%02X", bytes[index]) : "" + bytes[index];
+			
+			if (bytesRow.length() + byteX.length() + 1 <= charsPerRow)
+				if (bytesRow.length() == 0)
+					bytesRow += byteX;
+				else
+					bytesRow += " " + byteX;
+			else {
+				DefaultMutableTreeNode childP = new DefaultMutableTreeNode(bytesRow);
+				LayerP.add(childP);
+				bytesRow = "";
 			}
-			DefaultMutableTreeNode childP = new DefaultMutableTreeNode(bytesString);
-			LayerP.add(childP);
+			
+			index++;
 		}
 	}
 
