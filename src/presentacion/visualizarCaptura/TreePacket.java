@@ -51,25 +51,25 @@ public class TreePacket {
 	private static byte[] auxConver;
 	private static int size;
 	private static int numBytesIniciales;
-	private static int charsPerRow;
 	private preferencesBeanDetallePaquete pBDP;
 	private static boolean completo;
 	private static boolean hex;
+	private static int bytesLength;
 
-	public TreePacket(int numero, PcapPacket paquete, preferencesBeanDetallePaquete pBDC) {
+	public TreePacket(int numero, PcapPacket paquete, preferencesBeanDetallePaquete pBDP) {
 		Paquete = new DefaultMutableTreeNode("Packet");
 		DefaultMutableTreeNode child = new DefaultMutableTreeNode("Num :" + numero);
 		Paquete.add(child);
 		new TreeHandler(paquete);
-		this.pBDP = pBDC;
+		this.pBDP = pBDP;
 		DefaultTreeModel modeloArbol = new DefaultTreeModel(Paquete);
 		this.tree = new JTree(modeloArbol);
 		this.tree.setCellRenderer(new MiRendererDeArbol());
 
 		this.completo = pBDP.isTotalBytes();
 		this.hex = pBDP.isBytesHex();
+		this.bytesLength = Integer.valueOf(pBDP.getBytesLength());
 		numBytesIniciales = Integer.valueOf(this.pBDP.getBytes());
-		charsPerRow = 29;
 
 	}
 
@@ -548,7 +548,7 @@ public class TreePacket {
 		while (bytes.length - index != 0) {
 			byteX = hex ? String.format("%02X", bytes[index]) : "" + bytes[index];
 			
-			if (bytesRow.length() + byteX.length() + 1 <= charsPerRow)
+			if (bytesRow.length() + byteX.length() + 1 <= bytesLength)
 				if (bytesRow.length() == 0)
 					bytesRow += byteX;
 				else

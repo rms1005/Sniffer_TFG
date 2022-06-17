@@ -51,6 +51,10 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 	private static JRadioButton jRadioButtonBytesType1;
 	private static JRadioButton jRadioButtonBytesType2;
 
+	private JPanel jPanelBytesLength;
+	private JLabel jLabelBytesLength;
+	private static JTextField jTextFieldBytesLength;
+
 	private Comando jButtonAceptar;
 	private JButton jButtonSalir;
 
@@ -90,6 +94,10 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 		this.buttonGroupBytesType = new ButtonGroup();
 		jRadioButtonBytesType1 = new JRadioButton();
 		jRadioButtonBytesType2 = new JRadioButton();
+
+		this.jPanelBytesLength = new JPanel();
+		this.jLabelBytesLength = new JLabel();
+		jTextFieldBytesLength = new JTextField();
 
 		this.jButtonAceptar = new CBGuardarFichero(this.mediador, "DetallePaquetes");
 		this.jButtonSalir = new JButton();
@@ -175,6 +183,21 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(jPanelLayout3.createSequentialGroup().addContainerGap().add(jRadioButtonBytesType1)
 						.addPreferredGap(0).add(jRadioButtonBytesType2).addContainerGap(-1, 32767)));
 
+		this.jPanelBytesLength.setBorder(BorderFactory.createTitledBorder("Longitud cadena"));
+
+		this.jLabelBytesLength.setText("Caracteres:");
+
+		GroupLayout jPanelLayout4 = new GroupLayout(this.jPanelBytesLength);
+		jPanelLayout4.setAutocreateGaps(true);
+		jPanelLayout4.setAutocreateContainerGaps(true);
+		this.jPanelBytesLength.setLayout(jPanelLayout4);
+
+		jPanelLayout4.setHorizontalGroup(
+				jPanelLayout4.createSequentialGroup().add(this.jLabelBytesLength).add(jTextFieldBytesLength));
+
+		jPanelLayout4.setVerticalGroup(
+				jPanelLayout4.createParallelGroup(1).add(this.jLabelBytesLength).add(jTextFieldBytesLength));
+
 		this.jButtonSalir.setText("Salir");
 		this.jButtonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -188,11 +211,12 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 		getContentPane().setLayout(layout);
 
 		layout.setHorizontalGroup(layout.createSequentialGroup().add(layout.createParallelGroup(1).add(this.jPanelNVent)
-				.add(this.jPanelNBytes).add(this.jPanelBytesType)
+				.add(this.jPanelNBytes)
+				.add(layout.createSequentialGroup().add(this.jPanelBytesType).add(this.jPanelBytesLength))
 				.add(layout.createSequentialGroup().add((CBGuardarFichero) jButtonAceptar).add(this.jButtonSalir))));
 
 		layout.setVerticalGroup(layout.createSequentialGroup().add(this.jPanelNVent).add(this.jPanelNBytes)
-				.add(this.jPanelBytesType)
+				.add(layout.createParallelGroup(1).add(this.jPanelBytesType).add(this.jPanelBytesLength))
 				.add(layout.createParallelGroup(1).add((CBGuardarFichero) this.jButtonAceptar).add(this.jButtonSalir)));
 
 		pack();
@@ -238,5 +262,13 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 	public static void setBytesHex(boolean flag) {
 		jRadioButtonBytesType1.setSelected(flag);
 		jRadioButtonBytesType2.setSelected(!flag);
+	}
+
+	public static String getBytesLength() {
+		return jTextFieldBytesLength.getText();
+	}
+
+	public static void setBytesLength(String bytesLength) {
+		jTextFieldBytesLength.setText(bytesLength);
 	}
 }

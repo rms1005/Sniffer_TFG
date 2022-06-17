@@ -15,6 +15,7 @@ public class PrefDetallePaquete extends Element {
 			setElemNWindows();
 			setElemNBytes();
 			setElemBytesRepresentation();
+			setElemBytesLength();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -30,6 +31,10 @@ public class PrefDetallePaquete extends Element {
 
 	private void setElemBytesRepresentation() {
 		addContent(new ElemPacketDetBytesRepr(getPBDetallePaquete()));
+	}
+	
+	private void setElemBytesLength() {
+		addContent(new ElemPacketDetBytesLength(getPBDetallePaquete()));
 	}
 
 	private preferencesBeanDetallePaquete getPBDetallePaquete() {

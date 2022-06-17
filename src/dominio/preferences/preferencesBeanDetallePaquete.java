@@ -16,7 +16,7 @@ public class preferencesBeanDetallePaquete implements Serializable {
 		this.totalBytes = false;
 		this.bytes = 200;
 		this.bytesHex = true;
-		;
+		this.bytesLength = 29;
 	}
 
 	public String getRows() {
@@ -58,11 +58,20 @@ public class preferencesBeanDetallePaquete implements Serializable {
 	public void setBytesHex(boolean bytesHex) {
 		this.bytesHex = bytesHex;
 	}
+	
+	public String getBytesLength() {
+		return "" + bytesLength;
+	}
+	
+	public void setBytesLength(String bytesLength) {
+		this.bytesLength = Integer.valueOf(bytesLength);
+	}
 
 	private int rows;
 	private int columns;
 	private boolean totalBytes;
 	private int bytes;
 	private boolean bytesHex;
+	private int bytesLength;
 
 }

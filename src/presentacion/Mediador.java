@@ -1122,6 +1122,7 @@ public class Mediador
 			PreferenciasPaqueteDetalle.setPacketTotalBytes(pBDP.isTotalBytes());
 			PreferenciasPaqueteDetalle.setPacketBytes(pBDP.getBytes());
 			PreferenciasPaqueteDetalle.setBytesHex(pBDP.isBytesHex());
+			PreferenciasPaqueteDetalle.setBytesLength(pBDP.getBytesLength());
 
 		} catch (NullPointerException e) {
 			System.out.println("Error lectura preferencias de detalle de paquetes. Null Pointer Exception");
@@ -1143,6 +1144,7 @@ public class Mediador
 		pBDP.setTotalBytes(PreferenciasPaqueteDetalle.getPacketTotalBytes());
 		pBDP.setBytes(PreferenciasPaqueteDetalle.getPacketBytes());
 		pBDP.setBytesHex(PreferenciasPaqueteDetalle.getBytesHex());
+		pBDP.setBytesLength(PreferenciasPaqueteDetalle.getBytesLength());
 	}
 
 	public preferencesBeanDetallePaquete getPrefPacketDet() {

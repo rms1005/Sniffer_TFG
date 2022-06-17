@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CaptureSniffer>
+  <DetallePaquetePreferences>
+    <NWindows>
+      <Rows>1</Rows>
+      <Columns>3</Columns>
+    </NWindows>
+    <NBytes>
+      <Complete>No</Complete>
+      <FirstBytes>200</FirstBytes>
+    </NBytes>
+    <BytesRepresentation>
+      <Hex>Yes</Hex>
+    </BytesRepresentation>
+    <BytesLength>
+      <Length>29</Length>
+    </BytesLength>
+  </DetallePaquetePreferences>
+</CaptureSniffer>
+
