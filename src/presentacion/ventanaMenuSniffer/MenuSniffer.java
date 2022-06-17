@@ -128,4 +128,8 @@ public class MenuSniffer extends JFrame {
 	public void clearScreen() {
 		this.VC.resetGraficos();
 	}
+	
+	public void refreshPacketDetail() {
+		this.VC.refreshPacketDetail();
+	}
 }

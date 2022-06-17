@@ -331,6 +331,12 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		this.numVertical = Integer.valueOf(pBDP.getRows());
 		this.numHorizontal = Integer.valueOf(pBDP.getColumns());
 	}
+	
+	public void refreshPacketDetail() {
+		Paneauxtree.repaint();
+		repaint();
+		System.out.println("refresPD...paso");
+	}
 
 	private Vector<Conexion> VectorConexiones;
 	private Rules Reglas;

@@ -1151,5 +1151,9 @@ public class Mediador
 		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
 		return pBDP;
 	}
+	
+	public void refreshPacketDetail() {
+		this.MSniffer.refreshPacketDetail();
+	}
 
 }

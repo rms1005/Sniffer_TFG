@@ -3,6 +3,8 @@ package presentacion.preferencias;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -16,6 +18,7 @@ import javax.swing.JTextField;
 import org.jdesktop.layout.GroupLayout;
 
 import presentacion.Mediador;
+import presentacion.capturandoDumper.Fcaptura;
 import presentacion.comandos.CBGuardarFichero;
 import presentacion.comandos.Comando;
 import presentacion.propiedadesVentana.CentrarVentana;
@@ -77,6 +80,13 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 	}
 
 	private void initComponents() {
+		
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent evt) {
+				PreferenciasPaqueteDetalle.this.exitForm(evt);
+			}
+		});
+		
 		this.jPanelNVent = new JPanel();
 		this.jLabelNVent1 = new JLabel();
 		this.jLabelNVent2 = new JLabel();
@@ -201,7 +211,7 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 		this.jButtonSalir.setText("Salir");
 		this.jButtonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				dispose();
+				PreferenciasPaqueteDetalle.this.jButtonSalirActionPerformed(evt);
 			}
 		});
 
@@ -220,6 +230,27 @@ public class PreferenciasPaqueteDetalle extends JDialog {
 				.add(layout.createParallelGroup(1).add((CBGuardarFichero) this.jButtonAceptar).add(this.jButtonSalir)));
 
 		pack();
+	}
+	
+	protected void exitForm(WindowEvent evt) {
+		modificarValoresPreferencias();
+		this.mediador.refreshPacketDetail();
+		dispose();
+	}
+
+	private void jButtonSalirActionPerformed(ActionEvent evt) {
+		modificarValoresPreferencias();
+		this.mediador.refreshPacketDetail();
+		dispose();
+	}
+	
+	private void modificarValoresPreferencias() {
+		this.mediador.getPrefPacketDet().setRows(jTextFieldNVent1.getText());
+		this.mediador.getPrefPacketDet().setColumns(jTextFieldNVent2.getText());
+		this.mediador.getPrefPacketDet().setTotalBytes(jRadioButtonNBytes2.isSelected());
+		this.mediador.getPrefPacketDet().setBytes(jTextFieldNBytes.getText());
+		this.mediador.getPrefPacketDet().setBytesHex(jRadioButtonBytesType1.isSelected());
+		this.mediador.getPrefPacketDet().setBytesLength(jTextFieldBytesLength.getText());
 	}
 
 	public static String getFilasPaquetes() {
