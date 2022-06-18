@@ -7,6 +7,7 @@ import dominio.preferences.preferencesBeanDetallePaquete;
 import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 // import java.util.Collection;
 import java.util.Vector;
 import javax.swing.*;
@@ -46,6 +47,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		VectorConexiones = new Vector<Conexion>();
 		history = new Vector<PcapPacket>();
 		VentanaCaptura();
+		actualizarListaActuales(true);
 	}
 
 	public void VentanaCaptura() {
@@ -127,10 +129,10 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		}
 
 		contadorarbol = 0;
-		redimensionar();
+		redimensionar(true);
 	}
 
-	private void redimensionar() {
+	private void redimensionar(boolean flag) {
 		actualizarValoresPreferencias();
 		Paneauxtree.removeAll();
 		Paneauxtree.setLayout(new GridLayout(numVertical, numHorizontal));
@@ -141,6 +143,14 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 			Paneauxtree_list.add(PaneauxtreeX);
 			Paneauxtree.add(PaneauxtreeX);
 		}
+		antiguos = Arrays.copyOf(actuales, actuales.length);
+		actualizarListaActuales(flag);
+		contadorarbol = 0;
+		for (int i = 0; i < antiguos.length; i++) {
+			if (i < Paneauxtree_list.size() && antiguos[i] != -1)
+				CrearArbol(antiguos[i]);
+		}
+		Paneauxtree.repaint();
 	}
 
 	public int getLinkLayer() {
@@ -205,6 +215,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		scrollPane3 = new JScrollPane(Arbol.Arbol());
 		scrollPane3.setBorder(selectBorder);
 
+		actuales[contadorarbol - 1] = numero;
 		PaneauxtreeX = Paneauxtree_list.get(contadorarbol - 1);
 		PaneauxtreeX.removeAll();
 		PaneauxtreeX.add(scrollPane3, "Center");
@@ -215,8 +226,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 				try {
 					auxJSPanel = (JScrollPane) Paneauxtree_list.get(Paneauxtree_list.size() - 1).getComponent(0);
 					auxJSPanel.setBorder(emptyBorder);
-				} catch (ArrayIndexOutOfBoundsException e) {
-				}
+				} catch (ArrayIndexOutOfBoundsException e) {}
 			else {
 				auxJSPanel = (JScrollPane) Paneauxtree_list.get(contadorarbol - 2).getComponent(0);
 				auxJSPanel.setBorder(emptyBorder);
@@ -333,9 +343,16 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	}
 	
 	public void refreshPacketDetail() {
-		Paneauxtree.repaint();
-		repaint();
-		System.out.println("refresPD...paso");
+		redimensionar(false);
+	}
+	
+	private void actualizarListaActuales(boolean flag) {
+		actuales = new int[numVertical * numHorizontal];
+		for(int i = 0; i < actuales.length; i++) {
+			actuales[i] = -1;
+		}
+		if(flag)
+			antiguos = Arrays.copyOf(actuales, actuales.length);
 	}
 
 	private Vector<Conexion> VectorConexiones;
@@ -381,5 +398,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	private int numVertical;
 	private int numHorizontal;
 	private preferencesBeanDetallePaquete pBDP;
+	private int[] actuales;
+	private int[] antiguos;
 	// public static SavePacketHandler ficheroxmlenconstruccion;
 }
