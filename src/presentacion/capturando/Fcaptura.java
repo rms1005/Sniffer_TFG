@@ -22,7 +22,6 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import presentacion.Mediador;
 import presentacion.propiedadesVentana.CentrarVentana;
-import presentacion.visualizarCaptura.GuardadoCaptura;
 import servicioAccesoDatos.FachadaFicheroDirectorios;
 
 /**
@@ -278,7 +277,7 @@ public class Fcaptura extends JFrame {
 		this.jButton1.setText("STOP Capture");
 		this.jButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				new GuardadoCaptura(Fcaptura.this).setVisible(true);
+				Fcaptura.this.salir();
 			}
 		});
 		getContentPane().add(this.jButton1, new AbsoluteConstraints(280, 260, -1, -1));

@@ -62,16 +62,18 @@ public class Captura extends Thread {
 	private String strF;
 	protected int i;
 	private Thread captureThread2;
+	private boolean xmlSave;
 
-	public Captura() {
+	public Captura(boolean xml) {
 
 		this.filtro = new PcapBpfProgram();
-		this.PACKET_COUNT = 0;
+		PACKET_COUNT = 0;
 		caplen = 64 * 1024; // Capture all packets, no trucation
 		flags = Pcap.MODE_PROMISCUOUS; // capture all packets
 		timeout = 10 * 1000; // 10 seconds in millis
 		setTypeOffline(false);
 		this.endCapture = false;
+		this.xmlSave = xml;
 	}
 
 	/**
@@ -174,17 +176,17 @@ public class Captura extends Thread {
 			if (!getTypeOffline()) {
 
 				jpcap.setFilter(this.filtro);
-				this.isLiveCapture = true;
+				isLiveCapture = true;
 				this.finSaveMeta = false;
 
 				this.SavePH.runHilos();
 				// output file
 
-				while (this.isLiveCapture) {
+				while (isLiveCapture) {
 					SavePacketHandler.receivePacket(jpcap /** ,dumper */
 					);
 
-					if ((SavePacketHandler.aux == 0) && (!this.isLiveCapture)) {
+					if ((SavePacketHandler.aux == 0) && (!isLiveCapture)) {
 						stopCaptureThread();
 					}
 					Thread.yield();
@@ -195,13 +197,13 @@ public class Captura extends Thread {
 
 				jpcap.setFilter(this.filtro);
 				this.finOneFile = false;
-				this.isLiveCapture = true;
+				isLiveCapture = true;
 				this.finSaveMeta = false;
 
-				while (this.isLiveCapture) {
+				while (isLiveCapture) {
 					OfflineSavePacketHandler.receivePacket(jpcap);
 
-					if ((OfflineSavePacketHandler.aux == 0) && (!this.isLiveCapture)) {
+					if ((OfflineSavePacketHandler.aux == 0) && (!isLiveCapture)) {
 						stopCaptureThread();
 					}
 					Thread.yield();
@@ -222,16 +224,15 @@ public class Captura extends Thread {
 	 */
 	public void offfffff() {
 		this.finOneFile = false;
-		this.isLiveCapture = true;
+		isLiveCapture = true;
 		this.finSaveMeta = false;
 
 		jpcap.setFilter(this.filtro);
 		this.captureThread = new Thread(new Runnable() {
-			int aux;
 
 			public void run() {
 				while (Captura.this.captureThread != null) {
-					if ((Captura.this.OfflineSPH == null) && (Captura.this.isLiveCapture)) {
+					if ((Captura.OfflineSPH == null) && (Captura.isLiveCapture)) {
 
 						Captura.this.stopCaptureThread();
 						Captura.this.finOneFile = true;
@@ -285,7 +286,7 @@ public class Captura extends Thread {
 	}
 
 	public void runHilosCapture() {
-		this.OfflineSPH.runHilos(this);
+		OfflineSPH.runHilos(this);
 	}
 
 	public void stopCaptureThread() {
@@ -297,7 +298,7 @@ public class Captura extends Thread {
 
 	public void endCaptureOffline(boolean tipo) {
 		this.endCapture = true;
-		this.isLiveCapture = false;
+		isLiveCapture = false;
 		this.finSaveMeta = true;
 		if ((tipo) && (jpcap != null)) {
 			jpcap.close();
@@ -314,8 +315,8 @@ public class Captura extends Thread {
 
 	public void eCOF() {
 		this.endCapture = true;
-		if (this.OfflineSPH != null) {
-			this.OfflineSPH.stopCaptura();
+		if (OfflineSPH != null) {
+			OfflineSPH.stopCaptura();
 		}
 		jpcap.close();
 		jpcap = null;
@@ -385,9 +386,9 @@ public class Captura extends Thread {
 		setSFName();
 		this.RCountPacketHandler = new CountPacketHandler();
 		if (aux.equals("")) {
-			this.SavePH = new SavePacketHandler(this, getSFname(), this.RCountPacketHandler, jpcap);
+			this.SavePH = new SavePacketHandler(this, getSFname(), this.RCountPacketHandler, jpcap, this.xmlSave);
 		} else {
-			this.SavePH = new SavePacketHandler(this, getSFname(), this.RCountPacketHandler, jpcap, aux);
+			this.SavePH = new SavePacketHandler(this, getSFname(), this.RCountPacketHandler, jpcap, this.xmlSave, aux);
 		}
 		this.SavePH.setWriter(jpcap_write);
 		this.SavePH.setNumPacket(getNumPaquetes());
@@ -403,11 +404,11 @@ public class Captura extends Thread {
 		aux = FachadaDominio.getPrefBeanFromFile().getffFilLocate();
 		setSFName();
 		if (aux.equals("")) {
-			this.OfflineSPH = new OfflineSavePacketHandler(this, getSFname(), jpcap);
+			OfflineSPH = new OfflineSavePacketHandler(this, getSFname(), jpcap);
 		} else {
-			this.OfflineSPH = new OfflineSavePacketHandler(this, getSFname(), jpcap, aux);
+			OfflineSPH = new OfflineSavePacketHandler(this, getSFname(), jpcap, aux);
 		}
-		this.OfflineSPH.setNumPacket(getNumPaquetes());
+		OfflineSPH.setNumPacket(getNumPaquetes());
 	}
 
 	public CountPacketHandler getCountPacketHandler() {
@@ -448,7 +449,7 @@ public class Captura extends Thread {
 	public void setMFilSpaceOffline(String aux) {
 		try {
 			long lSpace = Long.parseLong(aux);
-			this.OfflineSPH.setSpace(lSpace);
+			OfflineSPH.setSpace(lSpace);
 		} catch (NumberFormatException nfe) {
 			System.out.println("NumberFormatException: " + nfe.getMessage());
 		}
@@ -479,7 +480,7 @@ public class Captura extends Thread {
 	public void setMFilPilaOffline(String aux) {
 		try {
 			int iTime = Integer.parseInt(aux);
-			this.OfflineSPH.setPila(iTime);
+			OfflineSPH.setPila(iTime);
 		} catch (NumberFormatException nfe) {
 			System.out.println("NumberFormatException: " + nfe.getMessage());
 		}
@@ -501,7 +502,7 @@ public class Captura extends Thread {
 	public void setMFilStopOffline(String aux) {
 		try {
 			int iMax = Integer.parseInt(aux);
-			this.OfflineSPH.setMaximo(iMax);
+			OfflineSPH.setMaximo(iMax);
 		} catch (NumberFormatException nfe) {
 			System.out.println("NumberFormatException: " + nfe.getMessage());
 		}
@@ -525,9 +526,9 @@ public class Captura extends Thread {
 
 	public void setNumPaquetes(String aux) {
 		if (aux != "") {
-			this.PACKET_COUNT = Integer.parseInt(aux);
+			PACKET_COUNT = Integer.parseInt(aux);
 		} else {
-			this.PACKET_COUNT = 0;
+			PACKET_COUNT = 0;
 		}
 	}
 

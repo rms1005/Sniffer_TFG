@@ -379,6 +379,8 @@ public class Mediador
 			PreferenciasCaptura.setDespuesTiempo(pBC.getstpAfterTime());
 			PreferenciasCaptura.setDespuesTiempoTipo(pBC.getstpAfterTimeType());
 
+			PreferenciasCaptura.setGuardarXML(pBC.getXML());
+			
 			PreferenciasCaptura.setMultiplesFicheros(pBC.getFilMultipleFileId());
 		} catch (NullPointerException e) {
 			System.out.println("Error lectura preferencias. Null Pointer Exception");
@@ -416,6 +418,8 @@ public class Mediador
 			PreferenciasFromFile.setDespuesPaquetes(pBFF.getffStpAfterPacketsId());
 			PreferenciasFromFile.setDespuesPaquetes(pBFF.getffStpAfterPackets());
 
+			PreferenciasFromFile.setGuardarXML(pBFF.getXML());
+			
 			PreferenciasFromFile.setMultiplesFicheros(pBFF.getffFilMultipleFileId());
 		} catch (NullPointerException e) {
 			System.out.println("Error lectura preferencias. Null Pointer Exception");
@@ -554,6 +558,8 @@ public class Mediador
 		pBC.setstpAfterTimeType(PreferenciasCaptura.getDespuesTiempoTipo());
 		pBC.setstpAfterTime(PreferenciasCaptura.getDespuesTiempoDato());
 
+		pBC.setXML(PreferenciasCaptura.getGuardarXML());
+		
 		pBC.setFilMultipleFileId(PreferenciasCaptura.getMultiplesFicheros());
 	}
 
@@ -584,6 +590,8 @@ public class Mediador
 		pBFF.setffStpAfterPacketsId(PreferenciasFromFile.getDespuesPaquetes());
 		pBFF.setffStpAfterPackets(PreferenciasFromFile.getDespuesPaquetesDato());
 
+		pBFF.setXML(PreferenciasCaptura.getGuardarXML());
+		
 		pBFF.setffFilMultipleFileId(PreferenciasFromFile.getMultiplesFicheros());
 	}
 
@@ -1115,7 +1123,7 @@ public class Mediador
 
 	private void PrefPacketDetLlenarDatosFromFile() {
 		try {
-			preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
+			preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefBeanDetallePaquete();
 
 			PreferenciasPaqueteDetalle.setFilasPaquetes(pBDP.getRows());
 			PreferenciasPaqueteDetalle.setColumnasPaquetes(pBDP.getColumns());
@@ -1137,7 +1145,7 @@ public class Mediador
 	}
 
 	public void PrefPacketDetCogerDatos() {
-		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
+		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefBeanDetallePaquete();
 
 		pBDP.setRows(PreferenciasPaqueteDetalle.getFilasPaquetes());
 		pBDP.setColumns(PreferenciasPaqueteDetalle.getColumnasPaquetes());
@@ -1148,7 +1156,7 @@ public class Mediador
 	}
 
 	public preferencesBeanDetallePaquete getPrefPacketDet() {
-		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefDetallePaquete();
+		preferencesBeanDetallePaquete pBDP = FachadaDominio.getPrefBeanDetallePaquete();
 		return pBDP;
 	}
 	

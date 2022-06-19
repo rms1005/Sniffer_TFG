@@ -23,6 +23,7 @@ public class ElemCapFile extends Element {
 			pOperation = new preferencesOperation();
 			setPBCapture(pBCapture);
 			setLocate();
+			setXMLSave();
 			setMultipleFiles();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -31,6 +32,10 @@ public class ElemCapFile extends Element {
 
 	private void setLocate() {
 		addContent((new Element("Locate")).setText(getPBCapture().getFilLocate()));
+	}
+	
+	private void setXMLSave() {
+		addContent((new Element("XML").setText(pOperation.validate(getPBCapture().getXML()))));
 	}
 
 	private void setMultipleFiles() {

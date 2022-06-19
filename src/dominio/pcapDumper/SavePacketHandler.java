@@ -57,6 +57,8 @@ public class SavePacketHandler {
 	private static Pcap pcap;
 
 	static long aux;
+	
+	private static boolean xmlSave;
 
 	/**
 	 * Metodo Gestor de los paquetes capturados
@@ -66,28 +68,31 @@ public class SavePacketHandler {
 	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 
-	public SavePacketHandler(Captura cap, SaveFileName SFN, CountPacketHandler CPH, Pcap jpcap) {
-		this.jpcap = jpcap;
-		this.venpadre = cap;
+	public SavePacketHandler(Captura cap, SaveFileName SFN, CountPacketHandler CPH, Pcap jpcap, boolean xml) {
+		SavePacketHandler.jpcap = jpcap;
+		venpadre = cap;
 		String aux = "./files/Capturas";
 		strF = "capturaJpacpLib.pcap";
 
 		SFN.setSaveFileName(aux, strF);
-		this.SFName = SFN;
+		SFName = SFN;
 
 		setTime(0);
 		setSpace(0);
 		setPila(0);
-		setFile(this.SFName.getFile());
+		setFile(SFName.getFile());
 
 		setNumPacket(0);
 		setContPacket(0);
-		this.RCountPH = CPH;
+		RCountPH = CPH;
 		contSpaceLen = 0;
-		this.controlPacket = false;
+		controlPacket = false;
+		
+		xmlSave = xml;
 
 		if (!isMultiFile()) {
-			DefinirXML(aux + SFN.getFile().toString() + ".XML");
+			if(xml)
+				DefinirXML(aux + SFN.getFile().toString() + ".XML");
 			setDumper(jpcap.dumpOpen(SFN.getFullPath()));
 		}
 	}
@@ -99,25 +104,29 @@ public class SavePacketHandler {
 	 *                CountPacketHandler,JpcapCaptor, fullPath
 	 * @exception exceptions Ningún error (Excepción) definida
 	 */
-	public SavePacketHandler(Captura cap, SaveFileName SFN, CountPacketHandler CPH, Pcap jpcap, String fullPath) {
-		this.jpcap = jpcap;
-		this.venpadre = cap;
+	public SavePacketHandler(Captura cap, SaveFileName SFN, CountPacketHandler CPH, Pcap jpcap, boolean xml, String fullPath) {
+		SavePacketHandler.jpcap = jpcap;
+		venpadre = cap;
 
 		SFN.setSaveFileName(fullPath);
-		this.SFName = SFN;
+		SFName = SFN;
 
 		setTime(0);
 		setSpace(0);
 		setPila(0);
-		setFile(this.SFName.getFile());
+		setFile(SFName.getFile());
 
 		setNumPacket(0);
 		setContPacket(0);
-		this.RCountPH = CPH;
+		RCountPH = CPH;
 		contSpaceLen = 0L;
-		this.controlPacket = false;
+		controlPacket = false;
+		
+		xmlSave = xml;
+		
 		if (!isMultiFile()) {
-			DefinirXML(SFN.getPath() + "\\" + SFN.getNameFile() + ".XML");
+			if (xml)
+				DefinirXML(SFN.getPath() + "\\" + SFN.getNameFile() + ".XML");
 			setDumper(jpcap.dumpOpen(SFN.getFullPath()));
 		}
 	}
@@ -128,19 +137,23 @@ public class SavePacketHandler {
 	 * @param SaveFileName (Nombre de archivo), fullPath
 	 * @exception exceptions Ningún error (Excepción) definida
 	 */
-	public SavePacketHandler(SaveFileName SFN, String fullPath) {
-		this.SFName = SFN;
-		this.SFName.setSaveFileName(fullPath);
+	public SavePacketHandler(SaveFileName SFN, String fullPath, boolean xml) {
+		SFName = SFN;
+		SFName.setSaveFileName(fullPath);
 		setTime(0);
 		setSpace(0);
 		setPila(0);
-		setFile(this.SFName.getFile());
+		setFile(SFName.getFile());
 		setContPacket(0);
-		this.RCountPH = new CountPacketHandler();
+		RCountPH = new CountPacketHandler();
 		contSpaceLen = 0;
-		this.controlPacket = false;
+		controlPacket = false;
+		
+		xmlSave = xml;
+		
 		if (!isMultiFile()) {
-			DefinirXML(SFN.getPath() + "\\" + SFN.getNameFile() + ".XML");
+			if (xml)
+				DefinirXML(SFN.getPath() + "\\" + SFN.getNameFile() + ".XML");
 			setDumper(jpcap.dumpOpen(SFName.getFullPath()));
 		}
 	}
@@ -175,9 +188,9 @@ public class SavePacketHandler {
 	public void runHilos() {
 
 		if (getTime() != 0) {
-			this.STime = new SaveTime(this, getTime(), this.SFName);
+			this.STime = new SaveTime(this, getTime(), SFName);
 			this.STime.start();
-			this.multiFile = true;
+			multiFile = true;
 		} else if (getSpace() != 0) {
 			if (getNumPacket() != 0) {
 				this.captureThread = new Thread(new Runnable() {
@@ -189,11 +202,11 @@ public class SavePacketHandler {
 				this.captureThread.setPriority(1);
 				this.captureThread.start();
 			}
-			this.SFName.setNext();
-			setTcpDumpWriter_first(this.SFName.getNameTime());
-			this.SFName.saveStateMulti(true);
-			System.out.println("\n----> " + this.SFName.getNameTime());
-			this.setMultiFile(true);
+			SFName.setNext();
+			setTcpDumpWriter_first(SFName.getNameTime());
+			SFName.saveStateMulti(true);
+			System.out.println("\n----> " + SFName.getNameTime());
+			setMultiFile(true);
 
 		} else {
 			if (getNumPacket() != 0L) {
@@ -208,7 +221,7 @@ public class SavePacketHandler {
 
 			} else {
 				setTcpDumpWriter_first();
-				this.SFName.saveState(true);
+				SFName.saveState(true);
 			}
 		}
 	}
@@ -246,7 +259,7 @@ public class SavePacketHandler {
 	 */
 	public void setTcpDumpWriter_first() {
 		try {
-			this.jpcap = Pcap.openOffline(getFullName(), errbuf);
+			jpcap = Pcap.openOffline(getFullName(), errbuf);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -254,11 +267,11 @@ public class SavePacketHandler {
 
 	public void setTcpDumpWriter() {
 		try {
-			this.jpcap.close();
-			this.jpcap = Pcap.openOffline(getFullName(), errbuf);
+			jpcap.close();
+			jpcap = Pcap.openOffline(getFullName(), errbuf);
 
 			resetSpaceLen();
-			this.otroFile = false;
+			otroFile = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -280,7 +293,7 @@ public class SavePacketHandler {
 		try {
 			setAuxFile(strAuxName);
 
-			this.jpcap = Pcap.openOffline(getAuxFullName(), errbuf);
+			jpcap = Pcap.openOffline(getAuxFullName(), errbuf);
 			resetSpaceLen();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -304,8 +317,9 @@ public class SavePacketHandler {
 			if ((!(SFName.getPath() + SFName.getSeparator() + getFile()).equalsIgnoreCase(ruta))
 					|| SaveTime.isCambiaArchivo() == true) {
 
-				DefinirXML(SFName.getPath() + SFName.getSeparator() + SFName.getNameFile() + "_" + SFName.getDateTime()
-						+ "_" + SFName.getContador() + ".xml");
+				if (xmlSave)
+					DefinirXML(SFName.getPath() + SFName.getSeparator() + SFName.getNameFile() + "_" + SFName.getDateTime()
+							+ "_" + SFName.getContador() + ".xml");
 				setDumper(jpcap2.dumpOpen(SFName.getPath() + SFName.getSeparator() + getFile()));
 
 				SaveTime.setCambiaArchivo(false);
@@ -321,7 +335,8 @@ public class SavePacketHandler {
 				dumper.dump(header, packet);
 				if (controlPacket) {
 					RCountPH.nextPacket(packet);
-					ficheroxmlenconstruccion.receivePacket(packet);
+					if (SavePacketHandler.xmlSave)
+						ficheroxmlenconstruccion.receivePacket(packet);
 					contSpaceLen += packet.size();
 				}
 			}
@@ -361,7 +376,8 @@ public class SavePacketHandler {
 			aux = 0;
 
 			stopCaptura();
-			savefichero();
+			if (xmlSave)
+				savefichero();
 			dumper.close();
 		}
 
@@ -428,19 +444,19 @@ public class SavePacketHandler {
 	}
 
 	public void setPila(int pila) {
-		this.SFName.setPila(pila);
+		SFName.setPila(pila);
 	}
 
 	public int getPila() {
-		return this.SFName.getPila();
+		return SFName.getPila();
 	}
 
 	public void setMaximo(int max) {
-		this.SFName.setMaximo(max);
+		SFName.setMaximo(max);
 	}
 
 	public int getMaximo() {
-		return this.SFName.getMaximo();
+		return SFName.getMaximo();
 	}
 
 	public static void setAuxFile(String file) {
@@ -448,7 +464,7 @@ public class SavePacketHandler {
 	}
 
 	public String getAuxFile() {
-		return this.auxStrFile;
+		return auxStrFile;
 	}
 
 	public static String getFullName() {
@@ -456,11 +472,11 @@ public class SavePacketHandler {
 	}
 
 	public String getAuxFullName() {
-		return this.SFName.getPath() + this.SFName.getSeparator() + getAuxFile();
+		return SFName.getPath() + SFName.getSeparator() + getAuxFile();
 	}
 
 	public void setNumPacket(long aux) {
-		this.numPacket = aux;
+		numPacket = aux;
 	}
 
 	public static long getNumPacket() {
@@ -468,7 +484,7 @@ public class SavePacketHandler {
 	}
 
 	public void setContPacket(long aux) {
-		this.contPacket = aux;
+		contPacket = aux;
 	}
 
 	public static long getContPacket() {
@@ -488,7 +504,7 @@ public class SavePacketHandler {
 	}
 
 	public void setControlPacket(boolean aux) {
-		this.controlPacket = aux;
+		controlPacket = aux;
 	}
 
 	public void setWriter(Pcap jWriter) {

@@ -509,6 +509,7 @@ public class preferencesFileRead {
 
 	private void prefCaptureFile(Element auxElement) {
 		pBCapture.setFilLocate(auxElement.getChild("Locate").getText());
+		pBCapture.setXML(validate(auxElement.getChild("XML").getText()));
 		Element tempElement = auxElement.getChild("Multiple_Files");
 		pBCapture.setFilMultipleFileId(validate(tempElement.getAttributeValue("Id")));
 		pBCapture.setFilSpaceId(validate(tempElement.getChild("Space").getAttributeValue("Id")));

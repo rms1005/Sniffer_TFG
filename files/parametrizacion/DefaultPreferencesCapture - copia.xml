@@ -2,8 +2,7 @@
 <CaptureSniffer>
   <CapturePreferences>
     <Capture>
-      <Interface>Microsoft
- Microsoft</Interface>
+      <Interface>Seleccione un dispositivo</Interface>
       <Promiscuous_Modo>Yes</Promiscuous_Modo>
       <Filter Id="No">
         <Advanced Id="No" />
@@ -15,7 +14,8 @@
       </Filter>
     </Capture>
     <File>
-      <Locate>D:\projecto\files\capturas\1.pcap</Locate>
+      <Locate>C:\Users\Raul\Desktop\Aplic Sniffer-III - 32 bits\files\capturas\a1.pcap</Locate>
+      <XML>No</XML>
       <Multiple_Files Id="No">
         <Space Id="No" Type="kilobyte(s)" />
         <Time Id="No" Type="segundo(s)" />
@@ -24,7 +24,7 @@
       </Multiple_Files>
     </File>
     <Stop_Capture>
-      <After_Packets Id="Yes">5</After_Packets>
+      <After_Packets Id="Yes">10</After_Packets>
       <After_Space Id="No" Type="kilobyte(s)" />
       <After_Time Id="No" Type="segundo(s)" />
     </Stop_Capture>

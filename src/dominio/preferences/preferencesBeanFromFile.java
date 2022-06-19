@@ -29,6 +29,7 @@ public class preferencesBeanFromFile implements Serializable {
 		setffCapProtocol("");
 		setffCapPort("");
 		setffFilLocate("./files/capturas/capture_from_file.pcap");
+		setXML(false);
 		setffFilMultipleFileId(false);
 		setffFilSpaceId(false);
 		setffFilSpaceType("megabyte(s)");
@@ -210,6 +211,14 @@ public class preferencesBeanFromFile implements Serializable {
 	public void setffStpAfterPackets(String aux) {
 		ffStpAfterPackets = aux;
 	}
+	
+	public boolean getXML() {
+		return xmlSave;
+	}
+	
+	public void setXML(boolean xml) {
+		xmlSave = xml;
+	}
 
 	private String ffCapSource;
 	private boolean ffCapFilterId;
@@ -221,6 +230,7 @@ public class preferencesBeanFromFile implements Serializable {
 	private String ffCapProtocol;
 	private String ffCapPort;
 	private String ffFilLocate;
+	private boolean xmlSave;
 	private boolean ffFilMultipleFileId;
 	private boolean ffFilSpaceId;
 	private String ffFilSpaceType;

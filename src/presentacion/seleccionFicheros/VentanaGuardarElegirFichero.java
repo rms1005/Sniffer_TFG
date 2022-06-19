@@ -166,9 +166,9 @@ public class VentanaGuardarElegirFichero extends JDialog {
 					mediador.savePcapFileCaptured(fRuta);
 					System.out.println((new StringBuilder("Guardar fichero capturado...=> ")).append(file.getName())
 							.append("   ").append(file.getPath()).toString());
-				} else if (tip.equals("Guardar fichero de preferecias...")) {
+				} else if (tip.equals("Guardar fichero de preferencias...")) {
 					mediador.PrefCapGuardarXML(1, fRuta);
-					System.out.println((new StringBuilder("Guardar fichero de preferecias...=> "))
+					System.out.println((new StringBuilder("Guardar fichero de preferencias...=> "))
 							.append(file.getName()).append("   ").append(file.getPath()).toString());
 				} else if (tip.equals("Exportar fichero a XML...") || tip.equals("Exportar Captura a XML...")
 						|| tip.equals("Captura a XML...")) {

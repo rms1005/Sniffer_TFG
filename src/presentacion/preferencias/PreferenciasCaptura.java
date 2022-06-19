@@ -62,6 +62,7 @@ public class PreferenciasCaptura extends JDialog {
 	private static JCheckBox jCheckBox7;
 	private static JCheckBox jCheckBox8;
 	private static JCheckBox jCheckBox9;
+	private static JCheckBox jCheckBoxXML;
 	private static JComboBox jCBAux;
 	private static JComboBox jComboBox1;
 	private static JComboBox jComboBox2;
@@ -158,6 +159,7 @@ public class PreferenciasCaptura extends JDialog {
 		jLabel5 = new JLabel();
 		jTextField3 = new JTextField();
 
+		jCheckBoxXML = new JCheckBox();
 		jCheckBox3 = new JCheckBox();
 		jPanel8 = new JPanel();
 		jPanel9 = new JPanel();
@@ -280,6 +282,10 @@ public class PreferenciasCaptura extends JDialog {
 
 		this.jButton2 = new CBGuardarFichero(this.mediador, "Browse...");
 
+		jCheckBoxXML.setText("Guardar también en XML");
+		jCheckBoxXML.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		jCheckBoxXML.setMargin(new Insets(0, 0, 0, 0));
+		
 		jCheckBox3.setText("Múltiples ficheros");
 		jCheckBox3.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		jCheckBox3.setMargin(new Insets(0, 0, 0, 0));
@@ -386,12 +392,14 @@ public class PreferenciasCaptura extends JDialog {
 				.add(jPanel4Layout.createParallelGroup(1, false)
 						.add(jPanel4Layout.createSequentialGroup().add(jLabel5).addPreferredGap(0)
 								.add(jTextField3, -2, 390, -2).addPreferredGap(0).add((CBGuardarFichero) this.jButton2))
+						.add(jCheckBoxXML)
 						.add(jCheckBox3).add(jPanel8, -1, -1, 32767))
 				.addContainerGap(-1, 32767)));
 		jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(1)
 				.add(jPanel4Layout.createSequentialGroup()
 						.add(jPanel4Layout.createParallelGroup(3).add(jTextField3, -2, -1, -2).add(jLabel5)
 								.add((CBGuardarFichero) this.jButton2))
+						.add(10, 10, 10).add(jCheckBoxXML)
 						.add(10, 10, 10).add(jCheckBox3).addPreferredGap(0).add(jPanel8, -2, -1, -2)
 						.addContainerGap(-1, 32767)));
 
@@ -975,5 +983,13 @@ public class PreferenciasCaptura extends JDialog {
 
 	public void rep() {
 		repaint();
+	}
+	
+	public static boolean getGuardarXML() {
+		return jCheckBoxXML.isSelected();
+	}
+	
+	public static void setGuardarXML(boolean xml) {
+		jCheckBoxXML.setSelected(xml);
 	}
 }

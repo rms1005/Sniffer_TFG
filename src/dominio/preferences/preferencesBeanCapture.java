@@ -30,6 +30,7 @@ public class preferencesBeanCapture implements Serializable {
 		setCapProtocol("");
 		setCapPort("");
 		setFilLocate("");
+		setXML(false);
 		setFilMultipleFileId(false);
 		setFilSpaceId(false);
 		setFilSpaceType("");
@@ -300,6 +301,14 @@ public class preferencesBeanCapture implements Serializable {
 	public void setstpAfterTime(String aux) {
 		stpAfterTime = aux;
 	}
+	
+	public boolean getXML() {
+		return xmlSave;
+	}
+	
+	public void setXML(boolean xml) {
+		xmlSave = xml;
+	}
 
 	private String capDispositive;
 	private boolean capPromiscuousMode;
@@ -311,6 +320,7 @@ public class preferencesBeanCapture implements Serializable {
 	private String capProtocol;
 	private String capPort;
 	private String filLocate;
+	private boolean xmlSave;
 	private boolean filMultipleFileId;
 	private boolean filSpaceId;
 	private String filSpaceType;

@@ -18,7 +18,6 @@ import javax.swing.JTextField;
 import org.jdesktop.layout.GroupLayout;
 
 import presentacion.Mediador;
-import presentacion.capturandoDumper.Fcaptura;
 import presentacion.comandos.CBGuardarFichero;
 import presentacion.comandos.Comando;
 import presentacion.propiedadesVentana.CentrarVentana;

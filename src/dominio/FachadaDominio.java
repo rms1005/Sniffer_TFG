@@ -32,6 +32,7 @@ import dominio.preferences.definicion.PreferencesSnifferDefinicion;
 import dominio.preferences.sniffer.PreferencesSniffer;
 import dominio.properties.PropertiesBeanSniffer;
 import dominio.properties.PropertiesFileRead;
+import presentacion.Mediador;
 
 /**
  * Clase FachadaDominio
@@ -48,6 +49,7 @@ public class FachadaDominio {
 	private static ArrayList<PcapIf> alldevs;
 	public static String dispoName;
 	private static String dispoDescripcion;
+	private static Mediador mediador;
 
 	public FachadaDominio() {
 	}
@@ -61,7 +63,7 @@ public class FachadaDominio {
 	}
 
 	public static Captura crearPcapLib() {
-		Captura aux = new Captura();
+		Captura aux = new Captura(getPrefBeanCaptura().getXML());
 		jpcap = aux;
 		return jpcap;
 	}
@@ -1169,7 +1171,7 @@ public class FachadaDominio {
 		PreferencesCheckDefinicion check = new PreferencesCheckDefinicion();
 	}
 
-	public static preferencesBeanDetallePaquete getPrefDetallePaquete() {
+	public static preferencesBeanDetallePaquete getPrefBeanDetallePaquete() {
 		preferencesFileRead aux = getPreferences();
 		return aux.getPBDetallePaquete();
 	}
