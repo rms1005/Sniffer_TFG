@@ -31,7 +31,7 @@ public class IPv4Analyzer extends JDPacketAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return boolean
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public IPv4Analyzer() {
 		values = new Hashtable<String, Object>();
@@ -58,7 +58,7 @@ public class IPv4Analyzer extends JDPacketAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void analyze(PcapPacket packet) {
 		values.clear();

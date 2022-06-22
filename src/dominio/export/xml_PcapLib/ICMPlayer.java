@@ -25,7 +25,7 @@ public class ICMPlayer {
 	 * 
 	 * @param Sin valor de Entrada
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public ICMPlayer() {
 		packetAnalyzer = new ICMPAnalyzer();
@@ -36,7 +36,7 @@ public class ICMPlayer {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void analizar(PcapPacket packet) {
 		packetAnalyzer.analyze(packet);

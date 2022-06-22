@@ -32,7 +32,7 @@ public class OtroAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return boolean
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public boolean isAnalyzable(PcapPacket paquete) {
 		return paquete.getCaptureHeader().caplen() > 0;
@@ -48,7 +48,7 @@ public class OtroAnalyzer {
 	 * 
 	 * @param byte arr[], String path, PrefIdentificacion pref
 	 * @return sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public static void analizar(byte arr[], String path, PrefIdentificacion pref) {
 		String cad = "";

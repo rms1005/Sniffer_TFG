@@ -65,7 +65,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void PacketInformation(PcapPacket packet) {
 		packetlayer.analizar(packet);
@@ -77,7 +77,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void Etherlayer(PcapPacket packet) {
 		ethernetlayer.analizar(packet);
@@ -89,7 +89,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void ARPlayer(PcapPacket packet) {
 		arplayer.analizar(packet);
@@ -101,7 +101,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void IPlayer(PcapPacket packet) {
 		iplayer.analizar(packet);
@@ -113,7 +113,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void ICMPlayer(PcapPacket packet) {
 		icmplayer.analizar(packet);
@@ -125,7 +125,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void TCPlayer(PcapPacket packet) {
 		tcplayer.analizar(packet);
@@ -137,7 +137,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void UDPlayer(PcapPacket packet) {
 		udplayer.analizar(packet);
@@ -149,7 +149,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void FTPlayer(PcapPacket packet) {
 		ftplayer.analizar(packet);
@@ -161,7 +161,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void HTTPlayer(PcapPacket packet) {
 		httplayer.analizar(packet);
@@ -173,7 +173,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void POP3layer(PcapPacket packet) {
 		pop3layer.analizar(packet);
@@ -185,7 +185,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void SMTPlayer(PcapPacket packet) {
 		smtplayer.analizar(packet);
@@ -197,7 +197,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void SSHlayer(PcapPacket packet) {
 		sshlayer.analizar(packet);
@@ -209,7 +209,7 @@ public class CrearXMLOffline {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void Telnetlayer(PcapPacket packet) {
 		telnetlayer.analizar(packet);

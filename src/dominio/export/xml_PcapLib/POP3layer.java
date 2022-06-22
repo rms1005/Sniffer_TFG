@@ -21,7 +21,7 @@ public class POP3layer {
 	 * 
 	 * @param Sin valor de Entrada
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public POP3layer() {
 		packetAnalyzer = new POP3Analyzer();
@@ -32,7 +32,7 @@ public class POP3layer {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void analizar(PcapPacket packet) {
 		packetAnalyzer.analyze(packet);

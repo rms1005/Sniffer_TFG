@@ -53,7 +53,7 @@ public class XmlPacketHandler {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void receivePacket(PcapPacket packet) {
 		try {

@@ -21,7 +21,7 @@ public class Etherlayer {
 	 * 
 	 * @param Sin valor de Entrada
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public Etherlayer() {
 		packetAnalyzer = new EthernetAnalyzer();
@@ -32,7 +32,7 @@ public class Etherlayer {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void analizar(PcapPacket packet) {
 		packetAnalyzer.analyze(packet);

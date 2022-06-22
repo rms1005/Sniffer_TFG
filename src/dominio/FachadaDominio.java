@@ -411,7 +411,7 @@ public class FachadaDominio {
 	 * 
 	 * @param Origen, Origen2, Destino
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 
 	private static char[] getTagValue(String string, Element e) {
@@ -567,7 +567,7 @@ public class FachadaDominio {
 	 * 
 	 * @param String fileOrigen, String fileXml, boolean multifile
 	 * @return int
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public static int saveMetaXMLOfflinePcapLib(String fileOrigen, String fileXml, boolean multifile) {
 		int valorReturn = 0;
@@ -680,7 +680,7 @@ public class FachadaDominio {
 	 * 
 	 * @param String file, StateCaptura ficheroEstate
 	 * @return int
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	private static int saveFromEstate(String file, StateCaptura ficheroEstate) {
 		int valorReturn = 0;

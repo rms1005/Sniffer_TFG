@@ -295,7 +295,6 @@ public class Mediador
 	}
 
 	public void grabarProperties() {
-		String aux = this.MSniffer.getColumPosition();
 		FachadaDominio.setPropertiesColumns(this.MSniffer.getColumPosition());
 		FachadaDominio.grabarProperties();
 	}
@@ -884,7 +883,6 @@ public class Mediador
 		try {
 			PrefCapCogerDatos();
 
-			String aux = FachadaDominio.getPrefBeanCaptura().getCapDispositive();
 			if (!FachadaDominio.getPrefBeanCaptura().getCapDispositive().equals("\n Seleccione un dispositivo")) {
 				FachadaDominio.openCapturaPcapLib();
 				FachadaDominio.setPrefCapturaDumper();

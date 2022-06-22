@@ -26,7 +26,7 @@ public class ARPAnalyzer extends JDPacketAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return boolean
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public boolean isAnalyzable(PcapPacket p) {
 		return p.hasHeader(arpacket);
@@ -46,7 +46,7 @@ public class ARPAnalyzer extends JDPacketAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void analyze(PcapPacket p) {
 		if (!isAnalyzable(p)) {

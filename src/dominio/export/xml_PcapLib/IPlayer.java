@@ -20,7 +20,7 @@ public class IPlayer {
 	 * 
 	 * @param Sin valor de Entrada
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public IPlayer() {
 		packetAnalyzerV4 = new IPv4Analyzer();
@@ -32,7 +32,7 @@ public class IPlayer {
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void analizar(PcapPacket packet) {
 		if (packetAnalyzerV4.isAnalyzable(packet)) {

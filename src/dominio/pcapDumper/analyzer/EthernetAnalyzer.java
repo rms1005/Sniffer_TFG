@@ -25,7 +25,7 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return boolean
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public boolean isAnalyzable(PcapPacket packet) {
 		return !packet.equals(null) && packet.hasHeader(ethernetPacket);
@@ -45,7 +45,7 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 	 * 
 	 * @param PcapPacket p
 	 * @return sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public void analyze(PcapPacket packet) {
 		if (!isAnalyzable(packet)) {

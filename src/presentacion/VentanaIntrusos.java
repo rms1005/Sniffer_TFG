@@ -39,7 +39,7 @@ public class VentanaIntrusos extends JDialog {
 	 * para la realización del proceso.
 	 * 
 	 * @param Destino
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	public VentanaIntrusos(String Destino) {
 
@@ -56,7 +56,7 @@ public class VentanaIntrusos extends JDialog {
 	/**
 	 * Metodo donde se inicializan los componentes para la creaci�n de la pantalla .
 	 * 
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	private void initComponents() {
 
@@ -100,7 +100,7 @@ public class VentanaIntrusos extends JDialog {
 	 * Metodo donde se define la acci�n de un objeto tipo boton Aceptar
 	 * 
 	 * @params ActionEvent
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	private void jButton3ActionPerformed(ActionEvent evt) {
 		dispose();
@@ -111,7 +111,7 @@ public class VentanaIntrusos extends JDialog {
 	 * 
 	 * @params ActionEvent
 	 * @return Sin valor de retorno
-	 * @exception exceptions Ning�n error (Excepci�n) definida
+	 * @exception exceptions Ningún error (Excepción) definida
 	 */
 	private void jButtonCancelarActionPerformed(ActionEvent evt) {
 		dispose();
