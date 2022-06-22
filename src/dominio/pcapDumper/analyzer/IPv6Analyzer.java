@@ -67,6 +67,7 @@ public class IPv6Analyzer extends JDPacketAnalyzer {
 			values.put(valueNames[5], Integer.valueOf(ip.hopLimit()));
 			values.put(valueNames[6], org.jnetpcap.packet.format.FormatUtils.ip(ip.source()));
 			values.put(valueNames[7], org.jnetpcap.packet.format.FormatUtils.ip(ip.destination()));
+			values.put(valueNames[8], ip.getHeaderLength());
 //            values.put(valueNames[8], ip.src_ip.getHostName());
 //            values.put(valueNames[9], ip.dst_ip.getHostName());
 			// values.put(valueNames[1], new Integer(ip.priority));
@@ -102,7 +103,7 @@ public class IPv6Analyzer extends JDPacketAnalyzer {
 	}
 
 	private static final String valueNames[] = { "Version", "Traffic Class", "Flow Label", "Length", "Protocol",
-			"Hop Limit", "Source IP", "Destination IP" };
+			"Hop Limit", "Source IP", "Destination IP", "Header Length" };
 	Hashtable<String, Object> values;
 
 }

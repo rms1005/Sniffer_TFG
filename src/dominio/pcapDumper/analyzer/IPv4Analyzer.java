@@ -86,7 +86,8 @@ public class IPv4Analyzer extends JDPacketAnalyzer {
 			values.put(valueNames[10], new String(ip.getName()));
 			values.put(valueNames[11], org.jnetpcap.packet.format.FormatUtils.ip(ip.source()));
 			values.put(valueNames[12], org.jnetpcap.packet.format.FormatUtils.ip(ip.destination()));
-
+			values.put(valueNames[13], ip.getHeaderLength());
+			
 			return;
 		}
 	}
@@ -112,7 +113,7 @@ public class IPv4Analyzer extends JDPacketAnalyzer {
 
 	private static final String valueNames[] = { "Version", "TOS: CodePoint ", "TOS: ECN", "TOS: ECE", "Length",
 			"Identification", "Fragment: Don't Fragment", "Fragment: More Fragment", "Fragment Offset", "Time To Live",
-			"Protocol", "Source IP", "Destination IP" };
+			"Protocol", "Source IP", "Destination IP", "Header Length" };
 	private Hashtable<String, Object> values;
 
 }

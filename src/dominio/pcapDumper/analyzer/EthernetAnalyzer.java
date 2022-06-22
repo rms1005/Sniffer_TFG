@@ -77,6 +77,8 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 		case 2: // '\002'
 
 			return org.jnetpcap.packet.format.FormatUtils.mac(eth.destination());
+		case 3:
+			return eth.getHeaderLength();
 		}
 		return null;
 	}
@@ -89,7 +91,7 @@ public class EthernetAnalyzer extends JDPacketAnalyzer {
 		return v;
 	}
 
-	private static final String valueNames[] = { "Frame Type", "Source MAC", "Destination MAC" };
+	private static final String valueNames[] = { "Frame Type", "Source MAC", "Destination MAC", "Header Length" };
 
 	private Ethernet eth;
 

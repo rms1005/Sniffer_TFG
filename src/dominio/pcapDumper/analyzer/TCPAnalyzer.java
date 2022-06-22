@@ -68,6 +68,7 @@ public class TCPAnalyzer extends JDPacketAnalyzer {
 			values.put(valueNames[8], Boolean.valueOf(tcp.flags_SYN()));
 			values.put(valueNames[9], Boolean.valueOf(tcp.flags_FIN()));
 			values.put(valueNames[10], Integer.valueOf(tcp.window()));
+			values.put(valueNames[11], tcp.getHeaderLength());
 			return;
 		}
 	}
@@ -92,7 +93,7 @@ public class TCPAnalyzer extends JDPacketAnalyzer {
 	}
 
 	private static final String valueNames[] = { "Source Port", "Destination Port", "Sequence Number", "Ack Number",
-			"URG Flag", "ACK Flag", "PSH Flag", "RST Flag", "SYN Flag", "FIN Flag", "Window Size" };
+			"URG Flag", "ACK Flag", "PSH Flag", "RST Flag", "SYN Flag", "FIN Flag", "Window Size", "Header Length" };
 	Hashtable<String, Object> values;
 
 }

@@ -64,7 +64,7 @@ public class PacketHandlerPcapLib {
 				frame = String.valueOf(packetAnalyzer.getValue("Frame Type"));
 				macsource = String.valueOf(packetAnalyzer.getValue("Source MAC"));
 				macdest = String.valueOf(packetAnalyzer.getValue("Destination MAC"));
-				length = "";
+				length = String.valueOf(packetAnalyzer.getValue("Header Length"));
 				protocol = packetAnalyzer.getProtocolName();
 			}
 			packetAnalyzer = new IPv4Analyzer();
@@ -74,6 +74,7 @@ public class PacketHandlerPcapLib {
 				ipsrc = String.valueOf(packetAnalyzer.getValue("Source IP"));
 				ipdest = String.valueOf(packetAnalyzer.getValue("Destination IP"));
 				protocol = packetAnalyzer.getProtocolName();
+				length = String.valueOf(Integer.valueOf(length)+Integer.valueOf(String.valueOf(packetAnalyzer.getValue("Header Length"))));
 			}
 			packetAnalyzer = new IPv6Analyzer();
 			if (packetAnalyzer.isAnalyzable(packet)) {
@@ -82,6 +83,7 @@ public class PacketHandlerPcapLib {
 				ipsrc = String.valueOf(packetAnalyzer.getValue("Source IP"));
 				ipdest = String.valueOf(packetAnalyzer.getValue("Destination IP"));
 				protocol = packetAnalyzer.getProtocolName();
+				length = String.valueOf(Integer.valueOf(length)+Integer.valueOf(String.valueOf(packetAnalyzer.getValue("Header Length"))));
 			}
 			packetAnalyzer = new TCPAnalyzer();
 			if (packetAnalyzer.isAnalyzable(packet)) {
@@ -94,6 +96,7 @@ public class PacketHandlerPcapLib {
 				seq = String.valueOf(packetAnalyzer.getValue("Sequence Number"));
 				protocol = packetAnalyzer.getProtocolName();
 				venpadre.DatosConexion(ipsrc, ipdest, PuertoOrigen, PuertoDestino, i + 1);
+				length = String.valueOf(Integer.valueOf(length)+Integer.valueOf(String.valueOf(packetAnalyzer.getValue("Header Length"))));
 			}
 			packetAnalyzer = new UDPAnalyzer();
 			if (packetAnalyzer.isAnalyzable(packet)) {
@@ -101,6 +104,7 @@ public class PacketHandlerPcapLib {
 				portsrc = String.valueOf(packetAnalyzer.getValue("Source Port"));
 				portdest = String.valueOf(packetAnalyzer.getValue("Destination Port"));
 				protocol = packetAnalyzer.getProtocolName();
+				length = String.valueOf(Integer.valueOf(length)+Integer.valueOf(String.valueOf(packetAnalyzer.getValue("Header Length"))));
 			}
 			RTablePane.DatosPk();
 

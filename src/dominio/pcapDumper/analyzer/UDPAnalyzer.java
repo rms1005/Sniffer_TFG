@@ -81,6 +81,9 @@ public class UDPAnalyzer extends JDPacketAnalyzer {
 
 		case 2: // '\002'
 			return Integer.valueOf(udp.getLength());
+			
+		case 3:
+			return udp.getHeaderLength();
 
 		}
 		return null;
@@ -94,6 +97,7 @@ public class UDPAnalyzer extends JDPacketAnalyzer {
 		return v;
 	}
 
-	private static final String valueNames[] = { "Source Port", "Destination Port", "Packet Length" };
+	private static final String valueNames[] = { "Source Port", "Destination Port", "Packet Length",
+			"Header Length" };
 
 }
