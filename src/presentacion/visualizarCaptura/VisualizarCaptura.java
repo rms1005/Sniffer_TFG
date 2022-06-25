@@ -14,6 +14,7 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import org.jnetpcap.Pcap;
+import org.jnetpcap.nio.JBuffer;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.PcapPacketHandler;
 import presentacion.Mediador;
@@ -353,6 +354,48 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		}
 		if(flag)
 			antiguos = Arrays.copyOf(actuales, actuales.length);
+	}
+	
+	public void inicializarCaptura() {
+		resetGraficos();
+	}
+	
+	public void addPaquetes(byte[] buffer) {
+		//byte[] buffers = new byte[buffer.size()];
+		//buffer.getByteArray(buffer.size(), buffers);
+		// byte[] buffers = buffer;
+		
+		PcapPacket packet = new PcapPacket(0);
+		
+		int index = 0;
+		while(true) {
+			int tam = buffer[index];
+			index++;
+			if (tam == 0) {
+				int tamAux = buffer[index];
+				index++;
+				for(int i = 0; i < tamAux; i++) {
+					tam += buffer[index];
+					index++;
+				}
+			}
+			//System.out.println("TAMANO "+tam);
+			
+			byte[] paquete = new byte[tam];
+			for (int i = 0; i < tam; i++) {
+				paquete[i] = buffer[index];
+				//System.out.println("paquete:"+i+" "+buffer[index]);
+				index++;
+			}
+			packet = new PcapPacket(paquete);
+
+			PacketHandlerPcapLib.nextPacket(packet);
+			
+			if(index >= buffer.length)
+				break;
+		}
+		AddConexionesTabla();
+		refreshCapture();
 	}
 
 	private Vector<Conexion> VectorConexiones;

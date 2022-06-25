@@ -9,12 +9,24 @@ package dominio.pcapDumper;
  */
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
+import org.jfree.util.ArrayUtils;
+import org.jfree.xml.factory.objects.ArrayClassFactory;
 import org.jnetpcap.Pcap;
 import org.jnetpcap.PcapDumper;
 import org.jnetpcap.PcapHeader;
+import org.jnetpcap.nio.JBuffer;
+import org.jnetpcap.nio.JMemory;
+import org.jnetpcap.nio.JMemory.Type;
+import org.jnetpcap.nio.JMemoryPool;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.PcapPacketHandler;
+import org.jnetpcap.protocol.tcpip.Tcp;
 
 import dominio.export.xml_PcapLib.CrearXMLOffline;
 import dominio.export.xml_PcapLib.XmlPacketHandler;
@@ -59,6 +71,11 @@ public class SavePacketHandler {
 	static long aux;
 	
 	private static boolean xmlSave;
+	
+	// private static JBuffer buffer;
+	private static ArrayList<byte[]> packets;
+	private static ArrayList<Integer> packet_len;
+	private static int packetsPerBuffer = 2;
 
 	/**
 	 * Metodo Gestor de los paquetes capturados
@@ -331,8 +348,144 @@ public class SavePacketHandler {
 
 			public void nextPacket(PcapPacket packet, PcapDumper dumper) {
 
-				PcapHeader header = packet.getCaptureHeader();
-				dumper.dump(header, packet);
+				//PcapHeader header = packet.getCaptureHeader();
+				//dumper.dump(header, packet);
+				// buffer = new JBuffer(new byte[packet.getTotalSize()]);
+				// buffer.transferFrom(packet.getByteArray(0,packet.size()));
+				//buffer = new JBuffer(JMemory.Type.POINTER);
+				//Tcp tcp = new Tcp();
+				//JBuffer buff = tcp.peerPayloadTo(buffer);
+				
+				byte[] buffers = new byte[packet.getTotalSize()];
+				packet.transferStateAndDataTo(buffers);
+				
+				if (packets == null) {
+					packets = new ArrayList<byte[]>(packetsPerBuffer);
+					packet_len = new ArrayList<Integer>(packetsPerBuffer);
+					
+					// inicializar tabla paquetes
+					venpadre.getVC().inicializarCaptura();
+				}
+				
+				if (packets.size() < packetsPerBuffer) {
+					packets.add(buffers);
+					packet_len.add(buffers.length);
+				} else {
+					System.err.println("Los paquetes no se han enviado.");
+				}
+				
+				if (packets.size() == packetsPerBuffer) {
+					int tam = 0;
+					for (int i = 0; i < packetsPerBuffer; i++) {
+						if(packet_len.get(i)>127)
+							if(packet_len.get(i)%127 != 0)
+								tam += 3 + packet_len.get(i)/127;
+							else
+								tam += 2 + packet_len.get(i)/127;
+						tam += packets.get(i).length;
+					}
+					
+					// System.out.println("TAMANO "+tam);
+					
+					byte[] paquete = new byte[tam];
+					int index = 0;
+					
+					for (int i = 0; i < packetsPerBuffer; i++) {
+						int len = packet_len.get(i);
+						if(len > 127) {
+							paquete[index] = 0;
+							//System.out.println(paquete[index]);
+							index++;
+							if(len%127 != 0) {
+								paquete[index] = Integer.valueOf(len/127+1).byteValue();
+							} else {
+								paquete[index] = Integer.valueOf(len/127).byteValue();
+							}
+							//System.out.println(paquete[index]);
+							index++;
+							while(len > 0) {
+								if(len > 127) {
+									paquete[index] = 127;
+									len -= 127;
+								} else {
+									paquete[index] = Integer.valueOf(len).byteValue();
+									len = 0;
+								}
+								//System.out.println(paquete[index]);
+								index++;
+							}
+						} else {
+							paquete[index] = packet_len.get(i).byteValue();
+							//System.out.printf(index+":");
+							//System.out.printf(paquete[index]+"("+packet_len.get(i)+")\n");
+							index++;
+						}
+						//System.out.println("TAMANO PAQUETE "+packets.get(i).length);
+						for (int j = 0; j < packets.get(i).length; j++) {
+							paquete[index] = packets.get(i)[j];
+							//System.out.printf(index+":");
+							//System.out.printf(paquete[index]+"\n");
+							index++;
+						}
+					}
+					
+					packets = new ArrayList<byte[]>(packetsPerBuffer);
+					packet_len = new ArrayList<Integer>(packetsPerBuffer);
+					
+					//buffer = JMemoryPool.buffer(paquete.length);
+					//new PcapPacket(paquete).peer(buffer);
+					
+					// enviar buffer para mostrar paquetes
+					venpadre.getVC().addPaquetes(paquete);
+				}
+				
+				//System.out.println(buffers.length);
+				//System.out.println(packet.size()+"/"+packet.getTotalSize()+" (size()/totalSize())");
+				//buffer = JMemoryPool.buffer(packet.size()*2);
+					//JMemoryPool.malloc(packet.size(), buffer);
+					//packet.transferStateAndDataTo(buffer);
+				//packet.peer(buffer);
+				//byte[] pack = buffer.getByteArray(0, packet.size());
+				//byte[] pack2 = packet.getByteArray(0, packet.size());
+				//for (int i = 0; i < 20; i++) {
+				//	System.out.printf(pack[i]+" ");
+				//}
+				//System.out.println("");
+				//for (int i = 0; i < 20; i++) {
+				//	System.out.printf(pack2[i]+" ");
+				//}
+				//System.out.println("");
+
+//				System.out.println("Metemos dos packets " + packet.size()+"/"+buffer.size());
+//					//JMemoryPool.malloc(packet.size()*2+100, buffer);
+//				System.out.println("Siguiente " + packet.size()+"/"+buffer.size());
+//					// packet.peer(buffer);
+//				packet.transferTo(buffer);
+//				System.out.println("Siguiente " + packet.size()+"/"+buffer.size());
+//				byte[] pack3 = buffer.getByteArray(0, packet.size());
+//				byte[] pack4 = packet.getByteArray(0, packet.size());
+//				for (int i = 0; i < 20; i++) {
+//					System.out.printf(pack3[i]+" ");
+//				}
+//				System.out.println("");
+//				for (int i = 0; i < 20; i++) {
+//					System.out.printf(pack4[i]+" ");
+//				}
+//				System.out.println("");
+//				System.out.println("Siguiente " + packet.size()+"/"+buffer.size());
+//				System.out.println("");
+					// System.out.println(buffer.size()+"/"+packet.size());
+					// packet.allocate(packet.getTotalSize());
+					//System.out.println(packet.size()+"/"+packet.getTotalSize()+" (size()/totalSize())");
+					// System.out.println(buffer.size());
+					//header.peerTo(buffer, header.size());
+					//header.transferTo(buffer, 0);
+					//packet.peerHeaderAndData(header, buff);
+					// packet.transferTo(buffer);
+					//packet.peerHeaderAndData(buffer);
+					// packet.transferHeaderAndDataFrom(header, buffer);
+					// packet.transferTo(buffer);
+					// System.out.println(buffer.toString());
 				if (controlPacket) {
 					RCountPH.nextPacket(packet);
 					if (SavePacketHandler.xmlSave)

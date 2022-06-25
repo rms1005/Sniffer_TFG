@@ -11,7 +11,9 @@ import org.jnetpcap.PcapIf;
 import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.packet.PcapPacketHandler;
 
+import presentacion.Mediador;
 import presentacion.visualizarCaptura.PacketHandlerPcapLib;
+import presentacion.visualizarCaptura.VisualizarCaptura;
 import dominio.FachadaDominio;
 import dominio.export.xml_PcapLib.XmlPacketHandler;
 
@@ -63,9 +65,12 @@ public class Captura extends Thread {
 	protected int i;
 	private Thread captureThread2;
 	private boolean xmlSave;
+	private VisualizarCaptura VC;
 
-	public Captura(boolean xml) {
-
+	public Captura(VisualizarCaptura vc, boolean xml) {
+		
+		this.VC = vc;
+		
 		this.filtro = new PcapBpfProgram();
 		PACKET_COUNT = 0;
 		caplen = 64 * 1024; // Capture all packets, no trucation
@@ -562,6 +567,10 @@ public class Captura extends Thread {
 
 	public boolean getEndCapture() {
 		return this.endCapture;
+	}
+	
+	public VisualizarCaptura getVC() {
+		return this.VC;
 	}
 
 }

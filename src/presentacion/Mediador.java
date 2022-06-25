@@ -51,6 +51,7 @@ import presentacion.seleccionFicheros.VentanaGuardarElegirFichero;
 import presentacion.ventanaMenuSniffer.BarraHerramientas;
 import presentacion.ventanaMenuSniffer.BarraMenu;
 import presentacion.ventanaMenuSniffer.MenuSniffer;
+import presentacion.visualizarCaptura.VisualizarCaptura;
 import servicioAccesoDatos.FabricaAccesoDatos;
 import servicioAccesoDatos.FabricaAccesoDatosIF;
 import servicioAccesoDatos.FachadaFichero;
@@ -67,6 +68,7 @@ public class Mediador
 		implements ActionListener, ItemListener, ListSelectionListener, TreeSelectionListener, WindowListener {
 	private MenuSniffer MSniffer;
 	private Fcaptura FCaptura;
+	private static VisualizarCaptura VC;
 
 	Thread hilo;
 
@@ -1160,6 +1162,14 @@ public class Mediador
 	
 	public void refreshPacketDetail() {
 		this.MSniffer.refreshPacketDetail();
+	}
+	
+	public static VisualizarCaptura getVC() {
+		return VC;
+	}
+	
+	public void setVC(VisualizarCaptura vc) {
+		VC = vc;
 	}
 
 }

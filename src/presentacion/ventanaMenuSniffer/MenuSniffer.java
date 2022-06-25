@@ -100,8 +100,10 @@ public class MenuSniffer extends JFrame {
 
 		this.VC = new VisualizarCaptura(this.mediador);
 		contentPane.add(this.VC.getPanel(), "Center");
+		this.mediador.setVC(this.VC);
 
 		this.mediador.leerProperties(this);
+		
 	}
 
 	public void runVisualizacionCaptura() {

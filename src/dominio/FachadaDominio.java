@@ -49,7 +49,6 @@ public class FachadaDominio {
 	private static ArrayList<PcapIf> alldevs;
 	public static String dispoName;
 	private static String dispoDescripcion;
-	private static Mediador mediador;
 
 	public FachadaDominio() {
 	}
@@ -63,7 +62,7 @@ public class FachadaDominio {
 	}
 
 	public static Captura crearPcapLib() {
-		Captura aux = new Captura(getPrefBeanCaptura().getXML());
+		Captura aux = new Captura(Mediador.getVC(), getPrefBeanCaptura().getXML());
 		jpcap = aux;
 		return jpcap;
 	}
