@@ -73,6 +73,7 @@ public class SavePacketHandler {
 	private static boolean xmlSave;
 	
 	// private static JBuffer buffer;
+	private static ArrayList<byte[]> packetsTotal;
 	private static ArrayList<byte[]> packets;
 	private static ArrayList<Integer> packet_len;
 	private static int packetsPerBuffer = 2;
@@ -112,6 +113,7 @@ public class SavePacketHandler {
 				DefinirXML(aux + SFN.getFile().toString() + ".XML");
 			setDumper(jpcap.dumpOpen(SFN.getFullPath()));
 		}
+		packetsTotal = new ArrayList<byte[]>();
 	}
 
 	/**
@@ -146,6 +148,7 @@ public class SavePacketHandler {
 				DefinirXML(SFN.getPath() + "\\" + SFN.getNameFile() + ".XML");
 			setDumper(jpcap.dumpOpen(SFN.getFullPath()));
 		}
+		packetsTotal = new ArrayList<byte[]>();
 	}
 
 	/**
@@ -173,6 +176,7 @@ public class SavePacketHandler {
 				DefinirXML(SFN.getPath() + "\\" + SFN.getNameFile() + ".XML");
 			setDumper(jpcap.dumpOpen(SFName.getFullPath()));
 		}
+		packetsTotal = new ArrayList<byte[]>();
 	}
 
 	/**
@@ -328,7 +332,7 @@ public class SavePacketHandler {
 	 * @exception exceptions si falla el guardado secuencial de la captura
 	 */
 	public static void receivePacket(Pcap jpcap2) {
-
+		
 		if (isMultiFile()) {
 
 			if ((!(SFName.getPath() + SFName.getSeparator() + getFile()).equalsIgnoreCase(ruta))
@@ -343,37 +347,31 @@ public class SavePacketHandler {
 
 			}
 		}
+		
+		if(packets == null) {
+			packets = new ArrayList<byte[]>(packetsPerBuffer);
+			packet_len = new ArrayList<Integer>(packetsPerBuffer);
+		}
 
 		PcapPacketHandler<PcapDumper> dumpHandler = new PcapPacketHandler<PcapDumper>() {
 
 			public void nextPacket(PcapPacket packet, PcapDumper dumper) {
-
-				//PcapHeader header = packet.getCaptureHeader();
-				//dumper.dump(header, packet);
-				// buffer = new JBuffer(new byte[packet.getTotalSize()]);
-				// buffer.transferFrom(packet.getByteArray(0,packet.size()));
-				//buffer = new JBuffer(JMemory.Type.POINTER);
-				//Tcp tcp = new Tcp();
-				//JBuffer buff = tcp.peerPayloadTo(buffer);
 				
 				byte[] buffers = new byte[packet.getTotalSize()];
 				packet.transferStateAndDataTo(buffers);
 				
-				if (packets == null) {
-					packets = new ArrayList<byte[]>(packetsPerBuffer);
-					packet_len = new ArrayList<Integer>(packetsPerBuffer);
-					
-					// inicializar tabla paquetes
+				if (packetsTotal.size() == 0) {
 					venpadre.getVC().inicializarCaptura();
 				}
 				
 				if (packets.size() < packetsPerBuffer) {
 					packets.add(buffers);
 					packet_len.add(buffers.length);
+					packetsTotal.add(buffers);
 				} else {
 					System.err.println("Los paquetes no se han enviado.");
 				}
-				
+
 				if (packets.size() == packetsPerBuffer) {
 					int tam = 0;
 					for (int i = 0; i < packetsPerBuffer; i++) {
@@ -385,23 +383,18 @@ public class SavePacketHandler {
 						tam += packets.get(i).length;
 					}
 					
-					// System.out.println("TAMANO "+tam);
-					
 					byte[] paquete = new byte[tam];
 					int index = 0;
-					
 					for (int i = 0; i < packetsPerBuffer; i++) {
 						int len = packet_len.get(i);
 						if(len > 127) {
 							paquete[index] = 0;
-							//System.out.println(paquete[index]);
 							index++;
 							if(len%127 != 0) {
 								paquete[index] = Integer.valueOf(len/127+1).byteValue();
 							} else {
 								paquete[index] = Integer.valueOf(len/127).byteValue();
 							}
-							//System.out.println(paquete[index]);
 							index++;
 							while(len > 0) {
 								if(len > 127) {
@@ -411,111 +404,63 @@ public class SavePacketHandler {
 									paquete[index] = Integer.valueOf(len).byteValue();
 									len = 0;
 								}
-								//System.out.println(paquete[index]);
 								index++;
 							}
 						} else {
 							paquete[index] = packet_len.get(i).byteValue();
-							//System.out.printf(index+":");
-							//System.out.printf(paquete[index]+"("+packet_len.get(i)+")\n");
 							index++;
 						}
-						//System.out.println("TAMANO PAQUETE "+packets.get(i).length);
 						for (int j = 0; j < packets.get(i).length; j++) {
 							paquete[index] = packets.get(i)[j];
-							//System.out.printf(index+":");
-							//System.out.printf(paquete[index]+"\n");
 							index++;
 						}
 					}
-					
-					packets = new ArrayList<byte[]>(packetsPerBuffer);
-					packet_len = new ArrayList<Integer>(packetsPerBuffer);
-					
-					//buffer = JMemoryPool.buffer(paquete.length);
-					//new PcapPacket(paquete).peer(buffer);
-					
-					// enviar buffer para mostrar paquetes
 					venpadre.getVC().addPaquetes(paquete);
+					
+					packets.clear();
+					packet_len.clear();
 				}
-				
-				//System.out.println(buffers.length);
-				//System.out.println(packet.size()+"/"+packet.getTotalSize()+" (size()/totalSize())");
-				//buffer = JMemoryPool.buffer(packet.size()*2);
-					//JMemoryPool.malloc(packet.size(), buffer);
-					//packet.transferStateAndDataTo(buffer);
-				//packet.peer(buffer);
-				//byte[] pack = buffer.getByteArray(0, packet.size());
-				//byte[] pack2 = packet.getByteArray(0, packet.size());
-				//for (int i = 0; i < 20; i++) {
-				//	System.out.printf(pack[i]+" ");
-				//}
-				//System.out.println("");
-				//for (int i = 0; i < 20; i++) {
-				//	System.out.printf(pack2[i]+" ");
-				//}
-				//System.out.println("");
 
-//				System.out.println("Metemos dos packets " + packet.size()+"/"+buffer.size());
-//					//JMemoryPool.malloc(packet.size()*2+100, buffer);
-//				System.out.println("Siguiente " + packet.size()+"/"+buffer.size());
-//					// packet.peer(buffer);
-//				packet.transferTo(buffer);
-//				System.out.println("Siguiente " + packet.size()+"/"+buffer.size());
-//				byte[] pack3 = buffer.getByteArray(0, packet.size());
-//				byte[] pack4 = packet.getByteArray(0, packet.size());
-//				for (int i = 0; i < 20; i++) {
-//					System.out.printf(pack3[i]+" ");
-//				}
-//				System.out.println("");
-//				for (int i = 0; i < 20; i++) {
-//					System.out.printf(pack4[i]+" ");
-//				}
-//				System.out.println("");
-//				System.out.println("Siguiente " + packet.size()+"/"+buffer.size());
-//				System.out.println("");
-					// System.out.println(buffer.size()+"/"+packet.size());
-					// packet.allocate(packet.getTotalSize());
-					//System.out.println(packet.size()+"/"+packet.getTotalSize()+" (size()/totalSize())");
-					// System.out.println(buffer.size());
-					//header.peerTo(buffer, header.size());
-					//header.transferTo(buffer, 0);
-					//packet.peerHeaderAndData(header, buff);
-					// packet.transferTo(buffer);
-					//packet.peerHeaderAndData(buffer);
-					// packet.transferHeaderAndDataFrom(header, buffer);
-					// packet.transferTo(buffer);
-					// System.out.println(buffer.toString());
 				if (controlPacket) {
 					RCountPH.nextPacket(packet);
-					if (SavePacketHandler.xmlSave)
-						ficheroxmlenconstruccion.receivePacket(packet);
-					contSpaceLen += packet.size();
 				}
 			}
 		};
 
 		jpcap2.loop(1, dumpHandler, getDumper());
 		nextContPacket();
-		/* Se crean en Multiarchivos */
+	}
+	
+	public static boolean comprobarDetencion() {
+		if ((getContPacket() >= getNumPacket()) && (getNumPacket() != 0L)) {
+			aux = 0;
+			
+			grabarFicheros();
 
-		if (contSpaceLen >= getSpace() && (getSpace() != 0)) {
-			SFName.setNext();
-			if (SFName.getNext() == -1) {
-				aux = 0;
-				stopCaptura();
+			stopCaptura();
+			if (xmlSave)
 				savefichero();
-				dumper.close();
+			dumper.close();
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public static void grabarFicheros() {
 
-			} else {
-				savefichero();
-				setTcpDumpWriter(SFName.getNameTime());
-				SFName.saveStateMulti(true);
+		PcapPacket paquete;
+		for (byte[] aux : packetsTotal) {
+			paquete = new PcapPacket(aux);
+			PcapHeader header = paquete.getCaptureHeader();
+			dumper.dump(header, paquete);
+			
+			if (controlPacket) {
+				if (SavePacketHandler.xmlSave)
+					ficheroxmlenconstruccion.receivePacket(paquete);
+				contSpaceLen += paquete.size();
 			}
-
-		} else {
-			ruta = (SFName.getPath() + SFName.getSeparator() + getFile());
-
 		}
 
 		/* Una vez grabado podemos vaciar el buffer de memoria */
@@ -524,16 +469,50 @@ public class SavePacketHandler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void grabarMultiFicheros() {
+		PcapPacket paquete;
+		for (byte[] auxP : packetsTotal) {
+			paquete = new PcapPacket(auxP);
+			PcapHeader header = paquete.getCaptureHeader();
+			dumper.dump(header, paquete);
+			
+			if (controlPacket) {
+				if (SavePacketHandler.xmlSave)
+					ficheroxmlenconstruccion.receivePacket(paquete);
+				contSpaceLen += paquete.size();
+			}
+			
+			/* Se crean en Multiarchivos */
+			if (contSpaceLen >= getSpace() && (getSpace() != 0)) {
+				SFName.setNext();
+				if (SFName.getNext() == -1) {
+					aux = 0;
+					stopCaptura();
+					savefichero();
+					dumper.close();
 
-		if ((getContPacket() >= getNumPacket()) && (getNumPacket() != 0L)) {
-			aux = 0;
+					/* Una vez grabado podemos vaciar el buffer de memoria */
+					try {
+						System.in.skip(System.in.available());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				} else {
+					savefichero();
+					setTcpDumpWriter(SFName.getNameTime());
+					SFName.saveStateMulti(true);
+				}
 
-			stopCaptura();
-			if (xmlSave)
-				savefichero();
-			dumper.close();
+			} else {
+				ruta = (SFName.getPath() + SFName.getSeparator() + getFile());
+			}
 		}
-
+	}
+	
+	public static void vaciarPaquetesTotal() {
+		packetsTotal.clear();
 	}
 
 	static void savefichero() {
@@ -544,7 +523,6 @@ public class SavePacketHandler {
 		 */
 		ficheroxmlenconstruccion.finEntrada();
 		System.out.println("\n Se ha realizado el archivo en XML en " + nombreficheroxml);
-		// dumper.close();
 
 	}
 
@@ -564,7 +542,6 @@ public class SavePacketHandler {
 		setSpace(0);
 
 		getVenPadre().stopCaptureThread();
-		// savefichero();
 
 	}
 

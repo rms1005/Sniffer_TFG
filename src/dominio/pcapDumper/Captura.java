@@ -66,6 +66,8 @@ public class Captura extends Thread {
 	private Thread captureThread2;
 	private boolean xmlSave;
 	private VisualizarCaptura VC;
+	
+	private boolean grabado;
 
 	public Captura(VisualizarCaptura vc, boolean xml) {
 		
@@ -79,6 +81,8 @@ public class Captura extends Thread {
 		setTypeOffline(false);
 		this.endCapture = false;
 		this.xmlSave = xml;
+		
+		grabado = false;
 	}
 
 	/**
@@ -190,6 +194,8 @@ public class Captura extends Thread {
 				while (isLiveCapture) {
 					SavePacketHandler.receivePacket(jpcap /** ,dumper */
 					);
+					
+					grabado = SavePacketHandler.comprobarDetencion();
 
 					if ((SavePacketHandler.aux == 0) && (!isLiveCapture)) {
 						stopCaptureThread();
@@ -198,6 +204,14 @@ public class Captura extends Thread {
 
 				}
 				endCapture(true);
+				
+				if(!grabado)
+					if(SavePacketHandler.getSpace() == 0)
+						SavePacketHandler.grabarFicheros();
+					else
+						SavePacketHandler.grabarMultiFicheros();
+
+				SavePacketHandler.vaciarPaquetesTotal();
 			} else {
 
 				jpcap.setFilter(this.filtro);

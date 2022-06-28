@@ -244,7 +244,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 		Paneaux.repaint();
 		Paneaux2.repaint();
 		repaint();
-		System.out.println("refres...paso");
+		// System.out.println("refres...paso");
 	}
 
 	public void LoadFileRules(File nombre) {
@@ -358,12 +358,11 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	
 	public void inicializarCaptura() {
 		resetGraficos();
+		PacketHandlerPcapLib.resetNum();
+		refreshCapture();
 	}
 	
 	public void addPaquetes(byte[] buffer) {
-		//byte[] buffers = new byte[buffer.size()];
-		//buffer.getByteArray(buffer.size(), buffers);
-		// byte[] buffers = buffer;
 		
 		PcapPacket packet = new PcapPacket(0);
 		
@@ -379,12 +378,10 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 					index++;
 				}
 			}
-			//System.out.println("TAMANO "+tam);
 			
 			byte[] paquete = new byte[tam];
 			for (int i = 0; i < tam; i++) {
 				paquete[i] = buffer[index];
-				//System.out.println("paquete:"+i+" "+buffer[index]);
 				index++;
 			}
 			packet = new PcapPacket(paquete);
@@ -394,6 +391,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 			if(index >= buffer.length)
 				break;
 		}
+		TablaConexiones.clearTable();
 		AddConexionesTabla();
 		refreshCapture();
 	}

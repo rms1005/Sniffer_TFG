@@ -130,13 +130,13 @@ public class PacketHandlerPcapLib {
 		String horaActual = new String(sdf.format(hoy));
 		return horaActual;
 	}
+	
+	public static void resetNum() {
+		i = 0;
+	}
 
-	private String IpOrigen;
-	private String IpDestino;
 	private static int PuertoOrigen;
 	private static int PuertoDestino;
-	private String datos;
-	private byte data[];
 	public static int i;
 	public static VisualizarCaptura venpadre;
 	public static TablePane RTablePane;
