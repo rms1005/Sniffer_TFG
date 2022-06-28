@@ -434,7 +434,7 @@ public class PreferenciasCaptura extends JDialog {
 
 		jTextField10.setEnabled(false);
 
-		jLabel8.setText("patete/es");
+		jLabel8.setText("paquete/es");
 		jLabel8.setEnabled(false);
 
 		jComboBox6.setModel(new DefaultComboBoxModel(this.Capacidad));

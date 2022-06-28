@@ -426,7 +426,7 @@ public class PreferenciasFromFile extends JDialog {
 		jTextField9.setEnabled(false);
 
 		jTextField10.setEnabled(false);
-		jLabel8.setText("patete/es");
+		jLabel8.setText("paquete/es");
 		jLabel8.setEnabled(false);
 
 		jComboBox6.setModel(new DefaultComboBoxModel(this.Capacidad));

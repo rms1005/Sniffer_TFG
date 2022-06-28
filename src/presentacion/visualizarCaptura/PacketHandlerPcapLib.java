@@ -42,10 +42,10 @@ public class PacketHandlerPcapLib {
 	static String ttl = "";
 	static String flags = "";
 
-	public PacketHandlerPcapLib(VisualizarCaptura visualizarCaptura, TablePane RTablePane) {
+	public PacketHandlerPcapLib(VisualizarCaptura visualizarCaptura, TablePane RTablePane1) {
 		i = 0;
-		this.venpadre = visualizarCaptura;
-		this.RTablePane = RTablePane;
+		venpadre = visualizarCaptura;
+		RTablePane = RTablePane1;
 	}
 
 	/**
