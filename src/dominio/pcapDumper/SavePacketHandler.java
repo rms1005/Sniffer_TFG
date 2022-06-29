@@ -334,133 +334,142 @@ public class SavePacketHandler {
 	public static void receivePacket(Pcap jpcap2) {
 		
 		if (isMultiFile()) {
-
-			if ((!(SFName.getPath() + SFName.getSeparator() + getFile()).equalsIgnoreCase(ruta))
-					|| SaveTime.isCambiaArchivo() == true) {
-
-				if (xmlSave)
-					DefinirXML(SFName.getPath() + SFName.getSeparator() + SFName.getNameFile() + "_" + SFName.getDateTime()
-							+ "_" + SFName.getContador() + ".xml");
-				setDumper(jpcap2.dumpOpen(SFName.getPath() + SFName.getSeparator() + getFile()));
-
-				SaveTime.setCambiaArchivo(false);
-
+			receivePacketMultifile(jpcap2);
+		} else {
+		
+			if(packets == null) {
+				packets = new ArrayList<byte[]>(packetsPerBuffer);
+				packet_len = new ArrayList<Integer>(packetsPerBuffer);
 			}
+	
+			PcapPacketHandler<PcapDumper> dumpHandler = new PcapPacketHandler<PcapDumper>() {
+	
+				public void nextPacket(PcapPacket packet, PcapDumper dumper) {
+					
+					byte[] buffers = new byte[packet.getTotalSize()];
+					packet.transferStateAndDataTo(buffers);
+					
+					if (packetsTotal.size() == 0) {
+						venpadre.getVC().inicializarCaptura();
+					}
+					
+					if (packets.size() < packetsPerBuffer) {
+						packets.add(buffers);
+						packet_len.add(buffers.length);
+						packetsTotal.add(buffers);
+					} else {
+						System.err.println("Los paquetes no se han enviado.");
+					}
+	
+					if (packets.size() == packetsPerBuffer) {
+						int tam = 0;
+						for (int i = 0; i < packetsPerBuffer; i++) {
+							if(packet_len.get(i)>127)
+								if(packet_len.get(i)%127 != 0)
+									tam += 3 + packet_len.get(i)/127;
+								else
+									tam += 2 + packet_len.get(i)/127;
+							tam += packets.get(i).length;
+						}
+						
+						byte[] paquete = new byte[tam];
+						int index = 0;
+						for (int i = 0; i < packetsPerBuffer; i++) {
+							int len = packet_len.get(i);
+							if(len > 127) {
+								paquete[index] = 0;
+								index++;
+								if(len%127 != 0) {
+									paquete[index] = Integer.valueOf(len/127+1).byteValue();
+								} else {
+									paquete[index] = Integer.valueOf(len/127).byteValue();
+								}
+								index++;
+								while(len > 0) {
+									if(len > 127) {
+										paquete[index] = 127;
+										len -= 127;
+									} else {
+										paquete[index] = Integer.valueOf(len).byteValue();
+										len = 0;
+									}
+									index++;
+								}
+							} else {
+								paquete[index] = packet_len.get(i).byteValue();
+								index++;
+							}
+							for (int j = 0; j < packets.get(i).length; j++) {
+								paquete[index] = packets.get(i)[j];
+								index++;
+							}
+						}
+						venpadre.getVC().addPaquetes(paquete);
+						
+						packets.clear();
+						packet_len.clear();
+					}
+	
+					if (controlPacket) {
+						RCountPH.nextPacket(packet);
+					}
+				}
+			};
+	
+			jpcap2.loop(1, dumpHandler, getDumper());
+			nextContPacket();
+		}
+	}
+	
+	public static void receivePacketMultifile(Pcap jpcap2) {
+		if ((!(SFName.getPath() + SFName.getSeparator() + getFile()).equalsIgnoreCase(ruta))
+				|| SaveTime.isCambiaArchivo() == true) {
+
+			if (xmlSave)
+				DefinirXML(SFName.getPath() + SFName.getSeparator() + SFName.getNameFile() + "_" + SFName.getDateTime()
+						+ "_" + SFName.getContador() + ".xml");
+			setDumper(jpcap2.dumpOpen(SFName.getPath() + SFName.getSeparator() + getFile()));
+
+			SaveTime.setCambiaArchivo(false);
+
 		}
 		
-		if(packets == null) {
-			packets = new ArrayList<byte[]>(packetsPerBuffer);
-			packet_len = new ArrayList<Integer>(packetsPerBuffer);
-		}
-
 		PcapPacketHandler<PcapDumper> dumpHandler = new PcapPacketHandler<PcapDumper>() {
 
 			public void nextPacket(PcapPacket packet, PcapDumper dumper) {
-				
-				byte[] buffers = new byte[packet.getTotalSize()];
-				packet.transferStateAndDataTo(buffers);
-				
-				if (packetsTotal.size() == 0) {
-					venpadre.getVC().inicializarCaptura();
-				}
-				
-				if (packets.size() < packetsPerBuffer) {
-					packets.add(buffers);
-					packet_len.add(buffers.length);
-					packetsTotal.add(buffers);
-				} else {
-					System.err.println("Los paquetes no se han enviado.");
-				}
 
-				if (packets.size() == packetsPerBuffer) {
-					int tam = 0;
-					for (int i = 0; i < packetsPerBuffer; i++) {
-						if(packet_len.get(i)>127)
-							if(packet_len.get(i)%127 != 0)
-								tam += 3 + packet_len.get(i)/127;
-							else
-								tam += 2 + packet_len.get(i)/127;
-						tam += packets.get(i).length;
-					}
-					
-					byte[] paquete = new byte[tam];
-					int index = 0;
-					for (int i = 0; i < packetsPerBuffer; i++) {
-						int len = packet_len.get(i);
-						if(len > 127) {
-							paquete[index] = 0;
-							index++;
-							if(len%127 != 0) {
-								paquete[index] = Integer.valueOf(len/127+1).byteValue();
-							} else {
-								paquete[index] = Integer.valueOf(len/127).byteValue();
-							}
-							index++;
-							while(len > 0) {
-								if(len > 127) {
-									paquete[index] = 127;
-									len -= 127;
-								} else {
-									paquete[index] = Integer.valueOf(len).byteValue();
-									len = 0;
-								}
-								index++;
-							}
-						} else {
-							paquete[index] = packet_len.get(i).byteValue();
-							index++;
-						}
-						for (int j = 0; j < packets.get(i).length; j++) {
-							paquete[index] = packets.get(i)[j];
-							index++;
-						}
-					}
-					venpadre.getVC().addPaquetes(paquete);
-					
-					packets.clear();
-					packet_len.clear();
-				}
-
+				PcapHeader header = packet.getCaptureHeader();
+				dumper.dump(header, packet);
 				if (controlPacket) {
 					RCountPH.nextPacket(packet);
+					if (SavePacketHandler.xmlSave)
+						ficheroxmlenconstruccion.receivePacket(packet);
+					contSpaceLen += packet.size();
 				}
 			}
 		};
-
+		
 		jpcap2.loop(1, dumpHandler, getDumper());
 		nextContPacket();
-	}
-	
-	public static boolean comprobarDetencion() {
-		if ((getContPacket() >= getNumPacket()) && (getNumPacket() != 0L)) {
-			aux = 0;
-			
-			grabarFicheros();
+		/* Se crean en Multiarchivos */
 
-			stopCaptura();
-			if (xmlSave)
+		if (contSpaceLen >= getSpace() && (getSpace() != 0)) {
+			SFName.setNext();
+			if (SFName.getNext() == -1) {
+				aux = 0;
+				stopCaptura();
 				savefichero();
-			dumper.close();
-			
-			return true;
-		}
-		
-		return false;
-	}
-	
-	public static void grabarFicheros() {
+				dumper.close();
 
-		PcapPacket paquete;
-		for (byte[] aux : packetsTotal) {
-			paquete = new PcapPacket(aux);
-			PcapHeader header = paquete.getCaptureHeader();
-			dumper.dump(header, paquete);
-			
-			if (controlPacket) {
-				if (SavePacketHandler.xmlSave)
-					ficheroxmlenconstruccion.receivePacket(paquete);
-				contSpaceLen += paquete.size();
+			} else {
+				savefichero();
+				setTcpDumpWriter(SFName.getNameTime());
+				SFName.saveStateMulti(true);
 			}
+
+		} else {
+			ruta = (SFName.getPath() + SFName.getSeparator() + getFile());
+
 		}
 
 		/* Una vez grabado podemos vaciar el buffer de memoria */
@@ -469,6 +478,61 @@ public class SavePacketHandler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		if ((getContPacket() >= getNumPacket()) && (getNumPacket() != 0L)) {
+			aux = 0;
+
+			stopCaptura();
+			if (xmlSave)
+				savefichero();
+			dumper.close();
+		}
+	}
+	
+	public static boolean comprobarDetencion() {
+		if ((getContPacket() >= getNumPacket()) && (getNumPacket() != 0L)) {
+			aux = 0;
+			
+			grabarFicheros();
+
+			finalizar();
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public static void grabarFicheros() {
+		
+		if(!isMultiFile()) {
+			PcapPacket paquete;
+			for (byte[] aux : packetsTotal) {
+				paquete = new PcapPacket(aux);
+				PcapHeader header = paquete.getCaptureHeader();
+				dumper.dump(header, paquete);
+				
+				if (controlPacket) {
+					if (xmlSave)
+						ficheroxmlenconstruccion.receivePacket(paquete);
+					contSpaceLen += paquete.size();
+				}
+			}
+	
+			/* Una vez grabado podemos vaciar el buffer de memoria */
+			try {
+				System.in.skip(System.in.available());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void finalizar() {
+		stopCaptura();
+		if (xmlSave)
+			savefichero();
+		dumper.close();
 	}
 	
 	public static void grabarMultiFicheros() {
@@ -490,7 +554,8 @@ public class SavePacketHandler {
 				if (SFName.getNext() == -1) {
 					aux = 0;
 					stopCaptura();
-					savefichero();
+					if(xmlSave)
+						savefichero();
 					dumper.close();
 
 					/* Una vez grabado podemos vaciar el buffer de memoria */
@@ -500,7 +565,8 @@ public class SavePacketHandler {
 						e.printStackTrace();
 					}
 				} else {
-					savefichero();
+					if(xmlSave)
+						savefichero();
 					setTcpDumpWriter(SFName.getNameTime());
 					SFName.saveStateMulti(true);
 				}

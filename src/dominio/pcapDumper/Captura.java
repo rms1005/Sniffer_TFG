@@ -205,11 +205,10 @@ public class Captura extends Thread {
 				}
 				endCapture(true);
 				
-				if(!grabado)
-					if(SavePacketHandler.getSpace() == 0)
-						SavePacketHandler.grabarFicheros();
-					else
-						SavePacketHandler.grabarMultiFicheros();
+				if(!grabado) {
+					SavePacketHandler.grabarFicheros();
+					SavePacketHandler.finalizar();
+				}
 
 				SavePacketHandler.vaciarPaquetesTotal();
 			} else {
