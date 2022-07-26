@@ -1,7 +1,0 @@
-#Sniffer I
-#Thu Jun 02 23:46:17 CEST 2022
-TableView=ACK,Num,MAC Dest,Frame,SEQ,Time,IP Dest,MAC Src,Size,Protocol,IP Src,Port Src,Port Dest,Length,
-WinHeight=600
-WinWidth=800
-WinX=0
-WinY=0

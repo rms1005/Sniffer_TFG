@@ -1,0 +1,7 @@
+#Sniffer I
+#Fri Jul 22 04:04:01 CEST 2022
+TableView=Num,Time,Size,Protocol,IP Src,IP Dest,Port Src,Port Dest,Length,
+WinHeight=600
+WinWidth=800
+WinX=0
+WinY=0

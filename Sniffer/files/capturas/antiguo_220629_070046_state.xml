@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Capture File</comment>
+<entry key="Extension">.pcap</entry>
+<entry key="LastNumCaptureFile">2</entry>
+<entry key="StopAfter">0</entry>
+<entry key="Locate">C:\Users\Raul\Desktop\Aplic Sniffer-III - 32 bits\files\capturas</entry>
+<entry key="RingBuffer">0</entry>
+<entry key="LastCaptureFile">antiguo_220629_070046_2.pcap</entry>
+<entry key="Capturando">No</entry>
+<entry key="Name">antiguo_220629_070046</entry>
+<entry key="MultipleFile">Yes</entry>
+</properties>
