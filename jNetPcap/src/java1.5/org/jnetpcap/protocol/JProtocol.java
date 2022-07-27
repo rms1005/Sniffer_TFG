@@ -24,6 +24,7 @@ import org.jnetpcap.packet.JHeader;
 import org.jnetpcap.packet.Payload;
 import org.jnetpcap.protocol.application.Html;
 import org.jnetpcap.protocol.application.WebImage;
+import org.jnetpcap.protocol.application.DNS;
 import org.jnetpcap.protocol.lan.Ethernet;
 import org.jnetpcap.protocol.lan.IEEE802dot1q;
 import org.jnetpcap.protocol.lan.IEEE802dot2;
@@ -32,6 +33,8 @@ import org.jnetpcap.protocol.lan.IEEESnap;
 import org.jnetpcap.protocol.lan.SLL;
 import org.jnetpcap.protocol.network.Arp;
 import org.jnetpcap.protocol.network.Icmp;
+import org.jnetpcap.protocol.network.Icmpv6;
+import org.jnetpcap.protocol.network.Igmp;
 import org.jnetpcap.protocol.network.Ip4;
 import org.jnetpcap.protocol.network.Ip6;
 import org.jnetpcap.protocol.tcpip.Http;
@@ -120,6 +123,11 @@ public enum JProtocol {
 	/** Linux cooked sockets. */
 	SLL(SLL.class, PcapDLT.LINUX_SLL),
 	
+	IGMP(Igmp.class),
+	
+	DNS(DNS.class),
+	
+	ICMPv6(Icmpv6.class)
 	;
 
 	/**
@@ -221,6 +229,12 @@ public enum JProtocol {
 	
 	/** The Constant SLL_ID. */
 	public final static int SLL_ID = 20;
+	
+	public final static int IGMP_ID = 21;
+	
+	public final static int DNS_ID = 22;
+	
+	public final static int ICMPv6_ID = 23;
 	
 	/** The Constant LAST_ID. */
 	public final static int LAST_ID = JProtocol.values().length;
