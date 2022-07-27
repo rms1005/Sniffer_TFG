@@ -83,7 +83,8 @@ public class IPv4Analyzer extends JDPacketAnalyzer {
 			values.put(valueNames[7], new String(ip.flags_MFDescription()));
 			values.put(valueNames[8], Integer.valueOf(ip.offset()));
 			values.put(valueNames[9], Integer.valueOf(ip.ttl()));
-			values.put(valueNames[10], new String(ip.getName()));
+			values.put(valueNames[10], new String(Ip4.Ip4Type.valueOf(ip.type()).toString()
+					+ " (" + ip.type() + ")"));
 			values.put(valueNames[11], org.jnetpcap.packet.format.FormatUtils.ip(ip.source()));
 			values.put(valueNames[12], org.jnetpcap.packet.format.FormatUtils.ip(ip.destination()));
 			values.put(valueNames[13], ip.getHeaderLength());
