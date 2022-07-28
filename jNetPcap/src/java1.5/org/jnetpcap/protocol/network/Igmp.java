@@ -1,10 +1,13 @@
 package org.jnetpcap.protocol.network;
 
 import org.jnetpcap.packet.JHeader;
+import org.jnetpcap.packet.JHeaderChecksum;
+import org.jnetpcap.packet.JHeaderMap;
 import org.jnetpcap.packet.annotate.Dynamic;
 import org.jnetpcap.packet.annotate.Field;
 import org.jnetpcap.packet.annotate.Header;
 import org.jnetpcap.protocol.JProtocol;
+import org.jnetpcap.util.checksum.Checksum;
 
 @Header
 public class Igmp extends JHeader {
@@ -133,16 +136,70 @@ public class Igmp extends JHeader {
 		return aux;
 	}
 	
-	public class Query {
+	public class Query extends JHeaderMap<Igmp> implements JHeaderChecksum {
 		
 		@Field(offset = 0, length = 8, format = "%d")
 		public int maxRespCode() {
 			return Igmp.super.getUByte(1);
 		}
 		
+		public String maxRespTime() {
+			int code = maxRespCode();
+			//TODO
+			return "";
+		}
+		
 		@Field(offset = 1 * 8, length = 2 * 8, format = "%x")
 		public int checksum() {
 			return Igmp.super.getUShort(2);
+		}
+		
+		@Override
+		public int calculateChecksum() {
+
+			if (getIndex() == -1) {
+				throw new IllegalStateException("Oops index not set");
+			}
+
+			final int ipOffset = getPreviousHeaderOffset();
+
+			return Checksum.inChecksumShouldBe(checksum(), Checksum.icmp(packet,
+			    ipOffset, this.getOffset()));
+		}
+
+		@Override
+		public boolean isChecksumValid() {
+
+			if (isFragmented()) {
+				return true;
+			}
+
+			if (getIndex() == -1) {
+				throw new IllegalStateException("Oops index not set");
+			}
+
+			final int ipOffset = getPreviousHeaderOffset();
+
+			return Checksum.icmp(packet, ipOffset, this.getOffset()) == 0;
+		}
+
+		@Dynamic(Field.Property.DESCRIPTION)
+		public String checksumDescription() {
+
+			if (isFragmented()) {
+				return "supressed for fragments";
+			}
+
+			if (isPayloadTruncated()) {
+				return "supressed for truncated packets";
+			}
+
+			final int crc16 = calculateChecksum();
+			if (checksum() == crc16) {
+				return "correct";
+			} else {
+				return "incorrect: 0x" + Integer.toHexString(crc16).toUpperCase();
+			}
 		}
 		
 		@Field(offset = 3 * 8, length = 4 * 8, format = "#ip4#")
@@ -176,19 +233,19 @@ public class Igmp extends JHeader {
 		}
 		
 		@Field(offset = 11 * 8)
-		public byte[] sources() {
+		public byte[][] sources() {
 			final int count = nSources();
 			
-			final byte[] sources = new byte[count*4];
+			final byte[][] sources = new byte[count][4];
 			
 			int i = 0;
 			while(i < sources.length) {
-				byte[] aux = Igmp.super.getByteArray(12 + i, 4);
-				sources[i] = aux[0];
-				sources[i+1] = aux[1];
-				sources[i+2] = aux[2];
-				sources[i+3] = aux[3];
-				i += 4;
+				byte[] aux = Igmp.super.getByteArray(12 + i*4, 4);
+				sources[i][0] = aux[0];
+				sources[i][1] = aux[1];
+				sources[i][2] = aux[2];
+				sources[i][3] = aux[3];
+				i += 1;
 			}
 			
 			return sources;
@@ -196,7 +253,7 @@ public class Igmp extends JHeader {
 	
 	}
 	
-	public class MembershipReportv1 {
+	public class MembershipReportv1 extends JHeaderMap<Igmp> implements JHeaderChecksum {
 		
 		@Field(offset = 0, length = 8)
 		public int unused() {
@@ -207,6 +264,54 @@ public class Igmp extends JHeader {
 		public int checksum() {
 			return Igmp.super.getUShort(2);
 		}
+		
+		@Override
+		public int calculateChecksum() {
+
+			if (getIndex() == -1) {
+				throw new IllegalStateException("Oops index not set");
+			}
+
+			final int ipOffset = getPreviousHeaderOffset();
+
+			return Checksum.inChecksumShouldBe(checksum(), Checksum.icmp(packet,
+			    ipOffset, this.getOffset()));
+		}
+
+		@Override
+		public boolean isChecksumValid() {
+
+			if (isFragmented()) {
+				return true;
+			}
+
+			if (getIndex() == -1) {
+				throw new IllegalStateException("Oops index not set");
+			}
+
+			final int ipOffset = getPreviousHeaderOffset();
+
+			return Checksum.icmp(packet, ipOffset, this.getOffset()) == 0;
+		}
+
+		@Dynamic(Field.Property.DESCRIPTION)
+		public String checksumDescription() {
+
+			if (isFragmented()) {
+				return "supressed for fragments";
+			}
+
+			if (isPayloadTruncated()) {
+				return "supressed for truncated packets";
+			}
+
+			final int crc16 = calculateChecksum();
+			if (checksum() == crc16) {
+				return "correct";
+			} else {
+				return "incorrect: 0x" + Integer.toHexString(crc16).toUpperCase();
+			}
+		}
 
 		@Field(offset = 8, length = 2 * 8, format = "#ip4#")
 		public byte[] groupAdress() {
@@ -215,7 +320,7 @@ public class Igmp extends JHeader {
 		
 	}
 	
-	public class MembershipReportv2 {
+	public class MembershipReportv2 extends JHeaderMap<Igmp> implements JHeaderChecksum {
 		
 		@Field(offset = 0, length = 8)
 		public int maxResponseTime() {
@@ -226,6 +331,54 @@ public class Igmp extends JHeader {
 		public int checksum() {
 			return Igmp.super.getUShort(2);
 		}
+		
+		@Override
+		public int calculateChecksum() {
+
+			if (getIndex() == -1) {
+				throw new IllegalStateException("Oops index not set");
+			}
+
+			final int ipOffset = getPreviousHeaderOffset();
+
+			return Checksum.inChecksumShouldBe(checksum(), Checksum.icmp(packet,
+			    ipOffset, this.getOffset()));
+		}
+
+		@Override
+		public boolean isChecksumValid() {
+
+			if (isFragmented()) {
+				return true;
+			}
+
+			if (getIndex() == -1) {
+				throw new IllegalStateException("Oops index not set");
+			}
+
+			final int ipOffset = getPreviousHeaderOffset();
+
+			return Checksum.icmp(packet, ipOffset, this.getOffset()) == 0;
+		}
+
+		@Dynamic(Field.Property.DESCRIPTION)
+		public String checksumDescription() {
+
+			if (isFragmented()) {
+				return "supressed for fragments";
+			}
+
+			if (isPayloadTruncated()) {
+				return "supressed for truncated packets";
+			}
+
+			final int crc16 = calculateChecksum();
+			if (checksum() == crc16) {
+				return "correct";
+			} else {
+				return "incorrect: 0x" + Integer.toHexString(crc16).toUpperCase();
+			}
+		}
 
 		@Field(offset = 8, length = 2 * 8, format = "#ip4#")
 		public byte[] groupAdress() {
@@ -234,7 +387,7 @@ public class Igmp extends JHeader {
 		
 	}
 	
-	public class MembershipReportv3 {
+	public class MembershipReportv3 extends JHeaderMap<Igmp> implements JHeaderChecksum {
 		
 		@Field(offset = 0, length = 8)
 		public int reserved() {
@@ -244,6 +397,54 @@ public class Igmp extends JHeader {
 		@Field(offset = 1 * 8, length = 2 * 8)
 		public int checksum() {
 			return Igmp.super.getUShort(2);
+		}
+		
+		@Override
+		public int calculateChecksum() {
+
+			if (getIndex() == -1) {
+				throw new IllegalStateException("Oops index not set");
+			}
+
+			final int ipOffset = getPreviousHeaderOffset();
+
+			return Checksum.inChecksumShouldBe(checksum(), Checksum.icmp(packet,
+			    ipOffset, this.getOffset()));
+		}
+
+		@Override
+		public boolean isChecksumValid() {
+
+			if (isFragmented()) {
+				return true;
+			}
+
+			if (getIndex() == -1) {
+				throw new IllegalStateException("Oops index not set");
+			}
+
+			final int ipOffset = getPreviousHeaderOffset();
+
+			return Checksum.icmp(packet, ipOffset, this.getOffset()) == 0;
+		}
+
+		@Dynamic(Field.Property.DESCRIPTION)
+		public String checksumDescription() {
+
+			if (isFragmented()) {
+				return "supressed for fragments";
+			}
+
+			if (isPayloadTruncated()) {
+				return "supressed for truncated packets";
+			}
+
+			final int crc16 = calculateChecksum();
+			if (checksum() == crc16) {
+				return "correct";
+			} else {
+				return "incorrect: 0x" + Integer.toHexString(crc16).toUpperCase();
+			}
 		}
 		
 		@Field(offset = 3 * 8, length = 2 * 8)
@@ -351,25 +552,25 @@ public class Igmp extends JHeader {
 			}
 			
 			@Field(offset = 4 * 8, length = 4 * 8)
-			public byte[] multicastAdress(int aux) {
+			public byte[] groupAdress(int aux) {
 				return Igmp.super.getByteArray(12 + aux, 4);
 			}
 			
 			@Field(offset = 8 * 8)
-			public byte[] sourceAdresses(int aux) {
+			public byte[][] sourceAdresses(int aux) {
 				final int count = nSources(aux);
 				
-				final byte[] adresses = new byte[count*4];
+				final byte[][] adresses = new byte[count][4];
 				
 				int i = 0;
 				while(i < adresses.length) {
 					byte[] aux2 =
-							Igmp.super.getByteArray(16 + aux + i, 4);
-					adresses[i] = aux2[0];
-					adresses[i+1] = aux2[1];
-					adresses[i+2] = aux2[2];
-					adresses[i+3] = aux2[3];
-					i += 4;
+							Igmp.super.getByteArray(16 + aux + i*4, 4);
+					adresses[i][0] = aux2[0];
+					adresses[i][1] = aux2[1];
+					adresses[i][2] = aux2[2];
+					adresses[i][3] = aux2[3];
+					i += 1;
 				}
 				
 				return adresses;

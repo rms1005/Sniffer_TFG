@@ -9,9 +9,7 @@ import org.jnetpcap.packet.annotate.Field;
 import org.jnetpcap.packet.annotate.Header;
 import org.jnetpcap.packet.annotate.HeaderLength;
 import org.jnetpcap.protocol.JProtocol;
-import org.jnetpcap.protocol.network.Icmp.Echo;
 import org.jnetpcap.protocol.network.Icmp.IcmpType;
-import org.jnetpcap.protocol.network.Icmp.Reserved;
 import org.jnetpcap.util.checksum.Checksum;
 
 @Header
@@ -56,7 +54,7 @@ public class Icmpv6 extends JHeaderMap<Icmp> implements JHeaderChecksum {
 	 */
 	public enum Icmpv6Type {
 		
-		DESTINATION_UNREACHABLE(3, "Destination Unreachable"),
+		DESTINATION_UNREACHABLE(1, "Destination Unreachable"),
 		PACKET_TOO_BIG(2, "Packet Too Big"),
 		TIME_EXCEEDED(3, "Time Exceeded"),
 		PARAMETER_PROBLEM(4, "Parameter Problem"),

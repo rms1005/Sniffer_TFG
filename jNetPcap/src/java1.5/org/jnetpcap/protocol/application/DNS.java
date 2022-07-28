@@ -1,7 +1,6 @@
 package org.jnetpcap.protocol.application;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 
 import org.jnetpcap.packet.JHeader;
 import org.jnetpcap.packet.annotate.Dynamic;
@@ -9,7 +8,6 @@ import org.jnetpcap.packet.annotate.Field;
 import org.jnetpcap.packet.annotate.Header;
 import org.jnetpcap.packet.annotate.ProtocolSuite;
 import org.jnetpcap.protocol.JProtocol;
-import org.jnetpcap.protocol.network.Icmp.IcmpType;
 
 @Header(nicname = "Dns", suite = ProtocolSuite.APPLICATION)
 public class DNS extends JHeader {
@@ -183,8 +181,6 @@ public class DNS extends JHeader {
 			int aux = -1;
 			int len = 0;
 			
-			ArrayList<Integer> arrayList = new ArrayList<Integer>();
-			
 			while(aux != 0) {
 				aux = DNS.super.getUByte(offset+len);
 				len++;
@@ -218,8 +214,6 @@ public class DNS extends JHeader {
 		public String name(int offset) {
 			int aux = -1;
 			int len = 0;
-			
-			ArrayList<Integer> arrayList = new ArrayList<Integer>();
 			
 			while(aux != 0) {
 				aux = DNS.super.getUByte(offset+len);
