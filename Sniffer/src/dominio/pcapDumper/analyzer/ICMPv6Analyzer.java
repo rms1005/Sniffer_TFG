@@ -4,17 +4,14 @@ package dominio.pcapDumper.analyzer;
 import java.util.Hashtable;
 
 import org.jnetpcap.packet.PcapPacket;
-import org.jnetpcap.protocol.network.Icmp;
 import org.jnetpcap.protocol.network.Ip6;
-//import org.jnetpcap.protocol.lan.Ethernet.EthernetType;
-//import org.jnetpcap.protocol.network.Icmp.DestinationUnreachable;
-import org.jnetpcap.protocol.network.Icmp.IcmpType;
+import org.jnetpcap.protocol.network.Icmpv6;
 
 /**
- * Clase ICMAnalyzer.
+ * Clase ICMPv6Analyzer.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
- * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
+ * @author Jose Manuel Saiz, Raul Merinero Sanz
+ * @author jmsaizg@gmail.com, rms1005@alu.ubu.es
  * @version 1.3
  */
 
@@ -98,7 +95,6 @@ public class ICMPv6Analyzer extends JDPacketAnalyzer {
 
 		icmpv6 = icmpv6packet;
 		
-		int tipo;
 		if (typeNames.containsKey(icmpv6.type())) {
 			values.put(valueNames[0], Icmpv6.Icmpv6Type.toString(icmpv6.type()));
 			if (codes.get(icmpv6.type()).containsKey(icmpv6.code()))
@@ -132,8 +128,8 @@ public class ICMPv6Analyzer extends JDPacketAnalyzer {
 	}
 
 	private static final String valueNames[] = { "Type", "Code" };
-	private static final Hashtable<Integer, String> typeNames;
-	private static final Hashtable<Integer, Hashtable<Integer, String>> codes;
+	private static Hashtable<Integer, String> typeNames;
+	private static Hashtable<Integer, Hashtable<Integer, String>> codes;
 	private Hashtable<String, Object> values;
 
 }

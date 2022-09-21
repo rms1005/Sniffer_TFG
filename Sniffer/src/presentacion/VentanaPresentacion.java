@@ -40,7 +40,7 @@ public class VentanaPresentacion extends JFrame {
 	private JPanel jPanel3;
 
 	public VentanaPresentacion() {
-		super("Presentación Sniffer III");
+		super("Presentación Sniffer IV");
 		initBottons();
 		initComponents();
 		new CentrarVentana(this);
@@ -92,18 +92,18 @@ public class VentanaPresentacion extends JFrame {
 
 		this.jLabel1.setFont(new Font("Tahoma", 1, 36));
 		this.jLabel1.setHorizontalAlignment(0);
-		this.jLabel1.setText("Sniffer III");
+		this.jLabel1.setText("Sniffer IV");
 
 		this.jLabel2.setFont(new Font("Times New Roman", 0, 12));
 		this.jLabel2.setHorizontalAlignment(0);
-		this.jLabel2.setText("Leonardo Garc�a");
+		this.jLabel2.setText("Leonardo García");
 
 		this.jLabel3.setFont(new Font("Times New Roman", 0, 12));
 		this.jLabel3.setHorizontalAlignment(0);
-		this.jLabel3.setText("Jose-Ram�n Guti�rrez");
+		this.jLabel3.setText("Jose-Ramón Gutiérrez");
 
 		this.jLabel4.setHorizontalAlignment(2);
-		this.jLabel4.setText("Versi�n 2.0");
+		this.jLabel4.setText("Versión 2.0");
 
 		GroupLayout jPanel3Layout = new GroupLayout(this.jPanel3);
 		this.jPanel3.setLayout(jPanel3Layout);

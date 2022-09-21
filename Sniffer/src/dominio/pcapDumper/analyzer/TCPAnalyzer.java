@@ -9,7 +9,7 @@ import org.jnetpcap.protocol.tcpip.Tcp;
 /**
  * Clase TCPAnalyzer.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */

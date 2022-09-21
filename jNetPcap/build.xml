@@ -81,7 +81,7 @@
 	<!-- class path used for compiling javah classes into C++ headers -->
 	<!-- =================================================================== -->
 	<path id="javah.classpath">
-		<pathelement location="${build.classes.dir}1.5" />
+		<pathelement location="${build.classes.dir}1.8" />
 	</path>
 
 	<!-- =================================================================== -->
@@ -254,8 +254,8 @@
 	<target name="comp-java" depends="release-settings">
 
 		<antcall target="comp-java-jre">
-			<param name="jre" value="jre1.5" />
-			<param name="compiler.target" value="1.5" />
+			<param name="jre" value="jre1.8" />
+			<param name="compiler.target" value="1.8" />
 		</antcall>
 
 	</target>
@@ -267,7 +267,7 @@
 
 		<!-- Create manifest -->
 		<manifest file="${build.classes.inf}" >
-			<attribute name="Built-By" value="${company.name}" />
+			<attribute name="Built-By" value="Raul Merinero" />
 			<attribute name="Built-On" value="${timestamp.isoformat}" />
 			<attribute name="Created-By" value="Apache Ant ${ant.version}" />
 			
@@ -614,8 +614,8 @@
 	<target name="comp-javadoc" depends="comp-java">
 
 		<antcall target="comp-javadoc-jre">
-			<param name="jre" value="jre1.5" />
-			<param name="compiler.target" value="1.5" />
+			<param name="jre" value="jre1.8" />
+			<param name="compiler.target" value="1.8" />
 		</antcall>
 
 	</target>
@@ -624,16 +624,16 @@
 	<!-- Compiles java files using JavaDoc                                   -->
 	<!-- =================================================================== -->
 	<target name="comp-test" depends="prep-test,comp-java,comp-jni">
-		<javac srcdir="${test.dir}" destdir="${build.classes.dir}1.5" debug="${compiler.debug}" deprecation="${compiler.deprecate}" optimize="${compiler.optimize}" classpathref="test.classpath" />
+		<javac srcdir="${test.dir}" destdir="${build.classes.dir}1.8" debug="${compiler.debug}" deprecation="${compiler.deprecate}" optimize="${compiler.optimize}" classpathref="test.classpath" />
 	</target>
 
 	<!-- =================================================================== -->
 	<!-- Compiles java example files                                         -->
 	<!-- =================================================================== -->
 	<target name="comp-examples" depends="comp-java,comp-jni">
-		<javac srcdir="${examples.java.dir}" destdir="${build.examples.dir}1.5" debug="${compiler.debug}" deprecation="${compiler.deprecate}" optimize="${compiler.optimize}" classpathref="compiler.classpath" />
+		<javac srcdir="${examples.java.dir}" destdir="${build.examples.dir}1.8" debug="${compiler.debug}" deprecation="${compiler.deprecate}" optimize="${compiler.optimize}" classpathref="compiler.classpath" />
 
-		<javac srcdir="${examples.beta.dir}" destdir="${build.examples.dir}1.5" debug="${compiler.debug}" deprecation="${compiler.deprecate}" optimize="${compiler.optimize}" classpathref="compiler.classpath" />
+		<javac srcdir="${examples.beta.dir}" destdir="${build.examples.dir}1.8" debug="${compiler.debug}" deprecation="${compiler.deprecate}" optimize="${compiler.optimize}" classpathref="compiler.classpath" />
 
 	</target>
 
@@ -648,7 +648,7 @@
 		<jar destfile="${build.jnetpcap.jar}" 
 			manifest="${build.classes.inf}" 
 			description="jNetPcap Libpcap wrapper and packet decoder" >
-			<fileset dir="${build.classes.dir}1.5" />
+			<fileset dir="${build.classes.dir}1.8" />
 		</jar>
 	</target>
 
@@ -809,7 +809,7 @@
 		<!--       Create JAR file containing all the java classes  -->
 		<!-- ############################################################### -->
 		<jar destfile="${pkg.lib.jnetpcap.jar}.jar" manifest="${build.classes.inf}">
-			<fileset dir="${build.classes.dir}1.5" />
+			<fileset dir="${build.classes.dir}1.8" />
 		</jar>
 
 
@@ -1241,7 +1241,7 @@ svn copy ${svn.jnp.trunk} ${svn.jnp.builds} -m "${svn.tags.comment}"
 		<echo message="build-rpm       - compiles native JNI and java code and generates a RPM file in build directory" />
 		<echo message="build-deb       - compiles native JNI and java code and generates a Debain file in build directory" />
 		<echo message=" " />
-		<echo message="comp-java       - compiles java source code and outputs classes to build/classes1.5 directory" />
+		<echo message="comp-java       - compiles java source code and outputs classes to build/classes1.8 directory" />
 		<echo message="comp-jni        - compiles native JNI code and outputs shared library under build/lib directory" />
 		<echo message=" " />
 		<echo message="The following targets require priviliged access: " />

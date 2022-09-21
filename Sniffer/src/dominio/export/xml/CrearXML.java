@@ -33,7 +33,7 @@ public class CrearXML {
 			String nombrefichero = (new StringBuilder()).append(fichero.getAbsoluteFile()).append(".xml").toString();
 			Element root = new Element("Captura");
 			XmlHandler GestorPaquetes = new XmlHandler(this);
-			System.out.println((new StringBuilder("tama�o:")).append(String.valueOf(history.size())).toString());
+			System.out.println((new StringBuilder("tamaño:")).append(String.valueOf(history.size())).toString());
 			for (i = 0; i < history.size(); i++) {
 				packet = (new Element("Packet")).setAttribute("Numero", String.valueOf(i));
 				paquete = history.get(i);
@@ -57,7 +57,7 @@ public class CrearXML {
 						.append(String.valueOf(part)).append(".xml").toString();
 				Element root = new Element("Captura");
 				XmlHandler GestorPaquetes = new XmlHandler(this);
-				System.out.println((new StringBuilder("tama�o:")).append(String.valueOf(history.size())).toString());
+				System.out.println((new StringBuilder("tamaño:")).append(String.valueOf(history.size())).toString());
 				for (int cont_pk = 0; cont_pk <= pk_xml_file && i < history.size(); i++) {
 					packet = (new Element("Packet")).setAttribute("Numero", String.valueOf(i));
 					paquete = history.get(i);

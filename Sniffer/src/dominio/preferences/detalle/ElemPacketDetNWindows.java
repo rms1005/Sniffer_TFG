@@ -4,6 +4,14 @@ import org.jdom.Element;
 
 import dominio.preferences.preferencesBeanDetallePaquete;
 
+/**
+ * Clase ElemPacketDetNWindows.
+ * 
+ * @author Jose Manuel Saiz, Raul Merinero Sanz
+ * @author jmsaizg@gmail.com, rms1005@alu.ubu.es
+ * @version 1.0
+ */
+
 public class ElemPacketDetNWindows extends Element {
 	private static final long serialVersionUID = -8403961950222386223L;
 

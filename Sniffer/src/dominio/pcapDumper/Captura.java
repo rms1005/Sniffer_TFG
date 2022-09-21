@@ -20,7 +20,7 @@ import dominio.export.xml_PcapLib.XmlPacketHandler;
 /**
  * Clase Captura, interactua pcap para la captura de paquetes.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */

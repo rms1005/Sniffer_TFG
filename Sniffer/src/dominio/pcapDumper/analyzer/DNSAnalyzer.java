@@ -3,12 +3,21 @@ package dominio.pcapDumper.analyzer;
 import java.util.Hashtable;
 
 import org.jnetpcap.packet.PcapPacket;
+import org.jnetpcap.protocol.application.DNS;
+
+/**
+ * Clase DNSAnalyzer.
+ * 
+ * @author Jose Manuel Saiz, Raul Merinero Sanz
+ * @author jmsaizg@gmail.com, rms1005@alu.ubu.es
+ * @version 1.4
+ */
 
 public class DNSAnalyzer extends JDPacketAnalyzer {
 
-	Dns dnsPacket = new Dns();
+	DNS dnsPacket = new DNS();
 	
-	private Dns dns;
+	private DNS dns;
 	
 	public DNSAnalyzer() {
 		values = new Hashtable<String, Object>();
@@ -28,17 +37,17 @@ public class DNSAnalyzer extends JDPacketAnalyzer {
 		
 		dns = dnsPacket;
 		
-		values.put(valueNames[0], DNS.identification());
-		values.put(valueNames[1], DNS.flags_QR());
-		values.put(valueNames[2], DNS.flags_Opcode());
-		values.put(valueNames[3], DNS.flags_TC());
-		values.put(valueNames[4], DNS.flags_RD());
-		values.put(valueNames[5], DNS.flags_Z());
-		values.put(valueNames[6], DNS.flags_RCODE());
-		values.put(valueNames[7], DNS.qdCount());
-		values.put(valueNames[8], DNS.anCount());
-		values.put(valueNames[9], DNS.nsCount());
-		values.put(valueNames[10], DNS.arCount());
+		values.put(valueNames[0], dns.identification());
+		values.put(valueNames[1], dns.flags_QR());
+		values.put(valueNames[2], dns.flags_Opcode());
+		values.put(valueNames[3], dns.flags_TC());
+		values.put(valueNames[4], dns.flags_RD());
+		values.put(valueNames[5], dns.flags_Z());
+		values.put(valueNames[6], dns.flags_RCODE());
+		values.put(valueNames[7], dns.qdCount());
+		values.put(valueNames[8], dns.anCount());
+		values.put(valueNames[9], dns.nsCount());
+		values.put(valueNames[10], dns.arCount());
 	}
 
 	@Override
@@ -74,7 +83,7 @@ public class DNSAnalyzer extends JDPacketAnalyzer {
 	}
 	
 	private static final String valueNames[] = { "Transaction ID", "Response", "Opcode", "Truncated", "Recursion desired", "Z", "Non-authenticated data", "Questions", "Answer RRs", "Authority RRs", "Additional RRs" };
-	private static final String typeNames[] = { "Queries", "Answers", "Authorities", "Additionals" };
+	//private static final String typeNames[] = { "Queries", "Answers", "Authorities", "Additionals" };
 	private Hashtable<String, Object> values;
 
 }

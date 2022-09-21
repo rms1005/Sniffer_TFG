@@ -48,7 +48,7 @@ public class VentanaAcercaDe extends JDialog {
 	private JPanel jPanel4;
 
 	public VentanaAcercaDe() {
-		super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Acerca de Sniffer III", true);
+		super(presentacion.ventanaMenuSniffer.MenuSniffer.getFrames()[0], "Acerca de Sniffer IV", true);
 		initComponents();
 		setSize(328, 400);
 		setResizable(false);
@@ -113,7 +113,7 @@ public class VentanaAcercaDe extends JDialog {
 
 		this.jLabel1.setFont(new Font("Tahoma", 1, 36));
 		this.jLabel1.setHorizontalAlignment(0);
-		this.jLabel1.setText("Sniffer III");
+		this.jLabel1.setText("Sniffer IV");
 
 		this.jLabel2.setFont(new Font("Times New Roman", 0, 12));
 		this.jLabel2.setHorizontalAlignment(0);

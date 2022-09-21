@@ -7,14 +7,16 @@ import org.jnetpcap.packet.PcapPacket;
 import org.jnetpcap.protocol.lan.Ethernet;
 import org.jnetpcap.protocol.network.Arp;
 import org.jnetpcap.protocol.network.Icmp;
+import org.jnetpcap.protocol.network.Igmp;
 import org.jnetpcap.protocol.network.Ip4;
+import org.jnetpcap.protocol.network.Ip6;
 import org.jnetpcap.protocol.tcpip.Tcp;
 import org.jnetpcap.protocol.tcpip.Udp;
 
 /**
  * Clase CountPacketHandler.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
@@ -27,11 +29,14 @@ public class CountPacketHandler
 	Udp udpPacket = new Udp();
 	Arp arpPacket = new Arp();
 	Ip4 ipPacket = new Ip4();
+	Ip6 ip6Packet = new Ip6();
+	Igmp igmpPacket = new Igmp();
 	Ethernet ethernetPacket = new Ethernet();
 
 	public CountPacketHandler() {
 		ethernet = 0;
 		ip = 0;
+		ip6 = 0;
 		arp = 0;
 		icmp = 0;
 		igmp = 0;
@@ -64,13 +69,16 @@ public class CountPacketHandler
 				else if (packet.hasHeader(udpPacket))
 					udp++;
 
-				else if (packet.hasHeader(arpPacket) || (packet.hasHeader(ipPacket)))
+				else if (packet.hasHeader(arpPacket) || (packet.hasHeader(ipPacket)) || packet.hasHeader(igmpPacket))
 
 					if (packet.hasHeader(arpPacket))
 						arp++;
 					else if (packet.hasHeader(ipPacket))
 						ip++;
-
+					else if (packet.hasHeader(ip6Packet))
+						ip6++;
+					else if (packet.hasHeader(igmpPacket))
+						igmp++;
 					else if (packet.hasHeader(ethernetPacket))
 						ethernet++;
 
@@ -86,6 +94,7 @@ public class CountPacketHandler
 	public void erasedates() {
 		ethernet = 0;
 		ip = 0;
+		ip6 = 0;
 		arp = 0;
 		icmp = 0;
 		igmp = 0;
@@ -109,6 +118,7 @@ public class CountPacketHandler
 
 	public int ethernet;
 	public int ip;
+	public int ip6;
 	public int arp;
 	public int icmp;
 	public int igmp;

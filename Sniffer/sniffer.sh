@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #variables
- ejecutable=".\Sniffer-III.jar"
+ ejecutable=".\Sniffer-IV.jar"
  libs1=".\libs\net.sourceforge.jpcap-0.01.16.jar"
  libs2=".\libs\jdom.jar"
  libs3=".\libs\AbsoluteLayout.jar"
@@ -10,7 +10,7 @@
  libs6=".\libs\jnetpcap.jar"
  libs="$libs1;$libs2;$libs3;$libs4;$libs5;$libs6"
  mvm=""
- javaPath="/usr/java/jdk1.8.0_161:$PATH"
+ javaPath="/usr/java/jdk1.8.0_321:$PATH"
  #PATH="$mvm;$PATH"
  #PATH="$PATH:$HOME/bin:$JAVA_HOME/bin"
 echo $PATH
@@ -20,9 +20,9 @@ function main(){
     clear
     echo .  
     echo           "///////////////////////////////////////////////////////////"
-    echo           "/                Proyecto Fin de Carrera                  /"
-    echo           "/                   SNIFFER III - V 3.0                   /"
     echo           "/                                                         /"
+    echo           "/                Proyecto Fin de Carrera                  /"
+    echo           "/                   SNIFFER IV - V 1.0                    /"
     echo           "/                                                         /"
     echo           "///////////////////////////////////////////////////////////"
     echo .
@@ -92,9 +92,9 @@ function mvj(){
 	clear
 	echo .
     echo           "///////////////////////////////////////////////////////////"
-    echo           "/                Proyecto Fin de Carrera                  /"
-    echo           "/                   SNIFFER III - V 1.0                   /"
     echo           "/                                                         /"
+    echo           "/                Proyecto Fin de Carrera                  /"
+    echo           "/                   SNIFFER IV - V 1.0                    /"
     echo           "/                                                         /"
     echo           "///////////////////////////////////////////////////////////"
 	echo .

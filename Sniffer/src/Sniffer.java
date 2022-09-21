@@ -10,7 +10,7 @@ import presentacion.VentanaPresentacion;
 /**
  * Clase Sniffer, Clase Principal.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
@@ -190,7 +190,7 @@ public class Sniffer {
 	}
 
 	private static void ayudaGeneral() {
-		System.out.println("Sniffer III - Ayuda");
+		System.out.println("Sniffer IV - Ayuda");
 		System.out.println("");
 		System.out.println("java -jar sniffer.jar [-graphic]");
 		System.out.println("                      [-command (-scan [-dispo] |");

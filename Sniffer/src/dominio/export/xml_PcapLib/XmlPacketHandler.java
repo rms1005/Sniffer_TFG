@@ -12,7 +12,7 @@ import org.jnetpcap.protocol.tcpip.Tcp;
 import org.jnetpcap.protocol.tcpip.Udp;
 
 /**
- * Clase de exportaci�n de paquetes a XML Gestiona los tipos de protocolos
+ * Clase de exportación de paquetes a XML Gestiona los tipos de protocolos
  * capturados en los paquetes
  * 
  * @author Jose Manuel Saiz Rodrigo Sanchez Gonzalez

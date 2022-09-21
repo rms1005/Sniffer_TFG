@@ -160,7 +160,7 @@ public class VisualizarCaptura extends JPanel implements Runnable {
 	}
 
 	/**
-	 * Metodo se abre el fichero pcap con capturas para su visualizaci�n.
+	 * Metodo se abre el fichero pcap con capturas para su visualización.
 	 * 
 	 * @param String nombre
 	 * @return sin valor de retorno

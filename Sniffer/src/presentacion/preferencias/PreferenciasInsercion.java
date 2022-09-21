@@ -765,7 +765,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
 				{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null },
 				{ null, null, null, null, null } },
-				new String[] { "Nombre del Campo", "Valor del campo", "Tama�o del campo", "Tipo de dato",
+				new String[] { "Nombre del Campo", "Valor del campo", "Tamaño del campo", "Tipo de dato",
 						"Opcional" }) {
 			Class<?>[] types = new Class[] { java.lang.String.class, java.lang.String.class, java.lang.Integer.class,
 					java.lang.String.class, java.lang.String.class };
@@ -786,7 +786,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		jTable1.getColumnModel().getColumn(1).setResizable(false);
 		jTable1.getColumnModel().getColumn(1).setHeaderValue("Valor del campo");
 		jTable1.getColumnModel().getColumn(2).setResizable(false);
-		jTable1.getColumnModel().getColumn(2).setHeaderValue("Tama�o del campo");
+		jTable1.getColumnModel().getColumn(2).setHeaderValue("Tamaño del campo");
 		jTable1.getColumnModel().getColumn(3).setResizable(false);
 		jTable1.getColumnModel().getColumn(3).setHeaderValue("Tipo de dato");
 		jTable1.getColumnModel().getColumn(4).setResizable(false);
@@ -1311,7 +1311,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	}// </editor-fold>//GEN-END:initComponents
 
 	/**
-	 * A�ade el dispositivo
+	 * Añade el dispositivo
 	 * 
 	 * @param dispo dispositivo
 	 * @param des   descripcion
@@ -1625,8 +1625,8 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 
 		do {
 			if (getValorTabla(fila, 0) != null && getValorTabla(fila, 1) == null) {
-				mediador.lanzaraviso("En la fila " + fila + " el valor del campo est� vac�o", "Error");
-				System.out.println("En la fila " + fila + " el valor del campo est� vac�o");
+				mediador.lanzaraviso("En la fila " + fila + " el valor del campo está vacío", "Error");
+				System.out.println("En la fila " + fila + " el valor del campo está vacío");
 				return false;
 
 			} else {
@@ -1689,7 +1689,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * binario.
 	 * 
 	 * @param cadena
-	 * @param tama�o
+	 * @param tamaño
 	 * @return string
 	 */
 	private String convertirAlfanumerico(String cadena, String tamano) {
@@ -1718,7 +1718,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * 
 	 * @param cadena
 	 * @param tipo
-	 * @param tama�o
+	 * @param tamaño
 	 * @return string
 	 */
 	private String convertirBinario(String cadena, String tipo, String tamano) {
@@ -1743,13 +1743,13 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * Convierte cadena de tipo numerica a su correspondiente valor en binario.
 	 * 
 	 * @param cadena
-	 * @param tama�o
+	 * @param tamaño
 	 * @return string
 	 */
 	private String convertirNumerico(String cadena, String tamano) {
 		String binario, cero = "0";
 		String aux = "";
-		// solo recojo los caracteres que determina el tama�o
+		// solo recojo los caracteres que determina el tamaño
 		int tam = Integer.valueOf(tamano);
 
 		for (int i = 0; i < (tam / 8) && i < cadena.length(); i++) {
@@ -1757,7 +1757,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		}
 		binario = String.format(Integer.toBinaryString(Integer.valueOf(aux)));
 		while (binario.length() != tam) {
-			// si el tama�o no coincide con el maximo concateno 0 por la izq
+			// si el tamaño no coincide con el maximo concateno 0 por la izq
 			binario = cero.concat(binario);
 		}
 		return binario;
@@ -1767,7 +1767,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 	 * Convierte valor definido como booleano a su correspondiente valor en binario.
 	 * 
 	 * @param cadena
-	 * @param tama�o
+	 * @param tamaño
 	 * @return string
 	 */
 	private String convertirBooleano(String cadena, String tamano) {
@@ -1918,7 +1918,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 				ether.type(2048);
 
 				// set source and destination MAC addresses
-				// a�adir las seleccionados
+				// añadir las seleccionados
 				if (macOr.equals("")) {
 					ether.source(new byte[] { (byte) 1, (byte) 2, (byte) 3, (byte) 4, (byte) 5, (byte) 6 });
 				} else {
@@ -2537,7 +2537,7 @@ public class PreferenciasInsercion extends javax.swing.JDialog {
 		}
 		// if(enlace != "" && red!="" && (transporte.equals("TCP") ||
 		// transporte.equals("UDP")) && aplicacion.size()!=0){
-		// solo puede a�adir si contiene udp o tcp
+		// solo puede añadir si contiene udp o tcp
 		// if(definidos.size() == aplicacion.size()){
 		// int i=0;
 		// while(i<aplicacion.size()){

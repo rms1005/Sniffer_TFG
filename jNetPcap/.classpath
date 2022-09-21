@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_321"/>
+	<classpathentry kind="src" path="examples/java"/>
+	<classpathentry kind="src" path="tests/java1.5"/>
+	<classpathentry kind="src" path="src/java1.8"/>
+	<classpathentry kind="lib" path="lib/cpptasks-1.0b4/cpptasks.jar"/>
+	<classpathentry kind="lib" path="lib/hyperic-sigar-1.6.3/sigar-bin/lib/junit.jar"/>
+	<classpathentry kind="lib" path="lib/hyperic-sigar-1.6.3/sigar-bin/lib/log4j.jar"/>
+	<classpathentry kind="lib" path="lib/hyperic-sigar-1.6.3/sigar-bin/lib/sigar.jar"/>
+	<classpathentry kind="lib" path="lib/hyperic-sigar-1.6.3/sigar.jar"/>
+	<classpathentry kind="lib" path="lib/jdeb-0.6.jar"/>
+	<classpathentry kind="lib" path="lib/jsch-0.1.29.jar"/>
+	<classpathentry kind="lib" path="lib/junit4.4/junit-4.4-src.jar"/>
+	<classpathentry kind="lib" path="lib/junit4.4/junit-4.4.jar"/>
+	<classpathentry kind="lib" path="lib/svnant-1.2.1/svnant.jar"/>
+	<classpathentry kind="lib" path="lib/svnant-1.2.1/svnClientAdapter.jar"/>
+	<classpathentry kind="lib" path="lib/svnant-1.2.1/svnjavahl.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

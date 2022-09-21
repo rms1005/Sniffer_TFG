@@ -5,6 +5,14 @@ import org.jdom.Element;
 import dominio.preferences.preferencesBeanDetallePaquete;
 import dominio.preferences.preferencesOperation;
 
+/**
+ * Clase ElemPacketDetBytesRepr.
+ * 
+ * @author Jose Manuel Saiz, Raul Merinero Sanz
+ * @author jmsaizg@gmail.com, rms1005@alu.ubu.es
+ * @version 1.0
+ */
+
 public class ElemPacketDetBytesRepr extends Element {
 	private static final long serialVersionUID = -5097524564665501601L;
 

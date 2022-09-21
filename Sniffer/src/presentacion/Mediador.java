@@ -963,7 +963,7 @@ public class Mediador
 	}
 
 	public void irAConfigDirectorios() {
-		setPanelEstado("Configuracion de Sniffer III");
+		setPanelEstado("Configuracion de Sniffer IV");
 		cargardirectorios();
 		PreferenciasConfiguracion prefConf = new PreferenciasConfiguracion(this);
 		PrefConfLlenarDatos();

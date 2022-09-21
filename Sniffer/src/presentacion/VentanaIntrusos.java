@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import presentacion.propiedadesVentana.CentrarVentana;
 
 /**
- * Clase Ventanaintrusos, revisi�n con las capturas de posibles intrusos.
+ * Clase Ventanaintrusos, revisión con las capturas de posibles intrusos.
  * 
  * @author Jose Manuel Saiz, Rodrigo Sanchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
@@ -35,7 +35,7 @@ public class VentanaIntrusos extends JDialog {
 	private String nomFileDestino;
 
 	/**
-	 * Metodo se define la ventana que ha de ense�ar los caminos de los archivos
+	 * Metodo se define la ventana que ha de enseñar los caminos de los archivos
 	 * para la realización del proceso.
 	 * 
 	 * @param Destino
@@ -54,7 +54,7 @@ public class VentanaIntrusos extends JDialog {
 	}
 
 	/**
-	 * Metodo donde se inicializan los componentes para la creaci�n de la pantalla .
+	 * Metodo donde se inicializan los componentes para la creación de la pantalla .
 	 * 
 	 * @exception exceptions Ningún error (Excepción) definida
 	 */
@@ -97,7 +97,7 @@ public class VentanaIntrusos extends JDialog {
 	}
 
 	/**
-	 * Metodo donde se define la acci�n de un objeto tipo boton Aceptar
+	 * Metodo donde se define la acción de un objeto tipo boton Aceptar
 	 * 
 	 * @params ActionEvent
 	 * @exception exceptions Ningún error (Excepción) definida
@@ -107,7 +107,7 @@ public class VentanaIntrusos extends JDialog {
 	}
 
 	/**
-	 * Metodo donde se define la acci�n de un objeto tipo boton Cancelar
+	 * Metodo donde se define la acción de un objeto tipo boton Cancelar
 	 * 
 	 * @params ActionEvent
 	 * @return Sin valor de retorno
@@ -121,7 +121,7 @@ public class VentanaIntrusos extends JDialog {
 	 * Metodo donde se cargan los datos por defecto del fichero captura, fichero
 	 * Lista Negra y donde se dejara el resultado.
 	 * 
-	 * @exception exceptions controlada por si no corresponde alg�n valor
+	 * @exception exceptions controlada por si no corresponde algún valor
 	 */
 	public void CargaDeDatos() {
 

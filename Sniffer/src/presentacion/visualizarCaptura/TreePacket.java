@@ -1,10 +1,13 @@
 package presentacion.visualizarCaptura;
 
 import dominio.pcapDumper.analyzer.ARPAnalyzer;
+import dominio.pcapDumper.analyzer.DNSAnalyzer;
 import dominio.pcapDumper.analyzer.EthernetAnalyzer;
 import dominio.pcapDumper.analyzer.FTPAnalyzer;
 import dominio.pcapDumper.analyzer.HTTPAnalyzer;
 import dominio.pcapDumper.analyzer.ICMPAnalyzer;
+import dominio.pcapDumper.analyzer.ICMPv6Analyzer;
+import dominio.pcapDumper.analyzer.IGMPAnalyzer;
 import dominio.pcapDumper.analyzer.IPv4Analyzer;
 import dominio.pcapDumper.analyzer.IPv6Analyzer;
 import dominio.pcapDumper.analyzer.JDPacketAnalyzer;
@@ -39,7 +42,7 @@ import servicioAccesoDatos.FachadaFicheroDirectorios;
 /**
  * Clase FTreePacket.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
@@ -147,19 +150,41 @@ public class TreePacket {
 
 	/**
 	 * Metodo se visualiza los datos del paquete que hemos marcado en el arbol de
-	 * datos de la parte inferior de la pantalla, cuando es de tipo IP.
+	 * datos de la parte inferior de la pantalla, cuando es de tipo IPv4.
 	 * 
 	 * @param PcapPacket packet
 	 * @return sin valor de retorno
 	 */
 	static void treepkIP(PcapPacket packet) {
 		JDPacketAnalyzer packetAnalyzer = new IPv4Analyzer();
-		if (packetAnalyzer.isAnalyzable(packet)) {
-			packetAnalyzer.analyze(packet);
-		} else {
-			packetAnalyzer = new IPv6Analyzer();
-			packetAnalyzer.analyze(packet);
+		packetAnalyzer.analyze(packet);
+		
+		String protocolName = packetAnalyzer.getProtocolName();
+		String[] valueNames = packetAnalyzer.getValueNames();
+
+		DefaultMutableTreeNode LayerP = new DefaultMutableTreeNode(protocolName);
+		if (valueNames != null) {
+			for (int i = 0; i < valueNames.length; i++) {
+				String strAux = valueNames[i].toString();
+				DefaultMutableTreeNode childP = new DefaultMutableTreeNode(
+						strAux + " : " + String.valueOf(packetAnalyzer.getValue(strAux)));
+				LayerP.add(childP);
+			}
 		}
+		Paquete.add(LayerP);
+	}
+	
+	/**
+	 * Metodo se visualiza los datos del paquete que hemos marcado en el arbol de
+	 * datos de la parte inferior de la pantalla, cuando es de tipo IPv6.
+	 * 
+	 * @param PcapPacket packet
+	 * @return sin valor de retorno
+	 */
+	static void treepkIP6(PcapPacket packet) {
+		JDPacketAnalyzer packetAnalyzer = new IPv6Analyzer();
+		packetAnalyzer.analyze(packet);
+		
 		String protocolName = packetAnalyzer.getProtocolName();
 		String[] valueNames = packetAnalyzer.getValueNames();
 
@@ -184,6 +209,81 @@ public class TreePacket {
 	 */
 	static void treepkICMP(PcapPacket packet) {
 		JDPacketAnalyzer packetAnalyzer = new ICMPAnalyzer();
+		packetAnalyzer.analyze(packet);
+		String protocolName = packetAnalyzer.getProtocolName();
+		String[] valueNames = packetAnalyzer.getValueNames();
+
+		DefaultMutableTreeNode LayerP = new DefaultMutableTreeNode(protocolName);
+		Paquete.add(LayerP);
+		if (valueNames != null) {
+			for (int i = 0; i < valueNames.length; i++) {
+				String strAux = valueNames[i].toString();
+				DefaultMutableTreeNode childP = new DefaultMutableTreeNode(
+						strAux + " : " + String.valueOf(packetAnalyzer.getValue(strAux)));
+				LayerP.add(childP);
+			}
+		}
+	}
+	
+	/**
+	 * Metodo se visualiza los datos del paquete que hemos marcado en el arbol de
+	 * datos de la parte inferior de la pantalla, cuando es de tipo ICMPv6.
+	 * 
+	 * @param PcapPacket packet
+	 * @return sin valor de retorno
+	 */
+	static void treepkICMPv6(PcapPacket packet) {
+		JDPacketAnalyzer packetAnalyzer = new ICMPv6Analyzer();
+		packetAnalyzer.analyze(packet);
+		String protocolName = packetAnalyzer.getProtocolName();
+		String[] valueNames = packetAnalyzer.getValueNames();
+
+		DefaultMutableTreeNode LayerP = new DefaultMutableTreeNode(protocolName);
+		Paquete.add(LayerP);
+		if (valueNames != null) {
+			for (int i = 0; i < valueNames.length; i++) {
+				String strAux = valueNames[i].toString();
+				DefaultMutableTreeNode childP = new DefaultMutableTreeNode(
+						strAux + " : " + String.valueOf(packetAnalyzer.getValue(strAux)));
+				LayerP.add(childP);
+			}
+		}
+	}
+	
+	/**
+	 * Metodo se visualiza los datos del paquete que hemos marcado en el arbol de
+	 * datos de la parte inferior de la pantalla, cuando es de tipo IGMP.
+	 * 
+	 * @param PcapPacket packet
+	 * @return sin valor de retorno
+	 */
+	static void treepkIGMP(PcapPacket packet) {
+		JDPacketAnalyzer packetAnalyzer = new IGMPAnalyzer();
+		packetAnalyzer.analyze(packet);
+		String protocolName = packetAnalyzer.getProtocolName();
+		String[] valueNames = packetAnalyzer.getValueNames();
+
+		DefaultMutableTreeNode LayerP = new DefaultMutableTreeNode(protocolName);
+		Paquete.add(LayerP);
+		if (valueNames != null) {
+			for (int i = 0; i < valueNames.length; i++) {
+				String strAux = valueNames[i].toString();
+				DefaultMutableTreeNode childP = new DefaultMutableTreeNode(
+						strAux + " : " + String.valueOf(packetAnalyzer.getValue(strAux)));
+				LayerP.add(childP);
+			}
+		}
+	}
+	
+	/**
+	 * Metodo se visualiza los datos del paquete que hemos marcado en el arbol de
+	 * datos de la parte inferior de la pantalla, cuando es de tipo ICMPv6.
+	 * 
+	 * @param PcapPacket packet
+	 * @return sin valor de retorno
+	 */
+	static void treepkDNS(PcapPacket packet) {
+		JDPacketAnalyzer packetAnalyzer = new DNSAnalyzer();
 		packetAnalyzer.analyze(packet);
 		String protocolName = packetAnalyzer.getProtocolName();
 		String[] valueNames = packetAnalyzer.getValueNames();

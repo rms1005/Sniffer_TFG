@@ -3,11 +3,24 @@ package dominio.pcapDumper.analyzer;
 import java.util.Hashtable;
 
 import org.jnetpcap.packet.PcapPacket;
+import org.jnetpcap.protocol.network.Igmp;
+
+/**
+ * Clase IGMPAnalyzer.
+ * 
+ * @author Jose Manuel Saiz, Raul Merinero Sanz
+ * @author jmsaizg@gmail.com, rms1005@alu.ubu.es
+ * @version 1.3
+ */
 
 public class IGMPAnalyzer extends JDPacketAnalyzer {
 
 	Igmp igmpPacket = new Igmp();
-	
+	//Igmp.Query query = new Igmp.Query();
+	//Igmp.MembershipReportv1 memRrp1 = new Igmp.MembershipReportv1();
+	//Igmp.MembershipReportv2 memRrp2 = new Igmp.MembershipReportv2();
+	//Igmp.MembershipReportv3 memRrp3 = new Igmp.MembershipReportv3();
+	//Igmp.MembershipReportv3.GroupRecord gRec = new Igmp.MembershipReportv3.GroupRecord();
 	private Igmp igmp;
 	
 	public IGMPAnalyzer() {
@@ -17,6 +30,7 @@ public class IGMPAnalyzer extends JDPacketAnalyzer {
 	
 	@Override
 	public boolean isAnalyzable(PcapPacket p) {
+		//return p.hasHeader(ipPacket) && Ip4.Ip4Type.valueOf(ipPacket.type()).toString().equals("IGMP");
 		return p.hasHeader(igmpPacket);
 	}
 
@@ -29,66 +43,66 @@ public class IGMPAnalyzer extends JDPacketAnalyzer {
 		igmp = igmpPacket;
 		
 		switch(Igmp.IgmpType.valueOf(igmp.type())) {
-		case Igmp.IgmpType.MEMBERSHIP_QUERY:
+		case MEMBERSHIP_QUERY:
 			values.put(valueNames[0], 3);
 			values.put(valueNames[1], typeNames[0]);
-			values.put(valueNamesQuery[0], Igmp.maxRespTime());
-			values.put(valueNamesQuery[1], org.jnetpcap.packet.format.FormatUtils.ip(Igmp.Query.groupAdress()));
-			values.put(valueNamesQuery[2], Igmp.s());
-			values.put(valueNamesQuery[3], Igmp.qrv());
-			values.put(valueNamesQuery[4], Igmp.qqic());
-			values.put(valueNamesQuery[5], Igmp.nSources());
-			if(Igmp.nSources() != 0) {
-				byte[][] sources = Igmp.sources();
+			/*values.put(valueNamesQuery[0], query.maxRespTime());
+			values.put(valueNamesQuery[1], org.jnetpcap.packet.format.FormatUtils.ip(query.groupAdress()));
+			values.put(valueNamesQuery[2], query.s());
+			values.put(valueNamesQuery[3], query.qrv());
+			values.put(valueNamesQuery[4], query.qqic());
+			values.put(valueNamesQuery[5], query.nSources());
+			if(query.nSources() != 0) {
+				byte[][] sources = query.sources();
 				for(int i = 0; i < sources.length; i++)
 					values.put(valueNamesQuery[6], org.jnetpcap.packet.format.FormatUtils.ip(sources[i]));
-			}
+			}*/
 			break;
-		case Igmp.IgmpType.V1_MEMBERSHIP_REPORT:
+		case V1_MEMBERSHIP_REPORT:
 			values.put(valueNames[0], 1);
 			values.put(valueNames[1], typeNames[1]);
-			values.put(valueNamesv1[0], org.jnetpcap.packet.format.FormatUtils.ip(Igmp.MembershipReportv1.groupAdress()));
+			//values.put(valueNamesv1[0], org.jnetpcap.packet.format.FormatUtils.ip(memRrp1.groupAdress()));
 			break;
-		case Igmp.IgmpType.V2_MEMBERSHIP_REPORT:
+		case V2_MEMBERSHIP_REPORT:
 			values.put(valueNames[0], 2);
 			values.put(valueNames[1], typeNames[2]);
-			values.put(valueNamesv2[0], Igmp.MembershipReportv2.maxResponseTime());
-			values.put(valueNamesv2[1], org.jnetpcap.packet.format.FormatUtils.ip(Igmp.MembershipReportv2.groupAdress()));
+			//values.put(valueNamesv2[0], memRrp2.maxResponseTime());
+			//values.put(valueNamesv2[1], org.jnetpcap.packet.format.FormatUtils.ip(memRrp2.groupAdress()));
 			break;
-		case Igmp.IgmpType.V2_LEAVE_GROUP:
+		case V2_LEAVE_GROUP:
 			values.put(valueNames[0], 2);
 			values.put(valueNames[1], typeNames[3]);
-			values.put(valueNamesv2[0], Igmp.MembershipReportv2.maxResponseTime());
-			values.put(valueNamesv2[1], org.jnetpcap.packet.format.FormatUtils.ip(Igmp.MembershipReportv2.groupAdress()));
+			//values.put(valueNamesv2[0], memRrp2.maxResponseTime());
+			//values.put(valueNamesv2[1], org.jnetpcap.packet.format.FormatUtils.ip(memRrp2.groupAdress()));
 			break;
-		case Igmp.IgmpType.V3_MEMBERSHIP_REPORT:
+		case V3_MEMBERSHIP_REPORT:
 			values.put(valueNames[0], 3);
 			values.put(valueNames[1], typeNames[4]);
-			values.put(valueNamesv3[0], Igmp.MembershipReportv3.nGroupRecords());
-			Hashtable<String, Object> valuesRecords;
+			//values.put(valueNamesv3[0], memRrp3.nGroupRecords());
+			/*Hashtable<String, Object> valuesRecords;
 			int offset = 0;
 			int valueNSources = 0;
 			int valueDataLen = 0;
-			for(int i = 0; i < Igmp.MembershipReportv3.nGroupRecords(); i++) {
+			for(int i = 0; i < memRrp3.nGroupRecords(); i++) {
 				valuesRecords = new Hashtable<String, Object>();
-				valuesRecords.put(valueNamesv3Records[0], Igmp.MembershipReportv3.GroupRecord.GroupRecordType(Igmp.MembershipReportv3.GroupRecord.recordType(offset)));
+				valuesRecords.put(valueNamesv3Records[0], gRec.GroupRecordType(memRrp3.GroupRecord.recordType(offset)));
 				offset += 1;
-				valuesRecords.put(valueNamesv3Records[1], Igmp.MembershipReportv3.GroupRecord.auxDataLen(offset));
-				valueDataLen = Igmp.MembershipReportv3.GroupRecord.auxDataLen(offset);
+				valuesRecords.put(valueNamesv3Records[1], gRec.auxDataLen(offset));
+				valueDataLen = gRec.auxDataLen(offset);
 				offset += 1;
-				valuesRecords.put(valueNamesv3Records[2], Igmp.MembershipReportv3.GroupRecord.nSources(offset));
-				valueNSources = Igmp.MembershipReportv3.GroupRecord.nSources(offset);
+				valuesRecords.put(valueNamesv3Records[2], gRec.nSources(offset));
+				valueNSources = gRec.nSources(offset);
 				offset += 2;
-				valuesRecords.put(valueNamesv3Records[3], org.jnetpcap.packet.format.FormatUtils.ip(Igmp.MembershipReportv3.GroupRecord.groupAdress(offset)));
+				valuesRecords.put(valueNamesv3Records[3], org.jnetpcap.packet.format.FormatUtils.ip(gRec.groupAdress(offset)));
 				offset += 4;
-				if(Igmp.nSources() != 0) {
-					byte[][] sources = Igmp.MembershipReportv3.GroupRecord.sourceAdresses(offset);
+				if(gRec.nSources() != 0) {
+					byte[][] sources = gRec.sourceAdresses(offset);
 					for(int j = 0; j < sources.length; j++)
 						values.put(valueNamesv3Records[4], org.jnetpcap.packet.format.FormatUtils.ip(sources[i]));
 				}
 				offset += 4 * valueNSources;
 				offset += 4 * valueDataLen;
-			}
+			}*/
 			break;
 		}
 		
@@ -102,9 +116,9 @@ public class IGMPAnalyzer extends JDPacketAnalyzer {
 
 	@Override
 	public String[] getValueNames() {
-		String[] valueNamesAux;
+		String[] valueNamesAux = null;
 	
-		switch(Integer.valueOf(valueNames[0])) {
+		/*switch(Integer.valueOf(valueNames[0])) {
 		case 1:
 			valueNamesAux = new String[valueNames.length + valueNamesv1.length];
 			for (int i = 0; i < valueNamesAux.length; i++) {
@@ -144,7 +158,12 @@ public class IGMPAnalyzer extends JDPacketAnalyzer {
 			break;
 		default:
 			break;
-		}
+		}*/
+		
+		valueNamesAux = new String[2];
+		valueNamesAux[0] = valueNames[0];
+		valueNamesAux[1] = valueNames[1];
+		
 		return valueNamesAux;
 	}
 
@@ -247,7 +266,7 @@ public class IGMPAnalyzer extends JDPacketAnalyzer {
 	private static final String valueNamesv1[] = { "Multicast Adress" };
 	private static final String valueNamesv2[] = { "Max Response Time", "Multicast Adress" };
 	private static final String valueNamesv3[] = { "Num Group Records" };
-	private static final String valueNamesv3Records[] = { "Record Type", "Aux Data Len", "Num Src", "Multicast Adress", "Source Adress" };
+	//private static final String valueNamesv3Records[] = { "Record Type", "Aux Data Len", "Num Src", "Multicast Adress", "Source Adress" };
 	private Hashtable<String, Object> values;
 
 }

@@ -37,7 +37,7 @@ public class MenuSniffer extends JFrame {
 	public int WinHeight;
 
 	public MenuSniffer(Mediador med) {
-		super("Sniffer III");
+		super("Sniffer IV");
 		setVisible(false);
 		this.mediador = med;
 		setDefaultCloseOperation(0);
@@ -90,7 +90,7 @@ public class MenuSniffer extends JFrame {
 		statusMsg1 = new JLabel("Estado: ");
 		statusMsg1.setFont(new Font("Times-Roman", 0, 12));
 
-		statusMsg2 = new JLabel("Sniffer-III iniciado");
+		statusMsg2 = new JLabel("Sniffer-IV iniciado");
 		statusMsg2.setFont(new Font("Times-Roman", 0, 12));
 		this.statusPanel.add(statusMsg1, "Before");
 		this.statusPanel.add(statusMsg2, "Center");

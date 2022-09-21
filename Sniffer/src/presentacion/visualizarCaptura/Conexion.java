@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Vector;
 
 /**
- * Clase Conexi�n.
+ * Clase Conexión.
  * 
  * @author Jose Manuel Saiz, Carlos Mardones
  * @author jmsaizg@gmail.com,

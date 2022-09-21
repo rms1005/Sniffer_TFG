@@ -126,7 +126,7 @@ public class PreferenciasDefinicion extends JDialog {
 		jTextField2.setName("jTextField2");
 
 		this.jLabel2.setFont(new Font("Tahoma 12 Negrita 12 Negrita", 1, 12));
-		this.jLabel2.setText("Direcci�n:");
+		this.jLabel2.setText("Dirección:");
 		this.jLabel2.setName("jLabel2");
 
 		GroupLayout jPanel2Layout = new GroupLayout(this.jPanel2);
@@ -156,7 +156,7 @@ public class PreferenciasDefinicion extends JDialog {
 						new Object[8], new Object[8], new Object[8], new Object[8], new Object[8], new Object[8],
 						new Object[8], new Object[8], new Object[8] },
 
-				new String[] { "ID Campo", "Nombre del Campo", "Tama�o del campo", "Valor por defecto", "Descripcion",
+				new String[] { "ID Campo", "Nombre del Campo", "Tamaño del campo", "Valor por defecto", "Descripcion",
 						"Tipo de Dato", "Campo Opcional", "Campo Relacionado" }) {
 			Class<?>[] types = { Integer.class, String.class, Integer.class, String.class, String.class, String.class,
 					String.class, String.class };

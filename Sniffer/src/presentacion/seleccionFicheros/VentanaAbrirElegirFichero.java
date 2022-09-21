@@ -138,7 +138,7 @@ public class VentanaAbrirElegirFichero extends JDialog {
 			File directorio = new File(FachadaFicheroDirectorios.getdirectorio("DIR_CAPTURAS"));
 			fc.setCurrentDirectory(directorio);
 		}
-		/* Detenci�n de Captura de intrusos */
+		/* Detención de Captura de intrusos */
 //        if(tip.equals("Seleccionar Archivo de Captura"))
 //        {
 //            fc.setDialogTitle("Seleccionar Archivo de Captura");
@@ -149,7 +149,7 @@ public class VentanaAbrirElegirFichero extends JDialog {
 //        } 
 //           
 //        
-//   		/*Detenci�n de intrusos*/
+//   		/*Detención de intrusos*/
 //        if(tip.equals("CapturaIntrusos"))
 //        {
 //            fc.setDialogTitle("Seleccionar Archivo de Captura");
@@ -238,13 +238,13 @@ public class VentanaAbrirElegirFichero extends JDialog {
 //                if(tip.equals("CapturaIntrusos"))
 //                {
 //                	PreferenciasIntruso.setOrigen(fRuta);
-//                	System.out.println((new StringBuilder("Selecci�n de fichero xml...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
+//                	System.out.println((new StringBuilder("Selección de fichero xml...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
 //                    
 //                }
 //                if(tip.equals("Intrusos"))
 //                {
 //                	PreferenciasIntruso.setOrigen2(fRuta);
-//                    System.out.println((new StringBuilder("Selecci�n de fichero txt...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
+//                    System.out.println((new StringBuilder("Selección de fichero txt...=> ")).append(file.getName()).append("   ").append(file.getPath()).toString());
 //                    
 //                }
 			} else {

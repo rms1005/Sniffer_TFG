@@ -11,7 +11,7 @@ import servicioAccesoDatos.*;
 /**
  * Clase CrearXMLOffline, guarda en disco duro los archivos exportados a XML.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
@@ -61,7 +61,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n y tipo de paquetes.
+	 * Metodo donde se analiza para sacar la información y tipo de paquetes.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -73,7 +73,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete EthertNet.
+	 * Metodo donde se analiza para sacar la información del paquete EthertNet.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -85,7 +85,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete ARP.
+	 * Metodo donde se analiza para sacar la información del paquete ARP.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -97,7 +97,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete IP.
+	 * Metodo donde se analiza para sacar la información del paquete IP.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -109,7 +109,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete ICMP.
+	 * Metodo donde se analiza para sacar la información del paquete ICMP.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -121,7 +121,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete TCP.
+	 * Metodo donde se analiza para sacar la información del paquete TCP.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -133,7 +133,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete UDP.
+	 * Metodo donde se analiza para sacar la información del paquete UDP.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -145,7 +145,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete FTP.
+	 * Metodo donde se analiza para sacar la información del paquete FTP.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -157,7 +157,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete HTTP.
+	 * Metodo donde se analiza para sacar la información del paquete HTTP.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -169,7 +169,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete POP3.
+	 * Metodo donde se analiza para sacar la información del paquete POP3.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -181,7 +181,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete SMTP.
+	 * Metodo donde se analiza para sacar la información del paquete SMTP.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -193,7 +193,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete SSHL.
+	 * Metodo donde se analiza para sacar la información del paquete SSHL.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno
@@ -205,7 +205,7 @@ public class CrearXMLOffline {
 	}
 
 	/**
-	 * Metodo donde se analiza para sacar la informaci�n del paquete TelNet.
+	 * Metodo donde se analiza para sacar la información del paquete TelNet.
 	 * 
 	 * @param PcapPacket packet
 	 * @return Sin valor de retorno

@@ -28,16 +28,16 @@ public class VentanaSalir extends JDialog {
 	}
 
 	public void confirmarSalida() {
-		int res = JOptionPane.showConfirmDialog(this, "\277Est\341 seguro de que desea Salir?", "Sniffer III", 0);
+		int res = JOptionPane.showConfirmDialog(this, "\277Est\341 seguro de que desea Salir?", "Sniffer IV", 0);
 		String respuesta = null;
 		if (res == 0) {
 			respuesta = "Si";
 			venpadre.grabarProperties();
-			System.out.print("--- Se cierra la aplicaci\u00f3n. ---\n");
+			System.out.print("--- Se cierra la aplicacion. ---\n");
 			System.exit(1);
 		} else {
 			respuesta = "No";
-			System.out.print("No sale a\u00fan la aplicaci\u00f3n.\n");
+			System.out.print("No sale aun la aplicacion.\n");
 			dispose();
 		}
 	}

@@ -79,7 +79,7 @@ public class PreferenciasConfiguracion extends JDialog {
 		this.jButton6 = new JButton();
 
 		setDefaultCloseOperation(2);
-		this.jPanel1.setBorder(BorderFactory.createTitledBorder("Sniffer III - Directorios de Usuario"));
+		this.jPanel1.setBorder(BorderFactory.createTitledBorder("Sniffer IV - Directorios de Usuario"));
 		this.jLabel1.setText("Capturas:");
 		this.jLabel2.setText("Exportaciones: ");
 		this.jLabel3.setText("Scripts:");

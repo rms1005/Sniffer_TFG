@@ -37,7 +37,7 @@ import presentacion.Mediador;
 /**
  * Clase FachadaDominio
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */
@@ -405,7 +405,7 @@ public class FachadaDominio {
 
 	/**
 	 * Metodo donde llegan los datos para la busqueda de intrusos en modo diferido
-	 * Direcci�n del fichero captura, direcci�n de fichero lista negra y donde se
+	 * Dirección del fichero captura, dirección de fichero lista negra y donde se
 	 * quiere dejar el re.
 	 * 
 	 * @param Origen, Origen2, Destino
@@ -675,7 +675,7 @@ public class FachadaDominio {
 
 	/**
 	 * Metodo donde se rigen los criterios para salvar la paquetes capturados en un
-	 * archivo cuya direcci�n se recibe.
+	 * archivo cuya dirección se recibe.
 	 * 
 	 * @param String file, StateCaptura ficheroEstate
 	 * @return int
@@ -901,7 +901,7 @@ public class FachadaDominio {
 
 	/**
 	 * Metodo savePreferencesDefinicion encargado de guarda el protocolo definido
-	 * con la extension XML Si la ruta no viene dada la extension, se le a�ade XML a
+	 * con la extension XML Si la ruta no viene dada la extension, se le añade XML a
 	 * la ruta.
 	 * 
 	 * @param estado
@@ -999,7 +999,7 @@ public class FachadaDominio {
 	 * Metodo donde se realiza la apertura del dispositivo y se configura la escucha
 	 * 
 	 * @param String Le llega un string con el nombre de dispositivo seleccionado.
-	 * @return PcapIf con todos los datos de la configuraci�n de la escucha.
+	 * @return PcapIf con todos los datos de la configuración de la escucha.
 	 */
 	public static PcapIf isDispositivo(String dispoSeleccionado) {
 
@@ -1026,12 +1026,12 @@ public class FachadaDominio {
 	}
 
 	/**
-	 * Metodo donde se cambia el n�mero del dispositivo por su Descripti�n
+	 * Metodo donde se cambia el número del dispositivo por su Description
 	 * 
 	 * @param Int dispoSeleccionado Recibe el numero del dispositivo de escucha
 	 *            seleccionado.
 	 * @return String [] Devuelve un String String PcapIf con todos los datos de la
-	 *         configuraci�n de la escucha.
+	 *         configuración de la escucha.
 	 */
 	public static String[] isDispositivo(int dispoSeleccionado) {
 		String[] dispo = getCapDispositivosPcapLib();

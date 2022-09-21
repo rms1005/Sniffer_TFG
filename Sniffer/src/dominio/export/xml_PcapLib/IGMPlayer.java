@@ -7,7 +7,7 @@ import net.sourceforge.jpcap.net.IGMPPacket;
 /**
  * Clase IGMPlayer.
  * 
- * @author Jose Manuel Saiz, Rodrigo S�nchez
+ * @author Jose Manuel Saiz, Rodrigo Sánchez
  * @author jmsaizg@gmail.com, rsg0040@alu.ubu.es
  * @version 1.3
  */

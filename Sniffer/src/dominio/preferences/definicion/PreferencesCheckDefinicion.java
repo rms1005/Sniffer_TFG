@@ -61,7 +61,7 @@ public class PreferencesCheckDefinicion {
 
 	private boolean checkColumnasRellenas() {
 		boolean ok = true;
-		String mensaje = "Las columnas de NOMBRE DE CAMPO, TAMA�O y TIPO DE DATO deben estar completamente rellenadas";
+		String mensaje = "Las columnas de NOMBRE DE CAMPO, TAMAÑO y TIPO DE DATO deben estar completamente rellenadas";
 		for (int j = 1; j <= 5 && ok; j++) {
 			for (int i = 0; i < valores.length && ok; i++)
 				if (valores[i][j] != null && String.valueOf(valores[i][j]) != "")
@@ -102,7 +102,7 @@ public class PreferencesCheckDefinicion {
 
 	private boolean checkTamaF1oCampos() {
 		int j = 2;
-		String mensaje = "Tama�o de campos Incorrecto a partir del Campo: ";
+		String mensaje = "Tamaño de campos Incorrecto a partir del Campo: ";
 		int sum = 0;
 		int sum2 = 0;
 		int resto = 0;
@@ -132,7 +132,7 @@ public class PreferencesCheckDefinicion {
 			}
 
 		if (resto != 0 && ok) {
-			mensaje = "El tama�o de los campos en su totalidad debe ser multiplo de 32";
+			mensaje = "El tamaño de los campos en su totalidad debe ser multiplo de 32";
 			med.lanzaraviso(mensaje, "Error");
 		}
 		return ok;

@@ -2,6 +2,14 @@ package dominio.preferences;
 
 import java.io.Serializable;
 
+/**
+ * Clase preferencesBeanDetallePaquete.
+ * 
+ * @author Jose Manuel Saiz, Raul Merinero Sanz
+ * @author jmsaizg@gmail.com, rms1005@alu.ubu.es
+ * @version 1.1
+ */
+
 public class preferencesBeanDetallePaquete implements Serializable {
 
 	private static final long serialVersionUID = -8436686830545248455L;

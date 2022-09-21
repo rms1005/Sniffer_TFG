@@ -21,7 +21,7 @@ public class CJMAyudaAcercaDe extends JMenuItem implements Comando {
 	
 
 	public CJMAyudaAcercaDe(Mediador mediador) {
-		super("Acerca de Sniffer III", 65);
+		super("Acerca de Sniffer IV", 65);
 		KeyStroke ctrlA = KeyStroke.getKeyStroke("F2");
 		setAccelerator(ctrlA);
 		this.mediador = mediador;
